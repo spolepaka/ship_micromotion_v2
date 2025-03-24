@@ -1,0 +1,3 @@
+Dominant frequencies for ship 2:
+Range:
+Azimuth:

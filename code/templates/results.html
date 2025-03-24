@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ship Micro-Motion Estimation Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .result-image {
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+        .frequency-table {
+            margin-bottom: 30px;
+        }
+        .region-stats {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Ship Micro-Motion Estimation Results</h1>
+        
+        <div class="card mb-5">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h4 mb-0">Vibration Energy Map</h2>
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    The vibration energy map shows the spatial distribution of vibration energy across the ship.
+                    Regions with higher energy (red/yellow) indicate stronger vibrations, while regions with lower energy (blue) indicate weaker vibrations.
+                </p>
+                <img src="data:image/png;base64,{{ results.vibration_energy_map }}" alt="Vibration Energy Map" class="result-image">
+                
+                {% if region_stats %}
+                <h3 class="h5 mt-4">Ship Region Statistics</h3>
+                <div class="table-responsive region-stats">
+                    <table class="table table-bordered table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Region ID</th>
+                                <th>Mean Energy (dB)</th>
+                                <th>Max Energy (dB)</th>
+                                <th>Area (pixels)</th>
+                                <th>Mean Range Disp.</th>
+                                <th>Mean Azimuth Disp.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for stats in region_stats %}
+                            <tr>
+                                <td>{{ stats.id }}</td>
+                                <td>{{ "%.2f"|format(stats.mean_energy) }}</td>
+                                <td>{{ "%.2f"|format(stats.max_energy) }}</td>
+                                <td>{{ stats.area }}</td>
+                                <td>{{ "%.4f"|format(stats.mean_range_disp) if stats.mean_range_disp is defined else "N/A" }}</td>
+                                <td>{{ "%.4f"|format(stats.mean_azimuth_disp) if stats.mean_azimuth_disp is defined else "N/A" }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        {% for i in range(num_points) %}
+        <div class="card mb-5">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h4 mb-0">Measurement Point {{ i }}</h2>
+            </div>
+            <div class="card-body">
+                <img src="data:image/png;base64,{{ results['point_' ~ i ~ '_plot'] }}" alt="Point {{ i }} Results" class="result-image">
+                
+                {% if dominant_frequencies %}
+                {% for freq in dominant_frequencies %}
+                {% if freq.point == i %}
+                <h3 class="h5 mt-4">Dominant Frequencies</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="h6">Range Direction</h4>
+                        <div class="table-responsive frequency-table">
+                            <table class="table table-bordered table-sm">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Frequency (Hz)</th>
+                                        <th>Relative Amplitude</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for f in freq.range %}
+                                    <tr>
+                                        <td>{{ "%.2f"|format(f.frequency) }}</td>
+                                        <td>{{ "%.2f"|format(f.amplitude) }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="h6">Azimuth Direction</h4>
+                        <div class="table-responsive frequency-table">
+                            <table class="table table-bordered table-sm">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Frequency (Hz)</th>
+                                        <th>Relative Amplitude</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for f in freq.azimuth %}
+                                    <tr>
+                                        <td>{{ "%.2f"|format(f.frequency) }}</td>
+                                        <td>{{ "%.2f"|format(f.amplitude) }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+        
+        <div class="text-center mb-5">
+            <a href="/" class="btn btn-primary">Process Another Image</a>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

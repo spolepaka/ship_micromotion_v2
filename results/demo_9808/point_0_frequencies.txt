@@ -1,0 +1,4 @@
+Dominant frequencies for ship 1:
+Range:
+Azimuth:
+  1.67 Hz (amplitude: 1.00)

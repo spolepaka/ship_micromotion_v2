@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ship Micro-Motion Estimation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        .header {
+            padding-bottom: 1rem;
+            border-bottom: .05rem solid #e5e5e5;
+            margin-bottom: 2rem;
+        }
+        .footer {
+            padding-top: 1.5rem;
+            color: #777;
+            border-top: .05rem solid #e5e5e5;
+            margin-top: 2rem;
+        }
+        .card {
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="text-center">Ship Micro-Motion Estimation</h1>
+            <p class="lead text-center">Upload SAR images and detect ship micro-motion</p>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert alert-warning">
+            <ul class="mb-0">
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Upload CPHD File</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ url_for('process') }}" method="post" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="file" class="form-label">Select CPHD file</label>
+                                <input type="file" class="form-control" id="file" name="file" accept=".cphd">
+                                <div class="form-text">Upload a CPHD file to analyze ship micro-motion.</div>
+                            </div>
+                            
+                            <h6 class="mt-4 mb-3">Algorithm Parameters</h6>
+                            
+                            <div class="mb-3">
+                                <label for="num_subapertures" class="form-label">Number of Sub-apertures</label>
+                                <input type="number" class="form-control" id="num_subapertures" name="num_subapertures" value="7" min="3" max="20">
+                                <div class="form-text">Number of Doppler sub-apertures to create (default: 7)</div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="window_size" class="form-label">Window Size</label>
+                                <input type="number" class="form-control" id="window_size" name="window_size" value="64" min="16" max="256" step="16">
+                                <div class="form-text">Size of the window for cross-correlation (default: 64)</div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="overlap" class="form-label">Window Overlap</label>
+                                <input type="number" class="form-control" id="overlap" name="overlap" value="0.5" min="0" max="0.9" step="0.1">
+                                <div class="form-text">Overlap between adjacent windows (default: 0.5)</div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Upload and Process</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Run Demo with Synthetic Data</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Don't have a CPHD file? Run the algorithm with synthetic data to see how it works.</p>
+                        <p>The demo will create synthetic SAR data with simulated ships that have different vibration patterns:</p>
+                        <ul>
+                            <li>Ship 1: Strong vibration at 15 Hz</li>
+                            <li>Ship 2: Multiple vibration modes (10 Hz and 25 Hz)</li>
+                        </ul>
+                        <form action="{{ url_for('process') }}" method="post">
+                            <input type="hidden" name="use_demo" value="true">
+                            <input type="hidden" name="num_subapertures" value="7">
+                            <input type="hidden" name="window_size" value="64">
+                            <input type="hidden" name="overlap" value="0.5">
+                            <button type="submit" class="btn btn-success">Run Demo</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">About the Algorithm</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>This application implements the algorithm described in the paper:</p>
+                        <p><em>"Micro-Motion Estimation of Maritime Targets Using Pixel Tracking in Cosmo-Skymed Synthetic Aperture Radar Data—An Operative Assessment"</em></p>
+                        <p>The algorithm uses sub-pixel offset tracking between temporal sub-apertures to detect micro-motion of ships in SAR images. It can identify the predominant vibrational modes of different parts of ships.</p>
+                        <p>Key steps in the algorithm:</p>
+                        <ol>
+                            <li>Split SAR data into multiple Doppler sub-apertures</li>
+                            <li>Focus each sub-aperture to generate SLC images</li>
+                            <li>Estimate displacement between adjacent sub-apertures using sub-pixel offset tracking</li>
+                            <li>Analyze time series of displacements at measurement points</li>
+                            <li>Identify dominant frequencies in the spectrum</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p class="text-center">Ship Micro-Motion Estimation Algorithm Implementation</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
