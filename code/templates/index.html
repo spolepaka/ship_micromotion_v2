@@ -31,6 +31,9 @@
         <div class="header">
             <h1 class="text-center">Ship Micro-Motion Estimation</h1>
             <p class="lead text-center">Upload SAR images and detect ship micro-motion</p>
+            <div class="text-center">
+                <a href="{{ url_for('debug_playground') }}" class="btn btn-outline-primary">Debug Playground</a>
+            </div>
         </div>
 
         {% with messages = get_flashed_messages() %}
@@ -58,6 +61,32 @@
                                 <input type="file" class="form-control" id="file" name="file" accept=".cphd">
                                 <div class="form-text">Upload a CPHD file to analyze ship micro-motion.</div>
                             </div>
+                            
+                            {% if uploaded_files %}
+                            <div class="mb-3">
+                                <label class="form-label">Or select an existing file:</label>
+                                <select class="form-select" id="existing_file" name="existing_file">
+                                    <option value="">-- Select an existing file --</option>
+                                    {% for filename in uploaded_files %}
+                                    <option value="{{ filename }}">{{ filename }}</option>
+                                    {% endfor %}
+                                </select>
+                                <div class="form-text">These files are already in the uploads directory.</div>
+                            </div>
+                            <script>
+                                // JavaScript to handle file input and selection interaction
+                                document.getElementById('existing_file').addEventListener('change', function() {
+                                    if (this.value) {
+                                        document.getElementById('file').value = '';
+                                    }
+                                });
+                                document.getElementById('file').addEventListener('change', function() {
+                                    if (this.value) {
+                                        document.getElementById('existing_file').value = '';
+                                    }
+                                });
+                            </script>
+                            {% endif %}
                             
                             <h6 class="mt-4 mb-3">Algorithm Parameters</h6>
                             

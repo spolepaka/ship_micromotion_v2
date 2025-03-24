@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ship Micro-Motion Estimation - Debug Playground</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        .header {
+            padding-bottom: 1rem;
+            border-bottom: .05rem solid #e5e5e5;
+            margin-bottom: 2rem;
+        }
+        .footer {
+            padding-top: 1.5rem;
+            color: #777;
+            border-top: .05rem solid #e5e5e5;
+            margin-top: 2rem;
+        }
+        .card {
+            margin-bottom: 1.5rem;
+        }
+        .plot-container {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .plot-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .step-active {
+            background-color: #d4edda;
+        }
+        .step-completed {
+            background-color: #f8f9fa;
+        }
+        .step-pending {
+            background-color: #fff;
+        }
+        #results-panel {
+            display: none;
+        }
+        #logs {
+            max-height: 300px;
+            overflow-y: auto;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .log-info {
+            color: #0c5460;
+        }
+        .log-error {
+            color: #721c24;
+        }
+        .log-success {
+            color: #155724;
+        }
+        .log-debug {
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="text-center">Ship Micro-Motion Analysis Debugger</h1>
+            <p class="lead text-center">Step through the algorithm stages to debug and visualize each step</p>
+            <div class="text-center">
+                <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">Back to Main Page</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Input Data and Parameters</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="debug-form">
+                            <div class="mb-3">
+                                <label class="form-label">Data Source</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="data_source" id="use_file" value="file" checked>
+                                    <label class="form-check-label" for="use_file">
+                                        Use File Upload
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="data_source" id="use_demo" value="demo">
+                                    <label class="form-check-label" for="use_demo">
+                                        Use Demo Data
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div id="file-section">
+                                {% if uploaded_files %}
+                                <div class="mb-3">
+                                    <label class="form-label">Select existing file:</label>
+                                    <select class="form-select" id="filename" name="filename">
+                                        <option value="">-- Select an existing file --</option>
+                                        {% for filename in uploaded_files %}
+                                        <option value="{{ filename }}">{{ filename }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                {% else %}
+                                <div class="alert alert-info">
+                                    No uploaded files found. Please upload a file from the main page first.
+                                </div>
+                                {% endif %}
+                            </div>
+                            
+                            <h6 class="mt-4 mb-3">Algorithm Parameters</h6>
+                            
+                            <div class="mb-3">
+                                <label for="num_subapertures" class="form-label">Number of Sub-apertures</label>
+                                <input type="number" class="form-control" id="num_subapertures" name="num_subapertures" value="7" min="3" max="20">
+                                <div class="form-text">Number of Doppler sub-apertures (default: 7)</div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="window_size" class="form-label">Window Size</label>
+                                <input type="number" class="form-control" id="window_size" name="window_size" value="64" min="16" max="256" step="16">
+                                <div class="form-text">Size of the cross-correlation window (default: 64)</div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="overlap" class="form-label">Window Overlap</label>
+                                <input type="number" class="form-control" id="overlap" name="overlap" value="0.5" min="0" max="0.9" step="0.1">
+                                <div class="form-text">Overlap between windows (default: 0.5)</div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Algorithm Steps</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group" id="algorithm-steps">
+                            {% for step in algorithm_steps %}
+                            <button type="button" class="list-group-item list-group-item-action step-pending" data-step="{{ step }}">
+                                {{ loop.index }}. {{ step|replace('_', ' ')|title }}
+                            </button>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Debug Logs</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="logs"></div>
+                    </div>
+                </div>
+                
+                <div class="card" id="results-panel">
+                    <div class="card-header">
+                        <h5 class="mb-0">Results</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="result-message" class="alert alert-info mb-3"></div>
+                        <div id="result-plots" class="plot-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p class="text-center">Ship Micro-Motion Estimation Algorithm Debugger</p>
+        </div>
+    </div>
+
+    <script>
+        // Session to hold state between steps
+        let session = {};
+        
+        // When page loads
+        $(document).ready(function() {
+            // Toggle file selection based on data source
+            $('input[name="data_source"]').change(function() {
+                if ($(this).val() === 'file') {
+                    $('#file-section').show();
+                } else {
+                    $('#file-section').hide();
+                }
+            });
+            
+            // Handle algorithm step click
+            $('#algorithm-steps button').click(function() {
+                const step = $(this).data('step');
+                
+                // Check if previous steps are completed
+                const stepIndex = $(this).index();
+                if (stepIndex > 0) {
+                    const prevStep = $('#algorithm-steps button').eq(stepIndex - 1);
+                    if (!prevStep.hasClass('step-completed')) {
+                        addLog('Please complete the previous step first', 'error');
+                        return;
+                    }
+                }
+                
+                // Mark step as active
+                $('#algorithm-steps button').removeClass('step-active');
+                $(this).addClass('step-active');
+                
+                // Get form data
+                const formData = new FormData();
+                formData.append('step', step);
+                formData.append('use_demo', $('input[name="data_source"]:checked').val() === 'demo' ? 'true' : 'false');
+                formData.append('filename', $('#filename').val());
+                formData.append('num_subapertures', $('#num_subapertures').val());
+                formData.append('window_size', $('#window_size').val());
+                formData.append('overlap', $('#overlap').val());
+                
+                // Add previous session values for state persistence
+                if (session && Object.keys(session).length > 0) {
+                    for (const key in session) {
+                        if (typeof session[key] !== 'object') {
+                            formData.append(key, session[key]);
+                        }
+                    }
+                }
+                
+                // Log the step
+                addLog(`Running step: ${step}`, 'info');
+                
+                // Clear previous results
+                $('#result-plots').empty();
+                
+                // Show the results panel
+                $('#results-panel').show();
+                $('#result-message').text('Processing...');
+                
+                // Send the request
+                $.ajax({
+                    url: '/run_debug_step',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        // Update session
+                        session = response.session || {};
+                        
+                        // Handle error
+                        if (response.error) {
+                            addLog(`Error: ${response.error}`, 'error');
+                            $('#result-message').removeClass('alert-info alert-success').addClass('alert-danger');
+                            $('#result-message').text(`Error: ${response.error}`);
+                            return;
+                        }
+                        
+                        // Mark step as completed
+                        $(this).removeClass('step-active').addClass('step-completed');
+                        
+                        // Show results
+                        const results = response.results;
+                        if (results.message) {
+                            addLog(results.message, 'success');
+                            $('#result-message').removeClass('alert-info alert-danger').addClass('alert-success');
+                            $('#result-message').text(results.message);
+                        }
+                        
+                        // Display plots
+                        displayPlots(results);
+                        
+                        // Mark as completed and enable next step
+                        $('#algorithm-steps button').eq(stepIndex).removeClass('step-active').addClass('step-completed');
+                        if (stepIndex < $('#algorithm-steps button').length - 1) {
+                            $('#algorithm-steps button').eq(stepIndex + 1).removeClass('step-pending');
+                        }
+                    }.bind(this),
+                    error: function(xhr, status, error) {
+                        addLog(`AJAX Error: ${error}`, 'error');
+                        $('#result-message').removeClass('alert-info alert-success').addClass('alert-danger');
+                        $('#result-message').text(`Error: ${error}`);
+                    }
+                });
+            });
+        });
+        
+        // Function to add log messages
+        function addLog(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logClass = type ? `log-${type}` : '';
+            $('#logs').append(`<div class="${logClass}">[${timestamp}] ${message}</div>`);
+            // Scroll to bottom
+            $('#logs').scrollTop($('#logs')[0].scrollHeight);
+        }
+        
+        // Function to display plots
+        function displayPlots(results) {
+            const plotContainer = $('#result-plots');
+            plotContainer.empty();
+            
+            // Check if there are any plots in the results
+            const plotKeys = Object.keys(results).filter(key => key.includes('plot'));
+            
+            if (plotKeys.length === 0) {
+                plotContainer.append('<p>No plots to display for this step.</p>');
+                return;
+            }
+            
+            // Add each plot
+            plotKeys.forEach(key => {
+                const plotTitle = key.replace('_plot', '').replace('_', ' ');
+                const plotHtml = `
+                    <div class="mb-4">
+                        <h5>${plotTitle.charAt(0).toUpperCase() + plotTitle.slice(1)}</h5>
+                        <div class="text-center">
+                            <img src="data:image/png;base64,${results[key]}" alt="${plotTitle}" class="img-fluid">
+                        </div>
+                    </div>
+                `;
+                plotContainer.append(plotHtml);
+            });
+            
+            // Add additional info if available
+            if (results.measurement_points) {
+                const pointsHtml = `
+                    <div class="mb-4">
+                        <h5>Measurement Points</h5>
+                        <ul>
+                            ${results.measurement_points.map((point, i) => `<li>Point ${i}: (${point[0]}, ${point[1]})</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+                plotContainer.append(pointsHtml);
+            }
+            
+            if (results.region_stats && results.region_stats.length > 0) {
+                const statsHtml = `
+                    <div class="mb-4">
+                        <h5>Region Statistics</h5>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Region ID</th>
+                                    <th>Mean Energy (dB)</th>
+                                    <th>Range Displacement (px)</th>
+                                    <th>Azimuth Displacement (px)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${results.region_stats.map(stat => `
+                                    <tr>
+                                        <td>${stat.id}</td>
+                                        <td>${stat.mean_energy ? stat.mean_energy.toFixed(2) : 'N/A'}</td>
+                                        <td>${stat.mean_range_disp ? stat.mean_range_disp.toFixed(3) : 'N/A'}</td>
+                                        <td>${stat.mean_azimuth_disp ? stat.mean_azimuth_disp.toFixed(3) : 'N/A'}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+                plotContainer.append(statsHtml);
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
