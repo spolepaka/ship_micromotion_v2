@@ -4524,3 +4524,532 @@ AttributeError: 'list' object has no attribute 'get'
 2025-03-26 00:45:05,997 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 50, details: Estimating displacement (enhanced version)...
 2025-03-26 00:45:05,997 - ship_micromotion - DEBUG - Calling enhanced memory-efficient displacement estimation
 2025-03-26 00:45:22,285 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:45:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:46:22,283 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:46:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:47:22,296 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:47:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:48:22,281 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:48:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:48:45,628 - ship_micromotion - DEBUG - Displacement estimation returned: True
+2025-03-26 00:48:45,628 - ship_micromotion - INFO - Memory usage after displacement estimation: 4053.14 MB
+2025-03-26 00:48:45,628 - ship_micromotion - INFO - Memory difference: -395.83 MB
+2025-03-26 00:48:45,708 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:48:45,708 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:48:45,708 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:48:45,708 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:48:45,708 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 00:48:45,708 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:48:45,708 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:48:45,708 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:48:45,708 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:48:45,708 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 00:48:45,724 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:48:45,724 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:48:45,724 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:48:45,724 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:48:45,724 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 696
+2025-03-26 00:48:45,724 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:48:45,724 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:48:45,724 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:48:45,724 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:48:45,724 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 526
+2025-03-26 00:48:45,724 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:48:45,724 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:48:45,724 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:48:45,724 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:48:45,724 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 499
+2025-03-26 00:48:45,724 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:48:45,739 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:48:45,740 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:48:45,740 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:48:45,740 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 673
+2025-03-26 00:48:45,740 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:48:45,740 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:48:45,740 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:48:45,740 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:48:45,740 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 922
+2025-03-26 00:48:45,746 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:48:45,746 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:48:45,746 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:48:45,746 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:48:45,746 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 568
+2025-03-26 00:48:45,746 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:48:45,750 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:48:45,750 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:48:45,750 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:48:45,750 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 626
+2025-03-26 00:48:46,343 - ship_micromotion - INFO - Displacement maps calculated successfully
+2025-03-26 00:48:46,343 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 60, details: Displacement estimated successfully
+2025-03-26 00:48:46,343 - ship_micromotion - ERROR - Unexpected error during processing: cannot access local variable 'measurement_points' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\code\app.py", line 1018, in process
+    console_log=f"Analyzing time series at {len(measurement_points)} measurement points")
+                                                ^^^^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'measurement_points' where it is not associated with a value
+2025-03-26 00:48:46,358 - ship_micromotion - DEBUG - Updated processing status: error, progress: 100, details: Error: cannot access local variable 'measurement_points' where it is not associated with a value
+2025-03-26 00:48:46,849 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:48:46] "[32mPOST /process HTTP/1.1[0m" 302 -
+2025-03-26 00:48:46,919 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:48:46] "GET / HTTP/1.1" 200 -
+2025-03-26 00:48:47,405 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:48:47] "GET /results/results_20250326_003244/displacement_maps.png HTTP/1.1" 200 -
+2025-03-26 00:48:47,407 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:48:47] "GET /results/results_20250326_003244/raw_data.png HTTP/1.1" 200 -
+2025-03-26 00:48:47,898 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:48:47] "GET /results/results_20250326_003244/subapertures_spectrum.png HTTP/1.1" 200 -
+2025-03-26 00:48:47,927 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:48:47] "GET /results/results_20250326_003244/slc_images.png HTTP/1.1" 200 -
+2025-03-26 00:52:53,902 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Suman\\Desktop\\Gauntlet_Code\\ship_micromotion_v2\\code\\app.py', reloading
+2025-03-26 00:56:07,336 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://192.168.2.65:5002
+2025-03-26 00:56:07,336 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-26 00:56:07,336 - werkzeug - INFO -  * Restarting with stat
+2025-03-26 00:56:09,620 - werkzeug - WARNING -  * Debugger is active!
+2025-03-26 00:56:09,626 - werkzeug - INFO -  * Debugger PIN: 366-458-988
+2025-03-26 00:56:14,601 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:56:14] "GET / HTTP/1.1" 200 -
+2025-03-26 00:56:14,785 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:56:14] "[36mGET /results/results_20250326_003244/displacement_maps.png HTTP/1.1[0m" 304 -
+2025-03-26 00:56:14,860 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:56:14] "[36mGET /results/results_20250326_003244/raw_data.png HTTP/1.1[0m" 304 -
+2025-03-26 00:56:15,015 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:56:15] "[36mGET /results/results_20250326_003244/slc_images.png HTTP/1.1[0m" 304 -
+2025-03-26 00:56:15,046 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:56:15] "[36mGET /results/results_20250326_003244/subapertures_spectrum.png HTTP/1.1[0m" 304 -
+2025-03-26 00:56:20,267 - ship_micromotion - INFO - Created results directory: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_005620
+2025-03-26 00:56:20,274 - ship_micromotion - INFO - Starting new processing run, results will be saved to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_005620
+2025-03-26 00:56:20,276 - ship_micromotion - INFO - Starting new processing run, results directory: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_005620
+2025-03-26 00:56:20,276 - ship_micromotion - DEBUG - Updated processing status: starting, progress: 0, details: Initializing processing
+2025-03-26 00:56:20,279 - ship_micromotion - INFO - Initializing estimator with parameters: num_subapertures=7, window_size=64, overlap=0.5
+2025-03-26 00:56:20,282 - ship_micromotion - INFO - Using existing file: 2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-26 00:56:20,282 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 5, details: Using existing file: 2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-26 00:56:20,282 - ship_micromotion - INFO - Loading CPHD file: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\uploads\2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-26 00:56:20,282 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 10, details: Loading CPHD file: 2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-26 00:56:20,282 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 10, details: CPHD Loading: Opening CPHD file...
+2025-03-26 00:56:20,792 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 13, details: CPHD Loading: Reading metadata...
+2025-03-26 00:56:21,298 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 17, details: CPHD Loading: Reading data chip...
+2025-03-26 00:56:21,799 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 21, details: CPHD Loading: Processing PVP data...
+2025-03-26 00:56:23,741 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:56:23] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:56:42,276 - ship_micromotion - INFO - CPHD file loaded successfully
+2025-03-26 00:56:42,280 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 25, details: CPHD file loaded successfully
+2025-03-26 00:56:42,686 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:56:42,686 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:56:42,686 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:56:42,686 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:56:42,686 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 00:56:42,708 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:56:42,708 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:56:42,708 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:56:42,708 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:56:42,708 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 00:56:42,743 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:56:42,743 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:56:42,743 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:56:42,743 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:56:42,746 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 696
+2025-03-26 00:56:42,749 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:56:42,749 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:56:42,749 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:56:42,749 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:56:42,749 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 526
+2025-03-26 00:56:42,757 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:56:42,757 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:56:42,757 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:56:42,757 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:56:42,757 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 499
+2025-03-26 00:56:42,760 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:56:42,760 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:56:42,760 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:56:42,760 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:56:42,760 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 673
+2025-03-26 00:56:42,764 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:56:42,764 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:56:42,764 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:56:42,764 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:56:42,764 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 922
+2025-03-26 00:56:42,764 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:56:42,764 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:56:42,764 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:56:42,764 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:56:42,764 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 568
+2025-03-26 00:56:42,764 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:56:42,764 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:56:42,764 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:56:42,764 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:56:42,764 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 626
+2025-03-26 01:06:14,830 - ship_micromotion - INFO - Saved raw data visualization to results folder
+2025-03-26 01:06:14,851 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 25, details: Raw data visualization saved
+2025-03-26 01:06:14,851 - ship_micromotion - INFO - Creating subapertures
+2025-03-26 01:06:14,851 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 30, details: Creating subapertures...
+2025-03-26 01:06:15,071 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:06:15,071 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:06:15,071 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:06:15,071 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:06:15,071 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 01:06:15,085 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:06:15,085 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:06:15,085 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:06:15,085 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:06:15,085 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 01:06:15,103 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:06:15,103 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:06:15,117 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:06:15,117 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:06:15,117 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 696
+2025-03-26 01:06:15,117 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:06:15,117 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:06:15,117 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:06:15,117 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:06:15,117 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 526
+2025-03-26 01:06:15,117 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:06:15,117 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:06:15,117 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:06:15,117 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:06:15,117 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 499
+2025-03-26 01:06:15,132 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:06:15,132 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:06:15,132 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:06:15,132 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:06:15,132 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 673
+2025-03-26 01:06:15,132 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:06:15,132 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:06:15,132 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:06:15,132 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:06:15,132 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 922
+2025-03-26 01:06:15,148 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:06:15,148 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:06:15,148 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:06:15,148 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:06:15,148 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 568
+2025-03-26 01:06:15,148 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:06:15,148 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:06:15,148 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:06:15,148 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:06:15,148 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 626
+2025-03-26 01:07:10,891 - ship_micromotion - INFO - Created 7 subapertures
+2025-03-26 01:07:10,891 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 35, details: Subapertures created successfully
+2025-03-26 01:07:10,891 - ship_micromotion - INFO - Focusing subapertures
+2025-03-26 01:07:10,892 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 40, details: Focusing subapertures...
+2025-03-26 01:07:10,961 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:07:10,961 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:07:10,961 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:07:10,961 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:07:10,961 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 01:07:10,977 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:07:10,977 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:07:10,977 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:07:10,977 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:07:10,977 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 01:07:10,993 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:07:10,993 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:07:10,993 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:07:10,993 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:07:10,993 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 696
+2025-03-26 01:07:10,993 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:07:10,993 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:07:10,993 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:07:10,993 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:07:10,993 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 526
+2025-03-26 01:07:10,993 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:07:10,993 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:07:10,993 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:07:10,993 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:07:10,993 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 499
+2025-03-26 01:07:10,993 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:07:10,993 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:07:10,993 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:07:10,993 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:07:10,993 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 673
+2025-03-26 01:07:11,008 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:07:11,008 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:07:11,008 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:07:11,008 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:07:11,008 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 922
+2025-03-26 01:07:11,008 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:07:11,008 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:07:11,008 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:07:11,008 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:07:11,015 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 568
+2025-03-26 01:07:11,015 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:07:11,015 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:07:11,015 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:07:11,015 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:07:11,015 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 626
+2025-03-26 01:07:35,193 - ship_micromotion - INFO - Generated 7 SLC images
+2025-03-26 01:07:35,208 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 45, details: Subapertures focused successfully
+2025-03-26 01:07:35,208 - ship_micromotion - INFO - Memory usage before displacement estimation: 4448.29 MB
+2025-03-26 01:07:35,208 - ship_micromotion - INFO - Estimating displacement using enhanced memory-efficient algorithm
+2025-03-26 01:07:35,208 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 50, details: Estimating displacement (enhanced version)...
+2025-03-26 01:07:35,208 - ship_micromotion - DEBUG - Calling enhanced memory-efficient displacement estimation
+2025-03-26 01:11:32,832 - ship_micromotion - DEBUG - Displacement estimation returned: True
+2025-03-26 01:11:32,832 - ship_micromotion - INFO - Memory usage after displacement estimation: 4053.47 MB
+2025-03-26 01:11:32,832 - ship_micromotion - INFO - Memory difference: -394.82 MB
+2025-03-26 01:11:32,919 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:32,919 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:32,919 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:32,919 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:32,919 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 01:11:32,927 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:32,927 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:32,927 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:32,927 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:32,927 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 01:11:32,932 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:32,932 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:32,932 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 696
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 526
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 499
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 673
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 922
+2025-03-26 01:11:32,943 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:32,959 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:32,959 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:32,959 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:32,959 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 568
+2025-03-26 01:11:32,959 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:32,959 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:32,959 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:32,959 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:32,959 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 626
+2025-03-26 01:11:33,562 - ship_micromotion - INFO - Displacement maps calculated successfully
+2025-03-26 01:11:33,562 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 60, details: Displacement estimated successfully
+2025-03-26 01:11:33,562 - ship_micromotion - INFO - Analyzing time series at 2 measurement points
+2025-03-26 01:11:33,562 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 90, details: Analyzing time series at measurement points...
+2025-03-26 01:11:33,562 - ship_micromotion - INFO - Saving results to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_005620
+2025-03-26 01:11:33,562 - ship_micromotion - DEBUG - Updated processing status: saving, progress: 95, details: Saving results to timestamped folder...
+2025-03-26 01:11:33,645 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:33,645 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:33,645 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:33,645 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:33,645 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 01:11:33,645 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:33,645 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:33,645 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:33,645 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:33,656 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 01:11:33,656 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:33,656 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:33,656 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:33,672 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:33,673 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 696
+2025-03-26 01:11:33,673 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:33,673 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:33,673 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:33,673 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:33,673 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 526
+2025-03-26 01:11:33,673 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:33,673 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:33,673 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:33,673 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:33,673 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 499
+2025-03-26 01:11:33,673 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:33,673 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:33,673 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:33,673 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:33,673 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 673
+2025-03-26 01:11:33,673 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:33,673 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:33,673 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:33,673 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:33,673 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 922
+2025-03-26 01:11:33,688 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:33,688 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:33,688 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:33,688 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:33,688 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 568
+2025-03-26 01:11:33,688 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:33,688 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:33,688 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:33,688 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:33,688 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 626
+2025-03-26 01:11:34,213 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:34,213 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:34,213 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:34,213 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:34,213 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 01:11:34,213 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:34,213 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:34,213 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:34,213 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:34,213 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 01:11:34,229 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:34,229 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:34,229 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:34,229 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:34,229 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 696
+2025-03-26 01:11:34,229 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:34,229 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:34,229 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:34,229 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:34,229 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 526
+2025-03-26 01:11:34,229 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:34,229 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:34,229 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:34,229 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:34,229 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 499
+2025-03-26 01:11:34,229 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:34,244 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:34,246 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:34,246 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:34,246 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 673
+2025-03-26 01:11:34,246 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:34,246 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:34,246 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:34,246 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:34,246 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 922
+2025-03-26 01:11:34,246 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:34,246 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:34,246 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:34,246 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:34,246 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 568
+2025-03-26 01:11:34,246 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 01:11:34,246 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 01:11:34,246 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 01:11:34,246 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 01:11:34,246 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 626
+2025-03-26 01:11:34,673 - ship_micromotion - INFO - Processing completed successfully
+2025-03-26 01:11:34,673 - ship_micromotion - DEBUG - Updated processing status: complete, progress: 100, details: Processing completed. Results saved to results_20250326_005620
+2025-03-26 01:11:35,404 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 01:11:35] "[32mPOST /process HTTP/1.1[0m" 302 -
+2025-03-26 01:11:35,523 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 01:11:35] "GET / HTTP/1.1" 200 -
+2025-03-26 01:11:35,937 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 01:11:35] "GET /results/results_20250326_005620/point_0_results.png HTTP/1.1" 200 -
+2025-03-26 01:11:35,940 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 01:11:35] "GET /results/results_20250326_005620/displacement_maps.png HTTP/1.1" 200 -
+2025-03-26 01:11:36,527 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 01:11:36] "GET /results/results_20250326_005620/point_1_results.png HTTP/1.1" 200 -
+2025-03-26 01:11:36,540 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 01:11:36] "GET /results/results_20250326_005620/raw_data.png HTTP/1.1" 200 -
+2025-03-26 01:11:36,592 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 01:11:36] "GET /results/results_20250326_005620/slc_images.png HTTP/1.1" 200 -
+2025-03-26 01:11:36,603 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 01:11:36] "GET /results/results_20250326_005620/subapertures_spectrum.png HTTP/1.1" 200 -
+2025-03-26 01:11:36,636 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 01:11:36] "[36mGET /results/results_20250326_003244/displacement_maps.png HTTP/1.1[0m" 304 -
+2025-03-26 01:11:36,801 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 01:11:36] "[36mGET /results/results_20250326_003244/raw_data.png HTTP/1.1[0m" 304 -
+2025-03-26 01:11:36,803 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 01:11:36] "[36mGET /results/results_20250326_003244/slc_images.png HTTP/1.1[0m" 304 -
+2025-03-26 01:11:36,819 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 01:11:36] "[36mGET /results/results_20250326_003244/subapertures_spectrum.png HTTP/1.1[0m" 304 -
+2025-03-26 08:11:56,677 - ship_micromotion - INFO - Created results directory: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_081156
+2025-03-26 08:11:56,682 - ship_micromotion - INFO - Starting new processing run, results will be saved to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_081156
+2025-03-26 08:11:56,682 - ship_micromotion - INFO - Starting new processing run, results directory: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_081156
+2025-03-26 08:11:56,685 - ship_micromotion - DEBUG - Updated processing status: starting, progress: 0, details: Initializing processing
+2025-03-26 08:11:56,697 - ship_micromotion - INFO - Initializing estimator with parameters: num_subapertures=7, window_size=64, overlap=0.5
+2025-03-26 08:11:56,698 - ship_micromotion - INFO - Using synthetic demo data
+2025-03-26 08:11:56,698 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 5, details: Generating synthetic demo data
+2025-03-26 08:11:56,749 - ship_micromotion - INFO - Successfully created synthetic data
+2025-03-26 08:11:56,749 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 10, details: Synthetic data generated successfully
+2025-03-26 08:11:56,751 - ship_micromotion - INFO - Analyzing time series at 2 measurement points
+2025-03-26 08:11:56,751 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 90, details: Analyzing time series at measurement points...
+2025-03-26 08:11:56,752 - ship_micromotion - ERROR - Error analyzing time series
+2025-03-26 08:11:56,752 - ship_micromotion - DEBUG - Updated processing status: error, progress: 100, details: Failed to analyze time series
+2025-03-26 08:11:56,777 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:11:56] "[32mPOST /process HTTP/1.1[0m" 302 -
+2025-03-26 08:11:56,829 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:11:56] "GET / HTTP/1.1" 200 -
+2025-03-26 08:11:56,947 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:11:56] "[36mGET /results/results_20250326_005620/point_0_results.png HTTP/1.1[0m" 304 -
+2025-03-26 08:11:56,949 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:11:56] "[36mGET /results/results_20250326_005620/displacement_maps.png HTTP/1.1[0m" 304 -
+2025-03-26 08:11:57,284 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:11:57] "[36mGET /results/results_20250326_005620/subapertures_spectrum.png HTTP/1.1[0m" 304 -
+2025-03-26 08:11:57,299 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:11:57] "[36mGET /results/results_20250326_005620/raw_data.png HTTP/1.1[0m" 304 -
+2025-03-26 08:11:57,310 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:11:57] "[36mGET /results/results_20250326_003244/displacement_maps.png HTTP/1.1[0m" 304 -
+2025-03-26 08:11:57,311 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:11:57] "[36mGET /results/results_20250326_005620/point_1_results.png HTTP/1.1[0m" 304 -
+2025-03-26 08:11:57,316 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:11:57] "[36mGET /results/results_20250326_005620/slc_images.png HTTP/1.1[0m" 304 -
+2025-03-26 08:11:57,337 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:11:57] "[36mGET /results/results_20250326_003244/raw_data.png HTTP/1.1[0m" 304 -
+2025-03-26 08:11:57,370 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:11:57] "[36mGET /results/results_20250326_003244/slc_images.png HTTP/1.1[0m" 304 -
+2025-03-26 08:11:57,376 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:11:57] "[36mGET /results/results_20250326_003244/subapertures_spectrum.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:18,718 - ship_micromotion - INFO - Created results directory: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_081218
+2025-03-26 08:12:18,722 - ship_micromotion - INFO - Starting new processing run, results will be saved to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_081218
+2025-03-26 08:12:18,723 - ship_micromotion - INFO - Starting new processing run, results directory: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_081218
+2025-03-26 08:12:18,723 - ship_micromotion - DEBUG - Updated processing status: starting, progress: 0, details: Initializing processing
+2025-03-26 08:12:18,724 - ship_micromotion - INFO - Initializing estimator with parameters: num_subapertures=7, window_size=64, overlap=0.5
+2025-03-26 08:12:18,725 - ship_micromotion - INFO - Using synthetic demo data
+2025-03-26 08:12:18,726 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 5, details: Generating synthetic demo data
+2025-03-26 08:12:18,764 - ship_micromotion - INFO - Successfully created synthetic data
+2025-03-26 08:12:18,766 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 10, details: Synthetic data generated successfully
+2025-03-26 08:12:18,767 - ship_micromotion - INFO - Analyzing time series at 2 measurement points
+2025-03-26 08:12:18,767 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 90, details: Analyzing time series at measurement points...
+2025-03-26 08:12:18,767 - ship_micromotion - ERROR - Error analyzing time series
+2025-03-26 08:12:18,767 - ship_micromotion - DEBUG - Updated processing status: error, progress: 100, details: Failed to analyze time series
+2025-03-26 08:12:18,774 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:18] "[32mPOST /process HTTP/1.1[0m" 302 -
+2025-03-26 08:12:18,807 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:18] "GET / HTTP/1.1" 200 -
+2025-03-26 08:12:18,943 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:18] "[36mGET /results/results_20250326_005620/point_0_results.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:18,953 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:18] "[36mGET /results/results_20250326_005620/displacement_maps.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:19,072 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:19] "[36mGET /results/results_20250326_005620/raw_data.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:19,072 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:19] "[36mGET /results/results_20250326_005620/point_1_results.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:19,074 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:19] "[36mGET /results/results_20250326_005620/slc_images.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:19,076 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:19] "[36mGET /results/results_20250326_005620/subapertures_spectrum.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:19,076 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:19] "[36mGET /results/results_20250326_003244/displacement_maps.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:19,121 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:19] "[36mGET /results/results_20250326_003244/slc_images.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:19,126 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:19] "[36mGET /results/results_20250326_003244/subapertures_spectrum.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:19,126 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:19] "[36mGET /results/results_20250326_003244/raw_data.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:20,677 - ship_micromotion - INFO - Created results directory: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_081220
+2025-03-26 08:12:20,684 - ship_micromotion - INFO - Starting new processing run, results will be saved to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_081220
+2025-03-26 08:12:20,686 - ship_micromotion - INFO - Starting new processing run, results directory: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_081220
+2025-03-26 08:12:20,686 - ship_micromotion - DEBUG - Updated processing status: starting, progress: 0, details: Initializing processing
+2025-03-26 08:12:20,686 - ship_micromotion - INFO - Initializing estimator with parameters: num_subapertures=7, window_size=64, overlap=0.5
+2025-03-26 08:12:20,686 - ship_micromotion - INFO - Using synthetic demo data
+2025-03-26 08:12:20,686 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 5, details: Generating synthetic demo data
+2025-03-26 08:12:20,720 - ship_micromotion - INFO - Successfully created synthetic data
+2025-03-26 08:12:20,720 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 10, details: Synthetic data generated successfully
+2025-03-26 08:12:20,720 - ship_micromotion - INFO - Analyzing time series at 2 measurement points
+2025-03-26 08:12:20,720 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 90, details: Analyzing time series at measurement points...
+2025-03-26 08:12:20,733 - ship_micromotion - ERROR - Error analyzing time series
+2025-03-26 08:12:20,733 - ship_micromotion - DEBUG - Updated processing status: error, progress: 100, details: Failed to analyze time series
+2025-03-26 08:12:20,737 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:20] "[32mPOST /process HTTP/1.1[0m" 302 -
+2025-03-26 08:12:20,771 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:20] "GET / HTTP/1.1" 200 -
+2025-03-26 08:12:20,866 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:20] "[36mGET /results/results_20250326_005620/point_0_results.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:20,867 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:20] "[36mGET /results/results_20250326_005620/displacement_maps.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:20,971 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:20] "[36mGET /results/results_20250326_005620/raw_data.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:20,976 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:20] "[36mGET /results/results_20250326_005620/point_1_results.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:20,978 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:20] "[36mGET /results/results_20250326_005620/subapertures_spectrum.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:20,989 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:20] "[36mGET /results/results_20250326_005620/slc_images.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:20,994 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:20] "[36mGET /results/results_20250326_003244/displacement_maps.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:21,019 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:21] "[36mGET /results/results_20250326_003244/raw_data.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:21,043 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:21] "[36mGET /results/results_20250326_003244/subapertures_spectrum.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:21,048 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:21] "[36mGET /results/results_20250326_003244/slc_images.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:21,733 - ship_micromotion - INFO - Created results directory: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_081221
+2025-03-26 08:12:21,739 - ship_micromotion - INFO - Starting new processing run, results will be saved to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_081221
+2025-03-26 08:12:21,739 - ship_micromotion - INFO - Starting new processing run, results directory: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_081221
+2025-03-26 08:12:21,740 - ship_micromotion - DEBUG - Updated processing status: starting, progress: 0, details: Initializing processing
+2025-03-26 08:12:21,740 - ship_micromotion - INFO - Initializing estimator with parameters: num_subapertures=7, window_size=64, overlap=0.5
+2025-03-26 08:12:21,741 - ship_micromotion - INFO - Using synthetic demo data
+2025-03-26 08:12:21,741 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 5, details: Generating synthetic demo data
+2025-03-26 08:12:21,781 - ship_micromotion - INFO - Successfully created synthetic data
+2025-03-26 08:12:21,783 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 10, details: Synthetic data generated successfully
+2025-03-26 08:12:21,783 - ship_micromotion - INFO - Analyzing time series at 2 measurement points
+2025-03-26 08:12:21,783 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 90, details: Analyzing time series at measurement points...
+2025-03-26 08:12:21,785 - ship_micromotion - ERROR - Error analyzing time series
+2025-03-26 08:12:21,785 - ship_micromotion - DEBUG - Updated processing status: error, progress: 100, details: Failed to analyze time series
+2025-03-26 08:12:21,793 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:21] "[32mPOST /process HTTP/1.1[0m" 302 -
+2025-03-26 08:12:21,823 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:21] "GET / HTTP/1.1" 200 -
+2025-03-26 08:12:21,954 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:21] "[36mGET /results/results_20250326_005620/displacement_maps.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:21,954 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:21] "[36mGET /results/results_20250326_005620/point_0_results.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:22,025 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:22] "[36mGET /results/results_20250326_005620/raw_data.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:22,026 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:22] "[36mGET /results/results_20250326_005620/slc_images.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:22,037 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:22] "[36mGET /results/results_20250326_005620/point_1_results.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:22,042 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:22] "[36mGET /results/results_20250326_005620/subapertures_spectrum.png HTTP/1.1[0m" 304 -
+2025-03-26 08:12:22,671 - ship_micromotion - INFO - Created results directory: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_081222
+2025-03-26 08:12:22,674 - ship_micromotion - INFO - Starting new processing run, results will be saved to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_081222
+2025-03-26 08:12:22,674 - ship_micromotion - INFO - Starting new processing run, results directory: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_081222
+2025-03-26 08:12:22,674 - ship_micromotion - DEBUG - Updated processing status: starting, progress: 0, details: Initializing processing
+2025-03-26 08:12:22,675 - ship_micromotion - INFO - Initializing estimator with parameters: num_subapertures=7, window_size=64, overlap=0.5
+2025-03-26 08:12:22,677 - ship_micromotion - INFO - Using synthetic demo data
+2025-03-26 08:12:22,681 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 5, details: Generating synthetic demo data
+2025-03-26 08:12:22,716 - ship_micromotion - INFO - Successfully created synthetic data
+2025-03-26 08:12:22,716 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 10, details: Synthetic data generated successfully
+2025-03-26 08:12:22,716 - ship_micromotion - INFO - Analyzing time series at 2 measurement points
+2025-03-26 08:12:22,716 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 90, details: Analyzing time series at measurement points...
+2025-03-26 08:12:22,716 - ship_micromotion - ERROR - Error analyzing time series
+2025-03-26 08:12:22,716 - ship_micromotion - DEBUG - Updated processing status: error, progress: 100, details: Failed to analyze time series
+2025-03-26 08:12:22,737 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:22] "[32mPOST /process HTTP/1.1[0m" 302 -
+2025-03-26 08:12:22,767 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:22] "GET / HTTP/1.1" 200 -
+2025-03-26 08:12:23,771 - ship_micromotion - INFO - Created results directory: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_081223
+2025-03-26 08:12:23,774 - ship_micromotion - INFO - Starting new processing run, results will be saved to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_081223
+2025-03-26 08:12:23,774 - ship_micromotion - INFO - Starting new processing run, results directory: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_081223
+2025-03-26 08:12:23,774 - ship_micromotion - DEBUG - Updated processing status: starting, progress: 0, details: Initializing processing
+2025-03-26 08:12:23,774 - ship_micromotion - INFO - Initializing estimator with parameters: num_subapertures=7, window_size=64, overlap=0.5
+2025-03-26 08:12:23,774 - ship_micromotion - INFO - Using synthetic demo data
+2025-03-26 08:12:23,774 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 5, details: Generating synthetic demo data
+2025-03-26 08:12:23,814 - ship_micromotion - INFO - Successfully created synthetic data
+2025-03-26 08:12:23,817 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 10, details: Synthetic data generated successfully
+2025-03-26 08:12:23,817 - ship_micromotion - INFO - Analyzing time series at 2 measurement points
+2025-03-26 08:12:23,817 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 90, details: Analyzing time series at measurement points...
+2025-03-26 08:12:23,817 - ship_micromotion - ERROR - Error analyzing time series
+2025-03-26 08:12:23,817 - ship_micromotion - DEBUG - Updated processing status: error, progress: 100, details: Failed to analyze time series
+2025-03-26 08:12:23,825 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:23] "[32mPOST /process HTTP/1.1[0m" 302 -
+2025-03-26 08:12:23,857 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:23] "GET / HTTP/1.1" 200 -
