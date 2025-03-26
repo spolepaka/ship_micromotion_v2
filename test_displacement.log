@@ -1,0 +1,101 @@
+Starting displacement estimation test
+Memory usage before displacement estimation: 467.11 MB
+Testing enhanced memory-efficient displacement estimation...
+Starting enhanced memory-efficient displacement estimation...
+Memory usage at start: 467.11 MB
+Initializing displacement maps for 6 image pairs
+Using window size: 128, overlap: 0.5, step size: 64
+Processing image pair 1/6...
+Original image dimensions: 2048x2048
+Displacement map dimensions: (32, 32)
+Total windows to process: 961
+Processing chunk from row 0 to 1280
+Processed 500/961 windows (52.0%)
+Memory usage at after 500 windows: 499.27 MB
+Memory usage at after chunk 0-1280: 499.27 MB
+Saving intermediate results after chunk 0-1280
+Processing chunk from row 1280 to 1920
+Memory usage at after chunk 1280-1920: 499.27 MB
+Saving intermediate results after chunk 1280-1920
+Completed image pair 1 with 0 errors out of 961 windows
+Range displacement range: -63.1900 to 64.1700
+Azimuth displacement range: -63.2700 to 64.2800
+Processing image pair 2/6...
+Original image dimensions: 2048x2048
+Displacement map dimensions: (32, 32)
+Total windows to process: 961
+Processing chunk from row 0 to 1280
+Processed 500/961 windows (52.0%)
+Memory usage at after 500 windows: 499.27 MB
+Memory usage at after chunk 0-1280: 499.27 MB
+Saving intermediate results after chunk 0-1280
+Processing chunk from row 1280 to 1920
+Memory usage at after chunk 1280-1920: 499.27 MB
+Saving intermediate results after chunk 1280-1920
+Completed image pair 2 with 0 errors out of 961 windows
+Range displacement range: -63.1300 to 64.2000
+Azimuth displacement range: -63.1900 to 64.1700
+Processing image pair 3/6...
+Original image dimensions: 2048x2048
+Displacement map dimensions: (32, 32)
+Total windows to process: 961
+Processing chunk from row 0 to 1280
+Processed 500/961 windows (52.0%)
+Memory usage at after 500 windows: 499.27 MB
+Memory usage at after chunk 0-1280: 499.27 MB
+Saving intermediate results after chunk 0-1280
+Processing chunk from row 1280 to 1920
+Memory usage at after chunk 1280-1920: 499.27 MB
+Saving intermediate results after chunk 1280-1920
+Completed image pair 3 with 0 errors out of 961 windows
+Range displacement range: -63.2300 to 64.2200
+Azimuth displacement range: -63.2500 to 64.1600
+Processing image pair 4/6...
+Original image dimensions: 2048x2048
+Displacement map dimensions: (32, 32)
+Total windows to process: 961
+Processing chunk from row 0 to 1280
+Processed 500/961 windows (52.0%)
+Memory usage at after 500 windows: 499.27 MB
+Memory usage at after chunk 0-1280: 499.27 MB
+Saving intermediate results after chunk 0-1280
+Processing chunk from row 1280 to 1920
+Memory usage at after chunk 1280-1920: 499.27 MB
+Saving intermediate results after chunk 1280-1920
+Completed image pair 4 with 0 errors out of 961 windows
+Range displacement range: -63.1700 to 64.1900
+Azimuth displacement range: -63.1300 to 64.2000
+Processing image pair 5/6...
+Original image dimensions: 2048x2048
+Displacement map dimensions: (32, 32)
+Total windows to process: 961
+Processing chunk from row 0 to 1280
+Processed 500/961 windows (52.0%)
+Memory usage at after 500 windows: 499.20 MB
+Memory usage at after chunk 0-1280: 499.20 MB
+Saving intermediate results after chunk 0-1280
+Processing chunk from row 1280 to 1920
+Memory usage at after chunk 1280-1920: 499.20 MB
+Saving intermediate results after chunk 1280-1920
+Completed image pair 5 with 0 errors out of 961 windows
+Range displacement range: -63.2000 to 63.9600
+Azimuth displacement range: -63.1700 to 64.2200
+Processing image pair 6/6...
+Original image dimensions: 2048x2048
+Displacement map dimensions: (32, 32)
+Total windows to process: 961
+Processing chunk from row 0 to 1280
+Processed 500/961 windows (52.0%)
+Memory usage at after 500 windows: 499.20 MB
+Memory usage at after chunk 0-1280: 499.20 MB
+Saving intermediate results after chunk 0-1280
+Processing chunk from row 1280 to 1920
+Memory usage at after chunk 1280-1920: 499.20 MB
+Saving intermediate results after chunk 1280-1920
+Completed image pair 6 with 0 errors out of 961 windows
+Range displacement range: -63.1200 to 64.2600
+Azimuth displacement range: -63.0200 to 64.2000
+Memory usage at end: 499.20 MB
+Enhanced memory-efficient displacement estimation completed successfully
+Memory usage after displacement estimation: 467.20 MB
+Memory change: 0.09 MB

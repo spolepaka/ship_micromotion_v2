@@ -1,0 +1,141 @@
+Starting displacement estimation test
+Memory usage before displacement estimation: 465.93 MB
+Testing memory-efficient displacement estimation...
+Starting memory-efficient displacement estimation...
+Initializing displacement maps for 6 image pairs
+Using window size: 128, overlap: 0.5, step size: 64
+Processing image pair 1/6...
+Image dimensions: 2048x2048
+Displacement map dimensions: (32, 32)
+Total windows to process: 961
+Processing chunk from row 0 to 640 (640 rows)
+Processed 100/961 windows (10.4%)
+Processed 200/961 windows (20.8%)
+Processed 300/961 windows (31.2%)
+Saving intermediate results after chunk 0-640
+Processing chunk from row 640 to 1280 (640 rows)
+Processed 400/961 windows (41.6%)
+Processed 500/961 windows (52.0%)
+Processed 600/961 windows (62.4%)
+Saving intermediate results after chunk 640-1280
+Processing chunk from row 1280 to 1920 (640 rows)
+Processed 700/961 windows (72.8%)
+Processed 800/961 windows (83.2%)
+Processed 900/961 windows (93.7%)
+Saving intermediate results after chunk 1280-1920
+Completed image pair 1 with 0 errors out of 961 windows
+Range displacement range: -63.0400 to 64.0500
+Azimuth displacement range: -63.2100 to 64.2000
+Processing image pair 2/6...
+Image dimensions: 2048x2048
+Displacement map dimensions: (32, 32)
+Total windows to process: 961
+Processing chunk from row 0 to 640 (640 rows)
+Processed 100/961 windows (10.4%)
+Processed 200/961 windows (20.8%)
+Processed 300/961 windows (31.2%)
+Saving intermediate results after chunk 0-640
+Processing chunk from row 640 to 1280 (640 rows)
+Processed 400/961 windows (41.6%)
+Processed 500/961 windows (52.0%)
+Processed 600/961 windows (62.4%)
+Saving intermediate results after chunk 640-1280
+Processing chunk from row 1280 to 1920 (640 rows)
+Processed 700/961 windows (72.8%)
+Processed 800/961 windows (83.2%)
+Processed 900/961 windows (93.7%)
+Saving intermediate results after chunk 1280-1920
+Completed image pair 2 with 0 errors out of 961 windows
+Range displacement range: -63.0200 to 64.2800
+Azimuth displacement range: -63.1500 to 64.3000
+Processing image pair 3/6...
+Image dimensions: 2048x2048
+Displacement map dimensions: (32, 32)
+Total windows to process: 961
+Processing chunk from row 0 to 640 (640 rows)
+Processed 100/961 windows (10.4%)
+Processed 200/961 windows (20.8%)
+Processed 300/961 windows (31.2%)
+Saving intermediate results after chunk 0-640
+Processing chunk from row 640 to 1280 (640 rows)
+Processed 400/961 windows (41.6%)
+Processed 500/961 windows (52.0%)
+Processed 600/961 windows (62.4%)
+Saving intermediate results after chunk 640-1280
+Processing chunk from row 1280 to 1920 (640 rows)
+Processed 700/961 windows (72.8%)
+Processed 800/961 windows (83.2%)
+Processed 900/961 windows (93.7%)
+Saving intermediate results after chunk 1280-1920
+Completed image pair 3 with 0 errors out of 961 windows
+Range displacement range: -63.2600 to 64.1000
+Azimuth displacement range: -63.1500 to 64.1900
+Processing image pair 4/6...
+Image dimensions: 2048x2048
+Displacement map dimensions: (32, 32)
+Total windows to process: 961
+Processing chunk from row 0 to 640 (640 rows)
+Processed 100/961 windows (10.4%)
+Processed 200/961 windows (20.8%)
+Processed 300/961 windows (31.2%)
+Saving intermediate results after chunk 0-640
+Processing chunk from row 640 to 1280 (640 rows)
+Processed 400/961 windows (41.6%)
+Processed 500/961 windows (52.0%)
+Processed 600/961 windows (62.4%)
+Saving intermediate results after chunk 640-1280
+Processing chunk from row 1280 to 1920 (640 rows)
+Processed 700/961 windows (72.8%)
+Processed 800/961 windows (83.2%)
+Processed 900/961 windows (93.7%)
+Saving intermediate results after chunk 1280-1920
+Completed image pair 4 with 0 errors out of 961 windows
+Range displacement range: -63.2100 to 64.0700
+Azimuth displacement range: -63.0400 to 64.0400
+Processing image pair 5/6...
+Image dimensions: 2048x2048
+Displacement map dimensions: (32, 32)
+Total windows to process: 961
+Processing chunk from row 0 to 640 (640 rows)
+Processed 100/961 windows (10.4%)
+Processed 200/961 windows (20.8%)
+Processed 300/961 windows (31.2%)
+Saving intermediate results after chunk 0-640
+Processing chunk from row 640 to 1280 (640 rows)
+Processed 400/961 windows (41.6%)
+Processed 500/961 windows (52.0%)
+Processed 600/961 windows (62.4%)
+Saving intermediate results after chunk 640-1280
+Processing chunk from row 1280 to 1920 (640 rows)
+Processed 700/961 windows (72.8%)
+Processed 800/961 windows (83.2%)
+Processed 900/961 windows (93.7%)
+Saving intermediate results after chunk 1280-1920
+Completed image pair 5 with 0 errors out of 961 windows
+Range displacement range: -63.3300 to 64.0700
+Azimuth displacement range: -63.2400 to 64.1500
+Processing image pair 6/6...
+Image dimensions: 2048x2048
+Displacement map dimensions: (32, 32)
+Total windows to process: 961
+Processing chunk from row 0 to 640 (640 rows)
+Processed 100/961 windows (10.4%)
+Processed 200/961 windows (20.8%)
+Processed 300/961 windows (31.2%)
+Saving intermediate results after chunk 0-640
+Processing chunk from row 640 to 1280 (640 rows)
+Processed 400/961 windows (41.6%)
+Processed 500/961 windows (52.0%)
+Processed 600/961 windows (62.4%)
+Saving intermediate results after chunk 640-1280
+Processing chunk from row 1280 to 1920 (640 rows)
+Processed 700/961 windows (72.8%)
+Processed 800/961 windows (83.2%)
+Processed 900/961 windows (93.7%)
+Saving intermediate results after chunk 1280-1920
+Completed image pair 6 with 0 errors out of 961 windows
+Range displacement range: -63.0600 to 64.2300
+Azimuth displacement range: -63.1200 to 64.0800
+Memory-efficient displacement estimation completed successfully
+Memory usage after displacement estimation: 467.36 MB
+Memory change: 1.42 MB

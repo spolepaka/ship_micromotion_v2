@@ -1018,3 +1018,178 @@ class ShipMicroMotionEstimator:
         
         self.log(f"Memory-efficient displacement estimation completed successfully")
         return True
+
+    def estimate_displacement_enhanced(self):
+        """
+        Enhanced memory-efficient displacement estimation with additional optimizations:
+        - Dynamic downsampling for very large images
+        - Lower precision data types
+        - Explicit memory management and monitoring
+        - Improved filtering of low-information windows
+        - Intermediate result saving
+        
+        Returns
+        -------
+        bool
+            True if displacement was estimated successfully, False otherwise
+        """
+        import gc
+        import psutil
+        from scipy.ndimage import zoom
+        import numpy as np
+        
+        def log_memory_usage(label):
+            """Log current memory usage with a descriptive label"""
+            process = psutil.Process()
+            memory_mb = process.memory_info().rss / 1024 / 1024
+            self.log(f"Memory usage at {label}: {memory_mb:.2f} MB")
+        
+        self.log("Starting enhanced memory-efficient displacement estimation...")
+        log_memory_usage("start")
+        
+        if self.slc_images is None or len(self.slc_images) < 2:
+            self.log("Error: No SLC images available for displacement estimation")
+            return False
+        
+        # Initialize displacement maps
+        self.log(f"Initializing displacement maps for {len(self.slc_images)-1} image pairs")
+        self.displacement_maps = []
+        
+        # Calculate step size based on window size and overlap
+        step = int(self.window_size * (1 - self.overlap))
+        self.log(f"Using window size: {self.window_size}, overlap: {self.overlap}, step size: {step}")
+        
+        # Process data in chunks to reduce memory usage
+        CHUNK_SIZE = 20  # Increased from 10 to process more data at once
+        
+        # For each pair of adjacent sub-apertures
+        for i in range(len(self.slc_images) - 1):
+            self.log(f"Processing image pair {i+1}/{len(self.slc_images)-1}...")
+            
+            # Get reference and secondary images
+            ref_image = self.slc_images[i].copy()  # Create copy to avoid modifying original
+            sec_image = self.slc_images[i + 1].copy()
+            
+            # Convert to lower precision if needed
+            if ref_image.dtype == np.complex128:
+                self.log("Converting complex128 to complex64 to reduce memory usage")
+                ref_image = ref_image.astype(np.complex64)
+                sec_image = sec_image.astype(np.complex64)
+            
+            # Automatic downsampling for very large images
+            rows, cols = ref_image.shape
+            self.log(f"Original image dimensions: {rows}x{cols}")
+            
+            max_dimension = 8192  # Set a reasonable limit
+            if rows > max_dimension or cols > max_dimension:
+                scale_factor = min(max_dimension / rows, max_dimension / cols)
+                self.log(f"Downsampling images by factor {scale_factor:.3f} to reduce memory usage")
+                ref_image = zoom(ref_image, scale_factor, order=1)
+                sec_image = zoom(sec_image, scale_factor, order=1)
+                rows, cols = ref_image.shape
+                self.log(f"New dimensions after downsampling: {rows}x{cols}")
+            
+            # Initialize displacement map for this pair with lower precision
+            range_shifts = np.zeros((rows // step, cols // step), dtype=np.float32)
+            azimuth_shifts = np.zeros((rows // step, cols // step), dtype=np.float32)
+            self.log(f"Displacement map dimensions: {range_shifts.shape}")
+            
+            # Check for valid image data
+            if np.isnan(ref_image).any() or np.isinf(ref_image).any():
+                self.log(f"Warning: Reference image contains NaN or Inf values")
+            if np.isnan(sec_image).any() or np.isinf(sec_image).any():
+                self.log(f"Warning: Secondary image contains NaN or Inf values")
+            
+            # Calculate total number of windows for progress tracking
+            num_rows_windows = (rows - self.window_size) // step + 1
+            num_cols_windows = (cols - self.window_size) // step + 1
+            total_windows = num_rows_windows * num_cols_windows
+            self.log(f"Total windows to process: {total_windows}")
+            
+            # Track errors and processed windows
+            error_count = 0
+            processed_windows = 0
+            
+            # Process in chunks of rows
+            for chunk_start in range(0, rows - self.window_size, CHUNK_SIZE * step):
+                chunk_end = min(chunk_start + CHUNK_SIZE * step, rows - self.window_size)
+                self.log(f"Processing chunk from row {chunk_start} to {chunk_end}")
+                
+                # Process each window position in this chunk
+                for r in range(chunk_start, chunk_end, step):
+                    for c in range(0, cols - self.window_size, step):
+                        processed_windows += 1
+                        
+                        # Log progress periodically
+                        if processed_windows % 500 == 0 or processed_windows == total_windows:
+                            progress_pct = (processed_windows / total_windows) * 100
+                            self.log(f"Processed {processed_windows}/{total_windows} windows ({progress_pct:.1f}%)")
+                            log_memory_usage(f"after {processed_windows} windows")
+                        
+                        # Extract windows from both images
+                        ref_window = ref_image[r:r+self.window_size, c:c+self.window_size]
+                        sec_window = sec_image[r:r+self.window_size, c:c+self.window_size]
+                        
+                        # Skip empty or low-contrast windows
+                        if np.all(ref_window == 0) or np.all(sec_window == 0):
+                            continue
+                        
+                        # Check window contrast - skip windows with very low variance
+                        ref_std = np.std(np.abs(ref_window))
+                        sec_std = np.std(np.abs(sec_window))
+                        if ref_std < 1e-3 or sec_std < 1e-3:
+                            continue
+                        
+                        # Check for NaN or Inf values
+                        if np.isnan(ref_window).any() or np.isnan(sec_window).any() or \
+                           np.isinf(ref_window).any() or np.isinf(sec_window).any():
+                            continue
+                        
+                        # Calculate sub-pixel shift
+                        try:
+                            shift, error, diffphase = phase_cross_correlation(
+                                ref_window, sec_window, upsample_factor=100
+                            )
+                            
+                            # Store shifts in displacement maps
+                            row_idx = r // step
+                            col_idx = c // step
+                            range_shifts[row_idx, col_idx] = shift[0]
+                            azimuth_shifts[row_idx, col_idx] = shift[1]
+                            
+                        except Exception as e:
+                            error_count += 1
+                            if error_count < 10:
+                                self.log(f"Error in window at ({r}, {c}): {str(e)}")
+                            elif error_count == 10:
+                                self.log("Suppressing further error messages...")
+                
+                # Explicitly free memory after processing each chunk
+                gc.collect()
+                log_memory_usage(f"after chunk {chunk_start}-{chunk_end}")
+                
+                # Save intermediate results
+                self.log(f"Saving intermediate results after chunk {chunk_start}-{chunk_end}")
+                # Store current displacement maps for this pair as temporary backup
+                self.displacement_maps_temp = (range_shifts.copy(), azimuth_shifts.copy())
+            
+            self.log(f"Completed image pair {i+1} with {error_count} errors out of {total_windows} windows")
+            
+            # Store displacement maps for this pair
+            self.displacement_maps.append((range_shifts, azimuth_shifts))
+            
+            # Log displacement statistics
+            if np.size(range_shifts) > 0:
+                r_min, r_max = np.min(range_shifts), np.max(range_shifts)
+                a_min, a_max = np.min(azimuth_shifts), np.max(azimuth_shifts)
+                self.log(f"Range displacement range: {r_min:.4f} to {r_max:.4f}")
+                self.log(f"Azimuth displacement range: {a_min:.4f} to {a_max:.4f}")
+            
+            # Clear no longer needed large arrays
+            ref_image = None
+            sec_image = None
+            gc.collect()
+        
+        log_memory_usage("end")
+        self.log(f"Enhanced memory-efficient displacement estimation completed successfully")
+        return True

@@ -4257,3 +4257,270 @@ AttributeError: 'list' object has no attribute 'get'
 2025-03-25 23:47:20,435 - werkzeug - WARNING -  * Debugger is active!
 2025-03-25 23:47:20,435 - werkzeug - INFO -  * Debugger PIN: 366-458-988
 2025-03-25 23:47:25,261 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:47:25] "GET / HTTP/1.1" 200 -
+2025-03-25 23:57:20,273 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://192.168.2.65:5002
+2025-03-25 23:57:20,273 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-25 23:57:20,275 - werkzeug - INFO -  * Restarting with stat
+2025-03-25 23:57:22,785 - werkzeug - WARNING -  * Debugger is active!
+2025-03-25 23:57:22,791 - werkzeug - INFO -  * Debugger PIN: 366-458-988
+2025-03-25 23:57:22,828 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:57:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-25 23:57:23,285 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:57:23] "GET /check_status HTTP/1.1" 200 -
+2025-03-25 23:57:26,292 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:57:26] "GET /check_status HTTP/1.1" 200 -
+2025-03-25 23:57:29,285 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:57:29] "GET /check_status HTTP/1.1" 200 -
+2025-03-25 23:57:32,292 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:57:32] "GET /check_status HTTP/1.1" 200 -
+2025-03-25 23:57:35,285 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:57:35] "GET /check_status HTTP/1.1" 200 -
+2025-03-25 23:57:38,291 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:57:38] "GET /check_status HTTP/1.1" 200 -
+2025-03-25 23:57:41,297 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:57:41] "GET /check_status HTTP/1.1" 200 -
+2025-03-25 23:57:44,295 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:57:44] "GET /check_status HTTP/1.1" 200 -
+2025-03-25 23:57:47,286 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:57:47] "GET /check_status HTTP/1.1" 200 -
+2025-03-25 23:57:50,288 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:57:50] "GET /check_status HTTP/1.1" 200 -
+2025-03-25 23:57:53,295 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:57:53] "GET /check_status HTTP/1.1" 200 -
+2025-03-25 23:57:56,281 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:57:56] "GET /check_status HTTP/1.1" 200 -
+2025-03-25 23:57:59,288 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:57:59] "GET /check_status HTTP/1.1" 200 -
+2025-03-25 23:58:02,290 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:58:02] "GET /check_status HTTP/1.1" 200 -
+2025-03-25 23:58:05,288 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:58:05] "GET /check_status HTTP/1.1" 200 -
+2025-03-25 23:58:08,293 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:58:08] "GET /check_status HTTP/1.1" 200 -
+2025-03-25 23:58:11,289 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:58:11] "GET /check_status HTTP/1.1" 200 -
+2025-03-25 23:58:14,640 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:58:14] "GET /check_status HTTP/1.1" 200 -
+2025-03-25 23:58:17,282 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:58:17] "GET /check_status HTTP/1.1" 200 -
+2025-03-25 23:58:20,283 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:58:20] "GET /check_status HTTP/1.1" 200 -
+2025-03-25 23:59:22,289 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:59:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:00:22,297 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:00:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:01:22,290 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:01:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:02:22,299 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:02:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:03:22,318 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:03:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:04:22,400 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:04:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:05:22,304 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:05:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:32:32,199 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://192.168.2.65:5002
+2025-03-26 00:32:32,199 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-26 00:32:32,199 - werkzeug - INFO -  * Restarting with stat
+2025-03-26 00:32:34,085 - werkzeug - WARNING -  * Debugger is active!
+2025-03-26 00:32:34,091 - werkzeug - INFO -  * Debugger PIN: 366-458-988
+2025-03-26 00:32:35,989 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:32:35] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:32:38,121 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:32:38] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:32:38,432 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:32:38] "GET / HTTP/1.1" 200 -
+2025-03-26 00:32:44,269 - ship_micromotion - INFO - Created results directory: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_003244
+2025-03-26 00:32:44,273 - ship_micromotion - INFO - Starting new processing run, results will be saved to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_003244
+2025-03-26 00:32:44,273 - ship_micromotion - INFO - Starting new processing run, results directory: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_003244
+2025-03-26 00:32:44,274 - ship_micromotion - DEBUG - Updated processing status: starting, progress: 0, details: Initializing processing
+2025-03-26 00:32:44,276 - ship_micromotion - INFO - Initializing estimator with parameters: num_subapertures=7, window_size=64, overlap=0.5
+2025-03-26 00:32:44,282 - ship_micromotion - INFO - Using existing file: 2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-26 00:32:44,282 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 5, details: Using existing file: 2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-26 00:32:44,284 - ship_micromotion - INFO - Loading CPHD file: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\uploads\2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-26 00:32:44,284 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 10, details: Loading CPHD file: 2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-26 00:32:44,284 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 10, details: CPHD Loading: Opening CPHD file...
+2025-03-26 00:32:44,787 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 13, details: CPHD Loading: Reading metadata...
+2025-03-26 00:32:45,291 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 17, details: CPHD Loading: Reading data chip...
+2025-03-26 00:32:45,793 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 21, details: CPHD Loading: Processing PVP data...
+2025-03-26 00:32:48,273 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:32:48] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:32:51,280 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:32:51] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:32:54,279 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:32:54] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:32:57,290 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:32:57] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:33:00,299 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:33:00] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:33:03,320 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:33:03] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:33:03,957 - ship_micromotion - INFO - CPHD file loaded successfully
+2025-03-26 00:33:03,957 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 25, details: CPHD file loaded successfully
+2025-03-26 00:33:04,244 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:33:04,244 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:33:04,244 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:33:04,244 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:33:04,244 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 00:33:04,267 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:33:04,267 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:33:04,269 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:33:04,269 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:33:04,269 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 00:33:04,299 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:33:04,299 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:33:04,299 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:33:04,299 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:33:04,299 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 696
+2025-03-26 00:33:04,306 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:33:04,306 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:33:04,306 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:33:04,306 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:33:04,306 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 526
+2025-03-26 00:33:04,310 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:33:04,310 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:33:04,310 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:33:04,310 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:33:04,310 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 499
+2025-03-26 00:33:04,313 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:33:04,313 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:33:04,313 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:33:04,313 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:33:04,313 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 673
+2025-03-26 00:33:04,317 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:33:04,317 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:33:04,317 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:33:04,317 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:33:04,317 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 922
+2025-03-26 00:33:04,317 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:33:04,317 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:33:04,317 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:33:04,322 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:33:04,322 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 568
+2025-03-26 00:33:04,324 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:33:04,326 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:33:04,326 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:33:04,326 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:33:04,326 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 626
+2025-03-26 00:33:06,342 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:33:06] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:33:09,407 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:33:09] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:33:24,934 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:33:24] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:33:31,319 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:33:31] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:33:35,482 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:33:35] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:33:36,579 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:33:36] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:33:36,923 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:33:36] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:33:37,132 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:33:37] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:33:37,646 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:33:37] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:33:38,104 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:33:38] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:33:38,425 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:33:38] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:33:42,094 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:33:42] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:33:43,317 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:33:43] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:33:45,738 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:33:45] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:34:27,557 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:34:27] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:35:22,826 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:35:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:36:16,063 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:36:16] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:36:17,788 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:36:17] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:36:21,301 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:36:21] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:36:23,778 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:36:23] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:36:27,296 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:36:27] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:36:30,300 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:36:30] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:36:33,434 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:36:33] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:36:36,292 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:36:36] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:36:39,301 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:36:39] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:36:42,309 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:36:42] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:36:45,336 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:36:45] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:36:48,294 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:36:48] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:36:51,285 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:36:51] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:36:54,504 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:36:54] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:36:57,300 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:36:57] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:37:00,300 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:37:00] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:37:03,323 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:37:03] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:37:06,291 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:37:06] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:37:09,431 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:37:09] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:37:12,295 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:37:12] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:37:15,286 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:37:15] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:37:18,280 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:37:18] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:37:21,314 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:37:21] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:37:24,287 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:37:24] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:37:27,299 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:37:27] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:37:30,329 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:37:30] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:38:22,300 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:38:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:39:22,306 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:39:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:40:23,726 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:40:23] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:41:22,890 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:41:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:42:22,876 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:42:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:43:22,308 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:43:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:43:49,729 - ship_micromotion - INFO - Saved raw data visualization to results folder
+2025-03-26 00:43:49,745 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 25, details: Raw data visualization saved
+2025-03-26 00:43:49,745 - ship_micromotion - INFO - Creating subapertures
+2025-03-26 00:43:49,747 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 30, details: Creating subapertures...
+2025-03-26 00:43:49,935 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:43:49,935 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:43:49,935 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:43:49,935 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:43:49,935 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 00:43:49,953 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:43:49,953 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:43:49,953 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:43:49,953 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:43:49,953 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 00:43:49,966 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:43:49,966 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:43:49,966 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:43:49,966 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:43:49,966 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 696
+2025-03-26 00:43:49,982 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:43:49,982 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:43:49,982 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:43:49,982 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:43:49,982 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 526
+2025-03-26 00:43:49,982 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:43:49,982 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:43:49,982 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:43:49,982 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:43:49,982 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 499
+2025-03-26 00:43:49,999 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:43:50,001 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:43:50,001 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:43:50,001 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:43:50,001 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 673
+2025-03-26 00:43:50,004 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:43:50,004 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:43:50,004 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:43:50,004 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:43:50,004 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 922
+2025-03-26 00:43:50,004 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:43:50,004 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:43:50,004 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:43:50,004 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:43:50,004 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 568
+2025-03-26 00:43:50,004 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:43:50,004 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:43:50,014 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:43:50,014 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:43:50,014 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 626
+2025-03-26 00:44:22,286 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:44:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 00:44:43,861 - ship_micromotion - INFO - Created 7 subapertures
+2025-03-26 00:44:43,861 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 35, details: Subapertures created successfully
+2025-03-26 00:44:43,861 - ship_micromotion - INFO - Focusing subapertures
+2025-03-26 00:44:43,861 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 40, details: Focusing subapertures...
+2025-03-26 00:44:43,922 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:44:43,922 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:44:43,922 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:44:43,922 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:44:43,922 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 00:44:43,938 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:44:43,938 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:44:43,938 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:44:43,938 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:44:43,938 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 696
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 526
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 499
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 673
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 922
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:44:43,954 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:44:43,970 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 568
+2025-03-26 00:44:43,970 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 00:44:43,970 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 00:44:43,970 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 00:44:43,970 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 00:44:43,970 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 626
+2025-03-26 00:45:05,997 - ship_micromotion - INFO - Generated 7 SLC images
+2025-03-26 00:45:05,997 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 45, details: Subapertures focused successfully
+2025-03-26 00:45:05,997 - ship_micromotion - INFO - Memory usage before displacement estimation: 4448.97 MB
+2025-03-26 00:45:05,997 - ship_micromotion - INFO - Estimating displacement using enhanced memory-efficient algorithm
+2025-03-26 00:45:05,997 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 50, details: Estimating displacement (enhanced version)...
+2025-03-26 00:45:05,997 - ship_micromotion - DEBUG - Calling enhanced memory-efficient displacement estimation
+2025-03-26 00:45:22,285 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 00:45:22] "GET /check_status HTTP/1.1" 200 -

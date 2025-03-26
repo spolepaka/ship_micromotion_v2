@@ -425,11 +425,11 @@ def run_debug_step():
                 logger.info(f"Memory usage before displacement estimation: {memory_before:.2f} MB")
                 
                 # Use memory efficient version of displacement estimation
-                update_processing_status('processing', 50, 'Estimating displacement (memory efficient)...',
-                                     console_log="Estimating displacement using memory efficient algorithm")
+                update_processing_status('processing', 50, 'Estimating displacement (enhanced version)...',
+                                     console_log="Estimating displacement using enhanced memory-efficient algorithm")
                 try:
-                    logger.debug("Calling memory-efficient displacement estimation")
-                    result = estimator.estimate_displacement_memory_efficient()
+                    logger.debug("Calling enhanced memory-efficient displacement estimation")
+                    result = estimator.estimate_displacement_enhanced()
                     logger.debug(f"Displacement estimation returned: {result}")
                     
                     # Monitor memory after displacement estimation
@@ -438,7 +438,7 @@ def run_debug_step():
                     logger.info(f"Memory difference: {memory_after - memory_before:.2f} MB")
                     
                     if not result:
-                        logger.error("Error in memory-efficient displacement estimation")
+                        logger.error("Error in enhanced memory-efficient displacement estimation")
                         flash('Error estimating displacement', 'error') 
                         update_processing_status('error', 100, 'Failed to estimate displacement')
                         return redirect(url_for('index'))
@@ -472,8 +472,8 @@ def run_debug_step():
                         plt.colorbar(im2, ax=axs[0, 1], label='Displacement (pixels)')
                     
                     # Plot empty placeholders for SNR and coherence maps
-                    axs[1, 0].set_title('SNR Map (not implemented in memory-efficient mode)')
-                    axs[1, 1].set_title('Coherence Map (not implemented in memory-efficient mode)')
+                    axs[1, 0].set_title('SNR Map (not implemented in enhanced mode)')
+                    axs[1, 1].set_title('Coherence Map (not implemented in enhanced mode)')
                     
                     plt.tight_layout()
                     plt.savefig(os.path.join(result_dir, 'displacement_maps.png'))
@@ -952,11 +952,11 @@ def process():
                 logger.info(f"Memory usage before displacement estimation: {memory_before:.2f} MB")
                 
                 # Use memory efficient version of displacement estimation
-                update_processing_status('processing', 50, 'Estimating displacement (memory efficient)...',
-                                     console_log="Estimating displacement using memory efficient algorithm")
+                update_processing_status('processing', 50, 'Estimating displacement (enhanced version)...',
+                                     console_log="Estimating displacement using enhanced memory-efficient algorithm")
                 try:
-                    logger.debug("Calling memory-efficient displacement estimation")
-                    result = estimator.estimate_displacement_memory_efficient()
+                    logger.debug("Calling enhanced memory-efficient displacement estimation")
+                    result = estimator.estimate_displacement_enhanced()
                     logger.debug(f"Displacement estimation returned: {result}")
                     
                     # Monitor memory after displacement estimation
@@ -965,7 +965,7 @@ def process():
                     logger.info(f"Memory difference: {memory_after - memory_before:.2f} MB")
                     
                     if not result:
-                        logger.error("Error in memory-efficient displacement estimation")
+                        logger.error("Error in enhanced memory-efficient displacement estimation")
                         flash('Error estimating displacement', 'error') 
                         update_processing_status('error', 100, 'Failed to estimate displacement')
                         return redirect(url_for('index'))
@@ -999,8 +999,8 @@ def process():
                         plt.colorbar(im2, ax=axs[0, 1], label='Displacement (pixels)')
                     
                     # Plot empty placeholders for SNR and coherence maps
-                    axs[1, 0].set_title('SNR Map (not implemented in memory-efficient mode)')
-                    axs[1, 1].set_title('Coherence Map (not implemented in memory-efficient mode)')
+                    axs[1, 0].set_title('SNR Map (not implemented in enhanced mode)')
+                    axs[1, 1].set_title('Coherence Map (not implemented in enhanced mode)')
                     
                     plt.tight_layout()
                     plt.savefig(os.path.join(result_dir, 'displacement_maps.png'))
