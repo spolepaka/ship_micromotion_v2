@@ -1,0 +1,10 @@
+2025-03-25 23:36:04,206 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://192.168.2.65:5002
+2025-03-25 23:36:04,206 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-25 23:36:04,212 - werkzeug - INFO -  * Restarting with stat
+2025-03-25 23:36:06,592 - werkzeug - WARNING -  * Debugger is active!
+2025-03-25 23:36:06,601 - werkzeug - INFO -  * Debugger PIN: 366-458-988
+2025-03-25 23:36:20,209 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:36:20] "GET / HTTP/1.1" 200 -
+2025-03-25 23:37:36,769 - werkzeug - INFO - 127.0.0.1 - - [25/Mar/2025 23:37:36] "GET / HTTP/1.1" 200 -

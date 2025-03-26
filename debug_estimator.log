@@ -1,0 +1,105 @@
+2025-03-25 22:44:45 - Loading CPHD file: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\uploads\2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-25 22:44:45 - Reader type: CPHDReader1
+2025-03-25 22:44:45 - CPHD metadata available
+2025-03-25 22:44:45 - Reading CPHD data using read_chip...
+2025-03-25 22:44:56 - Data shape: (24749, 14579)
+2025-03-25 22:44:56 - Using CPHDReader1-specific PVP reading...
+2025-03-25 22:44:56 - Creating synthetic timing for 24749 vectors
+2025-03-25 22:44:56 - Read sample PVP entry: Not a dictionary
+2025-03-25 22:44:56 - Splitting data into sub-apertures...
+2025-03-25 22:44:57 - Created 7 sub-apertures
+2025-03-25 22:44:57 - Focusing sub-apertures...
+2025-03-25 22:44:57 - Focusing 7 subapertures
+2025-03-25 22:44:57 - Focusing subaperture 1/7
+2025-03-25 22:44:57 - Focusing subaperture 2/7
+2025-03-25 22:44:57 - Focusing subaperture 3/7
+2025-03-25 22:44:58 - Focusing subaperture 4/7
+2025-03-25 22:44:58 - Focusing subaperture 5/7
+2025-03-25 22:44:58 - Focusing subaperture 6/7
+2025-03-25 22:44:58 - Focusing subaperture 7/7
+2025-03-25 22:44:58 - Generated 7 SLC images
+2025-03-25 22:44:58 - Generated 7 SLC images
+2025-03-25 22:51:01 - Loading CPHD file: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\uploads\2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-25 22:51:02 - Reader type: CPHDReader1
+2025-03-25 22:51:02 - CPHD metadata available
+2025-03-25 22:51:02 - Reading CPHD data using read_chip...
+2025-03-25 22:51:14 - Data shape: (24749, 14579)
+2025-03-25 22:51:14 - Using CPHDReader1-specific PVP reading...
+2025-03-25 22:51:14 - Creating synthetic timing for 24749 vectors
+2025-03-25 22:51:14 - Read sample PVP entry: Not a dictionary
+2025-03-25 22:51:14 - Splitting data into sub-apertures...
+2025-03-25 22:51:15 - Created 7 sub-apertures
+2025-03-25 22:51:15 - Focusing sub-apertures...
+2025-03-25 22:51:15 - Focusing 7 subapertures
+2025-03-25 22:51:15 - Focusing subaperture 1/7
+2025-03-25 22:51:15 - Focusing subaperture 2/7
+2025-03-25 22:51:15 - Focusing subaperture 3/7
+2025-03-25 22:51:15 - Focusing subaperture 4/7
+2025-03-25 22:51:16 - Focusing subaperture 5/7
+2025-03-25 22:51:16 - Focusing subaperture 6/7
+2025-03-25 22:51:16 - Focusing subaperture 7/7
+2025-03-25 22:51:16 - Generated 7 SLC images
+2025-03-25 22:51:16 - Generated 7 SLC images
+2025-03-25 22:58:53 - Loading CPHD file: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\uploads\2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-25 22:58:54 - Reader type: CPHDReader1
+2025-03-25 22:58:54 - CPHD metadata available
+2025-03-25 22:58:54 - Reading CPHD data using read_chip...
+2025-03-25 22:59:07 - Data shape: (24749, 14579)
+2025-03-25 22:59:07 - Using CPHDReader1-specific PVP reading...
+2025-03-25 22:59:07 - Creating synthetic timing for 24749 vectors
+2025-03-25 22:59:07 - Read sample PVP entry: Not a dictionary
+2025-03-25 22:59:07 - Splitting data into sub-apertures...
+2025-03-25 22:59:08 - Created 7 sub-apertures
+2025-03-25 22:59:08 - Focusing sub-apertures...
+2025-03-25 22:59:08 - Focusing 7 subapertures
+2025-03-25 22:59:08 - Focusing subaperture 1/7
+2025-03-25 22:59:08 - Focusing subaperture 2/7
+2025-03-25 22:59:08 - Focusing subaperture 3/7
+2025-03-25 22:59:08 - Focusing subaperture 4/7
+2025-03-25 22:59:08 - Focusing subaperture 5/7
+2025-03-25 22:59:09 - Focusing subaperture 6/7
+2025-03-25 22:59:09 - Focusing subaperture 7/7
+2025-03-25 22:59:09 - Generated 7 SLC images
+2025-03-25 22:59:09 - Generated 7 SLC images
+2025-03-25 23:27:59 - Loading CPHD file: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\uploads\2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-25 23:27:59 - Reader type: CPHDReader1
+2025-03-25 23:27:59 - CPHD metadata available
+2025-03-25 23:27:59 - Reading CPHD data using read_chip...
+2025-03-25 23:28:12 - Data shape: (24749, 14579)
+2025-03-25 23:28:12 - Using CPHDReader1-specific PVP reading...
+2025-03-25 23:28:12 - Creating synthetic timing for 24749 vectors
+2025-03-25 23:28:12 - Read sample PVP entry: Not a dictionary
+2025-03-25 23:28:12 - Splitting data into sub-apertures...
+2025-03-25 23:28:13 - Created 7 sub-apertures
+2025-03-25 23:28:13 - Focusing sub-apertures...
+2025-03-25 23:28:13 - Focusing 7 subapertures
+2025-03-25 23:28:13 - Focusing subaperture 1/7
+2025-03-25 23:28:13 - Focusing subaperture 2/7
+2025-03-25 23:28:14 - Focusing subaperture 3/7
+2025-03-25 23:28:14 - Focusing subaperture 4/7
+2025-03-25 23:28:14 - Focusing subaperture 5/7
+2025-03-25 23:28:14 - Focusing subaperture 6/7
+2025-03-25 23:28:15 - Focusing subaperture 7/7
+2025-03-25 23:28:15 - Generated 7 SLC images
+2025-03-25 23:28:15 - Generated 7 SLC images
+2025-03-25 23:42:38 - Loading CPHD file: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\uploads\2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-25 23:42:39 - Reader type: CPHDReader1
+2025-03-25 23:42:39 - CPHD metadata available
+2025-03-25 23:42:39 - Reading CPHD data using read_chip...
+2025-03-25 23:42:51 - Data shape: (24749, 14579)
+2025-03-25 23:42:51 - Using CPHDReader1-specific PVP reading...
+2025-03-25 23:42:51 - Creating synthetic timing for 24749 vectors
+2025-03-25 23:42:51 - Read sample PVP entry: Not a dictionary
+2025-03-25 23:42:51 - Splitting data into sub-apertures...
+2025-03-25 23:42:52 - Created 7 sub-apertures
+2025-03-25 23:42:52 - Focusing sub-apertures...
+2025-03-25 23:42:52 - Focusing 7 subapertures
+2025-03-25 23:42:52 - Focusing subaperture 1/7
+2025-03-25 23:42:52 - Focusing subaperture 2/7
+2025-03-25 23:42:52 - Focusing subaperture 3/7
+2025-03-25 23:42:52 - Focusing subaperture 4/7
+2025-03-25 23:42:52 - Focusing subaperture 5/7
+2025-03-25 23:42:53 - Focusing subaperture 6/7
+2025-03-25 23:42:53 - Focusing subaperture 7/7
+2025-03-25 23:42:53 - Generated 7 SLC images
+2025-03-25 23:42:53 - Generated 7 SLC images

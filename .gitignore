@@ -34,3 +34,5 @@ flask_session/
 
 # Upload directory
 uploads/ 
+
+results/
