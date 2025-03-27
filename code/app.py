@@ -13,8 +13,11 @@ from micromotion_estimator import ShipMicroMotionEstimator
 from ship_region_detector import ShipRegionDetector
 from test_estimator import create_synthetic_data
 from flask_session import Session  # Import Flask-Session
+from flask_socketio import SocketIO, emit  # Import Flask-SocketIO
 import time
 import psutil
+import re
+import threading
 
 # Configure logging
 logging.basicConfig(
@@ -46,6 +49,15 @@ app.config['SESSION_FILE_DIR'] = os.path.join(os.getcwd(), 'flask_session')
 
 # Initialize the session extension
 Session(app)
+
+# Initialize SocketIO for real-time updates
+socketio = SocketIO(app, 
+                   cors_allowed_origins="*", 
+                   ping_timeout=60, 
+                   ping_interval=25,
+                   async_mode='threading',  # Use threading mode for better performance with Flask
+                   logger=False,            # Disable default SocketIO logging
+                   engineio_logger=False)   # Disable engineIO logging
 
 # Create upload and results folders if they don't exist
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
@@ -92,7 +104,7 @@ def create_results_folder():
 
 # Function to update processing status
 def update_processing_status(status, progress=None, details=None, console_log=None):
-    """Update the processing status in the session"""
+    """Update the processing status in the session and emit via WebSocket"""
     timestamp = datetime.datetime.now().strftime("%H:%M:%S")
     
     # If console_log is provided, log it to console and file
@@ -103,7 +115,12 @@ def update_processing_status(status, progress=None, details=None, console_log=No
     current_status = session.get('processing_status', {})
     log_messages = current_status.get('log_messages', [])
     
-    session['processing_status'] = {
+    # Preserve progress if not explicitly provided but exists in current status
+    if progress is None and 'progress' in current_status:
+        progress = current_status.get('progress')
+    
+    # Create new status dict with updated values, preserving existing values if not provided
+    updated_status = {
         'status': status,
         'progress': progress,
         'details': details,
@@ -114,15 +131,31 @@ def update_processing_status(status, progress=None, details=None, console_log=No
     # Add the new message to the log history (keep last 15 messages)
     if details:
         log_entry = f"{timestamp}: {details}"
-        session['processing_status']['log_messages'].append(log_entry)
+        updated_status['log_messages'].append(log_entry)
         # Keep only the most recent 15 messages
-        session['processing_status']['log_messages'] = session['processing_status']['log_messages'][-15:]
+        updated_status['log_messages'] = updated_status['log_messages'][-15:]
     
+    # Ensure status transitions make sense
+    if status == 'complete' and progress is not None and progress < 100:
+        # If marking as complete, ensure progress is 100%
+        updated_status['progress'] = 100
+        logger.debug("Auto-adjusted progress to 100% for 'complete' status")
+    
+    # Update the session
+    session['processing_status'] = updated_status
     session.modified = True
     
     # Immediately commit the session - this is important to ensure updates are visible
     if hasattr(session, 'save_session'):
         session.save_session(None)  # Force session save
+    
+    # Emit WebSocket event with the updated status - use socketio.emit for broadcast to all clients
+    try:
+        # Broadcast to all connected clients
+        socketio.emit('status_update', updated_status, namespace='/')
+        logger.debug(f"WebSocket: Broadcasted status_update event: {status}, progress: {progress}")
+    except Exception as e:
+        logger.error(f"Error emitting WebSocket event: {e}")
     
     logger.debug(f"Updated processing status: {status}, progress: {progress}, details: {details}")
 
@@ -155,6 +188,74 @@ def append_to_detailed_log(message):
     
     return message
 
+# New function that updates both detailed log and UI status
+def estimator_log_callback(message):
+    """
+    Callback function for ShipMicroMotionEstimator log messages
+    that updates both the detailed log and the processing status UI
+    """
+    try:
+        # First append to detailed log
+        append_to_detailed_log(message)
+        
+        # Get current status to preserve status/progress
+        current_status = session.get('processing_status', {})
+        current_status_type = current_status.get('status', 'processing')
+        current_progress = current_status.get('progress', 50)
+        
+        # Extract progress indicators from the message if present
+        # Look for patterns like "75% complete" or "Progress: 80%"
+        progress_match = re.search(r'(\d+)%\s+(complete|done|finished)', message, re.IGNORECASE)
+        if progress_match:
+            extracted_progress = int(progress_match.group(1))
+            # Only update if it's greater than current progress
+            if extracted_progress > current_progress:
+                current_progress = extracted_progress
+                logger.debug(f"Updated progress to {current_progress}% from message")
+        
+        # Make sure we don't prematurely set status to complete or error
+        # Only the main process function should set these final states
+        if current_status_type not in ['idle', 'starting', 'loading', 'processing', 'saving']:
+            # We're likely in 'complete' or 'error' state, but still getting log messages
+            # Keep the status as is but ensure UI shows latest messages
+            pass
+        
+        # Add message to log_messages without changing status/progress
+        if 'log_messages' not in current_status:
+            current_status['log_messages'] = []
+        
+        timestamp = datetime.datetime.now().strftime("%H:%M:%S")
+        log_entry = f"{timestamp}: {message}"
+        current_status['log_messages'].append(log_entry)
+        # Keep only most recent 15 messages
+        current_status['log_messages'] = current_status['log_messages'][-15:]
+        
+        # Update the progress in the status dictionary
+        current_status['progress'] = current_progress
+        current_status['details'] = str(message)
+        current_status['timestamp'] = timestamp
+        
+        # Save the updated status with new log message
+        session['processing_status'] = current_status
+        session.modified = True
+        
+        # Force session save to ensure updates are visible immediately
+        if hasattr(session, 'save_session'):
+            session.save_session(None)
+        
+        # Emit WebSocket event with the updated status - use socketio.emit for broadcast to all clients
+        try:
+            # Broadcast to all connected clients
+            socketio.emit('status_update', current_status, namespace='/')
+            logger.debug(f"WebSocket: Log callback broadcasted status update")
+        except Exception as e:
+            logger.error(f"Error emitting WebSocket event from log callback: {e}")
+            
+    except Exception as e:
+        logger.error(f"Error in estimator log callback: {e}")
+    
+    return message
+
 # Steps of the algorithm for debugging
 ALGORITHM_STEPS = [
     'load_data',
@@ -180,15 +281,16 @@ STEP_DURATIONS = {
 @app.route('/')
 def index():
     uploaded_files = list_uploaded_files()
-    # Initialize processing status if not exists
-    if 'processing_status' not in session:
-        session['processing_status'] = {
-            'status': 'idle',
-            'progress': None,
-            'details': None,
-            'timestamp': None
-        }
-        
+    # Always reset processing status to idle on application startup
+    session['processing_status'] = {
+        'status': 'idle',
+        'progress': None,
+        'details': 'Ready to process',
+        'timestamp': datetime.datetime.now().strftime("%H:%M:%S"),
+        'log_messages': []
+    }
+    session.modified = True
+    
     # Get recent result folders
     results_folders = []
     if os.path.exists(app.config['RESULTS_FOLDER']):
@@ -413,6 +515,9 @@ def process():
     # Create a new results folder for this run
     result_dir = create_results_folder()
     
+    # Flag to track processing success
+    has_error = False
+    
     # Store the result directory name in the session for append_to_detailed_log function
     result_dir_name = os.path.basename(result_dir)
     session['result_dir'] = result_dir_name
@@ -448,42 +553,38 @@ def process():
     
     # Use the global append_to_detailed_log to log subsequent messages
     append_to_detailed_log("Process initialization complete")
-    
-    # Initialize processing status
-    update_processing_status('starting', 0, 'Initializing processing', 
+    update_processing_status('starting', 0, 'Initializing processing',
                            console_log=f"Starting new processing run, results directory: {result_dir}")
-    
+
     try:
-        # Get data type selection (CPHD or SICD)
-        data_type = request.form.get('data_type', 'cphd')  # Default to 'cphd' if not specified
-        
-        # Placeholder for estimator initialization
-        from micromotion_estimator import ShipMicroMotionEstimator
+        # Get parameters from form
         num_subapertures = int(request.form.get('num_subapertures', 7))
         window_size = int(request.form.get('window_size', 64))
         overlap = float(request.form.get('overlap', 0.5))
+        min_region_size = int(request.form.get('min_region_size', 5))
+        energy_threshold = float(request.form.get('energy_threshold', -15))
+        num_regions_to_detect = int(request.form.get('num_regions_to_detect', 3))
         
-        init_msg = f"Initializing estimator with parameters: data_type={data_type}, num_subapertures={num_subapertures}, window_size={window_size}, overlap={overlap}"
-        logger.info(init_msg)
+        # Log received parameters
+        append_to_detailed_log(f"Parameters: num_subapertures={num_subapertures}, window_size={window_size}, overlap={overlap}")
+        append_to_detailed_log(f"Region detection parameters: min_size={min_region_size}, threshold={energy_threshold}, num_regions={num_regions_to_detect}")
         
-        # Log to detailed logs
-        append_to_detailed_log(init_msg)
-        # Update UI status separately - this ensures the message appears in the UI
-        update_processing_status('starting', 1, init_msg)
-            
-        # Add data_type to log
-        dt_msg = f"Configured for {data_type.upper()} data processing"
-        append_to_detailed_log(dt_msg)
-        # Update UI status with the data type message
-        update_processing_status('starting', 2, dt_msg)
+        # Initialize data type, will be set during load_data
+        data_type = "unknown"
         
-        # Initialize estimator (don't set data_type here, it will be detected from the file in load_data)
-        estimator = ShipMicroMotionEstimator(num_subapertures=num_subapertures, 
-                                             window_size=window_size, 
+        # Instantiate estimator with log callback that updates both detailed log and UI status
+        estimator = ShipMicroMotionEstimator(num_subapertures=num_subapertures,
+                                             window_size=window_size,
                                              overlap=overlap,
-                                             debug_mode=True,  # Enable debug mode
-                                             log_callback=append_to_detailed_log)  # Pass callback for logging
-
+                                             debug_mode=True,
+                                             log_callback=estimator_log_callback)
+        
+        # Initialize the ship region detector with the same log callback
+        detector = ShipRegionDetector(min_region_size=min_region_size,
+                                    energy_threshold=energy_threshold,
+                                    num_regions=num_regions_to_detect,
+                                    log_callback=estimator_log_callback)
+        
         use_demo = request.form.get('use_demo', 'false') == 'true'
         
         # Calculate total processing time
@@ -659,109 +760,131 @@ def process():
                 update_processing_status('processing', 40, 'Focusing subapertures...',
                                       console_log="Focusing subapertures")
                 if not estimator.focus_subapertures():
-                    logger.error("Error focusing subapertures")
+                    logger.error("Error focusing subapertures for demo data")
                     flash('Error focusing subapertures', 'error')
-                    update_processing_status('error', 100, 'Failed to focus subapertures')
-                    return redirect(url_for('index'))
-                
-                # Save SLC images
-                if hasattr(estimator, 'slc_images') and estimator.slc_images:
-                    fig, axs = plt.subplots(1, min(3, len(estimator.slc_images)), figsize=(15, 5))
-                    if len(estimator.slc_images) == 1:
-                        axs = [axs]
-                    for i in range(min(3, len(estimator.slc_images))):
-                        axs[i].imshow(np.abs(estimator.slc_images[i]), cmap='gray', aspect='auto',
-                                    vmax=np.percentile(np.abs(estimator.slc_images[i]), 95))
-                        axs[i].set_title(f'SLC Image {i+1}')
-                    plt.tight_layout()
-                    plt.savefig(os.path.join(result_dir, 'slc_images.png'))
-                    plt.close(fig)
-                    update_processing_status('processing', 45, 'Subapertures focused successfully',
-                                          console_log=f"Generated {len(estimator.slc_images)} SLC images")
-                
-                # Monitor memory usage
-                process = psutil.Process()
-                memory_before = process.memory_info().rss / 1024 / 1024  # Convert to MB
-                logger.info(f"Memory usage before displacement estimation: {memory_before:.2f} MB")
-                
-                # Use memory efficient version of displacement estimation
-                update_processing_status('processing', 50, 'Estimating displacement (enhanced version)...',
-                                     console_log="Estimating displacement using enhanced memory-efficient algorithm")
-                try:
-                    logger.debug("Calling enhanced memory-efficient displacement estimation")
-                    result = estimator.estimate_displacement_enhanced()
-                    logger.debug(f"Displacement estimation returned: {result}")
+                    update_processing_status('error', 100, 'Failed to focus subapertures for demo data')
+                    has_error = True
                     
-                    # Monitor memory after displacement estimation
-                    memory_after = process.memory_info().rss / 1024 / 1024  # Convert to MB
-                    logger.info(f"Memory usage after displacement estimation: {memory_after:.2f} MB")
-                    logger.info(f"Memory difference: {memory_after - memory_before:.2f} MB")
+                # Only continue if no errors so far
+                if not has_error:
+                    # Save SLC images
+                    if hasattr(estimator, 'slc_images') and estimator.slc_images:
+                        fig, axs = plt.subplots(1, min(3, len(estimator.slc_images)), figsize=(15, 5))
+                        if len(estimator.slc_images) == 1:
+                            axs = [axs]
+                        for i in range(min(3, len(estimator.slc_images))):
+                            axs[i].imshow(np.abs(estimator.slc_images[i]), cmap='gray', aspect='auto',
+                                        vmax=np.percentile(np.abs(estimator.slc_images[i]), 95))
+                            axs[i].set_title(f'SLC Image {i+1}')
+                        plt.tight_layout()
+                        plt.savefig(os.path.join(result_dir, 'slc_images.png'))
+                        plt.close(fig)
+                        update_processing_status('processing', 45, 'Subapertures focused successfully',
+                                              console_log=f"Generated {len(estimator.slc_images)} SLC images")
                     
-                    if not result:
-                        logger.error("Error in enhanced memory-efficient displacement estimation")
+                    # Monitor memory usage
+                    process = psutil.Process()
+                    memory_before = process.memory_info().rss / 1024 / 1024  # Convert to MB
+                    logger.info(f"Memory usage before displacement estimation: {memory_before:.2f} MB")
+                    
+                    # Try displacement estimation
+                    try:
+                        logger.debug("Calling enhanced memory-efficient displacement estimation")
+                        
+                        # First update the status to ensure it's visible before starting the thread
+                        update_processing_status('processing', 50, 'Starting displacement estimation...',
+                                              console_log="Beginning enhanced memory-efficient displacement estimation")
+                        
+                        # Set up a progress monitor for long-running displacement estimation
+                        def displacement_progress_monitor():
+                            """Function to periodically update UI during long-running displacement estimation"""
+                            # Define more precise progress points from 52% to 90%
+                            progress_points = [52, 55, 60, 65, 70, 75, 80, 85, 90, 95]
+                            for p in progress_points:
+                                time.sleep(2)  # Wait a few seconds between updates
+                                # Use a format that our progress parser can detect
+                                estimator_log_callback(f"Displacement estimation {p}% complete...")
+                        
+                        # Start progress monitor in background thread
+                        progress_thread = threading.Thread(target=displacement_progress_monitor)
+                        progress_thread.daemon = True
+                        progress_thread.start()
+
+                        # Run the actual displacement estimation
+                        # Let the estimator's own progress updates provide UI feedback
+                        result = estimator.estimate_displacement_enhanced()
+                        logger.debug(f"Displacement estimation returned: {result}")
+                        
+                        # Monitor memory after displacement estimation
+                        memory_after = process.memory_info().rss / 1024 / 1024  # Convert to MB
+                        logger.info(f"Memory usage after displacement estimation: {memory_after:.2f} MB")
+                        logger.info(f"Memory difference: {memory_after - memory_before:.2f} MB")
+                        
+                        if not result:
+                            logger.error("Error in enhanced memory-efficient displacement estimation")
+                            flash('Error estimating displacement', 'error') 
+                            update_processing_status('error', 100, 'Failed to estimate displacement')
+                            has_error = True
+                    except Exception as e:
+                        logger.error(f"Exception during displacement estimation: {str(e)}")
+                        import traceback
+                        trace = traceback.format_exc()
+                        logger.error(f"Traceback: {trace}")
+                        with open(os.path.join(result_dir, 'error_displacement.txt'), 'w') as f:
+                            f.write(f"Error: {str(e)}\n\n{trace}")
                         flash('Error estimating displacement', 'error') 
-                        update_processing_status('error', 100, 'Failed to estimate displacement')
-                        return redirect(url_for('index'))
-                except Exception as e:
-                    logger.error(f"Exception during displacement estimation: {str(e)}")
-                    import traceback
-                    trace = traceback.format_exc()
-                    logger.error(f"Traceback: {trace}")
-                    with open(os.path.join(result_dir, 'error_displacement.txt'), 'w') as f:
-                        f.write(f"Error: {str(e)}\n\n{trace}")
-                    flash('Error estimating displacement', 'error') 
-                    update_processing_status('error', 100, f'Failed to estimate displacement: {str(e)}')
-                    return redirect(url_for('index'))
-                
-                # Save displacement maps
-                if hasattr(estimator, 'displacement_maps') and estimator.displacement_maps:
-                    fig, axs = plt.subplots(2, 2, figsize=(12, 10))
+                        update_processing_status('error', 100, f'Failed to estimate displacement: {str(e)}')
+                        has_error = True
                     
-                    # Plot range displacement
-                    if len(estimator.displacement_maps) > 0:
-                        range_disp, azimuth_disp = estimator.displacement_maps[0]
-                        im1 = axs[0, 0].imshow(range_disp, cmap='coolwarm', 
-                                            vmin=-1, vmax=1, aspect='auto')
-                        axs[0, 0].set_title('Range Displacement Map (frame 0)')
-                        plt.colorbar(im1, ax=axs[0, 0], label='Displacement (pixels)')
+                    # Only proceed with saving displacement maps if no errors occurred
+                    if not has_error and hasattr(estimator, 'displacement_maps') and estimator.displacement_maps:
+                        fig, axs = plt.subplots(2, 2, figsize=(12, 10))
+                        
+                        # Plot range displacement
+                        if len(estimator.displacement_maps) > 0:
+                            range_disp, azimuth_disp = estimator.displacement_maps[0]
+                            im1 = axs[0, 0].imshow(range_disp, cmap='coolwarm', 
+                                                vmin=-1, vmax=1, aspect='auto')
+                            axs[0, 0].set_title('Range Displacement Map (frame 0)')
+                            plt.colorbar(im1, ax=axs[0, 0], label='Displacement (pixels)')
+                        
+                            # Plot azimuth displacement
+                            im2 = axs[0, 1].imshow(azimuth_disp, cmap='coolwarm', 
+                                                vmin=-1, vmax=1, aspect='auto')
+                            axs[0, 1].set_title('Azimuth Displacement Map (frame 0)')
+                            plt.colorbar(im2, ax=axs[0, 1], label='Displacement (pixels)')
+                        
+                        # Plot empty placeholders for SNR and coherence maps
+                        axs[1, 0].set_title('SNR Map (not implemented in enhanced mode)')
+                        axs[1, 1].set_title('Coherence Map (not implemented in enhanced mode)')
+                        
+                        plt.tight_layout()
+                        plt.savefig(os.path.join(result_dir, 'displacement_maps.png'))
+                        plt.close(fig)
+                        update_processing_status('processing', 60, 'Displacement estimated successfully',
+                                              console_log="Displacement maps calculated successfully")
                     
-                        # Plot azimuth displacement
-                        im2 = axs[0, 1].imshow(azimuth_disp, cmap='coolwarm', 
-                                            vmin=-1, vmax=1, aspect='auto')
-                        axs[0, 1].set_title('Azimuth Displacement Map (frame 0)')
-                        plt.colorbar(im2, ax=axs[0, 1], label='Displacement (pixels)')
-                    
-                    # Plot empty placeholders for SNR and coherence maps
-                    axs[1, 0].set_title('SNR Map (not implemented in enhanced mode)')
-                    axs[1, 1].set_title('Coherence Map (not implemented in enhanced mode)')
-                    
-                    plt.tight_layout()
-                    plt.savefig(os.path.join(result_dir, 'displacement_maps.png'))
-                    plt.close(fig)
-                    update_processing_status('processing', 60, 'Displacement estimated successfully',
-                                          console_log="Displacement maps calculated successfully")
-                
-                # Initialize measurement points for non-demo case
-                if 'measurement_points' not in locals():
-                    # Choose default measurement points based on the size of displacement maps
-                    if hasattr(estimator, 'displacement_maps') and estimator.displacement_maps and len(estimator.displacement_maps) > 0:
-                        range_disp, _ = estimator.displacement_maps[0]
-                        if range_disp is not None:
-                            height, width = range_disp.shape
-                            measurement_points = [(width//4, height//4), (width*3//4, height*3//4)]
-                            mp_msg = f"Defined default measurement points based on image size {range_disp.shape}: {measurement_points}"
-                            append_to_detailed_log(mp_msg)
-                            update_processing_status('processing', 65, mp_msg)
+                    # Initialize measurement points for non-demo case
+                    if 'measurement_points' not in locals():
+                        # Choose default measurement points based on the size of displacement maps
+                        if hasattr(estimator, 'displacement_maps') and estimator.displacement_maps and len(estimator.displacement_maps) > 0:
+                            range_disp, _ = estimator.displacement_maps[0]
+                            if range_disp is not None:
+                                height, width = range_disp.shape
+                                measurement_points = [(width//4, height//4), (width*3//4, height*3//4)]
+                                mp_msg = f"Defined default measurement points based on image size {range_disp.shape}: {measurement_points}"
+                                append_to_detailed_log(mp_msg)
+                                update_processing_status('processing', 65, mp_msg)
+                            else:
+                                measurement_points = [(100, 100), (200, 200)]  # Default fallback
+                                mp_msg = f"Could not determine displacement size, using fallback measurement points: {measurement_points}"
+                                append_to_detailed_log(mp_msg)
+                                update_processing_status('processing', 65, mp_msg)
                         else:
                             measurement_points = [(100, 100), (200, 200)]  # Default fallback
-                            mp_msg = f"Could not determine displacement size, using fallback measurement points: {measurement_points}"
+                            mp_msg = f"No displacement maps available, using fallback measurement points: {measurement_points}"
                             append_to_detailed_log(mp_msg)
                             update_processing_status('processing', 65, mp_msg)
-                    else:
-                        measurement_points = [(100, 100), (200, 200)]  # Default fallback
-                        mp_msg = f"No displacement maps available, using fallback measurement points: {measurement_points}"
-                        append_to_detailed_log(mp_msg)
-                        update_processing_status('processing', 65, mp_msg)
             else:
                 error_msg = f"Error loading data file: {filename}"
                 logger.error(error_msg)
@@ -773,7 +896,7 @@ def process():
                 if estimator.last_error:
                      with open(os.path.join(result_dir, 'error_loading.txt'), 'w') as f:
                           f.write(estimator.last_error)
-                return redirect(url_for('index'))
+                has_error = True
         
         # Analyze time series
         update_processing_status('processing', 90, 'Analyzing time series at measurement points...',
@@ -808,7 +931,11 @@ def process():
                 update_processing_status('processing', 93, detect_msg)
                 
                 try:
-                    if estimator.detect_ship_regions(num_regions=3, energy_threshold=-15):
+                    # Use the detector class directly instead of calling estimator.detect_ship_regions
+                    detector_regions = detector.detect_regions(estimator.vibration_energy_map_db)
+                    estimator.ship_regions = detector_regions
+                    
+                    if detector_regions and len(detector_regions) > 0:
                         ship_regions_file = os.path.join(result_dir, 'ship_regions.png')
                         # If a plot_ship_regions method exists, use it
                         if hasattr(estimator, 'plot_ship_regions'):
@@ -817,9 +944,13 @@ def process():
                             append_to_detailed_log(regions_msg)
                             update_processing_status('processing', 94, regions_msg)
                         
-                        detect_done_msg = f"Detected {len(estimator.ship_regions)} ship regions"
+                        detect_done_msg = f"Detected {len(detector_regions)} ship regions"
                         append_to_detailed_log(detect_done_msg)
                         update_processing_status('processing', 94, detect_done_msg)
+                    else:
+                        no_regions_msg = "No ship regions detected above threshold"
+                        append_to_detailed_log(no_regions_msg)
+                        update_processing_status('processing', 94, no_regions_msg)
                 except Exception as e:
                     error_msg = f"Error detecting ship regions: {str(e)}"
                     append_to_detailed_log(error_msg)
@@ -883,7 +1014,21 @@ def process():
         completion_msg = f'Processing completed. Results saved to {os.path.basename(result_dir)}'
         # Log it
         append_to_detailed_log(completion_msg)
-        # Update UI status
+        
+        # Force update the UI status to complete with 100% progress
+        # This should override any intermediate status set by the callback
+        session['processing_status'] = {
+            'status': 'complete',
+            'progress': 100,
+            'details': completion_msg,
+            'timestamp': datetime.datetime.now().strftime("%H:%M:%S"),
+            'log_messages': session.get('processing_status', {}).get('log_messages', [])
+        }
+        session.modified = True
+        if hasattr(session, 'save_session'):
+            session.save_session(None)  # Force session save
+        
+        # Update UI status through the regular function as well
         update_processing_status('complete', 100, completion_msg, console_log="Processing completed successfully")
         flash(f'Processing completed successfully. Results saved to {os.path.basename(result_dir)}', 'success')
         
@@ -909,7 +1054,20 @@ def process():
         # Log the error through our helper
         error_msg = f'Error during processing: {str(e)}'
         append_to_detailed_log(error_msg)
-        # Update UI status
+        
+        # Force error status in session
+        session['processing_status'] = {
+            'status': 'error',
+            'progress': 100,
+            'details': error_msg,
+            'timestamp': datetime.datetime.now().strftime("%H:%M:%S"),
+            'log_messages': session.get('processing_status', {}).get('log_messages', [])
+        }
+        session.modified = True
+        if hasattr(session, 'save_session'):
+            session.save_session(None)  # Force session save
+        
+        # Update UI status through regular function
         update_processing_status('error', 100, error_msg)
         flash(error_msg, 'error')
     
@@ -924,12 +1082,58 @@ def process():
         except Exception as e:
             logger.error(f"Error writing final log message: {e}")
     
+    # At the very end of the function, after all processing
     return redirect(url_for('index'))
 
 @app.route('/results/<path:filename>')
 def results_file(filename):
-    """Serve files from the results directory"""
+    """Serve a file from the results directory"""
     return send_from_directory(app.config['RESULTS_FOLDER'], filename)
 
+# WebSocket routes
+@socketio.on('connect')
+def handle_connect():
+    """Handle client connection"""
+    client_id = request.sid
+    logger.info(f"Client connected to WebSocket: {client_id}")
+    # Send current processing status on connection
+    if 'processing_status' in session:
+        emit('status_update', session['processing_status'])
+    else:
+        # Send default idle status
+        emit('status_update', {
+            'status': 'idle',
+            'progress': 0,
+            'details': 'Ready to process',
+            'timestamp': datetime.datetime.now().strftime("%H:%M:%S"),
+            'log_messages': []
+        })
+
+@socketio.on('disconnect')
+def handle_disconnect():
+    """Handle client disconnection"""
+    client_id = request.sid
+    logger.info(f"Client disconnected from WebSocket: {client_id}")
+
+@socketio.on('get_current_status')
+def handle_get_status():
+    """Send current status on request"""
+    client_id = request.sid
+    logger.debug(f"Status requested by client: {client_id}")
+    
+    if 'processing_status' in session:
+        logger.debug(f"Sending current status: {session['processing_status'].get('status', 'unknown')}")
+        emit('status_update', session['processing_status'])
+    else:
+        logger.debug("No current status in session, sending idle")
+        emit('status_update', {
+            'status': 'idle',
+            'progress': 0,
+            'details': 'Ready to process',
+            'timestamp': datetime.datetime.now().strftime("%H:%M:%S"),
+            'log_messages': []
+        })
+
+# Update the main app to run with SocketIO
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5002, debug=True)
+    socketio.run(app, debug=True, host='0.0.0.0', port=5002)
