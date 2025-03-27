@@ -442,6 +442,35 @@ def process():
                 update_processing_status('loading', 10, 'Synthetic data generated successfully',
                                      console_log="Successfully created synthetic data")
                 measurement_points = [(150, 200), (300, 350)]
+                
+                # Create subapertures and SLC images
+                update_processing_status('processing', 30, 'Creating subapertures...',
+                                      console_log="Creating subapertures for demo data")
+                if not estimator.create_subapertures():
+                    logger.error("Error creating subapertures for demo data")
+                    flash('Error creating subapertures', 'error')
+                    update_processing_status('error', 100, 'Failed to create subapertures for demo data')
+                    return redirect(url_for('index'))
+                
+                update_processing_status('processing', 40, 'Focusing subapertures...',
+                                      console_log="Focusing subapertures for demo data")
+                if not estimator.focus_subapertures():
+                    logger.error("Error focusing subapertures for demo data")
+                    flash('Error focusing subapertures', 'error')
+                    update_processing_status('error', 100, 'Failed to focus subapertures for demo data')
+                    return redirect(url_for('index'))
+                
+                # Estimate displacement
+                update_processing_status('processing', 50, 'Estimating displacement for demo data...',
+                                     console_log="Estimating displacement for demo data")
+                if not estimator.estimate_displacement_enhanced():
+                    logger.error("Error estimating displacement for demo data")
+                    flash('Error estimating displacement for demo data', 'error')
+                    update_processing_status('error', 100, 'Failed to estimate displacement for demo data')
+                    return redirect(url_for('index'))
+                
+                update_processing_status('processing', 60, 'Displacement estimated successfully for demo data',
+                                      console_log="Displacement maps calculated successfully for demo data")
             else:
                 logger.error("Error creating synthetic data")
                 flash('Error creating synthetic data', 'error')
@@ -672,9 +701,32 @@ def process():
         
         # Save vibration energy map
         try:
-            energy_map_file = os.path.join(result_dir, 'vibration_energy_map.png')
-            estimator.plot_vibration_energy_map(output_file=energy_map_file)
-            append_to_detailed_log(f"Saved vibration energy map to {energy_map_file}")
+            # Calculate vibration energy map first
+            update_processing_status('processing', 92, 'Calculating vibration energy map...',
+                                  console_log="Calculating vibration energy map")
+            
+            if estimator.calculate_vibration_energy_map():
+                energy_map_file = os.path.join(result_dir, 'vibration_energy_map.png')
+                estimator.plot_vibration_energy_map(output_file=energy_map_file)
+                append_to_detailed_log(f"Saved vibration energy map to {energy_map_file}")
+                
+                # Attempt to detect ship regions
+                update_processing_status('processing', 93, 'Detecting ship regions...',
+                                      console_log="Detecting ship regions based on vibration energy")
+                try:
+                    if estimator.detect_ship_regions(num_regions=3, energy_threshold=-15):
+                        ship_regions_file = os.path.join(result_dir, 'ship_regions.png')
+                        # If a plot_ship_regions method exists, use it
+                        if hasattr(estimator, 'plot_ship_regions'):
+                            estimator.plot_ship_regions(output_file=ship_regions_file)
+                            append_to_detailed_log(f"Saved ship regions visualization to {ship_regions_file}")
+                        append_to_detailed_log(f"Detected {len(estimator.ship_regions)} ship regions")
+                except Exception as e:
+                    logger.warning(f"Error detecting ship regions: {str(e)}")
+                    append_to_detailed_log(f"Error detecting ship regions: {str(e)}")
+            else:
+                logger.warning("Failed to calculate vibration energy map")
+                append_to_detailed_log("Failed to calculate vibration energy map")
         except Exception as e:
             logger.error(f"Error saving vibration energy map: {str(e)}")
             append_to_detailed_log(f"Error saving vibration energy map: {str(e)}")

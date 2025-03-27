@@ -5053,3 +5053,1354 @@ UnboundLocalError: cannot access local variable 'measurement_points' where it is
 2025-03-26 08:12:23,817 - ship_micromotion - DEBUG - Updated processing status: error, progress: 100, details: Failed to analyze time series
 2025-03-26 08:12:23,825 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:23] "[32mPOST /process HTTP/1.1[0m" 302 -
 2025-03-26 08:12:23,857 - werkzeug - INFO - 127.0.0.1 - - [26/Mar/2025 08:12:23] "GET / HTTP/1.1" 200 -
+2025-03-26 18:37:52,895 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://192.168.2.65:5002
+2025-03-26 18:37:52,896 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-26 18:37:52,900 - werkzeug - INFO -  * Restarting with stat
+2025-03-26 18:37:55,174 - werkzeug - WARNING -  * Debugger is active!
+2025-03-26 18:37:55,182 - werkzeug - INFO -  * Debugger PIN: 366-458-988
+2025-03-26 18:38:39,579 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:38:39] "GET / HTTP/1.1" 200 -
+2025-03-26 18:38:40,607 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:38:40] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 18:38:46,228 - ship_micromotion - INFO - Created results directory: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_183846
+2025-03-26 18:38:46,231 - ship_micromotion - INFO - Starting new processing run, results will be saved to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_183846
+2025-03-26 18:38:46,231 - ship_micromotion - INFO - Starting new processing run, results directory: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_183846
+2025-03-26 18:38:46,232 - ship_micromotion - DEBUG - Updated processing status: starting, progress: 0, details: Initializing processing
+2025-03-26 18:38:46,239 - ship_micromotion - INFO - Initializing estimator with parameters: num_subapertures=7, window_size=64, overlap=0.5
+2025-03-26 18:38:46,246 - ship_micromotion - INFO - Using existing file: 2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-26 18:38:46,247 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 5, details: Using existing file: 2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-26 18:38:46,247 - ship_micromotion - INFO - Loading CPHD file: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\uploads\2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-26 18:38:46,248 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 10, details: Loading CPHD file: 2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-26 18:38:46,248 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 10, details: CPHD Loading: Opening CPHD file...
+2025-03-26 18:38:46,752 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 13, details: CPHD Loading: Reading metadata...
+2025-03-26 18:38:47,255 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 17, details: CPHD Loading: Reading data chip...
+2025-03-26 18:38:47,759 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 21, details: CPHD Loading: Processing PVP data...
+2025-03-26 18:38:49,687 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:38:49] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:38:52,695 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:38:52] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:38:55,808 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:38:55] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:38:58,710 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:38:58] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:39:01,718 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:39:01] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:39:04,702 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:39:04] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:39:07,700 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:39:07] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:39:10,698 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:39:10] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:39:13,719 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:39:13] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:39:16,697 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:39:16] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:39:20,100 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:39:20] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:39:22,935 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:39:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:39:25,711 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:39:25] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:39:28,479 - ship_micromotion - INFO - CPHD file loaded successfully
+2025-03-26 18:39:28,485 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 25, details: CPHD file loaded successfully
+2025-03-26 18:39:28,744 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:39:28] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:39:31,739 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:39:31] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:39:31,750 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:39:31,753 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:39:31,753 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:39:31,754 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:39:31,754 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 18:39:31,857 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:39:31,857 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:39:31,857 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:39:31,858 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:39:31,858 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 18:39:31,958 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:39:31,958 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:39:31,959 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:39:31,959 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:39:31,959 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 374
+2025-03-26 18:39:31,971 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:39:31,971 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:39:31,971 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:39:31,971 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:39:31,972 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 286
+2025-03-26 18:39:31,975 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:39:31,975 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:39:31,975 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:39:31,976 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:39:31,976 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 263
+2025-03-26 18:39:31,979 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:39:31,979 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:39:31,980 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:39:31,982 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:39:31,982 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 387
+2025-03-26 18:39:31,987 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:39:31,987 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:39:31,987 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:39:31,987 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:39:31,988 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 436
+2025-03-26 18:39:31,994 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:39:31,994 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:39:31,994 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:39:31,995 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:39:31,995 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 351
+2025-03-26 18:39:31,999 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:39:32,000 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:39:32,000 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:39:32,000 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:39:32,001 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 364
+2025-03-26 18:39:35,111 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:39:35] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:39:37,871 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:39:37] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:39:41,764 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:39:41] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:39:43,718 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:39:43] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:39:47,567 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:39:47] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:39:53,060 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:39:53] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:39:53,187 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:39:53] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:39:56,645 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:39:56] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:39:59,500 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:39:59] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:40:10,134 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:40:10] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:40:17,727 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:40:17] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:40:22,889 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:40:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:40:23,752 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:40:23] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:40:23,936 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:40:23] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:40:24,072 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:40:24] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:40:24,235 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:40:24] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:40:24,307 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:40:24] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:40:25,718 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:40:25] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:40:29,618 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:40:29] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:40:31,697 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:40:31] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:40:34,707 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:40:34] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:40:37,698 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:40:37] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:40:40,715 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:40:40] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:40:43,708 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:40:43] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:40:46,713 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:40:46] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:40:49,701 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:40:49] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:40:52,706 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:40:52] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:40:55,712 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:40:55] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:40:58,699 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:40:58] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:41:02,935 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:41:02] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:41:04,719 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:41:04] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:41:07,722 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:41:07] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:41:10,741 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:41:10] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:41:13,967 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:41:13] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:41:24,386 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:41:24] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:41:25,951 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:41:25] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:41:26,106 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:41:26] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:41:26,243 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:41:26] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:41:28,771 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:41:28] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:41:31,767 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:41:31] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:41:34,756 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:41:34] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:41:37,854 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:41:37] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:41:40,718 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:41:40] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:41:43,703 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:41:43] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:41:46,692 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:41:46] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:41:49,705 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:41:49] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:41:52,713 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:41:52] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:41:55,710 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:41:55] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:41:58,708 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:41:58] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:42:01,703 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:42:01] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:42:04,725 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:42:04] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:42:07,709 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:42:07] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:42:10,721 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:42:10] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:42:13,722 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:42:13] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:42:16,727 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:42:16] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:42:19,709 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:42:19] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:42:22,700 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:42:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:42:25,700 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:42:25] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:42:28,726 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:42:28] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:42:31,746 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:42:31] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:42:34,706 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:42:34] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:42:37,704 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:42:37] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:42:40,716 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:42:40] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:42:43,706 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:42:43] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:42:46,700 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:42:46] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:42:49,703 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:42:49] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:42:52,706 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:42:52] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:42:55,716 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:42:55] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:42:58,699 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:42:58] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:43:01,702 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:43:01] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:43:04,696 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:43:04] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:43:07,712 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:43:07] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:43:10,712 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:43:10] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:43:13,710 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:43:13] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:43:16,711 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:43:16] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:43:19,704 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:43:19] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:43:22,716 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:43:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:43:25,706 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:43:25] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:43:28,702 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:43:28] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:43:31,693 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:43:31] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:43:34,701 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:43:34] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:43:37,697 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:43:37] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:43:40,698 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:43:40] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:43:43,698 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:43:43] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:43:46,712 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:43:46] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:43:49,707 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:43:49] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:43:52,706 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:43:52] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:43:55,706 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:43:55] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:43:58,705 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:43:58] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:44:01,704 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:44:01] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:44:04,704 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:44:04] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:44:07,702 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:44:07] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:44:10,701 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:44:10] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:44:13,699 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:44:13] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:44:16,709 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:44:16] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:44:19,714 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:44:19] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:44:22,722 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:44:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:44:25,713 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:44:25] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:44:28,709 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:44:28] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:44:31,709 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:44:31] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:44:34,710 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:44:34] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:44:37,708 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:44:37] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:44:40,703 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:44:40] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:44:43,834 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:44:43] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:44:46,701 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:44:46] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:44:49,749 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:44:49] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:44:52,696 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:44:52] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:44:55,845 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:44:55] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:44:58,711 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:44:58] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:45:01,714 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:45:01] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:45:04,702 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:45:04] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:45:07,712 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:45:07] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:45:10,709 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:45:10] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:45:13,707 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:45:13] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:45:16,709 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:45:16] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:45:19,702 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:45:19] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:45:22,720 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:45:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:45:25,698 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:45:25] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:45:29,048 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:45:29] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:45:31,707 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:45:31] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:45:34,710 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:45:34] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:45:38,035 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:45:38] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:45:40,695 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:45:40] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:45:44,282 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:45:44] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:45:47,275 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:45:47] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:45:50,273 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:45:50] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:45:53,300 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:45:53] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:45:56,279 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:45:56] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:45:59,280 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:45:59] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:46:02,271 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:46:02] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:46:05,270 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:46:05] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:46:08,278 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:46:08] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:46:11,272 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:46:11] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:46:14,276 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:46:14] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:46:17,283 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:46:17] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:46:20,276 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:46:20] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:46:23,277 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:46:23] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:46:26,280 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:46:26] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:46:29,325 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:46:29] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:46:32,266 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:46:32] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:46:35,462 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:46:35] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:46:38,313 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:46:38] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:46:41,266 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:46:41] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:47:22,318 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:47:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:48:25,836 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:48:25] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:49:22,322 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:49:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:50:22,281 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:50:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:51:22,834 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:51:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:52:22,920 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:52:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:53:22,300 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:53:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:53:56,362 - ship_micromotion - INFO - Saved raw data visualization to results folder
+2025-03-26 18:53:56,370 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 25, details: Raw data visualization saved
+2025-03-26 18:53:56,370 - ship_micromotion - INFO - Creating subapertures
+2025-03-26 18:53:56,370 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 30, details: Creating subapertures...
+2025-03-26 18:53:56,639 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:53:56,639 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:53:56,639 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:53:56,639 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:53:56,639 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 18:53:56,655 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:53:56,655 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:53:56,655 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:53:56,655 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:53:56,655 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 18:53:56,701 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:53:56,701 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:53:56,701 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:53:56,701 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:53:56,701 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 374
+2025-03-26 18:53:56,704 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:53:56,704 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:53:56,704 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:53:56,704 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:53:56,704 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 286
+2025-03-26 18:53:56,704 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:53:56,704 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:53:56,718 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:53:56,718 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:53:56,720 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 263
+2025-03-26 18:53:56,724 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:53:56,724 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:53:56,724 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:53:56,726 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:53:56,726 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 387
+2025-03-26 18:53:56,730 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:53:56,730 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:53:56,732 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:53:56,732 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:53:56,732 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 436
+2025-03-26 18:53:56,740 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:53:56,740 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:53:56,740 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:53:56,742 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:53:56,742 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 351
+2025-03-26 18:53:56,748 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:53:56,748 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:53:56,750 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:53:56,752 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:53:56,752 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 364
+2025-03-26 18:54:22,293 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:54:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:54:54,643 - ship_micromotion - INFO - Created 7 subapertures
+2025-03-26 18:54:54,643 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 35, details: Subapertures created successfully
+2025-03-26 18:54:54,644 - ship_micromotion - INFO - Focusing subapertures
+2025-03-26 18:54:54,644 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 40, details: Focusing subapertures...
+2025-03-26 18:54:54,762 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:54:54,764 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:54:54,764 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:54:54,764 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:54:54,764 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 18:54:54,772 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:54:54,772 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:54:54,772 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:54:54,772 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:54:54,774 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 18:54:54,798 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:54:54,798 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:54:54,800 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:54:54,800 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:54:54,800 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 374
+2025-03-26 18:54:54,800 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:54:54,800 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:54:54,800 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:54:54,804 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:54:54,804 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 286
+2025-03-26 18:54:54,805 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:54:54,805 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:54:54,805 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:54:54,805 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:54:54,805 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 263
+2025-03-26 18:54:54,805 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:54:54,805 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:54:54,805 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:54:54,805 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:54:54,805 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 387
+2025-03-26 18:54:54,818 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:54:54,818 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:54:54,818 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:54:54,818 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:54:54,818 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 436
+2025-03-26 18:54:54,822 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:54:54,822 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:54:54,822 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:54:54,822 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:54:54,822 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 351
+2025-03-26 18:54:54,824 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:54:54,824 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:54:54,824 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:54:54,824 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:54:54,824 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 364
+2025-03-26 18:55:18,741 - ship_micromotion - INFO - Generated 7 SLC images
+2025-03-26 18:55:18,741 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 45, details: Subapertures focused successfully
+2025-03-26 18:55:18,741 - ship_micromotion - INFO - Memory usage before displacement estimation: 4448.27 MB
+2025-03-26 18:55:18,741 - ship_micromotion - INFO - Estimating displacement using enhanced memory-efficient algorithm
+2025-03-26 18:55:18,741 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 50, details: Estimating displacement (enhanced version)...
+2025-03-26 18:55:18,741 - ship_micromotion - DEBUG - Calling enhanced memory-efficient displacement estimation
+2025-03-26 18:55:22,281 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:55:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:56:22,275 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:56:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:57:22,271 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:57:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:58:22,282 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:58:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:59:21,119 - ship_micromotion - DEBUG - Displacement estimation returned: True
+2025-03-26 18:59:21,119 - ship_micromotion - INFO - Memory usage after displacement estimation: 4053.43 MB
+2025-03-26 18:59:21,119 - ship_micromotion - INFO - Memory difference: -394.84 MB
+2025-03-26 18:59:21,216 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:21,216 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:21,218 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:21,218 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:21,218 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 18:59:21,224 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:21,224 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:21,224 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:21,226 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:21,226 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 18:59:21,247 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:21,249 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:21,249 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:21,249 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:21,249 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 374
+2025-03-26 18:59:21,251 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:21,251 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:21,251 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:21,253 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:21,253 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 286
+2025-03-26 18:59:21,255 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:21,255 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:21,255 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:21,255 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:21,255 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 263
+2025-03-26 18:59:21,257 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:21,257 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:21,257 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:21,259 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:21,259 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 387
+2025-03-26 18:59:21,265 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:21,265 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:21,265 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:21,265 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:21,265 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 436
+2025-03-26 18:59:21,269 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:21,269 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:21,269 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:21,269 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:21,269 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 351
+2025-03-26 18:59:21,269 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:21,269 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:21,269 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:21,269 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:21,269 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 364
+2025-03-26 18:59:21,935 - ship_micromotion - INFO - Displacement maps calculated successfully
+2025-03-26 18:59:21,935 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 60, details: Displacement estimated successfully
+2025-03-26 18:59:21,935 - ship_micromotion - INFO - Analyzing time series at 2 measurement points
+2025-03-26 18:59:21,943 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 90, details: Analyzing time series at measurement points...
+2025-03-26 18:59:21,943 - ship_micromotion - INFO - Saving results to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_183846
+2025-03-26 18:59:21,943 - ship_micromotion - DEBUG - Updated processing status: saving, progress: 95, details: Saving results to timestamped folder...
+2025-03-26 18:59:21,943 - ship_micromotion - INFO - Calculating vibration energy map
+2025-03-26 18:59:21,943 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 92, details: Calculating vibration energy map...
+2025-03-26 18:59:22,327 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:59:22] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 18:59:22,434 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:22,437 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:22,439 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:22,439 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:22,439 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 18:59:22,450 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:22,450 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:22,451 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:22,452 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:22,453 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 18:59:22,483 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:22,484 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:22,484 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:22,484 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:22,484 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 374
+2025-03-26 18:59:22,489 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:22,489 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:22,489 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:22,489 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:22,489 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 286
+2025-03-26 18:59:22,492 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:22,492 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:22,492 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:22,492 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:22,492 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 263
+2025-03-26 18:59:22,498 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:22,499 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:22,499 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:22,499 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:22,499 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 387
+2025-03-26 18:59:22,503 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:22,503 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:22,503 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:22,503 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:22,503 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 436
+2025-03-26 18:59:22,503 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:22,503 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:22,503 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:22,503 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:22,503 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 351
+2025-03-26 18:59:22,509 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:22,511 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:22,511 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:22,511 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:22,512 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 364
+2025-03-26 18:59:29,473 - ship_micromotion - INFO - Detecting ship regions based on vibration energy
+2025-03-26 18:59:29,473 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 93, details: Detecting ship regions...
+2025-03-26 18:59:29,574 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:29,574 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:29,574 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:29,574 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:29,574 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 18:59:29,574 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:29,574 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:29,574 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:29,574 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:29,574 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 18:59:29,606 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:29,606 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:29,606 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:29,606 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:29,606 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 374
+2025-03-26 18:59:29,606 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:29,606 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:29,606 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:29,606 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:29,606 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 286
+2025-03-26 18:59:29,606 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:29,606 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:29,606 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:29,624 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:29,625 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 263
+2025-03-26 18:59:29,627 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:29,627 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:29,627 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:29,629 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:29,629 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 387
+2025-03-26 18:59:29,631 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:29,631 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:29,631 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:29,631 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:29,631 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 436
+2025-03-26 18:59:29,631 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:29,631 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:29,631 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:29,631 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:29,631 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 351
+2025-03-26 18:59:29,637 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:29,637 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:29,637 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:29,637 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:29,637 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 364
+2025-03-26 18:59:30,206 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:30,206 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:30,206 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:30,206 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:30,206 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 18:59:30,219 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:30,219 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:30,219 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:30,219 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:30,219 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 18:59:30,239 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:30,239 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:30,239 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:30,239 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:30,239 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 374
+2025-03-26 18:59:30,239 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:30,239 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:30,239 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:30,239 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:30,239 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 286
+2025-03-26 18:59:30,239 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:30,239 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:30,239 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:30,239 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:30,239 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 263
+2025-03-26 18:59:30,239 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:30,239 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:30,239 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:30,239 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:30,239 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 387
+2025-03-26 18:59:30,260 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:30,261 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:30,261 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:30,261 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:30,261 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 436
+2025-03-26 18:59:30,266 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:30,266 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:30,266 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:30,266 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:30,266 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 351
+2025-03-26 18:59:30,267 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 18:59:30,267 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 18:59:30,267 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 18:59:30,270 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 18:59:30,272 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 364
+2025-03-26 18:59:30,789 - ship_micromotion - INFO - Processing completed successfully
+2025-03-26 18:59:30,792 - ship_micromotion - DEBUG - Updated processing status: complete, progress: 100, details: Processing completed. Results saved to results_20250326_183846
+2025-03-26 18:59:31,470 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:59:31] "[32mPOST /process HTTP/1.1[0m" 302 -
+2025-03-26 18:59:31,552 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:59:31] "GET / HTTP/1.1" 200 -
+2025-03-26 18:59:32,097 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:59:32] "GET /results/results_20250326_183846/point_0_results.png HTTP/1.1" 200 -
+2025-03-26 18:59:32,100 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:59:32] "GET /results/results_20250326_183846/displacement_maps.png HTTP/1.1" 200 -
+2025-03-26 18:59:33,141 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:59:33] "GET /results/results_20250326_183846/slc_images.png HTTP/1.1" 200 -
+2025-03-26 18:59:33,144 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:59:33] "GET /results/results_20250326_183846/raw_data.png HTTP/1.1" 200 -
+2025-03-26 18:59:33,151 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:59:33] "GET /results/results_20250326_183846/point_1_results.png HTTP/1.1" 200 -
+2025-03-26 18:59:33,270 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:59:33] "GET /results/results_20250326_183846/vibration_energy_map.png HTTP/1.1" 200 -
+2025-03-26 18:59:33,270 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 18:59:33] "GET /results/results_20250326_183846/subapertures_spectrum.png HTTP/1.1" 200 -
+2025-03-26 19:58:08,611 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 19:58:08] "[36mGET /results/results_20250326_183846/vibration_energy_map.png HTTP/1.1[0m" 304 -
+2025-03-26 19:58:42,246 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 19:58:42] "[36mGET /results/results_20250326_183846/slc_images.png HTTP/1.1[0m" 304 -
+2025-03-26 20:29:47,537 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Suman\\Desktop\\Gauntlet_Code\\ship_micromotion_v2\\code\\micromotion_estimator.py', reloading
+2025-03-26 20:30:10,846 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://192.168.2.65:5002
+2025-03-26 20:30:10,846 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-26 20:30:10,846 - werkzeug - INFO -  * Restarting with stat
+2025-03-26 20:30:12,826 - werkzeug - WARNING -  * Debugger is active!
+2025-03-26 20:30:12,836 - werkzeug - INFO -  * Debugger PIN: 366-458-988
+2025-03-26 20:30:21,027 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 20:30:21] "GET / HTTP/1.1" 200 -
+2025-03-26 20:30:21,224 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 20:30:21] "[36mGET /results/results_20250326_183846/displacement_maps.png HTTP/1.1[0m" 304 -
+2025-03-26 20:30:21,224 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 20:30:21] "[36mGET /results/results_20250326_183846/point_0_results.png HTTP/1.1[0m" 304 -
+2025-03-26 20:30:21,389 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 20:30:21] "[36mGET /results/results_20250326_183846/raw_data.png HTTP/1.1[0m" 304 -
+2025-03-26 20:30:21,390 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 20:30:21] "[36mGET /results/results_20250326_183846/point_1_results.png HTTP/1.1[0m" 304 -
+2025-03-26 20:30:21,391 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 20:30:21] "[36mGET /results/results_20250326_183846/slc_images.png HTTP/1.1[0m" 304 -
+2025-03-26 20:30:21,426 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 20:30:21] "[36mGET /results/results_20250326_183846/subapertures_spectrum.png HTTP/1.1[0m" 304 -
+2025-03-26 20:30:21,436 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 20:30:21] "[36mGET /results/results_20250326_183846/vibration_energy_map.png HTTP/1.1[0m" 304 -
+2025-03-26 20:30:30,772 - ship_micromotion - INFO - Created results directory: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_203030
+2025-03-26 20:30:30,776 - ship_micromotion - INFO - Starting new processing run, results will be saved to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_203030
+2025-03-26 20:30:30,777 - ship_micromotion - INFO - Starting new processing run, results directory: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_203030
+2025-03-26 20:30:30,777 - ship_micromotion - DEBUG - Updated processing status: starting, progress: 0, details: Initializing processing
+2025-03-26 20:30:30,781 - ship_micromotion - INFO - Initializing estimator with parameters: num_subapertures=7, window_size=64, overlap=0.5
+2025-03-26 20:30:30,781 - ship_micromotion - INFO - Using existing file: 2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-26 20:30:30,781 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 5, details: Using existing file: 2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-26 20:30:30,781 - ship_micromotion - INFO - Loading CPHD file: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\uploads\2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-26 20:30:30,781 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 10, details: Loading CPHD file: 2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-26 20:30:30,781 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 10, details: CPHD Loading: Opening CPHD file...
+2025-03-26 20:30:31,290 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 13, details: CPHD Loading: Reading metadata...
+2025-03-26 20:30:31,795 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 17, details: CPHD Loading: Reading data chip...
+2025-03-26 20:30:32,297 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 21, details: CPHD Loading: Processing PVP data...
+2025-03-26 20:30:34,263 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 20:30:34] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 20:30:36,314 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 20:30:36] "GET / HTTP/1.1" 200 -
+2025-03-26 20:30:36,360 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 20:30:36] "[36mGET /results/results_20250326_183846/displacement_maps.png HTTP/1.1[0m" 304 -
+2025-03-26 20:30:36,368 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 20:30:36] "[36mGET /results/results_20250326_183846/point_0_results.png HTTP/1.1[0m" 304 -
+2025-03-26 20:30:36,513 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 20:30:36] "[36mGET /results/results_20250326_183846/point_1_results.png HTTP/1.1[0m" 304 -
+2025-03-26 20:30:36,533 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 20:30:36] "[36mGET /results/results_20250326_183846/raw_data.png HTTP/1.1[0m" 304 -
+2025-03-26 20:30:36,533 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 20:30:36] "[36mGET /results/results_20250326_183846/vibration_energy_map.png HTTP/1.1[0m" 304 -
+2025-03-26 20:30:36,548 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 20:30:36] "[36mGET /results/results_20250326_183846/subapertures_spectrum.png HTTP/1.1[0m" 304 -
+2025-03-26 20:30:36,556 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 20:30:36] "[36mGET /results/results_20250326_183846/slc_images.png HTTP/1.1[0m" 304 -
+2025-03-26 20:31:00,464 - ship_micromotion - INFO - CPHD file loaded successfully
+2025-03-26 20:31:00,480 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 25, details: CPHD file loaded successfully
+2025-03-26 20:31:01,538 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:31:01,538 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:31:01,538 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:31:01,538 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:31:01,538 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 20:31:01,586 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:31:01,586 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:31:01,586 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:31:01,586 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:31:01,586 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 20:31:01,662 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:31:01,662 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:31:01,662 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:31:01,662 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:31:01,666 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 374
+2025-03-26 20:31:01,667 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:31:01,667 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:31:01,677 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:31:01,677 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:31:01,677 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 286
+2025-03-26 20:31:01,682 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:31:01,682 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:31:01,682 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:31:01,682 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:31:01,682 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 263
+2025-03-26 20:31:01,684 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:31:01,687 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:31:01,687 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:31:01,687 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:31:01,687 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 387
+2025-03-26 20:31:01,687 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:31:01,687 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:31:01,687 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:31:01,687 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:31:01,687 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 436
+2025-03-26 20:31:01,687 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:31:01,687 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:31:01,687 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:31:01,687 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:31:01,687 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 351
+2025-03-26 20:31:01,699 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:31:01,699 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:31:01,699 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:31:01,699 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:31:01,699 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 364
+2025-03-26 20:44:12,069 - ship_micromotion - INFO - Saved raw data visualization to results folder
+2025-03-26 20:44:12,095 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 25, details: Raw data visualization saved
+2025-03-26 20:44:12,095 - ship_micromotion - INFO - Creating subapertures
+2025-03-26 20:44:12,095 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 30, details: Creating subapertures...
+2025-03-26 20:44:12,305 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:44:12,305 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:44:12,305 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:44:12,305 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:44:12,305 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 20:44:12,317 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:44:12,317 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:44:12,317 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:44:12,317 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:44:12,317 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 20:44:12,333 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:44:12,333 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:44:12,333 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:44:12,333 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:44:12,333 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 374
+2025-03-26 20:44:12,349 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:44:12,349 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:44:12,349 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:44:12,349 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:44:12,349 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 286
+2025-03-26 20:44:12,366 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:44:12,368 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:44:12,368 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:44:12,368 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:44:12,368 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 263
+2025-03-26 20:44:12,368 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:44:12,376 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:44:12,376 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:44:12,376 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:44:12,376 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 387
+2025-03-26 20:44:12,381 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:44:12,381 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:44:12,381 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:44:12,381 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:44:12,381 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 436
+2025-03-26 20:44:12,381 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:44:12,381 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:44:12,381 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:44:12,381 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:44:12,381 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 351
+2025-03-26 20:44:12,381 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:44:12,381 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:44:12,381 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:44:12,381 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:44:12,381 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 364
+2025-03-26 20:45:07,435 - ship_micromotion - INFO - Created 7 subapertures
+2025-03-26 20:45:07,437 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 35, details: Subapertures created successfully
+2025-03-26 20:45:07,437 - ship_micromotion - INFO - Focusing subapertures
+2025-03-26 20:45:07,439 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 40, details: Focusing subapertures...
+2025-03-26 20:45:07,522 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:45:07,522 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:45:07,522 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:45:07,522 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:45:07,522 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 20:45:07,529 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:45:07,529 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:45:07,529 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:45:07,532 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:45:07,533 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 20:45:07,552 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:45:07,552 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:45:07,552 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:45:07,554 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:45:07,554 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 374
+2025-03-26 20:45:07,556 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:45:07,556 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:45:07,556 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:45:07,558 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:45:07,558 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 286
+2025-03-26 20:45:07,561 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:45:07,561 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:45:07,561 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:45:07,561 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:45:07,561 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 263
+2025-03-26 20:45:07,561 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:45:07,561 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:45:07,561 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:45:07,561 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:45:07,561 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 387
+2025-03-26 20:45:07,567 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:45:07,567 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:45:07,567 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:45:07,567 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:45:07,567 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 436
+2025-03-26 20:45:07,567 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:45:07,567 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:45:07,567 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:45:07,567 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:45:07,567 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 351
+2025-03-26 20:45:07,576 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:45:07,576 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:45:07,576 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:45:07,577 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:45:07,577 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 364
+2025-03-26 20:45:31,681 - ship_micromotion - INFO - Generated 7 SLC images
+2025-03-26 20:45:31,681 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 45, details: Subapertures focused successfully
+2025-03-26 20:45:31,682 - ship_micromotion - INFO - Memory usage before displacement estimation: 4447.60 MB
+2025-03-26 20:45:31,682 - ship_micromotion - INFO - Estimating displacement using enhanced memory-efficient algorithm
+2025-03-26 20:45:31,682 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 50, details: Estimating displacement (enhanced version)...
+2025-03-26 20:45:31,682 - ship_micromotion - DEBUG - Calling enhanced memory-efficient displacement estimation
+2025-03-26 20:49:27,407 - ship_micromotion - DEBUG - Displacement estimation returned: True
+2025-03-26 20:49:27,407 - ship_micromotion - INFO - Memory usage after displacement estimation: 4052.95 MB
+2025-03-26 20:49:27,407 - ship_micromotion - INFO - Memory difference: -394.64 MB
+2025-03-26 20:49:27,513 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:27,515 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:27,515 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:27,515 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:27,515 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 20:49:27,523 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:27,523 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:27,523 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:27,523 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:27,523 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 20:49:27,542 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:27,542 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:27,542 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:27,544 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:27,544 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 374
+2025-03-26 20:49:27,546 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:27,546 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:27,546 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:27,546 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:27,546 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 286
+2025-03-26 20:49:27,552 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:27,553 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:27,553 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:27,553 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:27,553 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 263
+2025-03-26 20:49:27,553 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:27,553 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:27,553 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:27,553 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:27,553 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 387
+2025-03-26 20:49:27,553 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:27,553 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:27,553 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:27,553 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:27,553 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 436
+2025-03-26 20:49:27,553 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:27,553 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:27,553 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:27,553 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:27,553 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 351
+2025-03-26 20:49:27,566 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:27,566 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:27,566 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:27,566 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:27,566 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 364
+2025-03-26 20:49:28,201 - ship_micromotion - INFO - Displacement maps calculated successfully
+2025-03-26 20:49:28,201 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 60, details: Displacement estimated successfully
+2025-03-26 20:49:28,201 - ship_micromotion - INFO - Analyzing time series at 2 measurement points
+2025-03-26 20:49:28,201 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 90, details: Analyzing time series at measurement points...
+2025-03-26 20:49:28,201 - ship_micromotion - INFO - Saving results to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_203030
+2025-03-26 20:49:28,201 - ship_micromotion - DEBUG - Updated processing status: saving, progress: 95, details: Saving results to timestamped folder...
+2025-03-26 20:49:28,201 - ship_micromotion - INFO - Calculating vibration energy map
+2025-03-26 20:49:28,201 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 92, details: Calculating vibration energy map...
+2025-03-26 20:49:28,599 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:28,599 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:28,599 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:28,599 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:28,599 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 20:49:28,599 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:28,599 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:28,599 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:28,599 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:28,599 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 20:49:28,615 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:28,615 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:28,615 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:28,615 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:28,615 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 374
+2025-03-26 20:49:28,615 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:28,615 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:28,615 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:28,622 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:28,622 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 286
+2025-03-26 20:49:28,622 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:28,622 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:28,622 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:28,622 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:28,622 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 263
+2025-03-26 20:49:28,622 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:28,622 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:28,622 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:28,622 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:28,622 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 387
+2025-03-26 20:49:28,622 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:28,622 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:28,622 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:28,622 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:28,622 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 436
+2025-03-26 20:49:28,631 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:28,631 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:28,631 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:28,631 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:28,631 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 351
+2025-03-26 20:49:28,631 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:28,631 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:28,631 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:28,631 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:28,631 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 364
+2025-03-26 20:49:35,340 - ship_micromotion - INFO - Detecting ship regions based on vibration energy
+2025-03-26 20:49:35,340 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 93, details: Detecting ship regions...
+2025-03-26 20:49:35,414 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:35,414 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:35,414 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:35,414 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:35,414 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 20:49:35,430 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:35,430 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:35,430 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:35,430 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:35,430 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 20:49:35,448 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:35,448 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:35,448 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:35,448 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:35,448 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 374
+2025-03-26 20:49:35,448 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:35,448 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:35,448 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:35,448 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:35,448 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 286
+2025-03-26 20:49:35,462 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:35,463 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:35,463 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:35,463 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:35,463 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 263
+2025-03-26 20:49:35,463 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:35,463 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:35,463 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:35,463 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:35,463 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 387
+2025-03-26 20:49:35,463 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:35,463 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:35,463 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:35,463 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:35,463 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 436
+2025-03-26 20:49:35,463 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:35,463 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:35,463 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:35,463 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:35,463 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 351
+2025-03-26 20:49:35,475 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:35,475 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:35,475 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:35,475 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:35,475 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 364
+2025-03-26 20:49:35,987 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:36,003 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:36,003 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:36,003 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:36,003 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 20:49:36,010 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:36,010 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:36,010 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:36,010 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:36,010 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 20:49:36,019 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:36,019 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:36,019 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:36,019 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:36,019 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 374
+2025-03-26 20:49:36,019 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:36,019 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:36,019 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:36,035 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:36,035 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 286
+2025-03-26 20:49:36,035 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:36,035 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:36,035 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:36,035 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:36,035 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 263
+2025-03-26 20:49:36,035 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:36,035 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:36,035 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:36,035 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:36,035 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 387
+2025-03-26 20:49:36,035 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:36,035 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:36,035 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:36,035 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:36,035 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 436
+2025-03-26 20:49:36,035 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:36,035 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:36,035 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:36,035 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:36,035 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 351
+2025-03-26 20:49:36,047 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 20:49:36,047 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 20:49:36,047 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 20:49:36,050 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 20:49:36,050 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 364
+2025-03-26 20:49:36,489 - ship_micromotion - INFO - Processing completed successfully
+2025-03-26 20:49:36,489 - ship_micromotion - DEBUG - Updated processing status: complete, progress: 100, details: Processing completed. Results saved to results_20250326_203030
+2025-03-26 20:49:36,952 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 20:49:36] "[32mPOST /process HTTP/1.1[0m" 302 -
+2025-03-26 21:35:04,573 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://192.168.2.65:5002
+2025-03-26 21:35:04,589 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-26 21:35:04,589 - werkzeug - INFO -  * Restarting with stat
+2025-03-26 21:35:06,510 - werkzeug - WARNING -  * Debugger is active!
+2025-03-26 21:35:06,526 - werkzeug - INFO -  * Debugger PIN: 366-458-988
+2025-03-26 21:37:22,551 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:22] "GET / HTTP/1.1" 200 -
+2025-03-26 21:37:22,761 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:22] "GET /results/results_20250326_203030/displacement_maps.png HTTP/1.1" 200 -
+2025-03-26 21:37:22,763 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:22] "GET /results/results_20250326_203030/point_0_results.png HTTP/1.1" 200 -
+2025-03-26 21:37:22,948 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:22] "GET /results/results_20250326_203030/point_1_results.png HTTP/1.1" 200 -
+2025-03-26 21:37:22,951 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:22] "GET /results/results_20250326_203030/raw_data.png HTTP/1.1" 200 -
+2025-03-26 21:37:22,964 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:22] "GET /results/results_20250326_203030/slc_images.png HTTP/1.1" 200 -
+2025-03-26 21:37:23,007 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:23] "GET /results/results_20250326_203030/subapertures_spectrum.png HTTP/1.1" 200 -
+2025-03-26 21:37:23,014 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:23] "GET /results/results_20250326_203030/vibration_energy_map.png HTTP/1.1" 200 -
+2025-03-26 21:37:23,014 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:23] "[36mGET /results/results_20250326_183846/displacement_maps.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:23,020 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:23] "[36mGET /results/results_20250326_183846/point_0_results.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:23,071 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:23] "[36mGET /results/results_20250326_183846/raw_data.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:23,074 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:23] "[36mGET /results/results_20250326_183846/point_1_results.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:23,087 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:23] "[36mGET /results/results_20250326_183846/slc_images.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:23,091 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:23] "[36mGET /results/results_20250326_183846/subapertures_spectrum.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:23,099 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:23] "[36mGET /results/results_20250326_183846/vibration_energy_map.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:29,311 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:29] "GET / HTTP/1.1" 200 -
+2025-03-26 21:37:29,358 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:29] "[36mGET /results/results_20250326_203030/displacement_maps.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:29,359 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:29] "[36mGET /results/results_20250326_203030/point_0_results.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:29,504 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:29] "[36mGET /results/results_20250326_203030/raw_data.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:29,515 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:29] "[36mGET /results/results_20250326_203030/subapertures_spectrum.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:29,515 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:29] "[36mGET /results/results_20250326_203030/slc_images.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:29,524 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:29] "[36mGET /results/results_20250326_203030/point_1_results.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:29,544 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:29] "[36mGET /results/results_20250326_183846/displacement_maps.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:29,545 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:29] "[36mGET /results/results_20250326_203030/vibration_energy_map.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:29,548 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:29] "[36mGET /results/results_20250326_183846/point_0_results.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:29,578 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:29] "[36mGET /results/results_20250326_183846/subapertures_spectrum.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:29,578 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:29] "[36mGET /results/results_20250326_183846/slc_images.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:29,579 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:29] "[36mGET /results/results_20250326_183846/raw_data.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:29,580 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:29] "[36mGET /results/results_20250326_183846/vibration_energy_map.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:29,591 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:29] "[36mGET /results/results_20250326_183846/point_1_results.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:34,992 - ship_micromotion - INFO - Created results directory: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_213734
+2025-03-26 21:37:34,996 - ship_micromotion - INFO - Starting new processing run, results will be saved to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_213734
+2025-03-26 21:37:34,996 - ship_micromotion - INFO - Starting new processing run, results directory: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_213734
+2025-03-26 21:37:34,997 - ship_micromotion - DEBUG - Updated processing status: starting, progress: 0, details: Initializing processing
+2025-03-26 21:37:35,002 - ship_micromotion - INFO - Initializing estimator with parameters: num_subapertures=7, window_size=64, overlap=0.5
+2025-03-26 21:37:35,009 - ship_micromotion - INFO - Using existing file: 2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-26 21:37:35,010 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 5, details: Using existing file: 2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-26 21:37:35,011 - ship_micromotion - INFO - Loading CPHD file: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\uploads\2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-26 21:37:35,011 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 10, details: Loading CPHD file: 2023-08-31-01-09-38_UMBRA-04_CPHD.cphd
+2025-03-26 21:37:35,011 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 10, details: CPHD Loading: Opening CPHD file...
+2025-03-26 21:37:35,513 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 13, details: CPHD Loading: Reading metadata...
+2025-03-26 21:37:36,019 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 17, details: CPHD Loading: Reading data chip...
+2025-03-26 21:37:36,521 - ship_micromotion - DEBUG - Updated processing status: loading, progress: 21, details: CPHD Loading: Processing PVP data...
+2025-03-26 21:37:38,473 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:38] "GET /check_status HTTP/1.1" 200 -
+2025-03-26 21:37:40,522 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:40] "GET / HTTP/1.1" 200 -
+2025-03-26 21:37:40,577 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:40] "[36mGET /results/results_20250326_203030/point_0_results.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:40,577 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:40] "[36mGET /results/results_20250326_203030/displacement_maps.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:40,747 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:40] "[36mGET /results/results_20250326_203030/raw_data.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:40,753 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:40] "[36mGET /results/results_20250326_203030/slc_images.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:40,753 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:40] "[36mGET /results/results_20250326_203030/point_1_results.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:40,755 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:40] "[36mGET /results/results_20250326_183846/displacement_maps.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:40,757 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:40] "[36mGET /results/results_20250326_203030/vibration_energy_map.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:40,757 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:40] "[36mGET /results/results_20250326_203030/subapertures_spectrum.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:40,786 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:40] "[36mGET /results/results_20250326_183846/point_1_results.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:40,788 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:40] "[36mGET /results/results_20250326_183846/point_0_results.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:40,791 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:40] "[36mGET /results/results_20250326_183846/slc_images.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:40,795 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:40] "[36mGET /results/results_20250326_183846/raw_data.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:40,802 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:40] "[36mGET /results/results_20250326_183846/subapertures_spectrum.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:40,816 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:37:40] "[36mGET /results/results_20250326_183846/vibration_energy_map.png HTTP/1.1[0m" 304 -
+2025-03-26 21:37:57,295 - ship_micromotion - INFO - CPHD file loaded successfully
+2025-03-26 21:37:57,295 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 25, details: CPHD file loaded successfully
+2025-03-26 21:37:57,990 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:37:57,990 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:37:57,995 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:37:57,995 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:37:57,995 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 21:37:58,010 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:37:58,010 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:37:58,010 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:37:58,010 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:37:58,010 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 21:37:58,070 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:37:58,070 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:37:58,070 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:37:58,070 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:37:58,070 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 374
+2025-03-26 21:37:58,076 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:37:58,076 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:37:58,076 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:37:58,076 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:37:58,076 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 286
+2025-03-26 21:37:58,076 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:37:58,076 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:37:58,076 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:37:58,076 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:37:58,085 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 263
+2025-03-26 21:37:58,085 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:37:58,085 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:37:58,085 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:37:58,085 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:37:58,085 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 387
+2025-03-26 21:37:58,085 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:37:58,085 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:37:58,085 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:37:58,085 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:37:58,085 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 436
+2025-03-26 21:37:58,085 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:37:58,085 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:37:58,085 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:37:58,085 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:37:58,085 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 351
+2025-03-26 21:37:58,085 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:37:58,085 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:37:58,085 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:37:58,085 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:37:58,085 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 364
+2025-03-26 21:51:24,166 - ship_micromotion - INFO - Saved raw data visualization to results folder
+2025-03-26 21:51:24,194 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 25, details: Raw data visualization saved
+2025-03-26 21:51:24,194 - ship_micromotion - INFO - Creating subapertures
+2025-03-26 21:51:24,194 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 30, details: Creating subapertures...
+2025-03-26 21:51:24,417 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:51:24,417 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:51:24,417 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:51:24,417 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:51:24,417 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 21:51:24,433 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:51:24,433 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:51:24,433 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:51:24,433 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:51:24,433 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 21:51:24,464 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:51:24,464 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:51:24,464 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:51:24,464 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:51:24,464 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 374
+2025-03-26 21:51:24,468 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:51:24,468 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:51:24,468 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:51:24,468 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:51:24,468 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 286
+2025-03-26 21:51:24,468 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:51:24,468 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:51:24,468 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:51:24,468 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:51:24,468 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 263
+2025-03-26 21:51:24,481 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:51:24,481 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:51:24,481 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:51:24,481 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:51:24,481 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 387
+2025-03-26 21:51:24,481 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:51:24,481 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:51:24,481 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:51:24,481 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:51:24,481 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 436
+2025-03-26 21:51:24,481 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:51:24,481 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:51:24,481 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:51:24,481 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:51:24,481 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 351
+2025-03-26 21:51:24,496 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:51:24,496 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:51:24,496 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:51:24,496 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:51:24,496 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 364
+2025-03-26 21:52:21,176 - ship_micromotion - INFO - Created 7 subapertures
+2025-03-26 21:52:21,176 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 35, details: Subapertures created successfully
+2025-03-26 21:52:21,186 - ship_micromotion - INFO - Focusing subapertures
+2025-03-26 21:52:21,186 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 40, details: Focusing subapertures...
+2025-03-26 21:52:21,269 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:52:21,269 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:52:21,269 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:52:21,269 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:52:21,269 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 21:52:21,269 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:52:21,269 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:52:21,269 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:52:21,269 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:52:21,269 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 21:52:21,303 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:52:21,303 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:52:21,303 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:52:21,303 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:52:21,303 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 374
+2025-03-26 21:52:21,305 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:52:21,307 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:52:21,307 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:52:21,307 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:52:21,307 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 286
+2025-03-26 21:52:21,309 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:52:21,309 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:52:21,309 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:52:21,309 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:52:21,309 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 263
+2025-03-26 21:52:21,313 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:52:21,313 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:52:21,313 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:52:21,313 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:52:21,313 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 387
+2025-03-26 21:52:21,317 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:52:21,317 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:52:21,317 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:52:21,317 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:52:21,317 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 436
+2025-03-26 21:52:21,320 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:52:21,320 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:52:21,320 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:52:21,320 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:52:21,320 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 351
+2025-03-26 21:52:21,320 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:52:21,320 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:52:21,320 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:52:21,320 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:52:21,320 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 364
+2025-03-26 21:52:45,373 - ship_micromotion - INFO - Generated 7 SLC images
+2025-03-26 21:52:45,373 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 45, details: Subapertures focused successfully
+2025-03-26 21:52:45,383 - ship_micromotion - INFO - Memory usage before displacement estimation: 4447.28 MB
+2025-03-26 21:52:45,383 - ship_micromotion - INFO - Estimating displacement using enhanced memory-efficient algorithm
+2025-03-26 21:52:45,383 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 50, details: Estimating displacement (enhanced version)...
+2025-03-26 21:52:45,383 - ship_micromotion - DEBUG - Calling enhanced memory-efficient displacement estimation
+2025-03-26 21:56:59,178 - ship_micromotion - DEBUG - Displacement estimation returned: True
+2025-03-26 21:56:59,179 - ship_micromotion - INFO - Memory usage after displacement estimation: 4052.70 MB
+2025-03-26 21:56:59,179 - ship_micromotion - INFO - Memory difference: -394.58 MB
+2025-03-26 21:56:59,299 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:56:59,299 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:56:59,299 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:56:59,299 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:56:59,299 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 21:56:59,309 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:56:59,309 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:56:59,309 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:56:59,311 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:56:59,311 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 21:56:59,331 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:56:59,333 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:56:59,333 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:56:59,333 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:56:59,333 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 374
+2025-03-26 21:56:59,335 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:56:59,335 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:56:59,337 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:56:59,337 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:56:59,337 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 286
+2025-03-26 21:56:59,341 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:56:59,341 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:56:59,343 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:56:59,343 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:56:59,343 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 263
+2025-03-26 21:56:59,345 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:56:59,345 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:56:59,345 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:56:59,345 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:56:59,347 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 387
+2025-03-26 21:56:59,349 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:56:59,349 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:56:59,349 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:56:59,349 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:56:59,349 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 436
+2025-03-26 21:56:59,351 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:56:59,351 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:56:59,351 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:56:59,353 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:56:59,353 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 351
+2025-03-26 21:56:59,357 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:56:59,357 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:56:59,357 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:56:59,357 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:56:59,357 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 364
+2025-03-26 21:57:00,082 - ship_micromotion - INFO - Displacement maps calculated successfully
+2025-03-26 21:57:00,082 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 60, details: Displacement estimated successfully
+2025-03-26 21:57:00,082 - ship_micromotion - INFO - Analyzing time series at 2 measurement points
+2025-03-26 21:57:00,082 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 90, details: Analyzing time series at measurement points...
+2025-03-26 21:57:00,082 - ship_micromotion - INFO - Saving results to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250326_213734
+2025-03-26 21:57:00,082 - ship_micromotion - DEBUG - Updated processing status: saving, progress: 95, details: Saving results to timestamped folder...
+2025-03-26 21:57:00,082 - ship_micromotion - INFO - Calculating vibration energy map
+2025-03-26 21:57:00,082 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 92, details: Calculating vibration energy map...
+2025-03-26 21:57:00,524 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:00,524 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:00,524 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:00,524 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:00,524 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 21:57:00,531 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:00,531 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:00,531 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:00,531 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:00,531 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 21:57:00,553 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:00,556 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:00,556 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:00,556 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:00,556 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 374
+2025-03-26 21:57:00,556 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:00,556 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:00,556 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:00,556 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:00,556 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 286
+2025-03-26 21:57:00,556 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:00,556 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:00,556 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:00,556 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:00,556 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 263
+2025-03-26 21:57:00,556 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:00,566 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:00,566 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:00,566 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:00,566 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 387
+2025-03-26 21:57:00,572 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:00,574 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:00,574 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:00,574 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:00,574 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 436
+2025-03-26 21:57:00,580 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:00,580 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:00,582 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:00,582 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:00,584 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 351
+2025-03-26 21:57:00,591 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:00,591 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:00,591 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:00,591 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:00,591 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 364
+2025-03-26 21:57:08,141 - ship_micromotion - INFO - Detecting ship regions based on vibration energy
+2025-03-26 21:57:08,141 - ship_micromotion - DEBUG - Updated processing status: processing, progress: 93, details: Detecting ship regions...
+2025-03-26 21:57:08,234 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:08,234 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:08,234 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:08,234 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:08,234 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 21:57:08,252 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:08,252 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:08,252 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:08,252 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:08,255 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 21:57:08,267 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:08,267 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:08,267 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:08,267 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:08,267 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 374
+2025-03-26 21:57:08,281 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:08,281 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:08,281 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:08,281 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:08,281 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 286
+2025-03-26 21:57:08,284 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:08,284 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:08,284 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:08,284 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:08,284 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 263
+2025-03-26 21:57:08,284 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:08,284 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:08,284 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:08,284 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:08,284 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 387
+2025-03-26 21:57:08,294 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:08,294 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:08,294 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:08,294 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:08,294 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 436
+2025-03-26 21:57:08,301 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:08,301 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:08,303 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:08,303 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:08,303 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 351
+2025-03-26 21:57:08,303 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:08,303 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:08,303 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:08,303 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:08,303 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 364
+2025-03-26 21:57:08,883 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:08,883 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:08,883 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:08,898 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:08,898 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 1189
+2025-03-26 21:57:08,898 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:08,898 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:08,898 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:08,898 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:08,898 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 2994
+2025-03-26 21:57:08,925 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:08,925 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:08,925 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:08,925 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:08,925 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 374
+2025-03-26 21:57:08,925 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:08,925 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:08,925 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:08,925 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:08,925 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 286
+2025-03-26 21:57:08,930 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:08,930 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:08,930 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:08,930 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:08,930 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 263
+2025-03-26 21:57:08,930 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:08,930 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:08,930 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:08,930 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:08,930 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 387
+2025-03-26 21:57:08,930 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:08,930 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:08,930 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:08,930 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:08,930 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 436
+2025-03-26 21:57:08,930 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:08,941 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:08,941 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:08,941 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:08,941 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 351
+2025-03-26 21:57:08,941 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-26 21:57:08,941 - PIL.PngImagePlugin - DEBUG - STREAM b'sBIT' 41 4
+2025-03-26 21:57:08,941 - PIL.PngImagePlugin - DEBUG - b'sBIT' 41 4 (unknown)
+2025-03-26 21:57:08,941 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 57 9
+2025-03-26 21:57:08,941 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 78 364
+2025-03-26 21:57:09,487 - ship_micromotion - INFO - Processing completed successfully
+2025-03-26 21:57:09,487 - ship_micromotion - DEBUG - Updated processing status: complete, progress: 100, details: Processing completed. Results saved to results_20250326_213734
+2025-03-26 21:57:10,254 - werkzeug - INFO - 192.168.2.65 - - [26/Mar/2025 21:57:10] "[32mPOST /process HTTP/1.1[0m" 302 -

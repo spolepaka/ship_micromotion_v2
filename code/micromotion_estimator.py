@@ -503,50 +503,65 @@ class ShipMicroMotionEstimator:
         bool
             True if vibration energy map was calculated successfully, False otherwise
         """
-        if self.displacement_maps is None or len(self.displacement_maps) == 0:
-            print("Error: No displacement maps available")
+        if not hasattr(self, 'displacement_maps') or self.displacement_maps is None or len(self.displacement_maps) == 0:
+            self.log("Error: No displacement maps available for vibration energy calculation")
             return False
         
+        self.log("Calculating vibration energy map from displacement maps...")
+        
         # Get dimensions of displacement maps
-        range_map, azimuth_map = self.displacement_maps[0]
-        rows, cols = range_map.shape
-        
-        # Initialize vibration energy map
-        self.vibration_energy_map = np.zeros((rows, cols))
-        
-        # For each position in the displacement maps
-        for r in range(rows):
-            for c in range(cols):
-                # Extract time series for range and azimuth
-                range_series = []
-                azimuth_series = []
+        try:
+            range_map, azimuth_map = self.displacement_maps[0]
+            if range_map is None or azimuth_map is None:
+                self.log("Error: Displacement maps contain None values")
+                return False
                 
-                for range_map, azimuth_map in self.displacement_maps:
-                    range_series.append(range_map[r, c])
-                    azimuth_series.append(azimuth_map[r, c])
-                
-                # Calculate vibration energy as the sum of squared displacements
-                range_energy = np.sum(np.square(range_series))
-                azimuth_energy = np.sum(np.square(azimuth_series))
-                
-                # Total energy is the sum of range and azimuth energies
-                total_energy = range_energy + azimuth_energy
-                
-                # Store in vibration energy map
-                self.vibration_energy_map[r, c] = total_energy
-        
-        # Convert to dB scale
-        # Add a small value to avoid log(0)
-        min_non_zero = np.min(self.vibration_energy_map[self.vibration_energy_map > 0]) if np.any(self.vibration_energy_map > 0) else 1e-10
-        self.vibration_energy_map[self.vibration_energy_map == 0] = min_non_zero / 10
-        self.vibration_energy_map_db = 10 * np.log10(self.vibration_energy_map)
-        
-        # Normalize to 0 to -25 dB range as in the example image
-        max_db = np.max(self.vibration_energy_map_db)
-        self.vibration_energy_map_db = self.vibration_energy_map_db - max_db  # 0 is the maximum
-        self.vibration_energy_map_db = np.maximum(self.vibration_energy_map_db, -25)  # Clip at -25 dB
-        
-        return True
+            rows, cols = range_map.shape
+            self.log(f"Displacement map dimensions: {rows}x{cols}")
+            
+            # Initialize vibration energy map
+            self.vibration_energy_map = np.zeros((rows, cols))
+            
+            # For each position in the displacement maps
+            for r in range(rows):
+                for c in range(cols):
+                    # Extract time series for range and azimuth
+                    range_series = []
+                    azimuth_series = []
+                    
+                    for range_map, azimuth_map in self.displacement_maps:
+                        range_series.append(range_map[r, c])
+                        azimuth_series.append(azimuth_map[r, c])
+                    
+                    # Calculate vibration energy as the sum of squared displacements
+                    range_energy = np.sum(np.square(range_series))
+                    azimuth_energy = np.sum(np.square(azimuth_series))
+                    
+                    # Total energy is the sum of range and azimuth energies
+                    total_energy = range_energy + azimuth_energy
+                    
+                    # Store in vibration energy map
+                    self.vibration_energy_map[r, c] = total_energy
+            
+            # Convert to dB scale
+            # Add a small value to avoid log(0)
+            min_non_zero = np.min(self.vibration_energy_map[self.vibration_energy_map > 0]) if np.any(self.vibration_energy_map > 0) else 1e-10
+            self.vibration_energy_map[self.vibration_energy_map == 0] = min_non_zero / 10
+            self.vibration_energy_map_db = 10 * np.log10(self.vibration_energy_map)
+            
+            # Normalize to 0 to -25 dB range as in the example image
+            max_db = np.max(self.vibration_energy_map_db)
+            self.vibration_energy_map_db = self.vibration_energy_map_db - max_db  # 0 is the maximum
+            self.vibration_energy_map_db = np.maximum(self.vibration_energy_map_db, -25)  # Clip at -25 dB
+            
+            self.log(f"Vibration energy map calculated successfully with dimensions {self.vibration_energy_map_db.shape}")
+            return True
+            
+        except Exception as e:
+            self.log(f"Error calculating vibration energy map: {str(e)}")
+            import traceback
+            self.log(traceback.format_exc())
+            return False
     
     def detect_ship_regions(self, num_regions=3, energy_threshold=-15):
         """
