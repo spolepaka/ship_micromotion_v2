@@ -2,7 +2,7 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
-from scipy.ndimage import shift
+from scipy.ndimage import shift, zoom
 from scipy.fft import fft, fftfreq
 from scipy.signal import find_peaks
 from skimage.registration import phase_cross_correlation
@@ -10,6 +10,7 @@ import matplotlib.colors as colors
 from matplotlib.patches import Polygon
 from skimage.transform import warp, AffineTransform
 from cphd_reader import split_aperture
+from skimage.morphology import label
 
 class ShipMicroMotionEstimator:
     """
@@ -40,16 +41,22 @@ class ShipMicroMotionEstimator:
         self.overlap = overlap
         self.debug_mode = debug_mode
         self.log_callback = log_callback
+        self.data_type = None  # Will be set to 'cphd' or 'sicd' in load_data
         self.subapertures = None
+        self.subaperture_times = None  # Added to store timing info for frequency analysis
         self.displacement_maps = None
         self.time_series = None
         self.frequency_spectra = None
         self.vibration_energy_map = None
+        self.vibration_energy_map_db = None  # Added to explicitly store dB map
         self.ship_regions = None
         self.data_loaded = False
         
         # Debug mode attributes
-        self.raw_data = None
+        self.raw_data = None  # For CPHD phase history
+        self.raw_complex_data = None  # Added for SICD complex image data
+        self.pvp = None  # Added to store PVP explicitly
+        self.sicd_meta = None  # Added to store SICD metadata
         self.raw_data_image = None
         self.slc_images = None
         self.snr_maps = {}
@@ -93,142 +100,169 @@ class ShipMicroMotionEstimator:
             # Failsafe to ensure logging never crashes the program
             print(f"Error in logging: {e}")
         
-    def load_data(self, cphd_file_path, channel_index=0):
+    def load_data(self, file_path, channel_index=0):
         """
-        Load CPHD data, split into sub-apertures, and focus them.
+        Load CPHD or SICD data. For CPHD, reads phase history. For SICD, reads complex image data.
 
         Parameters:
-        - cphd_file_path: str, path to CPHD file or 'demo' for synthetic data
-        - channel_index: int, channel to process (default: 0)
+        - file_path: str, path to CPHD or SICD file or 'demo'
+        - channel_index: int, channel/index to process (default: 0)
 
         Returns:
         - bool, True if successful
         """
-        if cphd_file_path == 'demo' or not os.path.exists(cphd_file_path):
-            self.log("Creating synthetic demo data")
+        self.log(f"Attempting to load data from: {file_path}")
+        
+        if file_path == 'demo':
+            # Keep demo data generation as is (implicitly CPHD-like)
+            self.log("Creating synthetic demo data (CPHD-like)")
+            self.data_type = 'cphd'  # Assume demo is CPHD-like for now
             from test_estimator import create_synthetic_data
-            self.subapertures, pvp, _ = create_synthetic_data(
-                rows=512, cols=512, num_subapertures=self.num_subapertures
-            )
-            self.subaperture_times = np.linspace(0, 1, self.num_subapertures)
-            self.slc_images = [np.abs(subap) for subap in self.subapertures]
-            return True
+            
+            # Demo data creates 'subapertures' directly
+            # We now need complex subapertures for consistency
+            try:
+                complex_subaps, pvp, _ = create_synthetic_data(
+                    rows=512, cols=512, num_subapertures=self.num_subapertures, 
+                    output_complex=True  # Request complex output if supported
+                )
+                self.subapertures = complex_subaps  # Store complex subapertures
+                self.pvp = pvp
+                self.subaperture_times = np.linspace(0, 1, self.num_subapertures)
+                # Create a representative raw_data_image (from first subap)
+                if self.subapertures and len(self.subapertures) > 0:
+                    self.raw_data_image = np.abs(self.subapertures[0])
+                self.data_loaded = True
+                self.log("Synthetic demo data loaded successfully")
+                return True
+            except Exception as e:
+                self.log(f"Error creating synthetic data: {e}")
+                import traceback
+                self.log(traceback.format_exc())
+                self.last_error = traceback.format_exc()
+                return False
+                
+        elif not os.path.exists(file_path):
+            self.log(f"Error: File not found at {file_path}")
+            return False
+            
         else:
             try:
                 from sarpy.io import open as sarpy_open
                 
-                self.log(f"Loading CPHD file: {cphd_file_path}")
+                self.log(f"Opening file with sarpy: {file_path}")
                 # Use sarpy's generic open function which is more robust
-                reader = sarpy_open(cphd_file_path)
+                reader = sarpy_open(file_path)
                 reader_type = type(reader).__name__
-                self.log(f"Reader type: {reader_type}")
+                self.log(f"Sarpy reader type: {reader_type}")
                 
-                # Get metadata
-                if hasattr(reader, 'cphd_meta'):
-                    metadata = reader.cphd_meta
-                    self.log("CPHD metadata available")
-                else:
-                    metadata = {}
-                    self.log("Warning: No CPHD metadata found")
+                # Determine data type based on reader type or metadata
+                has_cphd_meta = hasattr(reader, 'cphd_meta') and reader.cphd_meta is not None
+                has_sicd_meta = hasattr(reader, 'sicd_meta') and reader.sicd_meta is not None
                 
-                # Read the data using read_chip which we know works based on our analysis
-                if hasattr(reader, 'read_chip'):
-                    self.log("Reading CPHD data using read_chip...")
-                    data = reader.read_chip()
-                    self.log(f"Data shape: {data.shape}")
-                else:
-                    raise ValueError("Reader does not have read_chip method")
-                
-                # For CPHDReader1, we need to provide an index to read_pvp_array
-                if reader_type == 'CPHDReader1':
-                    self.log("Using CPHDReader1-specific PVP reading...")
+                if has_cphd_meta or 'cphd' in reader_type.lower():
+                    self.data_type = 'cphd'
+                    self.log("Detected CPHD data type.")
                     
-                    # Create a synthetic PVP dictionary with timing info
-                    if hasattr(reader, 'data_size') and len(reader.data_size) > 0:
-                        num_vectors = reader.data_size[0]
-                        self.log(f"Creating synthetic timing for {num_vectors} vectors")
-                        
-                        # Get channel information
-                        if hasattr(metadata, 'Data') and hasattr(metadata.Data, 'to_dict'):
-                            data_dict = metadata.Data.to_dict()
-                            channels = data_dict.get('Channels', [])
-                            if channels:
-                                channel_info = channels[min(channel_index, len(channels)-1)]
-                                if isinstance(channel_info, dict) and 'NumVectors' in channel_info:
-                                    num_vectors = channel_info['NumVectors']
-                        
-                        # Attempt to read a single PVP array to get its structure
-                        try:
-                            # Get the first PVP array
-                            pvp_sample = reader.read_pvp_array(0)
-                            self.log(f"Read sample PVP entry: {pvp_sample.keys() if isinstance(pvp_sample, dict) else 'Not a dictionary'}")
-                            
-                            # Create a full PVP dictionary
-                            pvp = {}
-                            # Add essential TxTime field for timing
-                            pvp['TxTime'] = np.linspace(0, 1, num_vectors)
-                            
-                            # Copy other fields from the sample if present
-                            if isinstance(pvp_sample, dict):
-                                for key in pvp_sample:
-                                    if key != 'TxTime' and not key in pvp:
-                                        # Use the same value for all vectors (approximation)
-                                        pvp[key] = np.full(num_vectors, pvp_sample[key])
-                        except Exception as e:
-                            self.log(f"Error reading PVP sample: {e}")
-                            # Create minimal pvp dictionary if we can't read a sample
-                            pvp = {'TxTime': np.linspace(0, 1, num_vectors)}
-                    else:
-                        # Fall back to default size if we can't determine from reader
-                        num_vectors = data.shape[0] if isinstance(data, np.ndarray) and len(data.shape) > 0 else 512
-                        pvp = {'TxTime': np.linspace(0, 1, num_vectors)}
-                else:
-                    # For other reader types, try standard PVP reading methods
+                    # --- CPHD Loading Logic ---
+                    self.log("Reading CPHD phase history data...")
+                    # Read the data chip
+                    try:
+                        if hasattr(reader, 'read_chip'):
+                            data_indices = list(reader.get_data_indices())
+                            if not data_indices:
+                                self.log("Error: Reader has no data indices.")
+                                return False
+                            read_index = data_indices[min(channel_index, len(data_indices)-1)]
+                            self.log(f"Reading CPHD chip for index: {read_index}")
+                            self.raw_data = reader.read_chip(index=read_index)
+                        else:
+                            raise ValueError("Reader does not have read_chip method")
+                    except Exception as e:
+                        self.log(f"Error reading CPHD data chip: {e}")
+                        return False
+                    
+                    self.log(f"Raw CPHD data shape: {self.raw_data.shape}")
+                    self.raw_data_image = np.abs(self.raw_data)  # For visualization
+                    
+                    # Read PVP data for timing
+                    self.log("Reading PVP data...")
                     try:
                         if hasattr(reader, 'read_pvp'):
-                            self.log("Reading PVP data using read_pvp...")
-                            pvp = reader.read_pvp()
-                        elif hasattr(reader, 'read_pvp_array'):
-                            self.log("Reading PVP data using read_pvp_array...")
-                            pvp = reader.read_pvp_array()
+                            self.pvp = reader.read_pvp()
+                            if not self.pvp or 'TxTime' not in self.pvp:
+                                self.log("Warning: PVP data read but 'TxTime' is missing. Using synthetic timing.")
+                                self.pvp = {'TxTime': np.linspace(0, 1, self.raw_data.shape[0])}
                         else:
-                            raise ValueError("No suitable PVP reading method found")
+                            self.log("Warning: Reader has no read_pvp method. Using synthetic timing.")
+                            self.pvp = {'TxTime': np.linspace(0, 1, self.raw_data.shape[0])}
                     except Exception as e:
-                        self.log(f"Error reading PVP data: {e}")
-                        # Create synthetic PVP with timing information
-                        num_vectors = data.shape[0] if isinstance(data, np.ndarray) and len(data.shape) > 0 else 512
-                        pvp = {'TxTime': np.linspace(0, 1, num_vectors)}
+                        self.log(f"Error reading PVP data: {e}. Using synthetic timing.")
+                        self.pvp = {'TxTime': np.linspace(0, 1, self.raw_data.shape[0])}
+                    
+                    self.log("CPHD data loaded successfully.")
+                    
+                elif has_sicd_meta or 'sicd' in reader_type.lower():
+                    self.data_type = 'sicd'
+                    self.log("Detected SICD data type.")
+                    self.raw_data = None # No raw phase history for SICD
+                    self.pvp = None
+
+                    # --- SICD Loading Logic ---
+                    self.log("Reading SICD complex image data...")
+                    try:
+                        if hasattr(reader, 'read_chip'):
+                            # SICDReader typically doesn't have get_data_indices method
+                            # Instead, directly read the chip (it's usually a single image)
+                            self.log("Reading default SICD chip...")
+                            try:
+                                # First try without any parameters
+                                self.raw_complex_data = reader.read_chip()
+                            except Exception as e:
+                                self.log(f"Error reading SICD chip without parameters: {e}, trying with channel_index")
+                                # If that fails, try with the channel_index parameter
+                                self.raw_complex_data = reader.read_chip(index=channel_index)
+                        else:
+                            self.log("Error: SICD reader does not have read_chip method.")
+                            return False
+                    except Exception as e:
+                        self.log(f"Error reading SICD data chip: {e}")
+                        # Add traceback for more detailed debugging
+                        import traceback
+                        trace = traceback.format_exc()
+                        self.log(f"Traceback: {trace}")
+                        self.last_error = f"{str(e)}\n\n{trace}"
+                        return False
+                    
+                    self.log(f"Raw SICD complex data shape: {self.raw_complex_data.shape}")
+                    self.raw_data_image = np.abs(self.raw_complex_data)  # For visualization
+                    
+                    # Store SICD metadata for timing information
+                    self.sicd_meta = reader.sicd_meta
+                    if isinstance(self.sicd_meta, list):  # Multiple SICDs in a file
+                        self.sicd_meta = self.sicd_meta[min(channel_index, len(self.sicd_meta)-1)]
+                    
+                    self.log("SICD data loaded successfully.")
+                    
+                else:
+                    self.log(f"Error: Could not determine data type (CPHD or SICD) for reader {reader_type}")
+                    return False
                 
-                # Split data into subapertures
-                self.log("Splitting data into sub-apertures...")
-                self.subapertures, self.subaperture_times = self._split_aperture(
-                    data, self.num_subapertures, self.overlap
-                )
-                self.log(f"Created {len(self.subapertures)} sub-apertures")
-                
-                # Focus sub-apertures
-                self.log("Focusing sub-apertures...")
-                self.slc_images = self._focus_subapertures(self.subapertures, metadata)
-                self.log(f"Generated {len(self.slc_images)} SLC images")
-                
-                # Store raw data for inspection
-                self.raw_data = data
-                self.pvp = pvp
-                self.raw_data_image = np.abs(data)
                 self.data_loaded = True
-                
                 return True
+                
             except Exception as e:
-                self.log(f"Error loading CPHD data: {e}")
+                self.log(f"Error loading data: {e}")
                 import traceback
                 trace = traceback.format_exc()
                 self.log(trace)
                 self.last_error = f"{str(e)}\n\n{trace}"
                 return False
     
-    def _split_aperture(self, data, num_subapertures, overlap=0.5):
+    def _split_aperture_cphd(self, data, num_subapertures, overlap=0.5):
         """
-        Split phase history data into overlapping sub-apertures based on azimuth pulses.
+        Split CPHD phase history data into overlapping sub-apertures based on azimuth pulses.
+        (Renamed from _split_aperture)
 
         Parameters:
         - data: numpy.ndarray, phase history data (pulses x samples)
@@ -245,34 +279,195 @@ class ShipMicroMotionEstimator:
         if not 0 <= overlap < 1:
             raise ValueError("Overlap must be between 0 and 1")
 
-        subaperture_size = num_pulses // num_subapertures
-        step = int(subaperture_size * (1 - overlap))
-        subapertures = []
-        
-        # Create synthetic timing for subapertures if pvp is available
-        if hasattr(self, 'pvp') and self.pvp and 'TxTime' in self.pvp:
-            times = self.pvp['TxTime']
-            subaperture_times = []
-        else:
-            # Create synthetic timing
-            times = np.linspace(0, 1, num_pulses)
-            subaperture_times = []
+        # Calculate subaperture size and step
+        # Ensure subaperture_size is at least 1
+        subaperture_size = max(1, int(np.floor(num_pulses / (num_subapertures - (num_subapertures - 1) * overlap))))
+        step = max(1, int(subaperture_size * (1 - overlap)))
+        self.log(f"CPHD Splitting: num_pulses={num_pulses}, num_subaps={num_subapertures}, overlap={overlap} -> subap_size={subaperture_size}, step={step}")
 
+        subapertures = []
+        subaperture_times = []
+
+        # Get timing information from PVP
+        if hasattr(self, 'pvp') and self.pvp and 'TxTime' in self.pvp and self.pvp['TxTime'] is not None and len(self.pvp['TxTime']) == num_pulses:
+            times = self.pvp['TxTime']
+            self.log("Using TxTime from PVP for subaperture timing")
+        else:
+            self.log("Warning: Valid TxTime not found in PVP or length mismatch. Using synthetic linear timing.")
+            times = np.linspace(0, 1, num_pulses)  # Synthetic timing
+
+        start_idx = 0
         for i in range(num_subapertures):
-            start_idx = i * step
             end_idx = start_idx + subaperture_size
-            if end_idx > num_pulses:
+            # Ensure the last subaperture reaches the end
+            if i == num_subapertures - 1:
                 end_idx = num_pulses
-                start_idx = max(0, end_idx - subaperture_size)
-            subaperture = data[start_idx:end_idx, :].copy()  # Copy to avoid modifying original
+            # Prevent exceeding bounds
+            end_idx = min(end_idx, num_pulses)
+            # Ensure start index is valid
+            start_idx = min(start_idx, num_pulses - 1)
+            # Ensure we have at least one sample
+            if end_idx <= start_idx:
+                if i > 0:  # If not the first, try to take the last sample
+                    start_idx = end_idx - 1
+                else:  # If first, cannot proceed
+                    self.log(f"Warning: Cannot create subaperture {i+1} due to index calculation.")
+                    continue
+
+            subaperture = data[start_idx:end_idx, :].copy()
             subapertures.append(subaperture)
+
             # Calculate average time for this subaperture
-            if len(times) > 0:
-                subaperture_times.append(np.mean(times[start_idx:end_idx]))
+            current_times = times[start_idx:end_idx]
+            if len(current_times) > 0:
+                subaperture_times.append(np.mean(current_times))
             else:
-                subaperture_times.append(i / num_subapertures)
+                # Fallback if times array is problematic
+                subaperture_times.append(times[start_idx] if start_idx < len(times) else i / num_subapertures)
+
+            # Move to the next start index
+            start_idx += step
+            # Stop if next start index is out of bounds
+            if start_idx >= num_pulses:
+                break
+
+        # If fewer subapertures were created than requested due to step size/overlap
+        if len(subapertures) < num_subapertures:
+            self.log(f"Warning: Created {len(subapertures)} subapertures, less than requested {num_subapertures}. Adjust parameters if needed.")
 
         return subapertures, subaperture_times
+        
+    def _split_aperture_sicd(self, data, num_subapertures, overlap=0.5):
+        """
+        Split SICD complex image data into overlapping sub-images along the azimuth dimension.
+        
+        Parameters:
+        - data: numpy.ndarray, complex image data (azimuth x range)
+        - num_subapertures: int, number of sub-images to create
+        - overlap: float, overlap ratio between sub-images (0 to 1, default: 0.5)
+        
+        Returns:
+        - list of numpy.ndarray, each containing a sub-image
+        - list of floats, timing information for each sub-image
+        """
+        if data is None:
+            raise ValueError("SICD complex data is not loaded.")
+            
+        num_azimuth, num_range = data.shape  # Assuming azimuth is axis 0
+        if num_subapertures <= 0:
+            raise ValueError("Number of sub-apertures must be positive.")
+        if num_subapertures == 1:
+            self.log("Number of sub-apertures is 1, returning the whole image.")
+            # Attempt to get timing info for the single image
+            start_time, end_time = self._get_sicd_timing_info()
+            center_time = (start_time + end_time) / 2.0 if start_time is not None else 0.0
+            return [data.copy()], [center_time]
+        if num_subapertures > num_azimuth:
+            self.log(f"Warning: Requested {num_subapertures} sub-apertures, but image only has {num_azimuth} azimuth lines. Reducing to {num_azimuth}.")
+            num_subapertures = num_azimuth  # Cannot have more subaps than lines
+            
+        if not 0 <= overlap < 1:
+            raise ValueError("Overlap must be between 0 and 1")
+            
+        # Calculate subaperture size and step along azimuth axis
+        # Ensure subaperture_size is at least 1
+        subaperture_size = max(1, int(np.floor(num_azimuth / (num_subapertures - (num_subapertures - 1) * overlap))))
+        step = max(1, int(subaperture_size * (1 - overlap)))
+        self.log(f"SICD Splitting: num_azimuth={num_azimuth}, num_subaps={num_subapertures}, overlap={overlap} -> subap_size={subaperture_size}, step={step}")
+        
+        subapertures = []
+        subaperture_times = []
+        
+        # Get timing information for the whole collect
+        start_time, end_time = self._get_sicd_timing_info()
+        duration = end_time - start_time if start_time is not None and end_time is not None else 1.0  # Default duration 1.0 if no timing
+        if duration <= 0:
+            self.log("Warning: SICD duration is zero or negative. Using synthetic timing.")
+            duration = 1.0
+            start_time = 0.0
+            
+        start_idx = 0
+        for i in range(num_subapertures):
+            end_idx = start_idx + subaperture_size
+            # Ensure the last subaperture reaches the end
+            if i == num_subapertures - 1:
+                end_idx = num_azimuth
+            # Prevent exceeding bounds
+            end_idx = min(end_idx, num_azimuth)
+            # Ensure start index is valid
+            start_idx = min(start_idx, num_azimuth - 1)
+            # Ensure we have at least one line
+            if end_idx <= start_idx:
+                if i > 0:
+                    start_idx = end_idx - 1
+                else:
+                    self.log(f"Warning: Cannot create SICD sub-image {i+1} due to index calculation.")
+                    continue
+                    
+            subaperture = data[start_idx:end_idx, :].copy()
+            subapertures.append(subaperture)
+            
+            # Calculate center time for this sub-image
+            center_frac = (start_idx + (end_idx - start_idx) / 2.0) / num_azimuth
+            center_time = start_time + center_frac * duration
+            subaperture_times.append(center_time)
+            
+            # Move to the next start index
+            start_idx += step
+            # Stop if next start index is out of bounds
+            if start_idx >= num_azimuth:
+                break
+                
+        # If fewer subapertures were created than requested
+        if len(subapertures) < num_subapertures:
+            self.log(f"Warning: Created {len(subapertures)} SICD sub-images, less than requested {num_subapertures}. Adjust parameters if needed.")
+            
+        return subapertures, subaperture_times
+        
+    def _get_sicd_timing_info(self):
+        """
+        Helper method to extract start and end time from SICD metadata.
+        
+        Returns:
+        - tuple: (start_time, end_time) in seconds
+        """
+        try:
+            if hasattr(self, 'sicd_meta') and self.sicd_meta:
+                # Try to access Timeline information (structure might vary)
+                if hasattr(self.sicd_meta, 'Timeline') and self.sicd_meta.Timeline:
+                    # Get collection start time
+                    start_time = getattr(self.sicd_meta.Timeline, 'CollectStart', None)
+                    if start_time is not None:
+                        # Get collection duration if available
+                        duration = getattr(self.sicd_meta.Timeline, 'CollectDuration', None)
+                        if duration is not None and duration > 0:
+                            end_time = start_time + duration
+                            self.log(f"Extracted SICD timing: Start={start_time}, End={end_time}")
+                            return start_time, end_time
+                            
+                    # Fallback using IPP (Impulse Phase Point) data if available
+                    if hasattr(self.sicd_meta.Timeline, 'IPP') and self.sicd_meta.Timeline.IPP:
+                        ipp_sets = getattr(self.sicd_meta.Timeline.IPP, 'Set', [])
+                        if ipp_sets and len(ipp_sets) > 0:
+                            ipp_set = ipp_sets[0]  # Use first set
+                            ipp_start = getattr(ipp_set, 'IPPStart', 0)
+                            ipp_end = getattr(ipp_set, 'IPPEnd', 0)
+                            num_ipps = ipp_end - ipp_start + 1
+                            if hasattr(ipp_set, 'IPPPoly') and len(ipp_set.IPPPoly) > 0:
+                                ipp_rate = ipp_set.IPPPoly[0]  # Assuming constant rate (zeroth order poly)
+                                if num_ipps > 0 and ipp_rate > 0:
+                                    duration = num_ipps * ipp_rate
+                                    # Use CollectStart if available
+                                    start_time = start_time if start_time is not None else 0.0
+                                    end_time = start_time + duration
+                                    self.log(f"Extracted SICD timing from IPP: Start={start_time}, End={end_time}")
+                                    return start_time, end_time
+        except Exception as e:
+            self.log(f"Error extracting SICD timing info: {e}")
+            
+        # Default timing if nothing else works
+        self.log("Warning: Could not extract SICD timing information. Using default values [0, 1].")
+        return 0.0, 1.0
     
     def _focus_subapertures(self, subapertures, metadata=None):
         """Apply focusing algorithms to the subapertures to generate SLC images"""
@@ -520,7 +715,7 @@ class ShipMicroMotionEstimator:
             self.log(f"Displacement map dimensions: {rows}x{cols}")
             
             # Initialize vibration energy map
-            self.vibration_energy_map = np.zeros((rows, cols))
+            self.vibration_energy_map = np.zeros((rows, cols), dtype=np.float32)
             
             # For each position in the displacement maps
             for r in range(rows):
@@ -543,16 +738,37 @@ class ShipMicroMotionEstimator:
                     # Store in vibration energy map
                     self.vibration_energy_map[r, c] = total_energy
             
-            # Convert to dB scale
-            # Add a small value to avoid log(0)
-            min_non_zero = np.min(self.vibration_energy_map[self.vibration_energy_map > 0]) if np.any(self.vibration_energy_map > 0) else 1e-10
-            self.vibration_energy_map[self.vibration_energy_map == 0] = min_non_zero / 10
-            self.vibration_energy_map_db = 10 * np.log10(self.vibration_energy_map)
+            # Convert to dB scale for better visualization
+            # Add a small epsilon to avoid log(0)
+            epsilon = 1e-12
+            valid_energy = self.vibration_energy_map[self.vibration_energy_map > epsilon]
+            if valid_energy.size == 0:
+                self.log("Warning: All calculated vibration energy values are near zero")
+                # Default to a uniform low value if everything is zero
+                self.vibration_energy_map_db = np.full(self.vibration_energy_map.shape, -60.0, dtype=np.float32)
+            else:
+                min_positive_energy = np.min(valid_energy)
+                # Use epsilon or a fraction of the minimum positive energy
+                safe_map = np.maximum(self.vibration_energy_map, min_positive_energy * 0.1)
+                self.vibration_energy_map_db = 10 * np.log10(safe_map)
             
-            # Normalize to 0 to -25 dB range as in the example image
-            max_db = np.max(self.vibration_energy_map_db)
-            self.vibration_energy_map_db = self.vibration_energy_map_db - max_db  # 0 is the maximum
-            self.vibration_energy_map_db = np.maximum(self.vibration_energy_map_db, -25)  # Clip at -25 dB
+            # Normalize using percentile to be robust to outliers
+            finite_db_values = self.vibration_energy_map_db[np.isfinite(self.vibration_energy_map_db)]
+            if finite_db_values.size > 0:
+                # Use 99.5th percentile as the reference maximum
+                max_db_ref = np.percentile(finite_db_values, 99.5)
+                self.log(f"Normalizing dB map relative to 99.5th percentile: {max_db_ref:.2f} dB")
+            else:
+                # Fallback if all values are non-finite (e.g., -inf)
+                max_db_ref = 0
+                self.log("Warning: Could not find finite dB values for normalization reference")
+            
+            self.vibration_energy_map_db = self.vibration_energy_map_db - max_db_ref  # Reference percentile becomes 0 dB
+            
+            # Clip at a lower bound (e.g., -30 dB)
+            lower_clip_db = -30
+            self.vibration_energy_map_db = np.maximum(self.vibration_energy_map_db, lower_clip_db)
+            self.log(f"Clipped vibration energy map at {lower_clip_db} dB")
             
             self.log(f"Vibration energy map calculated successfully with dimensions {self.vibration_energy_map_db.shape}")
             return True
@@ -783,7 +999,7 @@ class ShipMicroMotionEstimator:
         return results
 
     def create_subapertures(self):
-        """Create subapertures from the raw data if not already created"""
+        """Create subapertures from the raw data based on data type (CPHD or SICD)"""
         self.log("Starting subaperture creation...")
         
         # If subapertures already exist, just return success
@@ -791,31 +1007,67 @@ class ShipMicroMotionEstimator:
             self.log(f"Subapertures already exist ({len(self.subapertures)} found), reusing them")
             return True
             
-        # Otherwise, check for raw data and create subapertures
-        if not hasattr(self, 'raw_data') or self.raw_data is None:
-            self.log("Error: No raw data available")
+        # Check if data is loaded
+        if not self.data_loaded:
+            self.log("Error: Data not loaded")
             return False
             
         try:
-            # Validate raw data
-            self.log(f"Raw data shape: {self.raw_data.shape}")
-            if np.isnan(self.raw_data).any():
-                self.log("Warning: Raw data contains NaN values")
-            if np.isinf(self.raw_data).any():
-                self.log("Warning: Raw data contains Inf values")
-            
-            # Log descriptive statistics of raw data
-            data_mag = np.abs(self.raw_data)
-            self.log(f"Raw data magnitude range: {np.min(data_mag):.4f} to {np.max(data_mag):.4f}")
-            self.log(f"Raw data magnitude mean: {np.mean(data_mag):.4f}, std: {np.std(data_mag):.4f}")
-            
-            # Call the class method to split aperture
-            self.log(f"Creating {self.num_subapertures} subapertures with overlap {self.overlap}...")
-            self.subapertures, self.subaperture_times = self._split_aperture(
-                self.raw_data, self.num_subapertures, self.overlap
-            )
-            self.log(f"Created {len(self.subapertures)} sub-apertures")
-            
+            # Choose the appropriate method based on data type
+            if self.data_type == 'cphd':
+                # Check for raw data and create subapertures (CPHD)
+                if not hasattr(self, 'raw_data') or self.raw_data is None:
+                    self.log("Error: No raw CPHD data available")
+                    return False
+                
+                # Validate raw data
+                self.log(f"Raw CPHD data shape: {self.raw_data.shape}")
+                if np.isnan(self.raw_data).any():
+                    self.log("Warning: Raw CPHD data contains NaN values")
+                if np.isinf(self.raw_data).any():
+                    self.log("Warning: Raw CPHD data contains Inf values")
+                
+                # Log descriptive statistics of raw data
+                data_mag = np.abs(self.raw_data)
+                self.log(f"Raw CPHD data magnitude range: {np.min(data_mag):.4f} to {np.max(data_mag):.4f}")
+                self.log(f"Raw CPHD data magnitude mean: {np.mean(data_mag):.4f}, std: {np.std(data_mag):.4f}")
+                
+                # Call the CPHD aperture splitting method
+                self.log(f"Creating {self.num_subapertures} CPHD subapertures with overlap {self.overlap}...")
+                self.subapertures, self.subaperture_times = self._split_aperture_cphd(
+                    self.raw_data, self.num_subapertures, self.overlap
+                )
+                self.log(f"Created {len(self.subapertures)} CPHD sub-apertures")
+                
+            elif self.data_type == 'sicd':
+                # Check for raw complex data and create subapertures (SICD)
+                if not hasattr(self, 'raw_complex_data') or self.raw_complex_data is None:
+                    self.log("Error: No raw SICD complex data available")
+                    return False
+                
+                # Validate raw complex data
+                self.log(f"Raw SICD data shape: {self.raw_complex_data.shape}")
+                if np.isnan(self.raw_complex_data).any():
+                    self.log("Warning: Raw SICD data contains NaN values")
+                if np.isinf(self.raw_complex_data).any():
+                    self.log("Warning: Raw SICD data contains Inf values")
+                
+                # Log descriptive statistics of raw data
+                data_mag = np.abs(self.raw_complex_data)
+                self.log(f"Raw SICD data magnitude range: {np.min(data_mag):.4f} to {np.max(data_mag):.4f}")
+                self.log(f"Raw SICD data magnitude mean: {np.mean(data_mag):.4f}, std: {np.std(data_mag):.4f}")
+                
+                # Call the SICD aperture splitting method
+                self.log(f"Creating {self.num_subapertures} SICD sub-images with overlap {self.overlap}...")
+                self.subapertures, self.subaperture_times = self._split_aperture_sicd(
+                    self.raw_complex_data, self.num_subapertures, self.overlap
+                )
+                self.log(f"Created {len(self.subapertures)} SICD sub-images")
+                
+            else:
+                self.log(f"Error: Unknown data type '{self.data_type}'. Cannot create subapertures.")
+                return False
+                
             # Validate created subapertures
             for i, subap in enumerate(self.subapertures):
                 self.log(f"Subaperture {i+1} shape: {subap.shape}")
@@ -835,63 +1087,105 @@ class ShipMicroMotionEstimator:
             return False
 
     def focus_subapertures(self):
-        """Focus the subapertures to create SLC images"""
-        self.log("Starting subaperture focusing...")
+        """
+        Focus CPHD subapertures or prepare magnitude images for SICD sub-images.
+        Generates self.slc_images (magnitude images) for displacement estimation.
+        """
+        self.log("Starting subaperture focusing/preparation step...")
         
         # If SLC images already exist, just return success
         if hasattr(self, 'slc_images') and self.slc_images and len(self.slc_images) > 0:
-            self.log(f"SLC images already exist ({len(self.slc_images)} found), reusing them")
+            self.log(f"SLC magnitude images already exist ({len(self.slc_images)} found), reusing them")
             return True
             
         # Otherwise check for subapertures
         if not hasattr(self, 'subapertures') or not self.subapertures or len(self.subapertures) == 0:
-            self.log("Error: No subapertures available to focus")
+            self.log("Error: No subapertures available to focus or prepare")
             return False
             
         try:
-            # Focus the subapertures
-            self.log(f"Focusing {len(self.subapertures)} subapertures...")
-            
-            # In this initial implementation, we use magnitude as the SLC image
-            # In a more advanced implementation, this would involve proper focusing
+            # Clear existing SLC images list if it exists
             self.slc_images = []
-            for i, subap in enumerate(self.subapertures):
-                self.log(f"Focusing subaperture {i+1}/{len(self.subapertures)}...")
-                
-                # Check if subap contains NaN or Inf values
-                if np.isnan(subap).any():
-                    self.log(f"Warning: Subaperture {i+1} contains NaN values")
-                if np.isinf(subap).any():
-                    self.log(f"Warning: Subaperture {i+1} contains Inf values")
-                
-                # Simply use the magnitude as the SLC image for now
-                # This is a placeholder for proper focusing algorithms
-                slc = np.abs(subap)
-                
-                # Check if focusing produced valid results
-                if np.all(slc < 1e-10):
-                    self.log(f"Warning: SLC image {i+1} appears to be empty (all values close to zero)")
-                
-                # Log SLC image statistics
-                self.log(f"SLC image {i+1} value range: {np.min(slc):.4f} to {np.max(slc):.4f}")
-                self.log(f"SLC image {i+1} mean: {np.mean(slc):.4f}, std: {np.std(slc):.4f}")
-                
-                self.slc_images.append(slc)
-                
-            self.log(f"Created {len(self.slc_images)} SLC images")
             
-            # Store normalized versions for visualization
+            if self.data_type == 'cphd':
+                self.log(f"Focusing {len(self.subapertures)} CPHD subapertures...")
+                # **********************************************************************
+                # ** WARNING: Placeholder Focusing Implementation for CPHD **
+                # This currently uses np.abs(), which is NOT a proper SAR focusing
+                # algorithm for phase history data. Replace this with an appropriate
+                # focusing method (e.g., Range-Doppler, Chirp Scaling) for
+                # meaningful micro-motion analysis.
+                # **********************************************************************
+                self.log("WARNING: Using placeholder focusing (np.abs) for CPHD. Replace with proper SAR focusing algorithm.")
+                
+                for i, subap in enumerate(self.subapertures):
+                    self.log(f"Focusing CPHD subaperture {i+1}/{len(self.subapertures)}...")
+                    
+                    # Check if subap contains NaN or Inf values
+                    if np.isnan(subap).any():
+                        self.log(f"Warning: Subaperture {i+1} contains NaN values")
+                    if np.isinf(subap).any():
+                        self.log(f"Warning: Subaperture {i+1} contains Inf values")
+                    
+                    # Simply use the magnitude as the SLC image for now
+                    # PLACEHOLDER: Replace with proper focusing algorithm
+                    slc = np.abs(subap)
+                    
+                    # Check if focusing produced valid results
+                    if np.all(slc < 1e-10):
+                        self.log(f"Warning: SLC image {i+1} appears to be empty (all values close to zero)")
+                    
+                    # Log SLC image statistics
+                    self.log(f"CPHD SLC image {i+1} stats: min={np.min(slc):.2f}, max={np.max(slc):.2f}, mean={np.mean(slc):.2f}")
+                    
+                    self.slc_images.append(slc)
+                    
+                self.log(f"Created {len(self.slc_images)} CPHD SLC images")
+                
+            elif self.data_type == 'sicd':
+                self.log(f"Preparing {len(self.subapertures)} SICD sub-images (taking magnitude)...")
+                # SICD data is already focused. We just need the magnitude images
+                # for displacement estimation.
+                for i, complex_sub_image in enumerate(self.subapertures):
+                    self.log(f"Taking magnitude of SICD sub-image {i+1}/{len(self.subapertures)}...")
+                    
+                    # Check for invalid values
+                    if np.isnan(complex_sub_image).any():
+                        self.log(f"Warning: SICD sub-image {i+1} contains NaN values")
+                    if np.isinf(complex_sub_image).any():
+                        self.log(f"Warning: SICD sub-image {i+1} contains Inf values")
+                    
+                    # Take magnitude
+                    magnitude_image = np.abs(complex_sub_image)
+                    
+                    # Check if valid
+                    if np.all(magnitude_image < 1e-10):
+                        self.log(f"Warning: SICD magnitude image {i+1} appears to be empty (all values close to zero)")
+                    
+                    # Log statistics
+                    self.log(f"SICD magnitude image {i+1} stats: min={np.min(magnitude_image):.2f}, max={np.max(magnitude_image):.2f}, mean={np.mean(magnitude_image):.2f}")
+                    
+                    # Append to SLC images list
+                    self.slc_images.append(magnitude_image)
+                    
+                self.log(f"Created {len(self.slc_images)} SICD magnitude images")
+                
+            else:
+                self.log(f"Error: Unknown data type '{self.data_type}' during focusing step")
+                return False
+            
+            # Store normalized versions for visualization if in debug mode
             if self.debug_mode:
                 self.normalized_slc_images = []
                 for i, slc in enumerate(self.slc_images):
-                    # Normalize for better visualization
+                    # Normalize for better visualization using 99th percentile to avoid outliers
                     norm_slc = slc / np.percentile(slc, 99) if np.percentile(slc, 99) > 0 else slc
                     self.normalized_slc_images.append(norm_slc)
-                self.log("Created normalized SLC images for visualization")
+                self.log("Created normalized SLC/magnitude images for visualization")
                 
             return True
         except Exception as e:
-            self.log(f"Error focusing subapertures: {str(e)}")
+            self.log(f"Error during focusing/preparation step: {str(e)}")
             import traceback
             trace = traceback.format_exc()
             self.log(trace)
@@ -1062,9 +1356,19 @@ class ShipMicroMotionEstimator:
         self.log("Starting enhanced memory-efficient displacement estimation...")
         log_memory_usage("start")
         
+        # Validation checks
         if self.slc_images is None or len(self.slc_images) < 2:
-            self.log("Error: No SLC images available for displacement estimation")
+            self.log("Error: SLC magnitude images not available or insufficient for displacement estimation")
             return False
+            
+        # Check that slc_images are real (magnitude) not complex
+        if np.iscomplexobj(self.slc_images[0]):
+            self.log("Error: Displacement estimation expects magnitude images, but received complex data")
+            return False
+        
+        # Describe data type and shape information
+        self.log(f"Input: {len(self.slc_images)} SLC/magnitude images from {self.data_type.upper()} data")
+        self.log(f"SLC/magnitude image shape: {self.slc_images[0].shape}, dtype: {self.slc_images[0].dtype}")
         
         # Initialize displacement maps
         self.log(f"Initializing displacement maps for {len(self.slc_images)-1} image pairs")
@@ -1077,7 +1381,7 @@ class ShipMicroMotionEstimator:
         # Process data in chunks to reduce memory usage
         CHUNK_SIZE = 20  # Increased from 10 to process more data at once
         
-        # For each pair of adjacent sub-apertures
+        # For each pair of adjacent sub-apertures/sub-images
         for i in range(len(self.slc_images) - 1):
             self.log(f"Processing image pair {i+1}/{len(self.slc_images)-1}...")
             
@@ -1090,6 +1394,10 @@ class ShipMicroMotionEstimator:
                 self.log("Converting complex128 to complex64 to reduce memory usage")
                 ref_image = ref_image.astype(np.complex64)
                 sec_image = sec_image.astype(np.complex64)
+            elif ref_image.dtype == np.float64:
+                self.log("Converting float64 to float32 to reduce memory usage")
+                ref_image = ref_image.astype(np.float32)
+                sec_image = sec_image.astype(np.float32)
             
             # Automatic downsampling for very large images
             rows, cols = ref_image.shape
@@ -1124,6 +1432,7 @@ class ShipMicroMotionEstimator:
             # Track errors and processed windows
             error_count = 0
             processed_windows = 0
+            skipped_windows = 0  # Count of skipped windows
             
             # Process in chunks of rows
             for chunk_start in range(0, rows - self.window_size, CHUNK_SIZE * step):
@@ -1147,17 +1456,22 @@ class ShipMicroMotionEstimator:
                         
                         # Skip empty or low-contrast windows
                         if np.all(ref_window == 0) or np.all(sec_window == 0):
+                            skipped_windows += 1
                             continue
                         
                         # Check window contrast - skip windows with very low variance
                         ref_std = np.std(np.abs(ref_window))
                         sec_std = np.std(np.abs(sec_window))
-                        if ref_std < 1e-3 or sec_std < 1e-3:
+                        # Consider making this threshold configurable or adaptive
+                        low_contrast_threshold = 1e-3
+                        if ref_std < low_contrast_threshold or sec_std < low_contrast_threshold:
+                            skipped_windows += 1
                             continue
                         
                         # Check for NaN or Inf values
                         if np.isnan(ref_window).any() or np.isnan(sec_window).any() or \
                            np.isinf(ref_window).any() or np.isinf(sec_window).any():
+                            skipped_windows += 1
                             continue
                         
                         # Calculate sub-pixel shift
@@ -1183,12 +1497,25 @@ class ShipMicroMotionEstimator:
                 gc.collect()
                 log_memory_usage(f"after chunk {chunk_start}-{chunk_end}")
                 
-                # Save intermediate results
+                # Save intermediate results after chunk
                 self.log(f"Saving intermediate results after chunk {chunk_start}-{chunk_end}")
                 # Store current displacement maps for this pair as temporary backup
                 self.displacement_maps_temp = (range_shifts.copy(), azimuth_shifts.copy())
             
-            self.log(f"Completed image pair {i+1} with {error_count} errors out of {total_windows} windows")
+            # Report final counts and rates
+            valid_processed = processed_windows - skipped_windows - error_count
+            self.log(f"Completed image pair {i+1}: Processed={processed_windows}, Skipped={skipped_windows}, Errors={error_count}, Valid Shifts Calculated={valid_processed}")
+            
+            # Calculate and log failure rate
+            if total_windows > 0:
+                failure_rate = (error_count + skipped_windows) / total_windows * 100
+                self.log(f"Window processing failure/skip rate: {failure_rate:.2f}%")
+                
+                # Log warning if failure rate is too high
+                if failure_rate > 90:
+                    self.log("WARNING: Very high failure rate (>90%). Results may be unreliable.")
+                elif failure_rate > 75:
+                    self.log("WARNING: High failure rate (>75%). Results may be affected.")
             
             # Store displacement maps for this pair
             self.displacement_maps.append((range_shifts, azimuth_shifts))
@@ -1207,4 +1534,90 @@ class ShipMicroMotionEstimator:
         
         log_memory_usage("end")
         self.log(f"Enhanced memory-efficient displacement estimation completed successfully")
+        return True
+
+    def plot_ship_regions(self, output_file=None):
+        """
+        Plot the detected ship regions overlaid on the vibration energy map.
+        
+        Parameters
+        ----------
+        output_file : str, optional
+            Path to save the plot image file (default is None, don't save)
+            
+        Returns
+        -------
+        bool
+            True if plotting was successful, False otherwise
+        """
+        if not hasattr(self, 'vibration_energy_map_db') or self.vibration_energy_map_db is None:
+            self.log("Error: No vibration energy map available to plot ship regions")
+            return False
+        if not hasattr(self, 'ship_regions') or not self.ship_regions:
+            self.log("Warning: No ship regions detected or provided to plot")
+            # Plot just the energy map if no regions
+            return self.plot_vibration_energy_map(output_file=output_file)
+        
+        fig, ax = plt.subplots(1, 1, figsize=(10, 8))
+        
+        # Plot vibration energy map
+        cmap = plt.cm.jet
+        # Use the actual range from the clipped map for normalization
+        vmin_plot = np.min(self.vibration_energy_map_db)
+        vmax_plot = np.max(self.vibration_energy_map_db)
+        # Ensure vmin is not equal to vmax
+        if vmin_plot >= vmax_plot:
+            vmin_plot = vmax_plot - 1  # Adjust if range is zero
+            
+        norm = plt.Normalize(vmin=vmin_plot, vmax=vmax_plot)
+        im = ax.imshow(self.vibration_energy_map_db, cmap=cmap, norm=norm, aspect='auto')
+        ax.set_title('Detected Ship Regions on Vibration Energy Map')
+        ax.set_xlabel('Range (pixels)')
+        ax.set_ylabel('Azimuth (pixels)')
+        
+        # Add colorbar
+        cbar = plt.colorbar(im, ax=ax)
+        cbar.set_label('Vibration Energy (dB)')
+        
+        # Overlay detected regions
+        colors_list = plt.cm.tab10(range(len(self.ship_regions)))  # Use a colormap for distinct colors
+        
+        for i, region in enumerate(self.ship_regions):
+            mask = region['mask']
+            color = colors_list[i][:3]  # RGB values from colormap
+            
+            # Create an overlay for the mask
+            overlay = np.zeros((*mask.shape, 4), dtype=float)  # RGBA
+            overlay[mask] = (*color, 0.4)  # Set color and alpha for the masked region
+            
+            # Plot the overlay
+            ax.imshow(overlay, aspect='auto', interpolation='nearest')
+            
+            # Add a marker at the centroid
+            centroid_r, centroid_c = region['centroid']
+            ax.plot(centroid_c, centroid_r, 'o', markersize=8, color='white', markeredgecolor='black', label=f"Region {region['id']}")
+            
+            # Add bounding box if available
+            if 'bbox' in region:
+                min_r, min_c, max_r, max_c = region['bbox']
+                rect = plt.Rectangle((min_c - 0.5, min_r - 0.5), max_c - min_c, max_r - min_r,
+                                    fill=False, edgecolor=color, linewidth=2)
+                ax.add_patch(rect)
+        
+        if len(self.ship_regions) > 0:
+            ax.legend()
+            
+        plt.tight_layout()
+        
+        # Save the plot if a file path is specified
+        if output_file:
+            try:
+                plt.savefig(output_file)
+                self.log(f"Saved ship regions visualization to {output_file}")
+            except Exception as e:
+                self.log(f"Error saving ship regions plot: {e}")
+                plt.close(fig)
+                return False
+                
+        plt.close(fig)
         return True

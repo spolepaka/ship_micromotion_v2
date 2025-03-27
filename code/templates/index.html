@@ -163,14 +163,31 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-0">Upload CPHD File</h5>
+                        <h5 class="mb-0">Upload Data</h5>
                     </div>
                     <div class="card-body">
                         <form action="{{ url_for('process') }}" method="post" enctype="multipart/form-data" id="process-form">
                             <div class="mb-3">
-                                <label for="file" class="form-label">Select CPHD file</label>
-                                <input type="file" class="form-control" id="file" name="file" accept=".cphd">
-                                <div class="form-text">Upload a CPHD file to analyze ship micro-motion.</div>
+                                <label class="form-label">Select Data Type:</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="data_type" id="data_type_cphd" value="cphd" checked>
+                                    <label class="form-check-label" for="data_type_cphd">
+                                        CPHD (Complex Phase History Data)
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="data_type" id="data_type_sicd" value="sicd">
+                                    <label class="form-check-label" for="data_type_sicd">
+                                        SICD (Sensor Independent Complex Data)
+                                    </label>
+                                </div>
+                                <div class="form-text">CPHD contains phase history data. SICD contains already focused complex image data.</div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="file" class="form-label">Select data file</label>
+                                <input type="file" class="form-control" id="file" name="file" accept=".cphd,.nitf,.ntf">
+                                <div class="form-text">Upload a CPHD (.cphd) or SICD (.nitf, .ntf) file to analyze ship micro-motion.</div>
                             </div>
                             
                             {% if uploaded_files %}
@@ -220,6 +237,20 @@
                             </div>
                             
                             <button type="submit" class="btn btn-primary" id="process-button">Upload and Process</button>
+                            
+                            <script>
+                                // Update file accept attribute based on selected data type
+                                document.getElementById('data_type_cphd').addEventListener('change', function() {
+                                    if (this.checked) {
+                                        document.getElementById('file').setAttribute('accept', '.cphd');
+                                    }
+                                });
+                                document.getElementById('data_type_sicd').addEventListener('change', function() {
+                                    if (this.checked) {
+                                        document.getElementById('file').setAttribute('accept', '.nitf,.ntf');
+                                    }
+                                });
+                            </script>
                         </form>
                     </div>
                 </div>
@@ -239,6 +270,7 @@
                         </ul>
                         <form action="{{ url_for('process') }}" method="post" class="demo-form">
                             <input type="hidden" name="use_demo" value="true">
+                            <input type="hidden" name="data_type" value="cphd">
                             <input type="hidden" name="num_subapertures" value="7">
                             <input type="hidden" name="window_size" value="64">
                             <input type="hidden" name="overlap" value="0.5">
@@ -376,10 +408,11 @@
                     processButton.disabled = true;
                     demoButton.disabled = true;
                     
-                    // Start polling after a short delay to allow the server to initialize
-                    setTimeout(() => {
-                        startPolling();
-                    }, 500);
+                    // Immediately show processing status
+                    statusElement.classList.add('processing-active');
+                    
+                    // Start polling immediately and check more frequently
+                    startPolling();
                 });
             });
             
@@ -389,15 +422,19 @@
                     clearInterval(pollingInterval);
                 }
                 
-                // Start polling the status endpoint
-                pollingInterval = setInterval(pollStatus, 3000); // Every 3 seconds instead of every second
+                // Check status immediately before setting up the interval
+                pollStatus();
+                
+                // Start polling the status endpoint - check every 1 second for more responsive updates
+                pollingInterval = setInterval(pollStatus, 1000);
             }
             
             function pollStatus() {
-                fetch('/check_status')
+                // Add timestamp to prevent caching
+                fetch('/check_status?_=' + new Date().getTime())
                     .then(response => response.json())
                     .then(data => {
-                        console.log("Status update received:", data); // Add debug logging
+                        console.log("Status update received:", data); // Debug logging
                         updateStatus(data);
                         
                         // Force UI refresh by toggling a class

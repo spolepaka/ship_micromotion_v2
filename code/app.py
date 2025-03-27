@@ -7,6 +7,7 @@ import base64
 import datetime
 import logging
 import json
+import fnmatch
 from werkzeug.utils import secure_filename
 from micromotion_estimator import ShipMicroMotionEstimator
 from ship_region_detector import ShipRegionDetector
@@ -52,10 +53,16 @@ os.makedirs(app.config['RESULTS_FOLDER'], exist_ok=True)
 os.makedirs(app.config['SESSION_FILE_DIR'], exist_ok=True)  # Create session directory
 
 # Allowed file extensions
-ALLOWED_EXTENSIONS = {'cphd', 'h5', 'hdf5'}
+ALLOWED_CPHD_PATTERNS = ['*.cphd', '*.CPHD']
+ALLOWED_SICD_PATTERNS = ['*.nitf', '*.NTF', '*.NITF', '*.ntf']
+ALLOWED_PATTERNS = ALLOWED_CPHD_PATTERNS + ALLOWED_SICD_PATTERNS
 
 def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+    """Check if a file has an allowed extension"""
+    for pattern in ALLOWED_PATTERNS:
+        if fnmatch.fnmatch(filename, pattern):
+            return True
+    return False
 
 def list_uploaded_files():
     """List all files in the uploads directory that have allowed extensions"""
@@ -123,6 +130,29 @@ def update_processing_status(status, progress=None, details=None, console_log=No
 def log_to_processing(message):
     """Log a message to both console and processing log"""
     logger.info(message)
+    return message
+
+# Function to append to the detailed logs file - defined at module level
+def append_to_detailed_log(message):
+    """Append a message to the detailed log file and log to console.
+    This function does NOT modify the session status - use update_processing_status for that."""
+    try:
+        # Get result directory from session if available
+        result_dir = session.get('result_dir', None)
+        if result_dir:
+            # Construct the detailed log path
+            detailed_log_path = os.path.join(app.config['RESULTS_FOLDER'], result_dir, 'detailed_logs.txt')
+            # Write to the log file
+            with open(detailed_log_path, 'a') as f:
+                f.write(f"{datetime.datetime.now().strftime('%H:%M:%S')} - {message}\n")
+        else:
+            logger.warning(f"Cannot write to detailed log: result_dir not in session for message: {message}")
+        
+        # Log to console in any case
+        logger.info(message)
+    except Exception as e:
+        logger.error(f"Error writing to detailed log: {e}")
+    
     return message
 
 # Steps of the algorithm for debugging
@@ -216,7 +246,15 @@ def index():
 @app.route('/check_status')
 def check_status():
     """API endpoint to check processing status"""
-    return jsonify(session.get('processing_status', {'status': 'idle'}))
+    status = session.get('processing_status', {'status': 'idle'})
+    # Add more detailed debug logging
+    current_status = status.get('status', 'unknown')
+    current_progress = status.get('progress', 0)
+    current_details = status.get('details', 'No details')
+    log_count = len(status.get('log_messages', []))
+    
+    logger.debug(f"Status check: status={current_status}, progress={current_progress}, details='{current_details}', log_count={log_count}")
+    return jsonify(status)
 
 @app.route('/debug')
 def debug_playground():
@@ -367,13 +405,30 @@ def run_debug_step():
 @app.route('/process', methods=['POST'])
 def process():
     """
-    Process uploaded CPHD file or demo data and analyze micro-motion.
+    Process uploaded CPHD/SICD file or demo data and analyze micro-motion.
 
     Returns:
     - Flask response, redirects to index with results or error
     """
-    # Create results directory with timestamp
+    # Create a new results folder for this run
     result_dir = create_results_folder()
+    
+    # Store the result directory name in the session for append_to_detailed_log function
+    result_dir_name = os.path.basename(result_dir)
+    session['result_dir'] = result_dir_name
+    
+    # Reset the processing status to ensure we don't show stale data from previous runs
+    session['processing_status'] = {
+        'status': 'starting',
+        'progress': 0,
+        'details': 'Initializing processing...',
+        'timestamp': datetime.datetime.now().strftime("%H:%M:%S"),
+        'log_messages': []
+    }
+    session.modified = True
+    # Force session save to ensure the reset takes effect immediately
+    if hasattr(session, 'save_session'):
+        session.save_session(None)
     
     # Setup logging for this processing run
     process_log_file = os.path.join(result_dir, 'processing.log')
@@ -387,47 +442,47 @@ def process():
     with open(detailed_log_path, 'w') as f:
         f.write(f"=== Processing started at {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ===\n\n")
     
-    logger.info(f"Starting new processing run, results will be saved to {result_dir}")
+    # Log the initial message
+    initial_msg = f"Starting new processing run, results directory: {result_dir}"
+    logger.info(initial_msg)
+    
+    # Use the global append_to_detailed_log to log subsequent messages
+    append_to_detailed_log("Process initialization complete")
     
     # Initialize processing status
     update_processing_status('starting', 0, 'Initializing processing', 
                            console_log=f"Starting new processing run, results directory: {result_dir}")
     
     try:
+        # Get data type selection (CPHD or SICD)
+        data_type = request.form.get('data_type', 'cphd')  # Default to 'cphd' if not specified
+        
         # Placeholder for estimator initialization
         from micromotion_estimator import ShipMicroMotionEstimator
         num_subapertures = int(request.form.get('num_subapertures', 7))
         window_size = int(request.form.get('window_size', 64))
         overlap = float(request.form.get('overlap', 0.5))
         
-        init_msg = f"Initializing estimator with parameters: num_subapertures={num_subapertures}, window_size={window_size}, overlap={overlap}"
+        init_msg = f"Initializing estimator with parameters: data_type={data_type}, num_subapertures={num_subapertures}, window_size={window_size}, overlap={overlap}"
         logger.info(init_msg)
         
-        # Function to append to the detailed logs file
-        def append_to_detailed_log(message):
-            with open(detailed_log_path, 'a') as f:
-                f.write(f"{datetime.datetime.now().strftime('%H:%M:%S')} - {message}\n")
-            
-            # Immediately update session with this log message
-            current_status = session.get('processing_status', {})
-            current_logs = current_status.get('log_messages', [])
-            timestamp = datetime.datetime.now().strftime("%H:%M:%S")
-            log_entry = f"{timestamp}: {message}"
-            current_logs.append(log_entry)
-            current_status['log_messages'] = current_logs[-10:] # Keep last 10
-            current_status['details'] = message  # Also update the current status details
-            session['processing_status'] = current_status
-            session.modified = True
-            
-            return message
-            
+        # Log to detailed logs
         append_to_detailed_log(init_msg)
+        # Update UI status separately - this ensures the message appears in the UI
+        update_processing_status('starting', 1, init_msg)
+            
+        # Add data_type to log
+        dt_msg = f"Configured for {data_type.upper()} data processing"
+        append_to_detailed_log(dt_msg)
+        # Update UI status with the data type message
+        update_processing_status('starting', 2, dt_msg)
         
+        # Initialize estimator (don't set data_type here, it will be detected from the file in load_data)
         estimator = ShipMicroMotionEstimator(num_subapertures=num_subapertures, 
                                              window_size=window_size, 
-                                                 overlap=overlap,
-                                                 debug_mode=True,  # Enable debug mode
-                                                 log_callback=append_to_detailed_log)  # Pass callback for logging
+                                             overlap=overlap,
+                                             debug_mode=True,  # Enable debug mode
+                                             log_callback=append_to_detailed_log)  # Pass callback for logging
 
         use_demo = request.form.get('use_demo', 'false') == 'true'
         
@@ -482,16 +537,17 @@ def process():
             
             if existing_file:
                 # Use existing file from the uploads directory
-                cphd_file_path = os.path.join(app.config['UPLOAD_FOLDER'], existing_file)
-                if not os.path.exists(cphd_file_path):
-                    logger.error(f"Selected file {existing_file} not found")
-                    flash(f'Selected file {existing_file} not found', 'error')
-                    update_processing_status('error', 100, f'File not found: {existing_file}')
+                filename = existing_file
+                file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                if not os.path.exists(file_path):
+                    logger.error(f"Selected file {filename} not found")
+                    flash(f'Selected file {filename} not found', 'error')
+                    update_processing_status('error', 100, f'File not found: {filename}')
                     return redirect(url_for('index'))
                 
-                update_processing_status('loading', 5, f'Using existing file: {existing_file}',
-                                     console_log=f"Using existing file: {existing_file}")
-                flash(f'Using existing file: {existing_file}', 'info')
+                update_processing_status('loading', 5, f'Using existing file: {filename}',
+                                     console_log=f"Using existing file: {filename}")
+                flash(f'Using existing file: {filename}', 'info')
             else:
                 # Handle new file upload
                 file = request.files.get('file')
@@ -501,31 +557,49 @@ def process():
                     update_processing_status('error', 100, 'No file uploaded')
                     return redirect(url_for('index'))
                 
-                cphd_file_path = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(file.filename))
-                update_processing_status('loading', 5, f'Saving uploaded file: {file.filename}',
-                                      console_log=f"Saving uploaded file to {cphd_file_path}")
-                file.save(cphd_file_path)
-                flash(f'File {file.filename} uploaded successfully', 'info')
+                filename = secure_filename(file.filename)
+                if not allowed_file(filename):
+                    msg = f"File type not allowed: {filename}"
+                    logger.error(msg)
+                    flash(msg, 'error')
+                    update_processing_status('error', 100, msg)
+                    return redirect(url_for('index'))
+                
+                file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                update_processing_status('loading', 5, f'Saving uploaded file: {filename}',
+                                      console_log=f"Saving uploaded file to {file_path}")
+                try:
+                    file.save(file_path)
+                    flash(f'File {filename} uploaded successfully', 'info')
+                except Exception as e:
+                    msg = f"Error saving uploaded file: {e}"
+                    logger.error(msg)
+                    flash(msg, 'error')
+                    update_processing_status('error', 100, msg)
+                    return redirect(url_for('index'))
             
             # Process the file (either existing or newly uploaded)
-            update_processing_status('loading', 10, f'Loading CPHD file: {os.path.basename(cphd_file_path)}',
-                                  console_log=f"Loading CPHD file: {cphd_file_path}")
+            update_processing_status('loading', 10, f'Loading data file: {os.path.basename(file_path)}',
+                                  console_log=f"Loading data file: {file_path}")
             
             # This could take time, so let's update the status to show it's still working
             def progress_callback(step, message):
                 progress = 10 + ((step / 4) * 15)  # Scale to 10-25% range during loading
-                update_processing_status('loading', int(progress), message)
+                # Log to detailed log using global function
                 append_to_detailed_log(message)
+                # Update UI status with the same message
+                update_processing_status('loading', int(progress), message)
                 
             # Set incremental progress updates during load
-            load_steps = ["Opening CPHD file", "Reading metadata", "Reading data chip", "Processing PVP data"]
+            load_steps = ["Opening file", "Reading metadata", "Reading data chip", "Processing auxiliary data"]
             for i, step in enumerate(load_steps):
-                progress_callback(i, f"CPHD Loading: {step}...")
+                progress_callback(i, f"Loading: {step}...")
                 time.sleep(0.5)  # Small delay to ensure UI updates
             
-            if estimator.load_data(cphd_file_path):
-                update_processing_status('processing', 25, 'CPHD file loaded successfully', 
-                                      console_log="CPHD file loaded successfully")
+            if estimator.load_data(file_path):
+                data_type_display = estimator.data_type.upper() if hasattr(estimator, 'data_type') and estimator.data_type else "DATA"
+                update_processing_status('processing', 25, f'{data_type_display} file loaded successfully', 
+                                      console_log=f"{data_type_display} file loaded successfully")
                 
                 # Save raw data visualization to results folder
                 if hasattr(estimator, 'raw_data_image') and estimator.raw_data_image is not None:
@@ -675,14 +749,30 @@ def process():
                         if range_disp is not None:
                             height, width = range_disp.shape
                             measurement_points = [(width//4, height//4), (width*3//4, height*3//4)]
+                            mp_msg = f"Defined default measurement points based on image size {range_disp.shape}: {measurement_points}"
+                            append_to_detailed_log(mp_msg)
+                            update_processing_status('processing', 65, mp_msg)
                         else:
                             measurement_points = [(100, 100), (200, 200)]  # Default fallback
+                            mp_msg = f"Could not determine displacement size, using fallback measurement points: {measurement_points}"
+                            append_to_detailed_log(mp_msg)
+                            update_processing_status('processing', 65, mp_msg)
                     else:
                         measurement_points = [(100, 100), (200, 200)]  # Default fallback
+                        mp_msg = f"No displacement maps available, using fallback measurement points: {measurement_points}"
+                        append_to_detailed_log(mp_msg)
+                        update_processing_status('processing', 65, mp_msg)
             else:
-                logger.error("Error loading CPHD file")
-                flash('Error loading CPHD file', 'error')
-                update_processing_status('error', 100, 'Failed to load CPHD file')
+                error_msg = f"Error loading data file: {filename}"
+                logger.error(error_msg)
+                if estimator.last_error:
+                     error_msg += f" Details: {estimator.last_error.splitlines()[0]}" # Show first line of error
+                flash(error_msg, 'error')
+                update_processing_status('error', 100, f'Failed to load data file: {error_msg}')
+                # Save error details if available
+                if estimator.last_error:
+                     with open(os.path.join(result_dir, 'error_loading.txt'), 'w') as f:
+                          f.write(estimator.last_error)
                 return redirect(url_for('index'))
         
         # Analyze time series
@@ -708,48 +798,64 @@ def process():
             if estimator.calculate_vibration_energy_map():
                 energy_map_file = os.path.join(result_dir, 'vibration_energy_map.png')
                 estimator.plot_vibration_energy_map(output_file=energy_map_file)
-                append_to_detailed_log(f"Saved vibration energy map to {energy_map_file}")
+                save_msg = f"Saved vibration energy map to {energy_map_file}"
+                append_to_detailed_log(save_msg)
+                update_processing_status('processing', 93, save_msg)
                 
                 # Attempt to detect ship regions
-                update_processing_status('processing', 93, 'Detecting ship regions...',
-                                      console_log="Detecting ship regions based on vibration energy")
+                detect_msg = "Detecting ship regions based on vibration energy"
+                append_to_detailed_log(detect_msg)
+                update_processing_status('processing', 93, detect_msg)
+                
                 try:
                     if estimator.detect_ship_regions(num_regions=3, energy_threshold=-15):
                         ship_regions_file = os.path.join(result_dir, 'ship_regions.png')
                         # If a plot_ship_regions method exists, use it
                         if hasattr(estimator, 'plot_ship_regions'):
                             estimator.plot_ship_regions(output_file=ship_regions_file)
-                            append_to_detailed_log(f"Saved ship regions visualization to {ship_regions_file}")
-                        append_to_detailed_log(f"Detected {len(estimator.ship_regions)} ship regions")
+                            regions_msg = f"Saved ship regions visualization to {ship_regions_file}"
+                            append_to_detailed_log(regions_msg)
+                            update_processing_status('processing', 94, regions_msg)
+                        
+                        detect_done_msg = f"Detected {len(estimator.ship_regions)} ship regions"
+                        append_to_detailed_log(detect_done_msg)
+                        update_processing_status('processing', 94, detect_done_msg)
                 except Exception as e:
-                    logger.warning(f"Error detecting ship regions: {str(e)}")
-                    append_to_detailed_log(f"Error detecting ship regions: {str(e)}")
+                    error_msg = f"Error detecting ship regions: {str(e)}"
+                    append_to_detailed_log(error_msg)
+                    update_processing_status('processing', 94, error_msg)
             else:
-                logger.warning("Failed to calculate vibration energy map")
-                append_to_detailed_log("Failed to calculate vibration energy map")
+                fail_msg = "Failed to calculate vibration energy map"
+                append_to_detailed_log(fail_msg)
+                update_processing_status('processing', 93, fail_msg)
         except Exception as e:
-            logger.error(f"Error saving vibration energy map: {str(e)}")
-            append_to_detailed_log(f"Error saving vibration energy map: {str(e)}")
+            error_msg = f"Error saving vibration energy map: {str(e)}"
+            append_to_detailed_log(error_msg)
+            update_processing_status('processing', 93, error_msg)
         
         # Save individual measurement point results
         for i in range(len(measurement_points)):
             try:
                 point_result_file = os.path.join(result_dir, f'point_{i}_results.png')
                 estimator.plot_results(i, output_file=point_result_file)
-                append_to_detailed_log(f"Saved point {i} results to {point_result_file}")
+                point_msg = f"Saved point {i} results to {point_result_file}"
+                append_to_detailed_log(point_msg)
+                update_processing_status('saving', 96 + i, point_msg)
             except Exception as e:
-                logger.error(f"Error saving point {i} results: {str(e)}")
-                append_to_detailed_log(f"Error saving point {i} results: {str(e)}")
+                error_msg = f"Error saving point {i} results: {str(e)}"
+                append_to_detailed_log(error_msg)
+                update_processing_status('saving', 96 + i, error_msg)
         
         # Save metadata about the processing
         metadata = {
             'timestamp': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             'parameters': {
+                'data_type': data_type,
                 'num_subapertures': num_subapertures,
                 'window_size': window_size,
                 'overlap': overlap
             },
-            'file': os.path.basename(cphd_file_path) if not use_demo else 'demo',
+            'file': os.path.basename(file_path) if not use_demo else 'demo',
             'measurement_points': [list(mp) for mp in measurement_points],
             'processing_time': datetime.datetime.now().strftime("%H:%M:%S")
         }
@@ -760,7 +866,8 @@ def process():
         # Also save a human-readable summary
         with open(os.path.join(result_dir, 'summary.txt'), 'w') as f:
             f.write(f"Processing completed at: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-            f.write(f"Input file: {os.path.basename(cphd_file_path) if not use_demo else 'demo'}\n")
+            f.write(f"Input file: {os.path.basename(file_path) if not use_demo else 'demo'}\n")
+            f.write(f"Data type: {data_type.upper()}\n")
             f.write(f"Parameters: num_subapertures={num_subapertures}, window_size={window_size}, overlap={overlap}\n")
             f.write(f"Measurement points:\n")
             for i, point in enumerate(measurement_points):
@@ -772,31 +879,50 @@ def process():
                     file_size = os.path.getsize(file_path)
                     f.write(f"  {filename} ({file_size/1024:.1f} KB)\n")
         
-        # Update completion status with results directory
-        update_processing_status('complete', 100, 
-                              f'Processing completed. Results saved to {os.path.basename(result_dir)}',
-                              console_log="Processing completed successfully")
+        # Create the final completion message
+        completion_msg = f'Processing completed. Results saved to {os.path.basename(result_dir)}'
+        # Log it
+        append_to_detailed_log(completion_msg)
+        # Update UI status
+        update_processing_status('complete', 100, completion_msg, console_log="Processing completed successfully")
         flash(f'Processing completed successfully. Results saved to {os.path.basename(result_dir)}', 'success')
         
     except Exception as e:
         logger.exception(f"Unexpected error during processing: {str(e)}")
         
         # Write the exception to the detailed log
-        with open(detailed_log_path, 'a') as f:
-            f.write(f"\n\nERROR: {str(e)}\n")
+        try:
+            error_details = f"\n\nERROR: {str(e)}"
+            append_to_detailed_log(error_details)
+            
             import traceback
-            f.write(traceback.format_exc())
+            trace = traceback.format_exc()
+            append_to_detailed_log(trace)
+            
+            # Also write to a dedicated error file
+            with open(os.path.join(result_dir, 'error_details.txt'), 'w') as f:
+                f.write(f"Error during processing: {str(e)}\n\n")
+                f.write(trace)
+        except Exception as log_err:
+            logger.error(f"Error writing exception details: {log_err}")
         
-        flash(f'Error during processing: {str(e)}', 'error')
-        update_processing_status('error', 100, f'Error: {str(e)}')
+        # Log the error through our helper
+        error_msg = f'Error during processing: {str(e)}'
+        append_to_detailed_log(error_msg)
+        # Update UI status
+        update_processing_status('error', 100, error_msg)
+        flash(error_msg, 'error')
     
     finally:
         # Remove the file handler
         logger.removeHandler(file_handler)
         
         # Write final status to the detailed log
-        with open(detailed_log_path, 'a') as f:
-            f.write(f"\n=== Processing finished at {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ===\n")
+        try:
+            final_log_msg = f"\n=== Processing finished at {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ==="
+            append_to_detailed_log(final_log_msg)
+        except Exception as e:
+            logger.error(f"Error writing final log message: {e}")
     
     return redirect(url_for('index'))
 
