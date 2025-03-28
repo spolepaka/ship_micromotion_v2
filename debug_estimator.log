@@ -7160,3 +7160,1891 @@
 2025-03-27 18:17:09 - Reading default SICD chip...
 2025-03-27 18:17:13 - Raw SICD complex data shape: (10610, 10773)
 2025-03-27 18:17:14 - SICD data loaded successfully.
+2025-03-27 18:18:01 - Starting subaperture creation...
+2025-03-27 18:18:01 - Raw SICD data shape: (10610, 10773)
+2025-03-27 18:18:06 - Raw SICD data magnitude range: 0.0000 to 4.4350
+2025-03-27 18:18:07 - Raw SICD data magnitude mean: 0.0034, std: 0.0051
+2025-03-27 18:18:07 - Creating 7 SICD sub-images with overlap 0.5...
+2025-03-27 18:18:07 - SICD Splitting: num_azimuth=10610, num_subaps=7, overlap=0.5 -> subap_size=2652, step=1326
+2025-03-27 18:18:07 - Error extracting SICD timing info: ufunc 'add' cannot use operands with types dtype('<M8[us]') and dtype('float64')
+2025-03-27 18:18:07 - Warning: Could not extract SICD timing information. Using default values [0, 1].
+2025-03-27 18:18:07 - Created 7 SICD sub-images
+2025-03-27 18:18:07 - Subaperture 1 shape: (2652, 10773)
+2025-03-27 18:18:07 - Subaperture 2 shape: (2652, 10773)
+2025-03-27 18:18:07 - Subaperture 3 shape: (2652, 10773)
+2025-03-27 18:18:07 - Subaperture 4 shape: (2652, 10773)
+2025-03-27 18:18:08 - Subaperture 5 shape: (2652, 10773)
+2025-03-27 18:18:08 - Subaperture 6 shape: (2652, 10773)
+2025-03-27 18:18:08 - Subaperture 7 shape: (2654, 10773)
+2025-03-27 18:18:08 - Subaperture timing: [0.12497643732327993, 0.24995287464655985, 0.37492931196983975, 0.4999057492931197, 0.6248821866163996, 0.7498586239396795, 0.8749293119698398]
+2025-03-27 18:18:32 - Starting subaperture focusing/preparation step...
+2025-03-27 18:18:32 - Preparing 7 SICD sub-images (taking magnitude)...
+2025-03-27 18:18:32 - Taking magnitude of SICD sub-image 1/7...
+2025-03-27 18:18:32 - SICD magnitude image 1 stats: min=0.00, max=3.53, mean=0.00
+2025-03-27 18:18:32 - Taking magnitude of SICD sub-image 2/7...
+2025-03-27 18:18:33 - SICD magnitude image 2 stats: min=0.00, max=0.86, mean=0.00
+2025-03-27 18:18:33 - Taking magnitude of SICD sub-image 3/7...
+2025-03-27 18:18:33 - SICD magnitude image 3 stats: min=0.00, max=4.44, mean=0.00
+2025-03-27 18:18:33 - Taking magnitude of SICD sub-image 4/7...
+2025-03-27 18:18:33 - SICD magnitude image 4 stats: min=0.00, max=4.44, mean=0.00
+2025-03-27 18:18:33 - Taking magnitude of SICD sub-image 5/7...
+2025-03-27 18:18:34 - SICD magnitude image 5 stats: min=0.00, max=1.19, mean=0.00
+2025-03-27 18:18:34 - Taking magnitude of SICD sub-image 6/7...
+2025-03-27 18:18:34 - SICD magnitude image 6 stats: min=0.00, max=1.19, mean=0.00
+2025-03-27 18:18:34 - Taking magnitude of SICD sub-image 7/7...
+2025-03-27 18:18:35 - SICD magnitude image 7 stats: min=0.00, max=1.14, mean=0.00
+2025-03-27 18:18:35 - Created 7 SICD magnitude images
+2025-03-27 18:18:40 - Created normalized SLC/magnitude images for visualization
+2025-03-27 18:19:00 - Starting enhanced memory-efficient displacement estimation...
+2025-03-27 18:19:00 - Memory usage at start: 4606.34 MB
+2025-03-27 18:19:00 - Input: 7 SLC/magnitude images from SICD data
+2025-03-27 18:19:00 - SLC/magnitude image shape: (2652, 10773), dtype: float32
+2025-03-27 18:19:00 - Initializing displacement maps for 6 image pairs
+2025-03-27 18:19:00 - Using window size: 64, overlap: 0.5, step size: 32
+2025-03-27 18:19:00 - Processing image pair 1/6...
+2025-03-27 18:19:00 - Original image dimensions: 2652x10773
+2025-03-27 18:19:00 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 18:19:02 - New dimensions after downsampling: 2017x8192
+2025-03-27 18:19:02 - Displacement map dimensions: (63, 256)
+2025-03-27 18:19:02 - Total windows to process: 15810
+2025-03-27 18:19:02 - Processing chunk from row 0 to 640
+2025-03-27 18:19:03 - Processed 500/15810 windows (3.2%)
+2025-03-27 18:19:03 - Memory usage at after 500 windows: 4733.86 MB
+2025-03-27 18:19:05 - Processed 1000/15810 windows (6.3%)
+2025-03-27 18:19:05 - Memory usage at after 1000 windows: 4733.89 MB
+2025-03-27 18:19:08 - Processed 1500/15810 windows (9.5%)
+2025-03-27 18:19:08 - Memory usage at after 1500 windows: 4733.89 MB
+2025-03-27 18:19:09 - Processed 2000/15810 windows (12.7%)
+2025-03-27 18:19:09 - Memory usage at after 2000 windows: 4733.89 MB
+2025-03-27 18:19:10 - Processed 2500/15810 windows (15.8%)
+2025-03-27 18:19:10 - Memory usage at after 2500 windows: 4733.89 MB
+2025-03-27 18:19:12 - Processed 3000/15810 windows (19.0%)
+2025-03-27 18:19:12 - Memory usage at after 3000 windows: 4733.89 MB
+2025-03-27 18:19:13 - Processed 3500/15810 windows (22.1%)
+2025-03-27 18:19:13 - Memory usage at after 3500 windows: 4733.89 MB
+2025-03-27 18:19:15 - Processed 4000/15810 windows (25.3%)
+2025-03-27 18:19:15 - Memory usage at after 4000 windows: 4733.89 MB
+2025-03-27 18:19:17 - Processed 4500/15810 windows (28.5%)
+2025-03-27 18:19:17 - Memory usage at after 4500 windows: 4733.89 MB
+2025-03-27 18:19:18 - Processed 5000/15810 windows (31.6%)
+2025-03-27 18:19:18 - Memory usage at after 5000 windows: 4733.89 MB
+2025-03-27 18:19:19 - Memory usage at after chunk 0-640: 4137.54 MB
+2025-03-27 18:19:19 - Saving intermediate results after chunk 0-640
+2025-03-27 18:19:19 - Processing chunk from row 640 to 1280
+2025-03-27 18:19:20 - Processed 5500/15810 windows (34.8%)
+2025-03-27 18:19:20 - Memory usage at after 5500 windows: 4137.55 MB
+2025-03-27 18:19:21 - Processed 6000/15810 windows (38.0%)
+2025-03-27 18:19:21 - Memory usage at after 6000 windows: 4137.53 MB
+2025-03-27 18:19:23 - Processed 6500/15810 windows (41.1%)
+2025-03-27 18:19:23 - Memory usage at after 6500 windows: 4137.53 MB
+2025-03-27 18:19:24 - Processed 7000/15810 windows (44.3%)
+2025-03-27 18:19:24 - Memory usage at after 7000 windows: 4137.53 MB
+2025-03-27 18:19:25 - Processed 7500/15810 windows (47.4%)
+2025-03-27 18:19:25 - Memory usage at after 7500 windows: 4137.53 MB
+2025-03-27 18:19:27 - Processed 8000/15810 windows (50.6%)
+2025-03-27 18:19:27 - Memory usage at after 8000 windows: 4137.53 MB
+2025-03-27 18:19:28 - Processed 8500/15810 windows (53.8%)
+2025-03-27 18:19:28 - Memory usage at after 8500 windows: 4137.53 MB
+2025-03-27 18:19:29 - Processed 9000/15810 windows (56.9%)
+2025-03-27 18:19:29 - Memory usage at after 9000 windows: 4137.53 MB
+2025-03-27 18:19:31 - Processed 9500/15810 windows (60.1%)
+2025-03-27 18:19:31 - Memory usage at after 9500 windows: 4137.53 MB
+2025-03-27 18:19:32 - Processed 10000/15810 windows (63.3%)
+2025-03-27 18:19:32 - Memory usage at after 10000 windows: 4137.53 MB
+2025-03-27 18:19:32 - Memory usage at after chunk 640-1280: 4137.54 MB
+2025-03-27 18:19:32 - Saving intermediate results after chunk 640-1280
+2025-03-27 18:19:32 - Processing chunk from row 1280 to 1920
+2025-03-27 18:19:33 - Processed 10500/15810 windows (66.4%)
+2025-03-27 18:19:33 - Memory usage at after 10500 windows: 4137.54 MB
+2025-03-27 18:19:35 - Processed 11000/15810 windows (69.6%)
+2025-03-27 18:19:35 - Memory usage at after 11000 windows: 4137.54 MB
+2025-03-27 18:19:36 - Processed 11500/15810 windows (72.7%)
+2025-03-27 18:19:36 - Memory usage at after 11500 windows: 4137.54 MB
+2025-03-27 18:19:37 - Processed 12000/15810 windows (75.9%)
+2025-03-27 18:19:37 - Memory usage at after 12000 windows: 4137.54 MB
+2025-03-27 18:19:39 - Processed 12500/15810 windows (79.1%)
+2025-03-27 18:19:39 - Memory usage at after 12500 windows: 4137.54 MB
+2025-03-27 18:19:40 - Processed 13000/15810 windows (82.2%)
+2025-03-27 18:19:40 - Memory usage at after 13000 windows: 4137.54 MB
+2025-03-27 18:19:42 - Processed 13500/15810 windows (85.4%)
+2025-03-27 18:19:42 - Memory usage at after 13500 windows: 4137.54 MB
+2025-03-27 18:19:43 - Processed 14000/15810 windows (88.6%)
+2025-03-27 18:19:43 - Memory usage at after 14000 windows: 4137.54 MB
+2025-03-27 18:19:45 - Processed 14500/15810 windows (91.7%)
+2025-03-27 18:19:45 - Memory usage at after 14500 windows: 4137.54 MB
+2025-03-27 18:19:46 - Processed 15000/15810 windows (94.9%)
+2025-03-27 18:19:46 - Memory usage at after 15000 windows: 4137.54 MB
+2025-03-27 18:19:47 - Memory usage at after chunk 1280-1920: 4137.54 MB
+2025-03-27 18:19:47 - Saving intermediate results after chunk 1280-1920
+2025-03-27 18:19:47 - Processing chunk from row 1920 to 1953
+2025-03-27 18:19:48 - Processed 15500/15810 windows (98.0%)
+2025-03-27 18:19:48 - Memory usage at after 15500 windows: 4137.54 MB
+2025-03-27 18:19:48 - Memory usage at after chunk 1920-1953: 4137.54 MB
+2025-03-27 18:19:48 - Saving intermediate results after chunk 1920-1953
+2025-03-27 18:19:48 - Completed image pair 1: Processed=15748, Skipped=682, Errors=0, Valid Shifts Calculated=15066
+2025-03-27 18:19:48 - Window processing failure/skip rate: 4.31%
+2025-03-27 18:19:48 - Range displacement range: -31.5300 to 32.4200
+2025-03-27 18:19:48 - Azimuth displacement range: -31.4700 to 32.4700
+2025-03-27 18:19:48 - Processing image pair 2/6...
+2025-03-27 18:19:48 - Original image dimensions: 2652x10773
+2025-03-27 18:19:48 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 18:19:49 - New dimensions after downsampling: 2017x8192
+2025-03-27 18:19:49 - Displacement map dimensions: (63, 256)
+2025-03-27 18:19:50 - Total windows to process: 15810
+2025-03-27 18:19:50 - Processing chunk from row 0 to 640
+2025-03-27 18:19:51 - Processed 500/15810 windows (3.2%)
+2025-03-27 18:19:51 - Memory usage at after 500 windows: 4137.57 MB
+2025-03-27 18:19:52 - Processed 1000/15810 windows (6.3%)
+2025-03-27 18:19:52 - Memory usage at after 1000 windows: 4137.57 MB
+2025-03-27 18:19:54 - Processed 1500/15810 windows (9.5%)
+2025-03-27 18:19:54 - Memory usage at after 1500 windows: 4137.57 MB
+2025-03-27 18:19:56 - Processed 2000/15810 windows (12.7%)
+2025-03-27 18:19:56 - Memory usage at after 2000 windows: 4137.57 MB
+2025-03-27 18:19:57 - Processed 2500/15810 windows (15.8%)
+2025-03-27 18:19:57 - Memory usage at after 2500 windows: 4137.57 MB
+2025-03-27 18:19:59 - Processed 3000/15810 windows (19.0%)
+2025-03-27 18:19:59 - Memory usage at after 3000 windows: 4137.57 MB
+2025-03-27 18:20:00 - Processed 3500/15810 windows (22.1%)
+2025-03-27 18:20:00 - Memory usage at after 3500 windows: 4137.57 MB
+2025-03-27 18:20:01 - Processed 4000/15810 windows (25.3%)
+2025-03-27 18:20:01 - Memory usage at after 4000 windows: 4137.57 MB
+2025-03-27 18:20:03 - Processed 4500/15810 windows (28.5%)
+2025-03-27 18:20:03 - Memory usage at after 4500 windows: 4137.57 MB
+2025-03-27 18:20:04 - Processed 5000/15810 windows (31.6%)
+2025-03-27 18:20:04 - Memory usage at after 5000 windows: 4137.57 MB
+2025-03-27 18:20:04 - Memory usage at after chunk 0-640: 4137.57 MB
+2025-03-27 18:20:04 - Saving intermediate results after chunk 0-640
+2025-03-27 18:20:04 - Processing chunk from row 640 to 1280
+2025-03-27 18:20:06 - Processed 5500/15810 windows (34.8%)
+2025-03-27 18:20:06 - Memory usage at after 5500 windows: 4137.57 MB
+2025-03-27 18:20:07 - Processed 6000/15810 windows (38.0%)
+2025-03-27 18:20:07 - Memory usage at after 6000 windows: 4137.57 MB
+2025-03-27 18:20:08 - Processed 6500/15810 windows (41.1%)
+2025-03-27 18:20:08 - Memory usage at after 6500 windows: 4137.57 MB
+2025-03-27 18:20:10 - Processed 7000/15810 windows (44.3%)
+2025-03-27 18:20:10 - Memory usage at after 7000 windows: 4137.57 MB
+2025-03-27 18:20:11 - Processed 7500/15810 windows (47.4%)
+2025-03-27 18:20:11 - Memory usage at after 7500 windows: 4137.57 MB
+2025-03-27 18:20:12 - Processed 8000/15810 windows (50.6%)
+2025-03-27 18:20:12 - Memory usage at after 8000 windows: 4137.57 MB
+2025-03-27 18:20:14 - Processed 8500/15810 windows (53.8%)
+2025-03-27 18:20:14 - Memory usage at after 8500 windows: 4137.57 MB
+2025-03-27 18:20:15 - Processed 9000/15810 windows (56.9%)
+2025-03-27 18:20:15 - Memory usage at after 9000 windows: 4137.57 MB
+2025-03-27 18:20:16 - Processed 9500/15810 windows (60.1%)
+2025-03-27 18:20:16 - Memory usage at after 9500 windows: 4137.57 MB
+2025-03-27 18:20:18 - Processed 10000/15810 windows (63.3%)
+2025-03-27 18:20:18 - Memory usage at after 10000 windows: 4137.57 MB
+2025-03-27 18:20:18 - Memory usage at after chunk 640-1280: 4137.57 MB
+2025-03-27 18:20:18 - Saving intermediate results after chunk 640-1280
+2025-03-27 18:20:18 - Processing chunk from row 1280 to 1920
+2025-03-27 18:20:19 - Processed 10500/15810 windows (66.4%)
+2025-03-27 18:20:19 - Memory usage at after 10500 windows: 4137.57 MB
+2025-03-27 18:20:20 - Processed 11000/15810 windows (69.6%)
+2025-03-27 18:20:20 - Memory usage at after 11000 windows: 4137.58 MB
+2025-03-27 18:20:22 - Processed 11500/15810 windows (72.7%)
+2025-03-27 18:20:22 - Memory usage at after 11500 windows: 4137.58 MB
+2025-03-27 18:20:23 - Processed 12000/15810 windows (75.9%)
+2025-03-27 18:20:23 - Memory usage at after 12000 windows: 4137.58 MB
+2025-03-27 18:20:24 - Processed 12500/15810 windows (79.1%)
+2025-03-27 18:20:24 - Memory usage at after 12500 windows: 4137.58 MB
+2025-03-27 18:20:26 - Processed 13000/15810 windows (82.2%)
+2025-03-27 18:20:26 - Memory usage at after 13000 windows: 4137.58 MB
+2025-03-27 18:20:27 - Processed 13500/15810 windows (85.4%)
+2025-03-27 18:20:27 - Memory usage at after 13500 windows: 4137.58 MB
+2025-03-27 18:20:29 - Processed 14000/15810 windows (88.6%)
+2025-03-27 18:20:29 - Memory usage at after 14000 windows: 4137.58 MB
+2025-03-27 18:20:30 - Processed 14500/15810 windows (91.7%)
+2025-03-27 18:20:30 - Memory usage at after 14500 windows: 4137.58 MB
+2025-03-27 18:20:31 - Processed 15000/15810 windows (94.9%)
+2025-03-27 18:20:31 - Memory usage at after 15000 windows: 4137.58 MB
+2025-03-27 18:20:32 - Memory usage at after chunk 1280-1920: 4137.58 MB
+2025-03-27 18:20:32 - Saving intermediate results after chunk 1280-1920
+2025-03-27 18:20:32 - Processing chunk from row 1920 to 1953
+2025-03-27 18:20:33 - Processed 15500/15810 windows (98.0%)
+2025-03-27 18:20:33 - Memory usage at after 15500 windows: 4137.58 MB
+2025-03-27 18:20:34 - Memory usage at after chunk 1920-1953: 4137.58 MB
+2025-03-27 18:20:34 - Saving intermediate results after chunk 1920-1953
+2025-03-27 18:20:34 - Completed image pair 2: Processed=15748, Skipped=683, Errors=0, Valid Shifts Calculated=15065
+2025-03-27 18:20:34 - Window processing failure/skip rate: 4.32%
+2025-03-27 18:20:34 - Range displacement range: -31.4500 to 32.3600
+2025-03-27 18:20:34 - Azimuth displacement range: -31.4700 to 32.4000
+2025-03-27 18:20:34 - Processing image pair 3/6...
+2025-03-27 18:20:34 - Original image dimensions: 2652x10773
+2025-03-27 18:20:34 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 18:20:35 - New dimensions after downsampling: 2017x8192
+2025-03-27 18:20:35 - Displacement map dimensions: (63, 256)
+2025-03-27 18:20:35 - Total windows to process: 15810
+2025-03-27 18:20:35 - Processing chunk from row 0 to 640
+2025-03-27 18:20:36 - Processed 500/15810 windows (3.2%)
+2025-03-27 18:20:36 - Memory usage at after 500 windows: 4137.57 MB
+2025-03-27 18:20:38 - Processed 1000/15810 windows (6.3%)
+2025-03-27 18:20:38 - Memory usage at after 1000 windows: 4137.57 MB
+2025-03-27 18:20:39 - Processed 1500/15810 windows (9.5%)
+2025-03-27 18:20:39 - Memory usage at after 1500 windows: 4137.57 MB
+2025-03-27 18:20:40 - Processed 2000/15810 windows (12.7%)
+2025-03-27 18:20:40 - Memory usage at after 2000 windows: 4137.57 MB
+2025-03-27 18:20:42 - Processed 2500/15810 windows (15.8%)
+2025-03-27 18:20:42 - Memory usage at after 2500 windows: 4137.57 MB
+2025-03-27 18:20:43 - Processed 3000/15810 windows (19.0%)
+2025-03-27 18:20:43 - Memory usage at after 3000 windows: 4137.57 MB
+2025-03-27 18:20:45 - Processed 3500/15810 windows (22.1%)
+2025-03-27 18:20:45 - Memory usage at after 3500 windows: 4137.57 MB
+2025-03-27 18:20:46 - Processed 4000/15810 windows (25.3%)
+2025-03-27 18:20:46 - Memory usage at after 4000 windows: 4137.57 MB
+2025-03-27 18:20:47 - Processed 4500/15810 windows (28.5%)
+2025-03-27 18:20:47 - Memory usage at after 4500 windows: 4137.57 MB
+2025-03-27 18:20:49 - Processed 5000/15810 windows (31.6%)
+2025-03-27 18:20:49 - Memory usage at after 5000 windows: 4137.57 MB
+2025-03-27 18:20:49 - Memory usage at after chunk 0-640: 4137.57 MB
+2025-03-27 18:20:49 - Saving intermediate results after chunk 0-640
+2025-03-27 18:20:49 - Processing chunk from row 640 to 1280
+2025-03-27 18:20:50 - Processed 5500/15810 windows (34.8%)
+2025-03-27 18:20:50 - Memory usage at after 5500 windows: 4137.57 MB
+2025-03-27 18:20:51 - Processed 6000/15810 windows (38.0%)
+2025-03-27 18:20:51 - Memory usage at after 6000 windows: 4137.57 MB
+2025-03-27 18:20:53 - Processed 6500/15810 windows (41.1%)
+2025-03-27 18:20:53 - Memory usage at after 6500 windows: 4137.57 MB
+2025-03-27 18:20:54 - Processed 7000/15810 windows (44.3%)
+2025-03-27 18:20:54 - Memory usage at after 7000 windows: 4137.57 MB
+2025-03-27 18:20:56 - Processed 7500/15810 windows (47.4%)
+2025-03-27 18:20:56 - Memory usage at after 7500 windows: 4137.57 MB
+2025-03-27 18:20:57 - Processed 8000/15810 windows (50.6%)
+2025-03-27 18:20:57 - Memory usage at after 8000 windows: 4137.57 MB
+2025-03-27 18:20:58 - Processed 8500/15810 windows (53.8%)
+2025-03-27 18:20:58 - Memory usage at after 8500 windows: 4137.57 MB
+2025-03-27 18:21:00 - Processed 9000/15810 windows (56.9%)
+2025-03-27 18:21:00 - Memory usage at after 9000 windows: 4137.57 MB
+2025-03-27 18:21:01 - Processed 9500/15810 windows (60.1%)
+2025-03-27 18:21:01 - Memory usage at after 9500 windows: 4137.57 MB
+2025-03-27 18:21:03 - Processed 10000/15810 windows (63.3%)
+2025-03-27 18:21:03 - Memory usage at after 10000 windows: 4137.57 MB
+2025-03-27 18:21:03 - Memory usage at after chunk 640-1280: 4137.57 MB
+2025-03-27 18:21:03 - Saving intermediate results after chunk 640-1280
+2025-03-27 18:21:03 - Processing chunk from row 1280 to 1920
+2025-03-27 18:21:04 - Processed 10500/15810 windows (66.4%)
+2025-03-27 18:21:04 - Memory usage at after 10500 windows: 4137.57 MB
+2025-03-27 18:21:06 - Processed 11000/15810 windows (69.6%)
+2025-03-27 18:21:06 - Memory usage at after 11000 windows: 4137.57 MB
+2025-03-27 18:21:07 - Processed 11500/15810 windows (72.7%)
+2025-03-27 18:21:07 - Memory usage at after 11500 windows: 4137.59 MB
+2025-03-27 18:21:08 - Processed 12000/15810 windows (75.9%)
+2025-03-27 18:21:08 - Memory usage at after 12000 windows: 4137.59 MB
+2025-03-27 18:21:10 - Processed 12500/15810 windows (79.1%)
+2025-03-27 18:21:10 - Memory usage at after 12500 windows: 4137.59 MB
+2025-03-27 18:21:11 - Processed 13000/15810 windows (82.2%)
+2025-03-27 18:21:11 - Memory usage at after 13000 windows: 4137.59 MB
+2025-03-27 18:21:12 - Processed 13500/15810 windows (85.4%)
+2025-03-27 18:21:12 - Memory usage at after 13500 windows: 4137.59 MB
+2025-03-27 18:21:14 - Processed 14000/15810 windows (88.6%)
+2025-03-27 18:21:14 - Memory usage at after 14000 windows: 4137.59 MB
+2025-03-27 18:21:15 - Processed 14500/15810 windows (91.7%)
+2025-03-27 18:21:15 - Memory usage at after 14500 windows: 4137.59 MB
+2025-03-27 18:21:16 - Processed 15000/15810 windows (94.9%)
+2025-03-27 18:21:16 - Memory usage at after 15000 windows: 4137.59 MB
+2025-03-27 18:21:17 - Memory usage at after chunk 1280-1920: 4137.59 MB
+2025-03-27 18:21:17 - Saving intermediate results after chunk 1280-1920
+2025-03-27 18:21:17 - Processing chunk from row 1920 to 1953
+2025-03-27 18:21:18 - Processed 15500/15810 windows (98.0%)
+2025-03-27 18:21:18 - Memory usage at after 15500 windows: 4137.59 MB
+2025-03-27 18:21:18 - Memory usage at after chunk 1920-1953: 4137.59 MB
+2025-03-27 18:21:18 - Saving intermediate results after chunk 1920-1953
+2025-03-27 18:21:18 - Completed image pair 3: Processed=15748, Skipped=684, Errors=0, Valid Shifts Calculated=15064
+2025-03-27 18:21:18 - Window processing failure/skip rate: 4.33%
+2025-03-27 18:21:18 - Range displacement range: -31.4500 to 32.4500
+2025-03-27 18:21:18 - Azimuth displacement range: -31.5200 to 32.4400
+2025-03-27 18:21:18 - Processing image pair 4/6...
+2025-03-27 18:21:19 - Original image dimensions: 2652x10773
+2025-03-27 18:21:19 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 18:21:20 - New dimensions after downsampling: 2017x8192
+2025-03-27 18:21:20 - Displacement map dimensions: (63, 256)
+2025-03-27 18:21:20 - Total windows to process: 15810
+2025-03-27 18:21:20 - Processing chunk from row 0 to 640
+2025-03-27 18:21:21 - Processed 500/15810 windows (3.2%)
+2025-03-27 18:21:21 - Memory usage at after 500 windows: 4137.57 MB
+2025-03-27 18:21:22 - Processed 1000/15810 windows (6.3%)
+2025-03-27 18:21:22 - Memory usage at after 1000 windows: 4137.57 MB
+2025-03-27 18:21:24 - Processed 1500/15810 windows (9.5%)
+2025-03-27 18:21:24 - Memory usage at after 1500 windows: 4137.57 MB
+2025-03-27 18:21:25 - Processed 2000/15810 windows (12.7%)
+2025-03-27 18:21:25 - Memory usage at after 2000 windows: 4137.57 MB
+2025-03-27 18:21:27 - Processed 2500/15810 windows (15.8%)
+2025-03-27 18:21:27 - Memory usage at after 2500 windows: 4137.57 MB
+2025-03-27 18:21:28 - Processed 3000/15810 windows (19.0%)
+2025-03-27 18:21:28 - Memory usage at after 3000 windows: 4137.57 MB
+2025-03-27 18:21:30 - Processed 3500/15810 windows (22.1%)
+2025-03-27 18:21:30 - Memory usage at after 3500 windows: 4137.57 MB
+2025-03-27 18:21:31 - Processed 4000/15810 windows (25.3%)
+2025-03-27 18:21:31 - Memory usage at after 4000 windows: 4137.57 MB
+2025-03-27 18:21:32 - Processed 4500/15810 windows (28.5%)
+2025-03-27 18:21:32 - Memory usage at after 4500 windows: 4137.57 MB
+2025-03-27 18:21:34 - Processed 5000/15810 windows (31.6%)
+2025-03-27 18:21:34 - Memory usage at after 5000 windows: 4137.57 MB
+2025-03-27 18:21:34 - Memory usage at after chunk 0-640: 4137.57 MB
+2025-03-27 18:21:34 - Saving intermediate results after chunk 0-640
+2025-03-27 18:21:34 - Processing chunk from row 640 to 1280
+2025-03-27 18:21:35 - Processed 5500/15810 windows (34.8%)
+2025-03-27 18:21:35 - Memory usage at after 5500 windows: 4137.57 MB
+2025-03-27 18:21:37 - Processed 6000/15810 windows (38.0%)
+2025-03-27 18:21:37 - Memory usage at after 6000 windows: 4137.57 MB
+2025-03-27 18:21:38 - Processed 6500/15810 windows (41.1%)
+2025-03-27 18:21:38 - Memory usage at after 6500 windows: 4137.57 MB
+2025-03-27 18:21:40 - Processed 7000/15810 windows (44.3%)
+2025-03-27 18:21:40 - Memory usage at after 7000 windows: 4137.57 MB
+2025-03-27 18:21:41 - Processed 7500/15810 windows (47.4%)
+2025-03-27 18:21:41 - Memory usage at after 7500 windows: 4137.57 MB
+2025-03-27 18:21:42 - Processed 8000/15810 windows (50.6%)
+2025-03-27 18:21:42 - Memory usage at after 8000 windows: 4137.57 MB
+2025-03-27 18:21:44 - Processed 8500/15810 windows (53.8%)
+2025-03-27 18:21:44 - Memory usage at after 8500 windows: 4137.57 MB
+2025-03-27 18:21:45 - Processed 9000/15810 windows (56.9%)
+2025-03-27 18:21:45 - Memory usage at after 9000 windows: 4137.57 MB
+2025-03-27 18:21:46 - Processed 9500/15810 windows (60.1%)
+2025-03-27 18:21:46 - Memory usage at after 9500 windows: 4137.57 MB
+2025-03-27 18:21:48 - Processed 10000/15810 windows (63.3%)
+2025-03-27 18:21:48 - Memory usage at after 10000 windows: 4137.57 MB
+2025-03-27 18:21:48 - Memory usage at after chunk 640-1280: 4137.57 MB
+2025-03-27 18:21:48 - Saving intermediate results after chunk 640-1280
+2025-03-27 18:21:48 - Processing chunk from row 1280 to 1920
+2025-03-27 18:21:49 - Processed 10500/15810 windows (66.4%)
+2025-03-27 18:21:49 - Memory usage at after 10500 windows: 4137.57 MB
+2025-03-27 18:21:50 - Processed 11000/15810 windows (69.6%)
+2025-03-27 18:21:50 - Memory usage at after 11000 windows: 4137.57 MB
+2025-03-27 18:21:52 - Processed 11500/15810 windows (72.7%)
+2025-03-27 18:21:52 - Memory usage at after 11500 windows: 4137.77 MB
+2025-03-27 18:21:53 - Processed 12000/15810 windows (75.9%)
+2025-03-27 18:21:53 - Memory usage at after 12000 windows: 4137.77 MB
+2025-03-27 18:21:55 - Processed 12500/15810 windows (79.1%)
+2025-03-27 18:21:55 - Memory usage at after 12500 windows: 4137.77 MB
+2025-03-27 18:21:57 - Processed 13000/15810 windows (82.2%)
+2025-03-27 18:21:57 - Memory usage at after 13000 windows: 4137.77 MB
+2025-03-27 18:21:58 - Processed 13500/15810 windows (85.4%)
+2025-03-27 18:21:58 - Memory usage at after 13500 windows: 4137.77 MB
+2025-03-27 18:21:59 - Processed 14000/15810 windows (88.6%)
+2025-03-27 18:21:59 - Memory usage at after 14000 windows: 4137.77 MB
+2025-03-27 18:22:01 - Processed 14500/15810 windows (91.7%)
+2025-03-27 18:22:01 - Memory usage at after 14500 windows: 4137.77 MB
+2025-03-27 18:22:02 - Processed 15000/15810 windows (94.9%)
+2025-03-27 18:22:02 - Memory usage at after 15000 windows: 4137.77 MB
+2025-03-27 18:22:03 - Memory usage at after chunk 1280-1920: 4137.77 MB
+2025-03-27 18:22:03 - Saving intermediate results after chunk 1280-1920
+2025-03-27 18:22:03 - Processing chunk from row 1920 to 1953
+2025-03-27 18:22:04 - Processed 15500/15810 windows (98.0%)
+2025-03-27 18:22:04 - Memory usage at after 15500 windows: 4137.77 MB
+2025-03-27 18:22:05 - Memory usage at after chunk 1920-1953: 4137.77 MB
+2025-03-27 18:22:05 - Saving intermediate results after chunk 1920-1953
+2025-03-27 18:22:05 - Completed image pair 4: Processed=15748, Skipped=695, Errors=0, Valid Shifts Calculated=15053
+2025-03-27 18:22:05 - Window processing failure/skip rate: 4.40%
+2025-03-27 18:22:05 - Range displacement range: -31.5400 to 32.3800
+2025-03-27 18:22:05 - Azimuth displacement range: -31.6000 to 32.5600
+2025-03-27 18:22:05 - Processing image pair 5/6...
+2025-03-27 18:22:05 - Original image dimensions: 2652x10773
+2025-03-27 18:22:05 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 18:22:06 - New dimensions after downsampling: 2017x8192
+2025-03-27 18:22:06 - Displacement map dimensions: (63, 256)
+2025-03-27 18:22:06 - Total windows to process: 15810
+2025-03-27 18:22:06 - Processing chunk from row 0 to 640
+2025-03-27 18:22:07 - Processed 500/15810 windows (3.2%)
+2025-03-27 18:22:07 - Memory usage at after 500 windows: 4137.81 MB
+2025-03-27 18:22:09 - Processed 1000/15810 windows (6.3%)
+2025-03-27 18:22:09 - Memory usage at after 1000 windows: 4137.81 MB
+2025-03-27 18:22:10 - Processed 1500/15810 windows (9.5%)
+2025-03-27 18:22:10 - Memory usage at after 1500 windows: 4137.81 MB
+2025-03-27 18:22:12 - Processed 2000/15810 windows (12.7%)
+2025-03-27 18:22:12 - Memory usage at after 2000 windows: 4137.81 MB
+2025-03-27 18:22:13 - Processed 2500/15810 windows (15.8%)
+2025-03-27 18:22:13 - Memory usage at after 2500 windows: 4137.81 MB
+2025-03-27 18:22:15 - Processed 3000/15810 windows (19.0%)
+2025-03-27 18:22:15 - Memory usage at after 3000 windows: 4137.82 MB
+2025-03-27 18:22:16 - Processed 3500/15810 windows (22.1%)
+2025-03-27 18:22:16 - Memory usage at after 3500 windows: 4137.82 MB
+2025-03-27 18:22:17 - Processed 4000/15810 windows (25.3%)
+2025-03-27 18:22:17 - Memory usage at after 4000 windows: 4137.82 MB
+2025-03-27 18:22:18 - Processed 4500/15810 windows (28.5%)
+2025-03-27 18:22:18 - Memory usage at after 4500 windows: 4137.82 MB
+2025-03-27 18:22:19 - Processed 5000/15810 windows (31.6%)
+2025-03-27 18:22:19 - Memory usage at after 5000 windows: 4137.82 MB
+2025-03-27 18:22:20 - Memory usage at after chunk 0-640: 4137.82 MB
+2025-03-27 18:22:20 - Saving intermediate results after chunk 0-640
+2025-03-27 18:22:20 - Processing chunk from row 640 to 1280
+2025-03-27 18:22:21 - Processed 5500/15810 windows (34.8%)
+2025-03-27 18:22:21 - Memory usage at after 5500 windows: 4137.94 MB
+2025-03-27 18:22:22 - Processed 6000/15810 windows (38.0%)
+2025-03-27 18:22:22 - Memory usage at after 6000 windows: 4137.94 MB
+2025-03-27 18:22:23 - Processed 6500/15810 windows (41.1%)
+2025-03-27 18:22:23 - Memory usage at after 6500 windows: 4137.94 MB
+2025-03-27 18:22:25 - Processed 7000/15810 windows (44.3%)
+2025-03-27 18:22:25 - Memory usage at after 7000 windows: 4137.95 MB
+2025-03-27 18:22:26 - Processed 7500/15810 windows (47.4%)
+2025-03-27 18:22:26 - Memory usage at after 7500 windows: 4137.95 MB
+2025-03-27 18:22:28 - Processed 8000/15810 windows (50.6%)
+2025-03-27 18:22:28 - Memory usage at after 8000 windows: 4137.95 MB
+2025-03-27 18:22:29 - Processed 8500/15810 windows (53.8%)
+2025-03-27 18:22:29 - Memory usage at after 8500 windows: 4137.95 MB
+2025-03-27 18:22:31 - Processed 9000/15810 windows (56.9%)
+2025-03-27 18:22:31 - Memory usage at after 9000 windows: 4137.95 MB
+2025-03-27 18:22:32 - Processed 9500/15810 windows (60.1%)
+2025-03-27 18:22:32 - Memory usage at after 9500 windows: 4137.95 MB
+2025-03-27 18:22:33 - Processed 10000/15810 windows (63.3%)
+2025-03-27 18:22:33 - Memory usage at after 10000 windows: 4137.95 MB
+2025-03-27 18:22:34 - Memory usage at after chunk 640-1280: 4137.95 MB
+2025-03-27 18:22:34 - Saving intermediate results after chunk 640-1280
+2025-03-27 18:22:34 - Processing chunk from row 1280 to 1920
+2025-03-27 18:22:34 - Processed 10500/15810 windows (66.4%)
+2025-03-27 18:22:34 - Memory usage at after 10500 windows: 4137.95 MB
+2025-03-27 18:22:36 - Processed 11000/15810 windows (69.6%)
+2025-03-27 18:22:36 - Memory usage at after 11000 windows: 4137.95 MB
+2025-03-27 18:22:37 - Processed 11500/15810 windows (72.7%)
+2025-03-27 18:22:37 - Memory usage at after 11500 windows: 4137.95 MB
+2025-03-27 18:22:38 - Processed 12000/15810 windows (75.9%)
+2025-03-27 18:22:38 - Memory usage at after 12000 windows: 4137.95 MB
+2025-03-27 18:22:40 - Processed 12500/15810 windows (79.1%)
+2025-03-27 18:22:40 - Memory usage at after 12500 windows: 4137.95 MB
+2025-03-27 18:22:41 - Processed 13000/15810 windows (82.2%)
+2025-03-27 18:22:41 - Memory usage at after 13000 windows: 4137.95 MB
+2025-03-27 18:22:42 - Processed 13500/15810 windows (85.4%)
+2025-03-27 18:22:42 - Memory usage at after 13500 windows: 4137.95 MB
+2025-03-27 18:22:44 - Processed 14000/15810 windows (88.6%)
+2025-03-27 18:22:44 - Memory usage at after 14000 windows: 4137.95 MB
+2025-03-27 18:22:45 - Processed 14500/15810 windows (91.7%)
+2025-03-27 18:22:45 - Memory usage at after 14500 windows: 4137.95 MB
+2025-03-27 18:22:47 - Processed 15000/15810 windows (94.9%)
+2025-03-27 18:22:47 - Memory usage at after 15000 windows: 4137.95 MB
+2025-03-27 18:22:48 - Memory usage at after chunk 1280-1920: 4137.95 MB
+2025-03-27 18:22:48 - Saving intermediate results after chunk 1280-1920
+2025-03-27 18:22:48 - Processing chunk from row 1920 to 1953
+2025-03-27 18:22:48 - Processed 15500/15810 windows (98.0%)
+2025-03-27 18:22:48 - Memory usage at after 15500 windows: 4137.95 MB
+2025-03-27 18:22:49 - Memory usage at after chunk 1920-1953: 4137.95 MB
+2025-03-27 18:22:49 - Saving intermediate results after chunk 1920-1953
+2025-03-27 18:22:49 - Completed image pair 5: Processed=15748, Skipped=715, Errors=0, Valid Shifts Calculated=15033
+2025-03-27 18:22:49 - Window processing failure/skip rate: 4.52%
+2025-03-27 18:22:49 - Range displacement range: -31.4600 to 32.3600
+2025-03-27 18:22:49 - Azimuth displacement range: -31.4100 to 32.4400
+2025-03-27 18:22:49 - Processing image pair 6/6...
+2025-03-27 18:22:50 - Original image dimensions: 2652x10773
+2025-03-27 18:22:50 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 18:22:50 - New dimensions after downsampling: 2017x8192
+2025-03-27 18:22:50 - Displacement map dimensions: (63, 256)
+2025-03-27 18:22:51 - Total windows to process: 15810
+2025-03-27 18:22:51 - Processing chunk from row 0 to 640
+2025-03-27 18:22:52 - Processed 500/15810 windows (3.2%)
+2025-03-27 18:22:52 - Memory usage at after 500 windows: 4137.98 MB
+2025-03-27 18:22:53 - Processed 1000/15810 windows (6.3%)
+2025-03-27 18:22:53 - Memory usage at after 1000 windows: 4137.98 MB
+2025-03-27 18:22:55 - Processed 1500/15810 windows (9.5%)
+2025-03-27 18:22:55 - Memory usage at after 1500 windows: 4137.98 MB
+2025-03-27 18:22:56 - Processed 2000/15810 windows (12.7%)
+2025-03-27 18:22:56 - Memory usage at after 2000 windows: 4137.98 MB
+2025-03-27 18:22:57 - Processed 2500/15810 windows (15.8%)
+2025-03-27 18:22:57 - Memory usage at after 2500 windows: 4137.98 MB
+2025-03-27 18:22:58 - Processed 3000/15810 windows (19.0%)
+2025-03-27 18:22:58 - Memory usage at after 3000 windows: 4137.98 MB
+2025-03-27 18:23:00 - Processed 3500/15810 windows (22.1%)
+2025-03-27 18:23:00 - Memory usage at after 3500 windows: 4137.98 MB
+2025-03-27 18:23:01 - Processed 4000/15810 windows (25.3%)
+2025-03-27 18:23:01 - Memory usage at after 4000 windows: 4137.98 MB
+2025-03-27 18:23:02 - Processed 4500/15810 windows (28.5%)
+2025-03-27 18:23:02 - Memory usage at after 4500 windows: 4137.98 MB
+2025-03-27 18:23:03 - Processed 5000/15810 windows (31.6%)
+2025-03-27 18:23:03 - Memory usage at after 5000 windows: 4137.98 MB
+2025-03-27 18:23:04 - Memory usage at after chunk 0-640: 4137.98 MB
+2025-03-27 18:23:04 - Saving intermediate results after chunk 0-640
+2025-03-27 18:23:04 - Processing chunk from row 640 to 1280
+2025-03-27 18:23:05 - Processed 5500/15810 windows (34.8%)
+2025-03-27 18:23:05 - Memory usage at after 5500 windows: 4137.98 MB
+2025-03-27 18:23:06 - Processed 6000/15810 windows (38.0%)
+2025-03-27 18:23:06 - Memory usage at after 6000 windows: 4137.98 MB
+2025-03-27 18:23:07 - Processed 6500/15810 windows (41.1%)
+2025-03-27 18:23:07 - Memory usage at after 6500 windows: 4137.98 MB
+2025-03-27 18:23:08 - Processed 7000/15810 windows (44.3%)
+2025-03-27 18:23:08 - Memory usage at after 7000 windows: 4137.98 MB
+2025-03-27 18:23:10 - Processed 7500/15810 windows (47.4%)
+2025-03-27 18:23:10 - Memory usage at after 7500 windows: 4137.98 MB
+2025-03-27 18:23:11 - Processed 8000/15810 windows (50.6%)
+2025-03-27 18:23:11 - Memory usage at after 8000 windows: 4137.98 MB
+2025-03-27 18:23:12 - Processed 8500/15810 windows (53.8%)
+2025-03-27 18:23:12 - Memory usage at after 8500 windows: 4137.98 MB
+2025-03-27 18:23:13 - Processed 9000/15810 windows (56.9%)
+2025-03-27 18:23:13 - Memory usage at after 9000 windows: 4137.98 MB
+2025-03-27 18:23:15 - Processed 9500/15810 windows (60.1%)
+2025-03-27 18:23:15 - Memory usage at after 9500 windows: 4137.98 MB
+2025-03-27 18:23:16 - Processed 10000/15810 windows (63.3%)
+2025-03-27 18:23:16 - Memory usage at after 10000 windows: 4137.98 MB
+2025-03-27 18:23:16 - Memory usage at after chunk 640-1280: 4137.98 MB
+2025-03-27 18:23:16 - Saving intermediate results after chunk 640-1280
+2025-03-27 18:23:16 - Processing chunk from row 1280 to 1920
+2025-03-27 18:23:17 - Processed 10500/15810 windows (66.4%)
+2025-03-27 18:23:17 - Memory usage at after 10500 windows: 4137.98 MB
+2025-03-27 18:23:18 - Processed 11000/15810 windows (69.6%)
+2025-03-27 18:23:18 - Memory usage at after 11000 windows: 4137.98 MB
+2025-03-27 18:23:19 - Processed 11500/15810 windows (72.7%)
+2025-03-27 18:23:19 - Memory usage at after 11500 windows: 4137.98 MB
+2025-03-27 18:23:21 - Processed 12000/15810 windows (75.9%)
+2025-03-27 18:23:21 - Memory usage at after 12000 windows: 4137.98 MB
+2025-03-27 18:23:22 - Processed 12500/15810 windows (79.1%)
+2025-03-27 18:23:22 - Memory usage at after 12500 windows: 4137.98 MB
+2025-03-27 18:23:23 - Processed 13000/15810 windows (82.2%)
+2025-03-27 18:23:23 - Memory usage at after 13000 windows: 4137.98 MB
+2025-03-27 18:23:24 - Processed 13500/15810 windows (85.4%)
+2025-03-27 18:23:24 - Memory usage at after 13500 windows: 4137.98 MB
+2025-03-27 18:23:26 - Processed 14000/15810 windows (88.6%)
+2025-03-27 18:23:26 - Memory usage at after 14000 windows: 4137.98 MB
+2025-03-27 18:23:27 - Processed 14500/15810 windows (91.7%)
+2025-03-27 18:23:27 - Memory usage at after 14500 windows: 4137.98 MB
+2025-03-27 18:23:28 - Processed 15000/15810 windows (94.9%)
+2025-03-27 18:23:28 - Memory usage at after 15000 windows: 4137.98 MB
+2025-03-27 18:23:29 - Memory usage at after chunk 1280-1920: 4137.98 MB
+2025-03-27 18:23:29 - Saving intermediate results after chunk 1280-1920
+2025-03-27 18:23:29 - Processing chunk from row 1920 to 1953
+2025-03-27 18:23:30 - Processed 15500/15810 windows (98.0%)
+2025-03-27 18:23:30 - Memory usage at after 15500 windows: 4137.98 MB
+2025-03-27 18:23:31 - Memory usage at after chunk 1920-1953: 4137.98 MB
+2025-03-27 18:23:31 - Saving intermediate results after chunk 1920-1953
+2025-03-27 18:23:31 - Completed image pair 6: Processed=15748, Skipped=741, Errors=0, Valid Shifts Calculated=15007
+2025-03-27 18:23:31 - Window processing failure/skip rate: 4.69%
+2025-03-27 18:23:31 - Range displacement range: -31.5100 to 32.5400
+2025-03-27 18:23:31 - Azimuth displacement range: -31.5100 to 32.4200
+2025-03-27 18:23:31 - Memory usage at end: 4137.98 MB
+2025-03-27 18:23:31 - Enhanced memory-efficient displacement estimation completed successfully
+2025-03-27 18:23:32 - Calculating vibration energy map from displacement maps...
+2025-03-27 18:23:32 - Displacement map dimensions: 63x256
+2025-03-27 18:23:33 - Normalizing dB map relative to 99.5th percentile: 38.36 dB
+2025-03-27 18:23:33 - Clipped vibration energy map at -30 dB
+2025-03-27 18:23:33 - Vibration energy map calculated successfully with dimensions (63, 256)
+2025-03-27 18:23:39 - Saved vibration energy map to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250327_181706\vibration_energy_map.png
+2025-03-27 18:23:40 - Saved ship regions visualization to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250327_181706\ship_regions.png
+2025-03-27 18:23:40 - Saved point 0 results to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250327_181706\point_0_results.png
+2025-03-27 18:23:41 - Saved point 1 results to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250327_181706\point_1_results.png
+2025-03-27 20:12:54 - Attempting to load data from: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\uploads\2023-08-31-01-09-38_UMBRA-04_SICD.nitf
+2025-03-27 20:12:54 - Opening file with sarpy: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\uploads\2023-08-31-01-09-38_UMBRA-04_SICD.nitf
+2025-03-27 20:12:55 - Sarpy reader type: SICDReader
+2025-03-27 20:12:55 - Detected SICD data type.
+2025-03-27 20:12:55 - Reading SICD complex image data...
+2025-03-27 20:12:55 - Reading default SICD chip...
+2025-03-27 20:13:02 - Raw SICD complex data shape: (10610, 10773)
+2025-03-27 20:13:02 - SICD data loaded successfully.
+2025-03-27 20:14:00 - Starting subaperture creation...
+2025-03-27 20:14:00 - Raw SICD data shape: (10610, 10773)
+2025-03-27 20:14:05 - Raw SICD data magnitude range: 0.0000 to 4.4350
+2025-03-27 20:14:06 - Raw SICD data magnitude mean: 0.0034, std: 0.0051
+2025-03-27 20:14:06 - Creating 7 SICD sub-images with overlap 0.5...
+2025-03-27 20:14:06 - SICD Splitting: num_azimuth=10610, num_subaps=7, overlap=0.5 -> subap_size=2652, step=1326
+2025-03-27 20:14:06 - Error extracting SICD timing info: ufunc 'add' cannot use operands with types dtype('<M8[us]') and dtype('float64')
+2025-03-27 20:14:06 - Warning: Could not extract SICD timing information. Using default values [0, 1].
+2025-03-27 20:14:07 - Created 7 SICD sub-images
+2025-03-27 20:14:07 - Subaperture 1 shape: (2652, 10773)
+2025-03-27 20:14:07 - Subaperture 2 shape: (2652, 10773)
+2025-03-27 20:14:07 - Subaperture 3 shape: (2652, 10773)
+2025-03-27 20:14:07 - Subaperture 4 shape: (2652, 10773)
+2025-03-27 20:14:07 - Subaperture 5 shape: (2652, 10773)
+2025-03-27 20:14:07 - Subaperture 6 shape: (2652, 10773)
+2025-03-27 20:14:08 - Subaperture 7 shape: (2654, 10773)
+2025-03-27 20:14:08 - Subaperture timing: [0.12497643732327993, 0.24995287464655985, 0.37492931196983975, 0.4999057492931197, 0.6248821866163996, 0.7498586239396795, 0.8749293119698398]
+2025-03-27 20:14:39 - Starting subaperture focusing/preparation step...
+2025-03-27 20:14:39 - Preparing 7 SICD sub-images (taking magnitude)...
+2025-03-27 20:14:39 - Taking magnitude of SICD sub-image 1/7...
+2025-03-27 20:14:40 - SICD magnitude image 1 stats: min=0.00, max=3.53, mean=0.00
+2025-03-27 20:14:40 - Taking magnitude of SICD sub-image 2/7...
+2025-03-27 20:14:41 - SICD magnitude image 2 stats: min=0.00, max=0.86, mean=0.00
+2025-03-27 20:14:41 - Taking magnitude of SICD sub-image 3/7...
+2025-03-27 20:14:41 - SICD magnitude image 3 stats: min=0.00, max=4.44, mean=0.00
+2025-03-27 20:14:41 - Taking magnitude of SICD sub-image 4/7...
+2025-03-27 20:14:42 - SICD magnitude image 4 stats: min=0.00, max=4.44, mean=0.00
+2025-03-27 20:14:42 - Taking magnitude of SICD sub-image 5/7...
+2025-03-27 20:14:43 - SICD magnitude image 5 stats: min=0.00, max=1.19, mean=0.00
+2025-03-27 20:14:43 - Taking magnitude of SICD sub-image 6/7...
+2025-03-27 20:14:43 - SICD magnitude image 6 stats: min=0.00, max=1.19, mean=0.00
+2025-03-27 20:14:43 - Taking magnitude of SICD sub-image 7/7...
+2025-03-27 20:14:44 - SICD magnitude image 7 stats: min=0.00, max=1.14, mean=0.00
+2025-03-27 20:14:44 - Created 7 SICD magnitude images
+2025-03-27 20:14:50 - Created normalized SLC/magnitude images for visualization
+2025-03-27 20:15:10 - Starting enhanced memory-efficient displacement estimation...
+2025-03-27 20:15:10 - Memory usage at start: 5614.42 MB
+2025-03-27 20:15:10 - Input: 7 SLC/magnitude images from SICD data
+2025-03-27 20:15:10 - SLC/magnitude image shape: (2652, 10773), dtype: float32
+2025-03-27 20:15:10 - Initializing displacement maps for 6 image pairs
+2025-03-27 20:15:10 - Using window size: 64, overlap: 0.5, step size: 32
+2025-03-27 20:15:10 - Processing image pair 1/6...
+2025-03-27 20:15:10 - Original image dimensions: 2652x10773
+2025-03-27 20:15:10 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 20:15:11 - New dimensions after downsampling: 2017x8192
+2025-03-27 20:15:11 - Displacement map dimensions: (63, 256)
+2025-03-27 20:15:11 - Total windows to process: 15810
+2025-03-27 20:15:11 - Processing chunk from row 0 to 640
+2025-03-27 20:15:13 - Processed 500/15810 windows (3.2%)
+2025-03-27 20:15:13 - Memory usage at after 500 windows: 5741.71 MB
+2025-03-27 20:15:14 - Processed 1000/15810 windows (6.3%)
+2025-03-27 20:15:14 - Memory usage at after 1000 windows: 5741.71 MB
+2025-03-27 20:15:16 - Processed 1500/15810 windows (9.5%)
+2025-03-27 20:15:16 - Memory usage at after 1500 windows: 5741.71 MB
+2025-03-27 20:15:17 - Processed 2000/15810 windows (12.7%)
+2025-03-27 20:15:17 - Memory usage at after 2000 windows: 5741.73 MB
+2025-03-27 20:15:19 - Processed 2500/15810 windows (15.8%)
+2025-03-27 20:15:19 - Memory usage at after 2500 windows: 5741.75 MB
+2025-03-27 20:15:20 - Processed 3000/15810 windows (19.0%)
+2025-03-27 20:15:20 - Memory usage at after 3000 windows: 5741.75 MB
+2025-03-27 20:15:22 - Processed 3500/15810 windows (22.1%)
+2025-03-27 20:15:22 - Memory usage at after 3500 windows: 5741.75 MB
+2025-03-27 20:15:23 - Processed 4000/15810 windows (25.3%)
+2025-03-27 20:15:23 - Memory usage at after 4000 windows: 5741.75 MB
+2025-03-27 20:15:25 - Processed 4500/15810 windows (28.5%)
+2025-03-27 20:15:25 - Memory usage at after 4500 windows: 5741.75 MB
+2025-03-27 20:15:27 - Processed 5000/15810 windows (31.6%)
+2025-03-27 20:15:27 - Memory usage at after 5000 windows: 5741.75 MB
+2025-03-27 20:15:28 - Memory usage at after chunk 0-640: 5143.44 MB
+2025-03-27 20:15:28 - Saving intermediate results after chunk 0-640
+2025-03-27 20:15:28 - Processing chunk from row 640 to 1280
+2025-03-27 20:15:29 - Processed 5500/15810 windows (34.8%)
+2025-03-27 20:15:29 - Memory usage at after 5500 windows: 5143.44 MB
+2025-03-27 20:15:31 - Processed 6000/15810 windows (38.0%)
+2025-03-27 20:15:31 - Memory usage at after 6000 windows: 5143.42 MB
+2025-03-27 20:15:32 - Processed 6500/15810 windows (41.1%)
+2025-03-27 20:15:32 - Memory usage at after 6500 windows: 5143.42 MB
+2025-03-27 20:15:34 - Processed 7000/15810 windows (44.3%)
+2025-03-27 20:15:34 - Memory usage at after 7000 windows: 5143.42 MB
+2025-03-27 20:15:36 - Processed 7500/15810 windows (47.4%)
+2025-03-27 20:15:36 - Memory usage at after 7500 windows: 5143.42 MB
+2025-03-27 20:15:38 - Processed 8000/15810 windows (50.6%)
+2025-03-27 20:15:38 - Memory usage at after 8000 windows: 5143.42 MB
+2025-03-27 20:15:40 - Processed 8500/15810 windows (53.8%)
+2025-03-27 20:15:40 - Memory usage at after 8500 windows: 5143.42 MB
+2025-03-27 20:15:42 - Processed 9000/15810 windows (56.9%)
+2025-03-27 20:15:42 - Memory usage at after 9000 windows: 5143.42 MB
+2025-03-27 20:15:43 - Processed 9500/15810 windows (60.1%)
+2025-03-27 20:15:43 - Memory usage at after 9500 windows: 5143.42 MB
+2025-03-27 20:15:45 - Processed 10000/15810 windows (63.3%)
+2025-03-27 20:15:45 - Memory usage at after 10000 windows: 5143.42 MB
+2025-03-27 20:15:46 - Memory usage at after chunk 640-1280: 5143.43 MB
+2025-03-27 20:15:46 - Saving intermediate results after chunk 640-1280
+2025-03-27 20:15:46 - Processing chunk from row 1280 to 1920
+2025-03-27 20:15:47 - Processed 10500/15810 windows (66.4%)
+2025-03-27 20:15:47 - Memory usage at after 10500 windows: 5143.43 MB
+2025-03-27 20:15:49 - Processed 11000/15810 windows (69.6%)
+2025-03-27 20:15:49 - Memory usage at after 11000 windows: 5143.43 MB
+2025-03-27 20:15:50 - Processed 11500/15810 windows (72.7%)
+2025-03-27 20:15:50 - Memory usage at after 11500 windows: 5143.43 MB
+2025-03-27 20:15:52 - Processed 12000/15810 windows (75.9%)
+2025-03-27 20:15:52 - Memory usage at after 12000 windows: 5143.43 MB
+2025-03-27 20:15:53 - Processed 12500/15810 windows (79.1%)
+2025-03-27 20:15:53 - Memory usage at after 12500 windows: 5143.43 MB
+2025-03-27 20:15:55 - Processed 13000/15810 windows (82.2%)
+2025-03-27 20:15:55 - Memory usage at after 13000 windows: 5143.43 MB
+2025-03-27 20:15:57 - Processed 13500/15810 windows (85.4%)
+2025-03-27 20:15:57 - Memory usage at after 13500 windows: 5143.43 MB
+2025-03-27 20:15:59 - Processed 14000/15810 windows (88.6%)
+2025-03-27 20:15:59 - Memory usage at after 14000 windows: 5143.43 MB
+2025-03-27 20:16:01 - Processed 14500/15810 windows (91.7%)
+2025-03-27 20:16:01 - Memory usage at after 14500 windows: 5143.43 MB
+2025-03-27 20:16:03 - Processed 15000/15810 windows (94.9%)
+2025-03-27 20:16:03 - Memory usage at after 15000 windows: 5143.43 MB
+2025-03-27 20:16:03 - Memory usage at after chunk 1280-1920: 5143.43 MB
+2025-03-27 20:16:03 - Saving intermediate results after chunk 1280-1920
+2025-03-27 20:16:03 - Processing chunk from row 1920 to 1953
+2025-03-27 20:16:04 - Processed 15500/15810 windows (98.0%)
+2025-03-27 20:16:04 - Memory usage at after 15500 windows: 5143.43 MB
+2025-03-27 20:16:05 - Memory usage at after chunk 1920-1953: 5143.43 MB
+2025-03-27 20:16:05 - Saving intermediate results after chunk 1920-1953
+2025-03-27 20:16:05 - Completed image pair 1: Processed=15748, Skipped=682, Errors=0, Valid Shifts Calculated=15066
+2025-03-27 20:16:05 - Window processing failure/skip rate: 4.31%
+2025-03-27 20:16:05 - Range displacement range: -31.5300 to 32.4200
+2025-03-27 20:16:05 - Azimuth displacement range: -31.4700 to 32.4700
+2025-03-27 20:16:05 - Processing image pair 2/6...
+2025-03-27 20:16:05 - Original image dimensions: 2652x10773
+2025-03-27 20:16:05 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 20:16:07 - New dimensions after downsampling: 2017x8192
+2025-03-27 20:16:07 - Displacement map dimensions: (63, 256)
+2025-03-27 20:16:07 - Total windows to process: 15810
+2025-03-27 20:16:07 - Processing chunk from row 0 to 640
+2025-03-27 20:16:08 - Processed 500/15810 windows (3.2%)
+2025-03-27 20:16:09 - Memory usage at after 500 windows: 5143.42 MB
+2025-03-27 20:16:10 - Processed 1000/15810 windows (6.3%)
+2025-03-27 20:16:10 - Memory usage at after 1000 windows: 5143.42 MB
+2025-03-27 20:16:12 - Processed 1500/15810 windows (9.5%)
+2025-03-27 20:16:12 - Memory usage at after 1500 windows: 5143.42 MB
+2025-03-27 20:16:13 - Processed 2000/15810 windows (12.7%)
+2025-03-27 20:16:13 - Memory usage at after 2000 windows: 5143.42 MB
+2025-03-27 20:16:15 - Processed 2500/15810 windows (15.8%)
+2025-03-27 20:16:15 - Memory usage at after 2500 windows: 5143.42 MB
+2025-03-27 20:16:17 - Processed 3000/15810 windows (19.0%)
+2025-03-27 20:16:17 - Memory usage at after 3000 windows: 5143.42 MB
+2025-03-27 20:16:18 - Processed 3500/15810 windows (22.1%)
+2025-03-27 20:16:18 - Memory usage at after 3500 windows: 5143.42 MB
+2025-03-27 20:16:20 - Processed 4000/15810 windows (25.3%)
+2025-03-27 20:16:20 - Memory usage at after 4000 windows: 5143.42 MB
+2025-03-27 20:16:22 - Processed 4500/15810 windows (28.5%)
+2025-03-27 20:16:22 - Memory usage at after 4500 windows: 5143.42 MB
+2025-03-27 20:16:23 - Processed 5000/15810 windows (31.6%)
+2025-03-27 20:16:23 - Memory usage at after 5000 windows: 5143.42 MB
+2025-03-27 20:16:24 - Memory usage at after chunk 0-640: 5143.41 MB
+2025-03-27 20:16:24 - Saving intermediate results after chunk 0-640
+2025-03-27 20:16:24 - Processing chunk from row 640 to 1280
+2025-03-27 20:16:25 - Processed 5500/15810 windows (34.8%)
+2025-03-27 20:16:25 - Memory usage at after 5500 windows: 5143.41 MB
+2025-03-27 20:16:27 - Processed 6000/15810 windows (38.0%)
+2025-03-27 20:16:27 - Memory usage at after 6000 windows: 5143.41 MB
+2025-03-27 20:16:29 - Processed 6500/15810 windows (41.1%)
+2025-03-27 20:16:29 - Memory usage at after 6500 windows: 5143.41 MB
+2025-03-27 20:16:30 - Processed 7000/15810 windows (44.3%)
+2025-03-27 20:16:30 - Memory usage at after 7000 windows: 5143.41 MB
+2025-03-27 20:16:32 - Processed 7500/15810 windows (47.4%)
+2025-03-27 20:16:32 - Memory usage at after 7500 windows: 5143.41 MB
+2025-03-27 20:16:34 - Processed 8000/15810 windows (50.6%)
+2025-03-27 20:16:34 - Memory usage at after 8000 windows: 5143.42 MB
+2025-03-27 20:16:36 - Processed 8500/15810 windows (53.8%)
+2025-03-27 20:16:36 - Memory usage at after 8500 windows: 5143.42 MB
+2025-03-27 20:16:38 - Processed 9000/15810 windows (56.9%)
+2025-03-27 20:16:38 - Memory usage at after 9000 windows: 5143.42 MB
+2025-03-27 20:16:41 - Processed 9500/15810 windows (60.1%)
+2025-03-27 20:16:41 - Memory usage at after 9500 windows: 5143.42 MB
+2025-03-27 20:16:42 - Processed 10000/15810 windows (63.3%)
+2025-03-27 20:16:42 - Memory usage at after 10000 windows: 5143.42 MB
+2025-03-27 20:16:43 - Memory usage at after chunk 640-1280: 5143.42 MB
+2025-03-27 20:16:43 - Saving intermediate results after chunk 640-1280
+2025-03-27 20:16:43 - Processing chunk from row 1280 to 1920
+2025-03-27 20:16:44 - Processed 10500/15810 windows (66.4%)
+2025-03-27 20:16:44 - Memory usage at after 10500 windows: 5143.42 MB
+2025-03-27 20:16:46 - Processed 11000/15810 windows (69.6%)
+2025-03-27 20:16:46 - Memory usage at after 11000 windows: 5143.43 MB
+2025-03-27 20:16:47 - Processed 11500/15810 windows (72.7%)
+2025-03-27 20:16:47 - Memory usage at after 11500 windows: 5143.43 MB
+2025-03-27 20:16:49 - Processed 12000/15810 windows (75.9%)
+2025-03-27 20:16:49 - Memory usage at after 12000 windows: 5143.43 MB
+2025-03-27 20:16:51 - Processed 12500/15810 windows (79.1%)
+2025-03-27 20:16:51 - Memory usage at after 12500 windows: 5143.43 MB
+2025-03-27 20:16:52 - Processed 13000/15810 windows (82.2%)
+2025-03-27 20:16:52 - Memory usage at after 13000 windows: 5143.43 MB
+2025-03-27 20:16:54 - Processed 13500/15810 windows (85.4%)
+2025-03-27 20:16:54 - Memory usage at after 13500 windows: 5143.43 MB
+2025-03-27 20:16:55 - Processed 14000/15810 windows (88.6%)
+2025-03-27 20:16:55 - Memory usage at after 14000 windows: 5143.61 MB
+2025-03-27 20:16:57 - Processed 14500/15810 windows (91.7%)
+2025-03-27 20:16:57 - Memory usage at after 14500 windows: 5143.61 MB
+2025-03-27 20:16:59 - Processed 15000/15810 windows (94.9%)
+2025-03-27 20:16:59 - Memory usage at after 15000 windows: 5143.61 MB
+2025-03-27 20:17:00 - Memory usage at after chunk 1280-1920: 5143.61 MB
+2025-03-27 20:17:00 - Saving intermediate results after chunk 1280-1920
+2025-03-27 20:17:00 - Processing chunk from row 1920 to 1953
+2025-03-27 20:17:01 - Processed 15500/15810 windows (98.0%)
+2025-03-27 20:17:01 - Memory usage at after 15500 windows: 5143.61 MB
+2025-03-27 20:17:01 - Memory usage at after chunk 1920-1953: 5143.61 MB
+2025-03-27 20:17:01 - Saving intermediate results after chunk 1920-1953
+2025-03-27 20:17:01 - Completed image pair 2: Processed=15748, Skipped=683, Errors=0, Valid Shifts Calculated=15065
+2025-03-27 20:17:02 - Window processing failure/skip rate: 4.32%
+2025-03-27 20:17:02 - Range displacement range: -31.4500 to 32.3600
+2025-03-27 20:17:02 - Azimuth displacement range: -31.4700 to 32.4000
+2025-03-27 20:17:02 - Processing image pair 3/6...
+2025-03-27 20:17:02 - Original image dimensions: 2652x10773
+2025-03-27 20:17:02 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 20:17:03 - New dimensions after downsampling: 2017x8192
+2025-03-27 20:17:03 - Displacement map dimensions: (63, 256)
+2025-03-27 20:17:03 - Total windows to process: 15810
+2025-03-27 20:17:03 - Processing chunk from row 0 to 640
+2025-03-27 20:17:05 - Processed 500/15810 windows (3.2%)
+2025-03-27 20:17:05 - Memory usage at after 500 windows: 5143.61 MB
+2025-03-27 20:17:07 - Processed 1000/15810 windows (6.3%)
+2025-03-27 20:17:07 - Memory usage at after 1000 windows: 5143.61 MB
+2025-03-27 20:17:08 - Processed 1500/15810 windows (9.5%)
+2025-03-27 20:17:08 - Memory usage at after 1500 windows: 5143.61 MB
+2025-03-27 20:17:10 - Processed 2000/15810 windows (12.7%)
+2025-03-27 20:17:10 - Memory usage at after 2000 windows: 5143.61 MB
+2025-03-27 20:17:12 - Processed 2500/15810 windows (15.8%)
+2025-03-27 20:17:12 - Memory usage at after 2500 windows: 5143.61 MB
+2025-03-27 20:17:14 - Processed 3000/15810 windows (19.0%)
+2025-03-27 20:17:14 - Memory usage at after 3000 windows: 5143.61 MB
+2025-03-27 20:17:15 - Processed 3500/15810 windows (22.1%)
+2025-03-27 20:17:15 - Memory usage at after 3500 windows: 5143.61 MB
+2025-03-27 20:17:17 - Processed 4000/15810 windows (25.3%)
+2025-03-27 20:17:17 - Memory usage at after 4000 windows: 5143.61 MB
+2025-03-27 20:17:19 - Processed 4500/15810 windows (28.5%)
+2025-03-27 20:17:19 - Memory usage at after 4500 windows: 5143.61 MB
+2025-03-27 20:17:20 - Processed 5000/15810 windows (31.6%)
+2025-03-27 20:17:20 - Memory usage at after 5000 windows: 5143.61 MB
+2025-03-27 20:17:20 - Memory usage at after chunk 0-640: 5143.61 MB
+2025-03-27 20:17:20 - Saving intermediate results after chunk 0-640
+2025-03-27 20:17:20 - Processing chunk from row 640 to 1280
+2025-03-27 20:17:22 - Processed 5500/15810 windows (34.8%)
+2025-03-27 20:17:22 - Memory usage at after 5500 windows: 5143.61 MB
+2025-03-27 20:17:24 - Processed 6000/15810 windows (38.0%)
+2025-03-27 20:17:24 - Memory usage at after 6000 windows: 5143.61 MB
+2025-03-27 20:17:25 - Processed 6500/15810 windows (41.1%)
+2025-03-27 20:17:25 - Memory usage at after 6500 windows: 5143.61 MB
+2025-03-27 20:17:27 - Processed 7000/15810 windows (44.3%)
+2025-03-27 20:17:27 - Memory usage at after 7000 windows: 5143.61 MB
+2025-03-27 20:17:29 - Processed 7500/15810 windows (47.4%)
+2025-03-27 20:17:29 - Memory usage at after 7500 windows: 5143.61 MB
+2025-03-27 20:17:30 - Processed 8000/15810 windows (50.6%)
+2025-03-27 20:17:30 - Memory usage at after 8000 windows: 5143.61 MB
+2025-03-27 20:17:32 - Processed 8500/15810 windows (53.8%)
+2025-03-27 20:17:32 - Memory usage at after 8500 windows: 5143.61 MB
+2025-03-27 20:17:34 - Processed 9000/15810 windows (56.9%)
+2025-03-27 20:17:34 - Memory usage at after 9000 windows: 5143.61 MB
+2025-03-27 20:17:35 - Processed 9500/15810 windows (60.1%)
+2025-03-27 20:17:35 - Memory usage at after 9500 windows: 5143.61 MB
+2025-03-27 20:17:37 - Processed 10000/15810 windows (63.3%)
+2025-03-27 20:17:37 - Memory usage at after 10000 windows: 5143.61 MB
+2025-03-27 20:17:38 - Memory usage at after chunk 640-1280: 5143.61 MB
+2025-03-27 20:17:38 - Saving intermediate results after chunk 640-1280
+2025-03-27 20:17:38 - Processing chunk from row 1280 to 1920
+2025-03-27 20:17:39 - Processed 10500/15810 windows (66.4%)
+2025-03-27 20:17:39 - Memory usage at after 10500 windows: 5143.61 MB
+2025-03-27 20:17:41 - Processed 11000/15810 windows (69.6%)
+2025-03-27 20:17:41 - Memory usage at after 11000 windows: 5143.61 MB
+2025-03-27 20:17:43 - Processed 11500/15810 windows (72.7%)
+2025-03-27 20:17:43 - Memory usage at after 11500 windows: 5143.61 MB
+2025-03-27 20:17:45 - Processed 12000/15810 windows (75.9%)
+2025-03-27 20:17:45 - Memory usage at after 12000 windows: 5143.61 MB
+2025-03-27 20:17:46 - Processed 12500/15810 windows (79.1%)
+2025-03-27 20:17:46 - Memory usage at after 12500 windows: 5143.61 MB
+2025-03-27 20:17:48 - Processed 13000/15810 windows (82.2%)
+2025-03-27 20:17:48 - Memory usage at after 13000 windows: 5143.61 MB
+2025-03-27 20:17:50 - Processed 13500/15810 windows (85.4%)
+2025-03-27 20:17:50 - Memory usage at after 13500 windows: 5143.61 MB
+2025-03-27 20:17:52 - Processed 14000/15810 windows (88.6%)
+2025-03-27 20:17:52 - Memory usage at after 14000 windows: 5143.61 MB
+2025-03-27 20:17:53 - Processed 14500/15810 windows (91.7%)
+2025-03-27 20:17:53 - Memory usage at after 14500 windows: 5143.61 MB
+2025-03-27 20:17:55 - Processed 15000/15810 windows (94.9%)
+2025-03-27 20:17:55 - Memory usage at after 15000 windows: 5143.61 MB
+2025-03-27 20:17:56 - Memory usage at after chunk 1280-1920: 5143.61 MB
+2025-03-27 20:17:56 - Saving intermediate results after chunk 1280-1920
+2025-03-27 20:17:56 - Processing chunk from row 1920 to 1953
+2025-03-27 20:17:57 - Processed 15500/15810 windows (98.0%)
+2025-03-27 20:17:57 - Memory usage at after 15500 windows: 5143.61 MB
+2025-03-27 20:17:58 - Memory usage at after chunk 1920-1953: 5143.61 MB
+2025-03-27 20:17:58 - Saving intermediate results after chunk 1920-1953
+2025-03-27 20:17:58 - Completed image pair 3: Processed=15748, Skipped=684, Errors=0, Valid Shifts Calculated=15064
+2025-03-27 20:17:58 - Window processing failure/skip rate: 4.33%
+2025-03-27 20:17:58 - Range displacement range: -31.4500 to 32.4500
+2025-03-27 20:17:58 - Azimuth displacement range: -31.5200 to 32.4400
+2025-03-27 20:17:58 - Processing image pair 4/6...
+2025-03-27 20:17:58 - Original image dimensions: 2652x10773
+2025-03-27 20:17:58 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 20:17:59 - New dimensions after downsampling: 2017x8192
+2025-03-27 20:17:59 - Displacement map dimensions: (63, 256)
+2025-03-27 20:17:59 - Total windows to process: 15810
+2025-03-27 20:17:59 - Processing chunk from row 0 to 640
+2025-03-27 20:18:01 - Processed 500/15810 windows (3.2%)
+2025-03-27 20:18:01 - Memory usage at after 500 windows: 5143.61 MB
+2025-03-27 20:18:02 - Processed 1000/15810 windows (6.3%)
+2025-03-27 20:18:02 - Memory usage at after 1000 windows: 5143.61 MB
+2025-03-27 20:18:04 - Processed 1500/15810 windows (9.5%)
+2025-03-27 20:18:04 - Memory usage at after 1500 windows: 5143.61 MB
+2025-03-27 20:18:06 - Processed 2000/15810 windows (12.7%)
+2025-03-27 20:18:06 - Memory usage at after 2000 windows: 5143.61 MB
+2025-03-27 20:18:07 - Processed 2500/15810 windows (15.8%)
+2025-03-27 20:18:07 - Memory usage at after 2500 windows: 5143.61 MB
+2025-03-27 20:18:09 - Processed 3000/15810 windows (19.0%)
+2025-03-27 20:18:09 - Memory usage at after 3000 windows: 5143.61 MB
+2025-03-27 20:18:11 - Processed 3500/15810 windows (22.1%)
+2025-03-27 20:18:11 - Memory usage at after 3500 windows: 5143.61 MB
+2025-03-27 20:18:12 - Processed 4000/15810 windows (25.3%)
+2025-03-27 20:18:12 - Memory usage at after 4000 windows: 5143.61 MB
+2025-03-27 20:18:14 - Processed 4500/15810 windows (28.5%)
+2025-03-27 20:18:14 - Memory usage at after 4500 windows: 5143.61 MB
+2025-03-27 20:18:16 - Processed 5000/15810 windows (31.6%)
+2025-03-27 20:18:16 - Memory usage at after 5000 windows: 5143.61 MB
+2025-03-27 20:18:16 - Memory usage at after chunk 0-640: 5143.61 MB
+2025-03-27 20:18:16 - Saving intermediate results after chunk 0-640
+2025-03-27 20:18:16 - Processing chunk from row 640 to 1280
+2025-03-27 20:18:17 - Processed 5500/15810 windows (34.8%)
+2025-03-27 20:18:17 - Memory usage at after 5500 windows: 5143.74 MB
+2025-03-27 20:18:19 - Processed 6000/15810 windows (38.0%)
+2025-03-27 20:18:19 - Memory usage at after 6000 windows: 5143.74 MB
+2025-03-27 20:18:21 - Processed 6500/15810 windows (41.1%)
+2025-03-27 20:18:21 - Memory usage at after 6500 windows: 5143.74 MB
+2025-03-27 20:18:22 - Processed 7000/15810 windows (44.3%)
+2025-03-27 20:18:22 - Memory usage at after 7000 windows: 5143.74 MB
+2025-03-27 20:18:24 - Processed 7500/15810 windows (47.4%)
+2025-03-27 20:18:24 - Memory usage at after 7500 windows: 5143.74 MB
+2025-03-27 20:18:26 - Processed 8000/15810 windows (50.6%)
+2025-03-27 20:18:26 - Memory usage at after 8000 windows: 5143.74 MB
+2025-03-27 20:18:27 - Processed 8500/15810 windows (53.8%)
+2025-03-27 20:18:27 - Memory usage at after 8500 windows: 5143.74 MB
+2025-03-27 20:18:29 - Processed 9000/15810 windows (56.9%)
+2025-03-27 20:18:29 - Memory usage at after 9000 windows: 5143.74 MB
+2025-03-27 20:18:31 - Processed 9500/15810 windows (60.1%)
+2025-03-27 20:18:31 - Memory usage at after 9500 windows: 5143.74 MB
+2025-03-27 20:18:32 - Processed 10000/15810 windows (63.3%)
+2025-03-27 20:18:32 - Memory usage at after 10000 windows: 5143.74 MB
+2025-03-27 20:18:33 - Memory usage at after chunk 640-1280: 5143.74 MB
+2025-03-27 20:18:33 - Saving intermediate results after chunk 640-1280
+2025-03-27 20:18:33 - Processing chunk from row 1280 to 1920
+2025-03-27 20:18:34 - Processed 10500/15810 windows (66.4%)
+2025-03-27 20:18:34 - Memory usage at after 10500 windows: 5143.74 MB
+2025-03-27 20:18:36 - Processed 11000/15810 windows (69.6%)
+2025-03-27 20:18:36 - Memory usage at after 11000 windows: 5143.74 MB
+2025-03-27 20:18:37 - Processed 11500/15810 windows (72.7%)
+2025-03-27 20:18:37 - Memory usage at after 11500 windows: 5143.74 MB
+2025-03-27 20:18:39 - Processed 12000/15810 windows (75.9%)
+2025-03-27 20:18:39 - Memory usage at after 12000 windows: 5143.76 MB
+2025-03-27 20:18:42 - Processed 12500/15810 windows (79.1%)
+2025-03-27 20:18:42 - Memory usage at after 12500 windows: 5143.76 MB
+2025-03-27 20:18:44 - Processed 13000/15810 windows (82.2%)
+2025-03-27 20:18:44 - Memory usage at after 13000 windows: 5143.76 MB
+2025-03-27 20:18:46 - Processed 13500/15810 windows (85.4%)
+2025-03-27 20:18:46 - Memory usage at after 13500 windows: 5143.76 MB
+2025-03-27 20:18:48 - Processed 14000/15810 windows (88.6%)
+2025-03-27 20:18:48 - Memory usage at after 14000 windows: 5143.76 MB
+2025-03-27 20:18:49 - Processed 14500/15810 windows (91.7%)
+2025-03-27 20:18:49 - Memory usage at after 14500 windows: 5143.76 MB
+2025-03-27 20:18:51 - Processed 15000/15810 windows (94.9%)
+2025-03-27 20:18:51 - Memory usage at after 15000 windows: 5143.76 MB
+2025-03-27 20:18:52 - Memory usage at after chunk 1280-1920: 5143.76 MB
+2025-03-27 20:18:52 - Saving intermediate results after chunk 1280-1920
+2025-03-27 20:18:52 - Processing chunk from row 1920 to 1953
+2025-03-27 20:18:53 - Processed 15500/15810 windows (98.0%)
+2025-03-27 20:18:53 - Memory usage at after 15500 windows: 5143.76 MB
+2025-03-27 20:18:54 - Memory usage at after chunk 1920-1953: 5143.76 MB
+2025-03-27 20:18:54 - Saving intermediate results after chunk 1920-1953
+2025-03-27 20:18:54 - Completed image pair 4: Processed=15748, Skipped=695, Errors=0, Valid Shifts Calculated=15053
+2025-03-27 20:18:54 - Window processing failure/skip rate: 4.40%
+2025-03-27 20:18:54 - Range displacement range: -31.5400 to 32.3800
+2025-03-27 20:18:54 - Azimuth displacement range: -31.6000 to 32.5600
+2025-03-27 20:18:54 - Processing image pair 5/6...
+2025-03-27 20:18:54 - Original image dimensions: 2652x10773
+2025-03-27 20:18:54 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 20:18:55 - New dimensions after downsampling: 2017x8192
+2025-03-27 20:18:55 - Displacement map dimensions: (63, 256)
+2025-03-27 20:18:55 - Total windows to process: 15810
+2025-03-27 20:18:55 - Processing chunk from row 0 to 640
+2025-03-27 20:18:57 - Processed 500/15810 windows (3.2%)
+2025-03-27 20:18:57 - Memory usage at after 500 windows: 5143.76 MB
+2025-03-27 20:18:59 - Processed 1000/15810 windows (6.3%)
+2025-03-27 20:18:59 - Memory usage at after 1000 windows: 5143.76 MB
+2025-03-27 20:19:00 - Processed 1500/15810 windows (9.5%)
+2025-03-27 20:19:00 - Memory usage at after 1500 windows: 5143.76 MB
+2025-03-27 20:19:02 - Processed 2000/15810 windows (12.7%)
+2025-03-27 20:19:02 - Memory usage at after 2000 windows: 3420.71 MB
+2025-03-27 20:19:04 - Processed 2500/15810 windows (15.8%)
+2025-03-27 20:19:04 - Memory usage at after 2500 windows: 3420.71 MB
+2025-03-27 20:19:06 - Processed 3000/15810 windows (19.0%)
+2025-03-27 20:19:06 - Memory usage at after 3000 windows: 3420.71 MB
+2025-03-27 20:19:08 - Processed 3500/15810 windows (22.1%)
+2025-03-27 20:19:08 - Memory usage at after 3500 windows: 3420.71 MB
+2025-03-27 20:19:10 - Processed 4000/15810 windows (25.3%)
+2025-03-27 20:19:10 - Memory usage at after 4000 windows: 3420.71 MB
+2025-03-27 20:19:12 - Processed 4500/15810 windows (28.5%)
+2025-03-27 20:19:12 - Memory usage at after 4500 windows: 3420.71 MB
+2025-03-27 20:19:14 - Processed 5000/15810 windows (31.6%)
+2025-03-27 20:19:14 - Memory usage at after 5000 windows: 3420.71 MB
+2025-03-27 20:19:15 - Memory usage at after chunk 0-640: 3420.71 MB
+2025-03-27 20:19:15 - Saving intermediate results after chunk 0-640
+2025-03-27 20:19:15 - Processing chunk from row 640 to 1280
+2025-03-27 20:19:16 - Processed 5500/15810 windows (34.8%)
+2025-03-27 20:19:16 - Memory usage at after 5500 windows: 3420.84 MB
+2025-03-27 20:19:18 - Processed 6000/15810 windows (38.0%)
+2025-03-27 20:19:18 - Memory usage at after 6000 windows: 3420.84 MB
+2025-03-27 20:19:20 - Processed 6500/15810 windows (41.1%)
+2025-03-27 20:19:20 - Memory usage at after 6500 windows: 3420.84 MB
+2025-03-27 20:19:21 - Processed 7000/15810 windows (44.3%)
+2025-03-27 20:19:21 - Memory usage at after 7000 windows: 3420.84 MB
+2025-03-27 20:19:23 - Processed 7500/15810 windows (47.4%)
+2025-03-27 20:19:23 - Memory usage at after 7500 windows: 3420.84 MB
+2025-03-27 20:19:25 - Processed 8000/15810 windows (50.6%)
+2025-03-27 20:19:25 - Memory usage at after 8000 windows: 3420.84 MB
+2025-03-27 20:19:26 - Processed 8500/15810 windows (53.8%)
+2025-03-27 20:19:26 - Memory usage at after 8500 windows: 3420.84 MB
+2025-03-27 20:19:28 - Processed 9000/15810 windows (56.9%)
+2025-03-27 20:19:28 - Memory usage at after 9000 windows: 3420.84 MB
+2025-03-27 20:19:30 - Processed 9500/15810 windows (60.1%)
+2025-03-27 20:19:30 - Memory usage at after 9500 windows: 3420.84 MB
+2025-03-27 20:19:31 - Processed 10000/15810 windows (63.3%)
+2025-03-27 20:19:31 - Memory usage at after 10000 windows: 3420.84 MB
+2025-03-27 20:19:32 - Memory usage at after chunk 640-1280: 3420.84 MB
+2025-03-27 20:19:32 - Saving intermediate results after chunk 640-1280
+2025-03-27 20:19:32 - Processing chunk from row 1280 to 1920
+2025-03-27 20:19:34 - Processed 10500/15810 windows (66.4%)
+2025-03-27 20:19:34 - Memory usage at after 10500 windows: 3420.84 MB
+2025-03-27 20:19:35 - Processed 11000/15810 windows (69.6%)
+2025-03-27 20:19:35 - Memory usage at after 11000 windows: 3420.84 MB
+2025-03-27 20:19:37 - Processed 11500/15810 windows (72.7%)
+2025-03-27 20:19:37 - Memory usage at after 11500 windows: 3420.84 MB
+2025-03-27 20:19:39 - Processed 12000/15810 windows (75.9%)
+2025-03-27 20:19:39 - Memory usage at after 12000 windows: 3420.84 MB
+2025-03-27 20:19:41 - Processed 12500/15810 windows (79.1%)
+2025-03-27 20:19:41 - Memory usage at after 12500 windows: 3420.84 MB
+2025-03-27 20:19:42 - Processed 13000/15810 windows (82.2%)
+2025-03-27 20:19:42 - Memory usage at after 13000 windows: 3420.84 MB
+2025-03-27 20:19:44 - Processed 13500/15810 windows (85.4%)
+2025-03-27 20:19:44 - Memory usage at after 13500 windows: 3420.84 MB
+2025-03-27 20:19:46 - Processed 14000/15810 windows (88.6%)
+2025-03-27 20:19:46 - Memory usage at after 14000 windows: 3420.84 MB
+2025-03-27 20:19:48 - Processed 14500/15810 windows (91.7%)
+2025-03-27 20:19:48 - Memory usage at after 14500 windows: 3420.84 MB
+2025-03-27 20:19:49 - Processed 15000/15810 windows (94.9%)
+2025-03-27 20:19:49 - Memory usage at after 15000 windows: 3420.84 MB
+2025-03-27 20:19:50 - Memory usage at after chunk 1280-1920: 3420.84 MB
+2025-03-27 20:19:50 - Saving intermediate results after chunk 1280-1920
+2025-03-27 20:19:50 - Processing chunk from row 1920 to 1953
+2025-03-27 20:19:51 - Processed 15500/15810 windows (98.0%)
+2025-03-27 20:19:51 - Memory usage at after 15500 windows: 3420.84 MB
+2025-03-27 20:19:52 - Memory usage at after chunk 1920-1953: 3420.84 MB
+2025-03-27 20:19:52 - Saving intermediate results after chunk 1920-1953
+2025-03-27 20:19:52 - Completed image pair 5: Processed=15748, Skipped=715, Errors=0, Valid Shifts Calculated=15033
+2025-03-27 20:19:52 - Window processing failure/skip rate: 4.52%
+2025-03-27 20:19:52 - Range displacement range: -31.4600 to 32.3600
+2025-03-27 20:19:52 - Azimuth displacement range: -31.4100 to 32.4400
+2025-03-27 20:19:52 - Processing image pair 6/6...
+2025-03-27 20:19:52 - Original image dimensions: 2652x10773
+2025-03-27 20:19:52 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 20:19:54 - New dimensions after downsampling: 2017x8192
+2025-03-27 20:19:54 - Displacement map dimensions: (63, 256)
+2025-03-27 20:19:54 - Total windows to process: 15810
+2025-03-27 20:19:54 - Processing chunk from row 0 to 640
+2025-03-27 20:19:56 - Processed 500/15810 windows (3.2%)
+2025-03-27 20:19:56 - Memory usage at after 500 windows: 3421.00 MB
+2025-03-27 20:19:57 - Processed 1000/15810 windows (6.3%)
+2025-03-27 20:19:57 - Memory usage at after 1000 windows: 3421.00 MB
+2025-03-27 20:19:59 - Processed 1500/15810 windows (9.5%)
+2025-03-27 20:19:59 - Memory usage at after 1500 windows: 3421.00 MB
+2025-03-27 20:20:01 - Processed 2000/15810 windows (12.7%)
+2025-03-27 20:20:01 - Memory usage at after 2000 windows: 3421.00 MB
+2025-03-27 20:20:02 - Processed 2500/15810 windows (15.8%)
+2025-03-27 20:20:02 - Memory usage at after 2500 windows: 3421.00 MB
+2025-03-27 20:20:04 - Processed 3000/15810 windows (19.0%)
+2025-03-27 20:20:04 - Memory usage at after 3000 windows: 3421.00 MB
+2025-03-27 20:20:05 - Processed 3500/15810 windows (22.1%)
+2025-03-27 20:20:05 - Memory usage at after 3500 windows: 3421.00 MB
+2025-03-27 20:20:07 - Processed 4000/15810 windows (25.3%)
+2025-03-27 20:20:07 - Memory usage at after 4000 windows: 3421.00 MB
+2025-03-27 20:20:09 - Processed 4500/15810 windows (28.5%)
+2025-03-27 20:20:09 - Memory usage at after 4500 windows: 3421.00 MB
+2025-03-27 20:20:10 - Processed 5000/15810 windows (31.6%)
+2025-03-27 20:20:10 - Memory usage at after 5000 windows: 3421.00 MB
+2025-03-27 20:20:11 - Memory usage at after chunk 0-640: 3421.00 MB
+2025-03-27 20:20:11 - Saving intermediate results after chunk 0-640
+2025-03-27 20:20:11 - Processing chunk from row 640 to 1280
+2025-03-27 20:20:12 - Processed 5500/15810 windows (34.8%)
+2025-03-27 20:20:12 - Memory usage at after 5500 windows: 3421.00 MB
+2025-03-27 20:20:14 - Processed 6000/15810 windows (38.0%)
+2025-03-27 20:20:14 - Memory usage at after 6000 windows: 3421.00 MB
+2025-03-27 20:20:15 - Processed 6500/15810 windows (41.1%)
+2025-03-27 20:20:15 - Memory usage at after 6500 windows: 3421.00 MB
+2025-03-27 20:20:17 - Processed 7000/15810 windows (44.3%)
+2025-03-27 20:20:17 - Memory usage at after 7000 windows: 3421.00 MB
+2025-03-27 20:20:19 - Processed 7500/15810 windows (47.4%)
+2025-03-27 20:20:19 - Memory usage at after 7500 windows: 3421.00 MB
+2025-03-27 20:20:20 - Processed 8000/15810 windows (50.6%)
+2025-03-27 20:20:20 - Memory usage at after 8000 windows: 3421.00 MB
+2025-03-27 20:20:22 - Processed 8500/15810 windows (53.8%)
+2025-03-27 20:20:22 - Memory usage at after 8500 windows: 3421.00 MB
+2025-03-27 20:20:24 - Processed 9000/15810 windows (56.9%)
+2025-03-27 20:20:24 - Memory usage at after 9000 windows: 3421.00 MB
+2025-03-27 20:20:26 - Processed 9500/15810 windows (60.1%)
+2025-03-27 20:20:26 - Memory usage at after 9500 windows: 3421.00 MB
+2025-03-27 20:20:28 - Processed 10000/15810 windows (63.3%)
+2025-03-27 20:20:28 - Memory usage at after 10000 windows: 3421.00 MB
+2025-03-27 20:20:29 - Memory usage at after chunk 640-1280: 3421.00 MB
+2025-03-27 20:20:29 - Saving intermediate results after chunk 640-1280
+2025-03-27 20:20:29 - Processing chunk from row 1280 to 1920
+2025-03-27 20:20:30 - Processed 10500/15810 windows (66.4%)
+2025-03-27 20:20:30 - Memory usage at after 10500 windows: 3421.00 MB
+2025-03-27 20:20:32 - Processed 11000/15810 windows (69.6%)
+2025-03-27 20:20:32 - Memory usage at after 11000 windows: 3421.00 MB
+2025-03-27 20:20:33 - Processed 11500/15810 windows (72.7%)
+2025-03-27 20:20:33 - Memory usage at after 11500 windows: 3421.00 MB
+2025-03-27 20:20:35 - Processed 12000/15810 windows (75.9%)
+2025-03-27 20:20:35 - Memory usage at after 12000 windows: 3421.00 MB
+2025-03-27 20:20:37 - Processed 12500/15810 windows (79.1%)
+2025-03-27 20:20:37 - Memory usage at after 12500 windows: 3421.00 MB
+2025-03-27 20:20:38 - Processed 13000/15810 windows (82.2%)
+2025-03-27 20:20:38 - Memory usage at after 13000 windows: 3421.00 MB
+2025-03-27 20:20:40 - Processed 13500/15810 windows (85.4%)
+2025-03-27 20:20:40 - Memory usage at after 13500 windows: 3421.00 MB
+2025-03-27 20:20:42 - Processed 14000/15810 windows (88.6%)
+2025-03-27 20:20:42 - Memory usage at after 14000 windows: 3421.00 MB
+2025-03-27 20:20:44 - Processed 14500/15810 windows (91.7%)
+2025-03-27 20:20:44 - Memory usage at after 14500 windows: 3421.00 MB
+2025-03-27 20:20:46 - Processed 15000/15810 windows (94.9%)
+2025-03-27 20:20:46 - Memory usage at after 15000 windows: 3421.00 MB
+2025-03-27 20:20:47 - Memory usage at after chunk 1280-1920: 3421.00 MB
+2025-03-27 20:20:47 - Saving intermediate results after chunk 1280-1920
+2025-03-27 20:20:47 - Processing chunk from row 1920 to 1953
+2025-03-27 20:20:47 - Processed 15500/15810 windows (98.0%)
+2025-03-27 20:20:47 - Memory usage at after 15500 windows: 3421.00 MB
+2025-03-27 20:20:48 - Memory usage at after chunk 1920-1953: 3421.00 MB
+2025-03-27 20:20:48 - Saving intermediate results after chunk 1920-1953
+2025-03-27 20:20:48 - Completed image pair 6: Processed=15748, Skipped=741, Errors=0, Valid Shifts Calculated=15007
+2025-03-27 20:20:48 - Window processing failure/skip rate: 4.69%
+2025-03-27 20:20:48 - Range displacement range: -31.5100 to 32.5400
+2025-03-27 20:20:48 - Azimuth displacement range: -31.5100 to 32.4200
+2025-03-27 20:20:48 - Memory usage at end: 3421.00 MB
+2025-03-27 20:20:48 - Enhanced memory-efficient displacement estimation completed successfully
+2025-03-27 20:20:50 - Calculating vibration energy map from displacement maps...
+2025-03-27 20:20:50 - Displacement map dimensions: 63x256
+2025-03-27 20:20:50 - Normalizing dB map relative to 99.5th percentile: 38.36 dB
+2025-03-27 20:20:50 - Clipped vibration energy map at -30 dB
+2025-03-27 20:20:50 - Vibration energy map calculated successfully with dimensions (63, 256)
+2025-03-27 20:20:58 - Saved vibration energy map to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250327_201252\vibration_energy_map.png
+2025-03-27 20:20:59 - Saved ship regions visualization to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250327_201252\ship_regions.png
+2025-03-27 20:21:00 - Saved point 0 results to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250327_201252\point_0_results.png
+2025-03-27 20:21:01 - Saved point 1 results to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250327_201252\point_1_results.png
+2025-03-27 20:35:11 - Attempting to load data from: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\uploads\2023-08-31-01-09-38_UMBRA-04_SICD.nitf
+2025-03-27 20:35:11 - Opening file with sarpy: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\uploads\2023-08-31-01-09-38_UMBRA-04_SICD.nitf
+2025-03-27 20:35:11 - Sarpy reader type: SICDReader
+2025-03-27 20:35:11 - Detected SICD data type.
+2025-03-27 20:35:11 - Reading SICD complex image data...
+2025-03-27 20:35:11 - Reading default SICD chip...
+2025-03-27 20:35:17 - Raw SICD complex data shape: (10610, 10773)
+2025-03-27 20:35:17 - SICD data loaded successfully.
+2025-03-27 20:36:17 - Starting subaperture creation...
+2025-03-27 20:36:17 - Raw SICD data shape: (10610, 10773)
+2025-03-27 20:36:27 - Raw SICD data magnitude range: 0.0000 to 4.4350
+2025-03-27 20:36:27 - Raw SICD data magnitude mean: 0.0034, std: 0.0051
+2025-03-27 20:36:27 - Creating 7 SICD sub-images with overlap 0.5...
+2025-03-27 20:36:27 - SICD Splitting: num_azimuth=10610, num_subaps=7, overlap=0.5 -> subap_size=2652, step=1326
+2025-03-27 20:36:27 - Error extracting SICD timing info: ufunc 'add' cannot use operands with types dtype('<M8[us]') and dtype('float64')
+2025-03-27 20:36:27 - Warning: Could not extract SICD timing information. Using default values [0, 1].
+2025-03-27 20:36:28 - Created 7 SICD sub-images
+2025-03-27 20:36:28 - Subaperture 1 shape: (2652, 10773)
+2025-03-27 20:36:28 - Subaperture 2 shape: (2652, 10773)
+2025-03-27 20:36:29 - Subaperture 3 shape: (2652, 10773)
+2025-03-27 20:36:29 - Subaperture 4 shape: (2652, 10773)
+2025-03-27 20:36:29 - Subaperture 5 shape: (2652, 10773)
+2025-03-27 20:36:29 - Subaperture 6 shape: (2652, 10773)
+2025-03-27 20:36:29 - Subaperture 7 shape: (2654, 10773)
+2025-03-27 20:36:29 - Subaperture timing: [0.12497643732327993, 0.24995287464655985, 0.37492931196983975, 0.4999057492931197, 0.6248821866163996, 0.7498586239396795, 0.8749293119698398]
+2025-03-27 20:37:03 - Starting subaperture focusing/preparation step...
+2025-03-27 20:37:03 - Preparing 7 SICD sub-images (taking magnitude)...
+2025-03-27 20:37:03 - Taking magnitude of SICD sub-image 1/7...
+2025-03-27 20:37:03 - SICD magnitude image 1 stats: min=0.00, max=3.53, mean=0.00
+2025-03-27 20:37:03 - Taking magnitude of SICD sub-image 2/7...
+2025-03-27 20:37:04 - SICD magnitude image 2 stats: min=0.00, max=0.86, mean=0.00
+2025-03-27 20:37:04 - Taking magnitude of SICD sub-image 3/7...
+2025-03-27 20:37:04 - SICD magnitude image 3 stats: min=0.00, max=4.44, mean=0.00
+2025-03-27 20:37:04 - Taking magnitude of SICD sub-image 4/7...
+2025-03-27 20:37:05 - SICD magnitude image 4 stats: min=0.00, max=4.44, mean=0.00
+2025-03-27 20:37:05 - Taking magnitude of SICD sub-image 5/7...
+2025-03-27 20:37:06 - SICD magnitude image 5 stats: min=0.00, max=1.19, mean=0.00
+2025-03-27 20:37:06 - Taking magnitude of SICD sub-image 6/7...
+2025-03-27 20:37:06 - SICD magnitude image 6 stats: min=0.00, max=1.19, mean=0.00
+2025-03-27 20:37:06 - Taking magnitude of SICD sub-image 7/7...
+2025-03-27 20:37:07 - SICD magnitude image 7 stats: min=0.00, max=1.14, mean=0.00
+2025-03-27 20:37:07 - Created 7 SICD magnitude images
+2025-03-27 20:37:12 - Created normalized SLC/magnitude images for visualization
+2025-03-27 20:37:33 - Beginning enhanced memory-efficient displacement estimation
+2025-03-27 20:37:33 - Starting enhanced memory-efficient displacement estimation...
+2025-03-27 20:37:33 - Memory usage at start: 5392.50 MB
+2025-03-27 20:37:33 - Input: 7 SLC/magnitude images from sicd data
+2025-03-27 20:37:33 - SLC/magnitude image shape: (2652, 10773), dtype: float32
+2025-03-27 20:37:33 - Initializing displacement maps for 6 image pairs
+2025-03-27 20:37:33 - Using window size: 64, overlap: 0.5, step size: 32
+2025-03-27 20:37:33 - Processing image pair 1/6...
+2025-03-27 20:37:33 - Original image dimensions: 2652x10773
+2025-03-27 20:37:33 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 20:37:34 - New dimensions after downsampling: 2017x8192
+2025-03-27 20:37:34 - Displacement map dimensions: (62, 255)
+2025-03-27 20:37:34 - Total windows to process: 15810
+2025-03-27 20:37:34 - Processing chunk from row 0 to 62
+2025-03-27 20:37:37 - Processed 1581/15810 windows (10.0%)
+2025-03-27 20:37:37 - Memory usage at after 1581 windows: 5519.88 MB
+2025-03-27 20:37:39 - Processed 3162/15810 windows (20.0%)
+2025-03-27 20:37:39 - Memory usage at after 3162 windows: 5519.88 MB
+2025-03-27 20:37:42 - Processed 4743/15810 windows (30.0%)
+2025-03-27 20:37:42 - Memory usage at after 4743 windows: 5519.88 MB
+2025-03-27 20:37:44 - Processed 6324/15810 windows (40.0%)
+2025-03-27 20:37:44 - Memory usage at after 6324 windows: 5519.88 MB
+2025-03-27 20:37:47 - Processed 7905/15810 windows (50.0%)
+2025-03-27 20:37:47 - Memory usage at after 7905 windows: 5519.88 MB
+2025-03-27 20:37:50 - Processed 9486/15810 windows (60.0%)
+2025-03-27 20:37:50 - Memory usage at after 9486 windows: 5519.88 MB
+2025-03-27 20:37:52 - Processed 11067/15810 windows (70.0%)
+2025-03-27 20:37:52 - Memory usage at after 11067 windows: 5519.88 MB
+2025-03-27 20:37:55 - Processed 12648/15810 windows (80.0%)
+2025-03-27 20:37:55 - Memory usage at after 12648 windows: 5519.88 MB
+2025-03-27 20:37:57 - Processed 14229/15810 windows (90.0%)
+2025-03-27 20:37:57 - Memory usage at after 14229 windows: 5519.89 MB
+2025-03-27 20:38:00 - Processed 15810/15810 windows (100.0%)
+2025-03-27 20:38:00 - Memory usage at after 15810 windows: 5519.89 MB
+2025-03-27 20:38:00 - Memory usage at after chunk 0-62: 5519.89 MB
+2025-03-27 20:38:00 - Saving intermediate results after chunk 0-62
+2025-03-27 20:38:00 - Completed image pair 1: Processed=15810, Skipped=0, Errors=0, Valid Shifts Calculated=30930
+2025-03-27 20:38:00 - Window processing failure/skip rate: 0.00%
+2025-03-27 20:38:00 - Range displacement range: -31.5000 to 32.5000
+2025-03-27 20:38:00 - Azimuth displacement range: -31.5000 to 32.4000
+2025-03-27 20:38:00 - Processing image pair 2/6...
+2025-03-27 20:38:00 - Original image dimensions: 2652x10773
+2025-03-27 20:38:00 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 20:38:01 - New dimensions after downsampling: 2017x8192
+2025-03-27 20:38:01 - Displacement map dimensions: (62, 255)
+2025-03-27 20:38:01 - Total windows to process: 15810
+2025-03-27 20:38:01 - Processing chunk from row 0 to 62
+2025-03-27 20:38:04 - Processed 1581/15810 windows (10.0%)
+2025-03-27 20:38:04 - Memory usage at after 1581 windows: 5519.94 MB
+2025-03-27 20:38:06 - Processed 3162/15810 windows (20.0%)
+2025-03-27 20:38:06 - Memory usage at after 3162 windows: 5519.94 MB
+2025-03-27 20:38:08 - Processed 4743/15810 windows (30.0%)
+2025-03-27 20:38:08 - Memory usage at after 4743 windows: 5519.94 MB
+2025-03-27 20:38:11 - Processed 6324/15810 windows (40.0%)
+2025-03-27 20:38:11 - Memory usage at after 6324 windows: 5519.94 MB
+2025-03-27 20:38:13 - Processed 7905/15810 windows (50.0%)
+2025-03-27 20:38:13 - Memory usage at after 7905 windows: 5519.94 MB
+2025-03-27 20:38:15 - Processed 9486/15810 windows (60.0%)
+2025-03-27 20:38:15 - Memory usage at after 9486 windows: 5519.94 MB
+2025-03-27 20:38:18 - Processed 11067/15810 windows (70.0%)
+2025-03-27 20:38:18 - Memory usage at after 11067 windows: 5519.94 MB
+2025-03-27 20:38:20 - Processed 12648/15810 windows (80.0%)
+2025-03-27 20:38:20 - Memory usage at after 12648 windows: 5519.94 MB
+2025-03-27 20:38:22 - Processed 14229/15810 windows (90.0%)
+2025-03-27 20:38:22 - Memory usage at after 14229 windows: 5519.95 MB
+2025-03-27 20:38:25 - Processed 15810/15810 windows (100.0%)
+2025-03-27 20:38:25 - Memory usage at after 15810 windows: 5519.95 MB
+2025-03-27 20:38:25 - Memory usage at after chunk 0-62: 5519.95 MB
+2025-03-27 20:38:25 - Saving intermediate results after chunk 0-62
+2025-03-27 20:38:25 - Completed image pair 2: Processed=15810, Skipped=0, Errors=0, Valid Shifts Calculated=30974
+2025-03-27 20:38:25 - Window processing failure/skip rate: 0.00%
+2025-03-27 20:38:25 - Range displacement range: -31.5000 to 32.4000
+2025-03-27 20:38:25 - Azimuth displacement range: -31.5000 to 32.4000
+2025-03-27 20:38:25 - Processing image pair 3/6...
+2025-03-27 20:38:25 - Original image dimensions: 2652x10773
+2025-03-27 20:38:25 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 20:38:26 - New dimensions after downsampling: 2017x8192
+2025-03-27 20:38:26 - Displacement map dimensions: (62, 255)
+2025-03-27 20:38:26 - Total windows to process: 15810
+2025-03-27 20:38:26 - Processing chunk from row 0 to 62
+2025-03-27 20:38:28 - Processed 1581/15810 windows (10.0%)
+2025-03-27 20:38:28 - Memory usage at after 1581 windows: 5519.96 MB
+2025-03-27 20:38:31 - Processed 3162/15810 windows (20.0%)
+2025-03-27 20:38:31 - Memory usage at after 3162 windows: 5519.96 MB
+2025-03-27 20:38:33 - Processed 4743/15810 windows (30.0%)
+2025-03-27 20:38:33 - Memory usage at after 4743 windows: 5519.96 MB
+2025-03-27 20:38:35 - Processed 6324/15810 windows (40.0%)
+2025-03-27 20:38:35 - Memory usage at after 6324 windows: 5519.96 MB
+2025-03-27 20:38:37 - Processed 7905/15810 windows (50.0%)
+2025-03-27 20:38:37 - Memory usage at after 7905 windows: 5519.96 MB
+2025-03-27 20:38:40 - Processed 9486/15810 windows (60.0%)
+2025-03-27 20:38:40 - Memory usage at after 9486 windows: 5519.96 MB
+2025-03-27 20:38:42 - Processed 11067/15810 windows (70.0%)
+2025-03-27 20:38:42 - Memory usage at after 11067 windows: 5519.96 MB
+2025-03-27 20:38:44 - Processed 12648/15810 windows (80.0%)
+2025-03-27 20:38:44 - Memory usage at after 12648 windows: 5519.96 MB
+2025-03-27 20:38:47 - Processed 14229/15810 windows (90.0%)
+2025-03-27 20:38:47 - Memory usage at after 14229 windows: 5519.97 MB
+2025-03-27 20:38:49 - Processed 15810/15810 windows (100.0%)
+2025-03-27 20:38:49 - Memory usage at after 15810 windows: 5519.97 MB
+2025-03-27 20:38:49 - Memory usage at after chunk 0-62: 5519.97 MB
+2025-03-27 20:38:49 - Saving intermediate results after chunk 0-62
+2025-03-27 20:38:49 - Completed image pair 3: Processed=15810, Skipped=0, Errors=0, Valid Shifts Calculated=30945
+2025-03-27 20:38:49 - Window processing failure/skip rate: 0.00%
+2025-03-27 20:38:49 - Range displacement range: -31.5000 to 32.4000
+2025-03-27 20:38:49 - Azimuth displacement range: -31.5000 to 32.4000
+2025-03-27 20:38:49 - Processing image pair 4/6...
+2025-03-27 20:38:49 - Original image dimensions: 2652x10773
+2025-03-27 20:38:49 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 20:38:51 - New dimensions after downsampling: 2017x8192
+2025-03-27 20:38:51 - Displacement map dimensions: (62, 255)
+2025-03-27 20:38:51 - Total windows to process: 15810
+2025-03-27 20:38:51 - Processing chunk from row 0 to 62
+2025-03-27 20:38:53 - Processed 1581/15810 windows (10.0%)
+2025-03-27 20:38:53 - Memory usage at after 1581 windows: 5519.99 MB
+2025-03-27 20:38:55 - Processed 3162/15810 windows (20.0%)
+2025-03-27 20:38:55 - Memory usage at after 3162 windows: 5519.99 MB
+2025-03-27 20:38:58 - Processed 4743/15810 windows (30.0%)
+2025-03-27 20:38:58 - Memory usage at after 4743 windows: 5519.99 MB
+2025-03-27 20:39:00 - Processed 6324/15810 windows (40.0%)
+2025-03-27 20:39:00 - Memory usage at after 6324 windows: 5519.99 MB
+2025-03-27 20:39:02 - Processed 7905/15810 windows (50.0%)
+2025-03-27 20:39:02 - Memory usage at after 7905 windows: 5519.99 MB
+2025-03-27 20:39:04 - Processed 9486/15810 windows (60.0%)
+2025-03-27 20:39:04 - Memory usage at after 9486 windows: 5519.99 MB
+2025-03-27 20:39:07 - Processed 11067/15810 windows (70.0%)
+2025-03-27 20:39:07 - Memory usage at after 11067 windows: 4931.04 MB
+2025-03-27 20:39:10 - Processed 12648/15810 windows (80.0%)
+2025-03-27 20:39:10 - Memory usage at after 12648 windows: 4381.72 MB
+2025-03-27 20:39:12 - Processed 14229/15810 windows (90.0%)
+2025-03-27 20:39:12 - Memory usage at after 14229 windows: 4381.73 MB
+2025-03-27 20:39:15 - Processed 15810/15810 windows (100.0%)
+2025-03-27 20:39:15 - Memory usage at after 15810 windows: 4381.71 MB
+2025-03-27 20:39:15 - Memory usage at after chunk 0-62: 4381.71 MB
+2025-03-27 20:39:15 - Saving intermediate results after chunk 0-62
+2025-03-27 20:39:15 - Completed image pair 4: Processed=15810, Skipped=0, Errors=0, Valid Shifts Calculated=30984
+2025-03-27 20:39:15 - Window processing failure/skip rate: 0.00%
+2025-03-27 20:39:15 - Range displacement range: -31.6000 to 32.6000
+2025-03-27 20:39:15 - Azimuth displacement range: -31.5000 to 32.4000
+2025-03-27 20:39:15 - Processing image pair 5/6...
+2025-03-27 20:39:15 - Original image dimensions: 2652x10773
+2025-03-27 20:39:15 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 20:39:17 - New dimensions after downsampling: 2017x8192
+2025-03-27 20:39:17 - Displacement map dimensions: (62, 255)
+2025-03-27 20:39:17 - Total windows to process: 15810
+2025-03-27 20:39:17 - Processing chunk from row 0 to 62
+2025-03-27 20:39:19 - Processed 1581/15810 windows (10.0%)
+2025-03-27 20:39:19 - Memory usage at after 1581 windows: 4381.73 MB
+2025-03-27 20:39:22 - Processed 3162/15810 windows (20.0%)
+2025-03-27 20:39:22 - Memory usage at after 3162 windows: 4381.73 MB
+2025-03-27 20:39:24 - Processed 4743/15810 windows (30.0%)
+2025-03-27 20:39:24 - Memory usage at after 4743 windows: 4381.73 MB
+2025-03-27 20:39:27 - Processed 6324/15810 windows (40.0%)
+2025-03-27 20:39:27 - Memory usage at after 6324 windows: 4381.73 MB
+2025-03-27 20:39:30 - Processed 7905/15810 windows (50.0%)
+2025-03-27 20:39:30 - Memory usage at after 7905 windows: 4381.73 MB
+2025-03-27 20:39:32 - Processed 9486/15810 windows (60.0%)
+2025-03-27 20:39:32 - Memory usage at after 9486 windows: 4381.73 MB
+2025-03-27 20:39:34 - Processed 11067/15810 windows (70.0%)
+2025-03-27 20:39:34 - Memory usage at after 11067 windows: 4381.73 MB
+2025-03-27 20:39:37 - Processed 12648/15810 windows (80.0%)
+2025-03-27 20:39:37 - Memory usage at after 12648 windows: 4381.74 MB
+2025-03-27 20:39:39 - Processed 14229/15810 windows (90.0%)
+2025-03-27 20:39:39 - Memory usage at after 14229 windows: 4381.74 MB
+2025-03-27 20:39:41 - Processed 15810/15810 windows (100.0%)
+2025-03-27 20:39:41 - Memory usage at after 15810 windows: 4381.74 MB
+2025-03-27 20:39:41 - Memory usage at after chunk 0-62: 4381.74 MB
+2025-03-27 20:39:41 - Saving intermediate results after chunk 0-62
+2025-03-27 20:39:41 - Completed image pair 5: Processed=15810, Skipped=0, Errors=0, Valid Shifts Calculated=30947
+2025-03-27 20:39:41 - Window processing failure/skip rate: 0.00%
+2025-03-27 20:39:41 - Range displacement range: -31.4000 to 32.4000
+2025-03-27 20:39:41 - Azimuth displacement range: -31.5000 to 32.4000
+2025-03-27 20:39:41 - Processing image pair 6/6...
+2025-03-27 20:39:41 - Original image dimensions: 2652x10773
+2025-03-27 20:39:41 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 20:39:43 - New dimensions after downsampling: 2017x8192
+2025-03-27 20:39:43 - Displacement map dimensions: (62, 255)
+2025-03-27 20:39:43 - Total windows to process: 15810
+2025-03-27 20:39:43 - Processing chunk from row 0 to 62
+2025-03-27 20:39:45 - Processed 1581/15810 windows (10.0%)
+2025-03-27 20:39:45 - Memory usage at after 1581 windows: 4381.82 MB
+2025-03-27 20:39:47 - Processed 3162/15810 windows (20.0%)
+2025-03-27 20:39:47 - Memory usage at after 3162 windows: 4382.05 MB
+2025-03-27 20:39:50 - Processed 4743/15810 windows (30.0%)
+2025-03-27 20:39:50 - Memory usage at after 4743 windows: 4382.05 MB
+2025-03-27 20:39:52 - Processed 6324/15810 windows (40.0%)
+2025-03-27 20:39:52 - Memory usage at after 6324 windows: 4382.05 MB
+2025-03-27 20:39:55 - Processed 7905/15810 windows (50.0%)
+2025-03-27 20:39:55 - Memory usage at after 7905 windows: 4382.05 MB
+2025-03-27 20:39:57 - Processed 9486/15810 windows (60.0%)
+2025-03-27 20:39:57 - Memory usage at after 9486 windows: 4382.05 MB
+2025-03-27 20:40:00 - Processed 11067/15810 windows (70.0%)
+2025-03-27 20:40:00 - Memory usage at after 11067 windows: 4382.05 MB
+2025-03-27 20:40:02 - Processed 12648/15810 windows (80.0%)
+2025-03-27 20:40:02 - Memory usage at after 12648 windows: 4382.05 MB
+2025-03-27 20:40:04 - Processed 14229/15810 windows (90.0%)
+2025-03-27 20:40:04 - Memory usage at after 14229 windows: 4382.05 MB
+2025-03-27 20:40:07 - Processed 15810/15810 windows (100.0%)
+2025-03-27 20:40:07 - Memory usage at after 15810 windows: 4382.05 MB
+2025-03-27 20:40:07 - Memory usage at after chunk 0-62: 4382.05 MB
+2025-03-27 20:40:07 - Saving intermediate results after chunk 0-62
+2025-03-27 20:40:07 - Completed image pair 6: Processed=15810, Skipped=0, Errors=0, Valid Shifts Calculated=30953
+2025-03-27 20:40:07 - Window processing failure/skip rate: 0.00%
+2025-03-27 20:40:07 - Range displacement range: -31.5000 to 32.4000
+2025-03-27 20:40:07 - Azimuth displacement range: -31.5000 to 32.5000
+2025-03-27 20:40:07 - Memory usage at after all displacement estimation: 4382.06 MB
+2025-03-27 20:40:07 - Memory change during displacement estimation: -1010.45 MB
+2025-03-27 20:50:02 - Attempting to load data from: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\uploads\2023-08-31-01-09-38_UMBRA-04_SICD.nitf
+2025-03-27 20:50:02 - Opening file with sarpy: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\uploads\2023-08-31-01-09-38_UMBRA-04_SICD.nitf
+2025-03-27 20:50:02 - Sarpy reader type: SICDReader
+2025-03-27 20:50:02 - Detected SICD data type.
+2025-03-27 20:50:02 - Reading SICD complex image data...
+2025-03-27 20:50:02 - Reading default SICD chip...
+2025-03-27 20:50:08 - Raw SICD complex data shape: (10610, 10773)
+2025-03-27 20:50:09 - SICD data loaded successfully.
+2025-03-27 20:51:33 - Starting subaperture creation...
+2025-03-27 20:51:33 - Raw SICD data shape: (10610, 10773)
+2025-03-27 20:51:43 - Raw SICD data magnitude range: 0.0000 to 4.4350
+2025-03-27 20:51:44 - Raw SICD data magnitude mean: 0.0034, std: 0.0051
+2025-03-27 20:51:44 - Creating 7 SICD sub-images with overlap 0.5...
+2025-03-27 20:51:44 - SICD Splitting: num_azimuth=10610, num_subaps=7, overlap=0.5 -> subap_size=2652, step=1326
+2025-03-27 20:51:44 - Error extracting SICD timing info: ufunc 'add' cannot use operands with types dtype('<M8[us]') and dtype('float64')
+2025-03-27 20:51:44 - Warning: Could not extract SICD timing information. Using default values [0, 1].
+2025-03-27 20:51:45 - Created 7 SICD sub-images
+2025-03-27 20:51:45 - Subaperture 1 shape: (2652, 10773)
+2025-03-27 20:51:46 - Subaperture 2 shape: (2652, 10773)
+2025-03-27 20:51:46 - Subaperture 3 shape: (2652, 10773)
+2025-03-27 20:51:46 - Subaperture 4 shape: (2652, 10773)
+2025-03-27 20:51:46 - Subaperture 5 shape: (2652, 10773)
+2025-03-27 20:51:47 - Subaperture 6 shape: (2652, 10773)
+2025-03-27 20:51:47 - Subaperture 7 shape: (2654, 10773)
+2025-03-27 20:51:48 - Subaperture timing: [0.12497643732327993, 0.24995287464655985, 0.37492931196983975, 0.4999057492931197, 0.6248821866163996, 0.7498586239396795, 0.8749293119698398]
+2025-03-27 20:52:34 - Starting subaperture focusing/preparation step...
+2025-03-27 20:52:34 - Preparing 7 SICD sub-images (taking magnitude)...
+2025-03-27 20:52:34 - Taking magnitude of SICD sub-image 1/7...
+2025-03-27 20:52:35 - SICD magnitude image 1 stats: min=0.00, max=3.53, mean=0.00
+2025-03-27 20:52:35 - Taking magnitude of SICD sub-image 2/7...
+2025-03-27 20:52:36 - SICD magnitude image 2 stats: min=0.00, max=0.86, mean=0.00
+2025-03-27 20:52:36 - Taking magnitude of SICD sub-image 3/7...
+2025-03-27 20:52:36 - SICD magnitude image 3 stats: min=0.00, max=4.44, mean=0.00
+2025-03-27 20:52:36 - Taking magnitude of SICD sub-image 4/7...
+2025-03-27 20:52:37 - SICD magnitude image 4 stats: min=0.00, max=4.44, mean=0.00
+2025-03-27 20:52:37 - Taking magnitude of SICD sub-image 5/7...
+2025-03-27 20:52:38 - SICD magnitude image 5 stats: min=0.00, max=1.19, mean=0.00
+2025-03-27 20:52:38 - Taking magnitude of SICD sub-image 6/7...
+2025-03-27 20:52:38 - SICD magnitude image 6 stats: min=0.00, max=1.19, mean=0.00
+2025-03-27 20:52:38 - Taking magnitude of SICD sub-image 7/7...
+2025-03-27 20:52:39 - SICD magnitude image 7 stats: min=0.00, max=1.14, mean=0.00
+2025-03-27 20:52:39 - Created 7 SICD magnitude images
+2025-03-27 20:52:45 - Created normalized SLC/magnitude images for visualization
+2025-03-27 20:53:49 - Beginning enhanced memory-efficient displacement estimation
+2025-03-27 20:53:49 - Starting enhanced memory-efficient displacement estimation...
+2025-03-27 20:53:49 - Memory usage at start: 2198.48 MB
+2025-03-27 20:53:49 - Input: 7 SLC/magnitude images from sicd data
+2025-03-27 20:53:49 - SLC/magnitude image shape: (2652, 10773), dtype: float32
+2025-03-27 20:53:49 - Initializing displacement maps for 6 image pairs
+2025-03-27 20:53:49 - Using window size: 64, overlap: 0.5, step size: 32
+2025-03-27 20:53:49 - Processing image pair 1/6...
+2025-03-27 20:53:49 - Original image dimensions: 2652x10773
+2025-03-27 20:53:49 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 20:53:51 - New dimensions after downsampling: 2017x8192
+2025-03-27 20:53:51 - Displacement map dimensions: (62, 255)
+2025-03-27 20:53:51 - Total windows to process: 15810
+2025-03-27 20:53:51 - Processing chunk from row 0 to 62
+2025-03-27 20:53:54 - Processed 1581/15810 windows (10.0%)
+2025-03-27 20:53:54 - Memory usage at after 1581 windows: 2429.78 MB
+2025-03-27 20:54:00 - Processed 3162/15810 windows (20.0%)
+2025-03-27 20:54:00 - Memory usage at after 3162 windows: 2429.78 MB
+2025-03-27 20:54:03 - Processed 4743/15810 windows (30.0%)
+2025-03-27 20:54:03 - Memory usage at after 4743 windows: 2429.79 MB
+2025-03-27 20:54:06 - Processed 6324/15810 windows (40.0%)
+2025-03-27 20:54:06 - Memory usage at after 6324 windows: 2429.79 MB
+2025-03-27 20:54:09 - Processed 7905/15810 windows (50.0%)
+2025-03-27 20:54:09 - Memory usage at after 7905 windows: 2429.79 MB
+2025-03-27 20:54:12 - Processed 9486/15810 windows (60.0%)
+2025-03-27 20:54:12 - Memory usage at after 9486 windows: 864.23 MB
+2025-03-27 20:54:15 - Processed 11067/15810 windows (70.0%)
+2025-03-27 20:54:15 - Memory usage at after 11067 windows: 864.27 MB
+2025-03-27 20:54:18 - Processed 12648/15810 windows (80.0%)
+2025-03-27 20:54:18 - Memory usage at after 12648 windows: 864.27 MB
+2025-03-27 20:54:21 - Processed 14229/15810 windows (90.0%)
+2025-03-27 20:54:21 - Memory usage at after 14229 windows: 864.27 MB
+2025-03-27 20:54:24 - Processed 15810/15810 windows (100.0%)
+2025-03-27 20:54:24 - Memory usage at after 15810 windows: 864.27 MB
+2025-03-27 20:54:24 - Memory usage at after chunk 0-62: 864.27 MB
+2025-03-27 20:54:24 - Saving intermediate results after chunk 0-62
+2025-03-27 20:54:24 - Completed image pair 1: Processed=15810, Skipped=0, Errors=0, Valid Shifts Calculated=30930
+2025-03-27 20:54:24 - Window processing failure/skip rate: 0.00%
+2025-03-27 20:54:24 - Range displacement range: -31.5000 to 32.5000
+2025-03-27 20:54:24 - Azimuth displacement range: -31.5000 to 32.4000
+2025-03-27 20:54:24 - Processing image pair 2/6...
+2025-03-27 20:54:24 - Original image dimensions: 2652x10773
+2025-03-27 20:54:24 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 20:54:26 - New dimensions after downsampling: 2017x8192
+2025-03-27 20:54:26 - Displacement map dimensions: (62, 255)
+2025-03-27 20:54:26 - Total windows to process: 15810
+2025-03-27 20:54:26 - Processing chunk from row 0 to 62
+2025-03-27 20:54:29 - Processed 1581/15810 windows (10.0%)
+2025-03-27 20:54:29 - Memory usage at after 1581 windows: 963.40 MB
+2025-03-27 20:54:32 - Processed 3162/15810 windows (20.0%)
+2025-03-27 20:54:32 - Memory usage at after 3162 windows: 963.40 MB
+2025-03-27 20:54:35 - Processed 4743/15810 windows (30.0%)
+2025-03-27 20:54:35 - Memory usage at after 4743 windows: 963.40 MB
+2025-03-27 20:54:38 - Processed 6324/15810 windows (40.0%)
+2025-03-27 20:54:38 - Memory usage at after 6324 windows: 963.40 MB
+2025-03-27 20:54:41 - Processed 7905/15810 windows (50.0%)
+2025-03-27 20:54:41 - Memory usage at after 7905 windows: 963.48 MB
+2025-03-27 20:54:43 - Processed 9486/15810 windows (60.0%)
+2025-03-27 20:54:43 - Memory usage at after 9486 windows: 963.48 MB
+2025-03-27 20:54:45 - Processed 11067/15810 windows (70.0%)
+2025-03-27 20:54:45 - Memory usage at after 11067 windows: 963.48 MB
+2025-03-27 20:54:48 - Processed 12648/15810 windows (80.0%)
+2025-03-27 20:54:48 - Memory usage at after 12648 windows: 963.48 MB
+2025-03-27 20:54:50 - Processed 14229/15810 windows (90.0%)
+2025-03-27 20:54:50 - Memory usage at after 14229 windows: 963.48 MB
+2025-03-27 20:54:52 - Processed 15810/15810 windows (100.0%)
+2025-03-27 20:54:52 - Memory usage at after 15810 windows: 963.48 MB
+2025-03-27 20:54:52 - Memory usage at after chunk 0-62: 963.48 MB
+2025-03-27 20:54:52 - Saving intermediate results after chunk 0-62
+2025-03-27 20:54:52 - Completed image pair 2: Processed=15810, Skipped=0, Errors=0, Valid Shifts Calculated=30974
+2025-03-27 20:54:52 - Window processing failure/skip rate: 0.00%
+2025-03-27 20:54:52 - Range displacement range: -31.5000 to 32.4000
+2025-03-27 20:54:52 - Azimuth displacement range: -31.5000 to 32.4000
+2025-03-27 20:54:52 - Processing image pair 3/6...
+2025-03-27 20:54:52 - Original image dimensions: 2652x10773
+2025-03-27 20:54:52 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 20:54:54 - New dimensions after downsampling: 2017x8192
+2025-03-27 20:54:54 - Displacement map dimensions: (62, 255)
+2025-03-27 20:54:54 - Total windows to process: 15810
+2025-03-27 20:54:54 - Processing chunk from row 0 to 62
+2025-03-27 20:54:56 - Processed 1581/15810 windows (10.0%)
+2025-03-27 20:54:56 - Memory usage at after 1581 windows: 1066.48 MB
+2025-03-27 20:54:59 - Processed 3162/15810 windows (20.0%)
+2025-03-27 20:54:59 - Memory usage at after 3162 windows: 1066.48 MB
+2025-03-27 20:55:01 - Processed 4743/15810 windows (30.0%)
+2025-03-27 20:55:01 - Memory usage at after 4743 windows: 1066.48 MB
+2025-03-27 20:55:03 - Processed 6324/15810 windows (40.0%)
+2025-03-27 20:55:03 - Memory usage at after 6324 windows: 1066.48 MB
+2025-03-27 20:55:06 - Processed 7905/15810 windows (50.0%)
+2025-03-27 20:55:06 - Memory usage at after 7905 windows: 1066.49 MB
+2025-03-27 20:55:08 - Processed 9486/15810 windows (60.0%)
+2025-03-27 20:55:08 - Memory usage at after 9486 windows: 1066.49 MB
+2025-03-27 20:55:10 - Processed 11067/15810 windows (70.0%)
+2025-03-27 20:55:10 - Memory usage at after 11067 windows: 1066.50 MB
+2025-03-27 20:55:13 - Processed 12648/15810 windows (80.0%)
+2025-03-27 20:55:13 - Memory usage at after 12648 windows: 1066.50 MB
+2025-03-27 20:55:15 - Processed 14229/15810 windows (90.0%)
+2025-03-27 20:55:15 - Memory usage at after 14229 windows: 1066.50 MB
+2025-03-27 20:55:17 - Processed 15810/15810 windows (100.0%)
+2025-03-27 20:55:17 - Memory usage at after 15810 windows: 1066.50 MB
+2025-03-27 20:55:17 - Memory usage at after chunk 0-62: 1066.50 MB
+2025-03-27 20:55:17 - Saving intermediate results after chunk 0-62
+2025-03-27 20:55:17 - Completed image pair 3: Processed=15810, Skipped=0, Errors=0, Valid Shifts Calculated=30945
+2025-03-27 20:55:17 - Window processing failure/skip rate: 0.00%
+2025-03-27 20:55:17 - Range displacement range: -31.5000 to 32.4000
+2025-03-27 20:55:17 - Azimuth displacement range: -31.5000 to 32.4000
+2025-03-27 20:55:17 - Processing image pair 4/6...
+2025-03-27 20:55:17 - Original image dimensions: 2652x10773
+2025-03-27 20:55:17 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 20:55:19 - New dimensions after downsampling: 2017x8192
+2025-03-27 20:55:19 - Displacement map dimensions: (62, 255)
+2025-03-27 20:55:19 - Total windows to process: 15810
+2025-03-27 20:55:19 - Processing chunk from row 0 to 62
+2025-03-27 20:55:21 - Processed 1581/15810 windows (10.0%)
+2025-03-27 20:55:21 - Memory usage at after 1581 windows: 1173.50 MB
+2025-03-27 20:55:23 - Processed 3162/15810 windows (20.0%)
+2025-03-27 20:55:23 - Memory usage at after 3162 windows: 1173.50 MB
+2025-03-27 20:55:26 - Processed 4743/15810 windows (30.0%)
+2025-03-27 20:55:26 - Memory usage at after 4743 windows: 1173.50 MB
+2025-03-27 20:55:28 - Processed 6324/15810 windows (40.0%)
+2025-03-27 20:55:28 - Memory usage at after 6324 windows: 1173.50 MB
+2025-03-27 20:55:30 - Processed 7905/15810 windows (50.0%)
+2025-03-27 20:55:30 - Memory usage at after 7905 windows: 1173.51 MB
+2025-03-27 20:55:33 - Processed 9486/15810 windows (60.0%)
+2025-03-27 20:55:33 - Memory usage at after 9486 windows: 1173.51 MB
+2025-03-27 20:55:40 - Processed 11067/15810 windows (70.0%)
+2025-03-27 20:55:40 - Memory usage at after 11067 windows: 1146.40 MB
+2025-03-27 20:55:44 - Processed 12648/15810 windows (80.0%)
+2025-03-27 20:55:44 - Memory usage at after 12648 windows: 1146.40 MB
+2025-03-27 20:55:47 - Processed 14229/15810 windows (90.0%)
+2025-03-27 20:55:47 - Memory usage at after 14229 windows: 1146.40 MB
+2025-03-27 20:55:51 - Processed 15810/15810 windows (100.0%)
+2025-03-27 20:55:51 - Memory usage at after 15810 windows: 1146.40 MB
+2025-03-27 20:55:51 - Memory usage at after chunk 0-62: 1146.40 MB
+2025-03-27 20:55:51 - Saving intermediate results after chunk 0-62
+2025-03-27 20:55:51 - Completed image pair 4: Processed=15810, Skipped=0, Errors=0, Valid Shifts Calculated=30984
+2025-03-27 20:55:51 - Window processing failure/skip rate: 0.00%
+2025-03-27 20:55:51 - Range displacement range: -31.6000 to 32.6000
+2025-03-27 20:55:51 - Azimuth displacement range: -31.5000 to 32.4000
+2025-03-27 20:55:51 - Processing image pair 5/6...
+2025-03-27 20:55:51 - Original image dimensions: 2652x10773
+2025-03-27 20:55:51 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 20:55:53 - New dimensions after downsampling: 2017x8192
+2025-03-27 20:55:53 - Displacement map dimensions: (62, 255)
+2025-03-27 20:55:53 - Total windows to process: 15810
+2025-03-27 20:55:53 - Processing chunk from row 0 to 62
+2025-03-27 20:55:57 - Processed 1581/15810 windows (10.0%)
+2025-03-27 20:55:57 - Memory usage at after 1581 windows: 1236.86 MB
+2025-03-27 20:56:02 - Processed 3162/15810 windows (20.0%)
+2025-03-27 20:56:02 - Memory usage at after 3162 windows: 1236.86 MB
+2025-03-27 20:56:05 - Processed 4743/15810 windows (30.0%)
+2025-03-27 20:56:05 - Memory usage at after 4743 windows: 1236.86 MB
+2025-03-27 20:56:09 - Processed 6324/15810 windows (40.0%)
+2025-03-27 20:56:09 - Memory usage at after 6324 windows: 1236.86 MB
+2025-03-27 20:56:13 - Processed 7905/15810 windows (50.0%)
+2025-03-27 20:56:13 - Memory usage at after 7905 windows: 1236.86 MB
+2025-03-27 20:56:17 - Processed 9486/15810 windows (60.0%)
+2025-03-27 20:56:17 - Memory usage at after 9486 windows: 1236.86 MB
+2025-03-27 20:56:22 - Processed 11067/15810 windows (70.0%)
+2025-03-27 20:56:22 - Memory usage at after 11067 windows: 1236.86 MB
+2025-03-27 20:56:26 - Processed 12648/15810 windows (80.0%)
+2025-03-27 20:56:26 - Memory usage at after 12648 windows: 1236.86 MB
+2025-03-27 20:56:31 - Processed 14229/15810 windows (90.0%)
+2025-03-27 20:56:31 - Memory usage at after 14229 windows: 1236.86 MB
+2025-03-27 20:56:34 - Processed 15810/15810 windows (100.0%)
+2025-03-27 20:56:34 - Memory usage at after 15810 windows: 1236.86 MB
+2025-03-27 20:56:34 - Memory usage at after chunk 0-62: 1236.86 MB
+2025-03-27 20:56:34 - Saving intermediate results after chunk 0-62
+2025-03-27 20:56:34 - Completed image pair 5: Processed=15810, Skipped=0, Errors=0, Valid Shifts Calculated=30947
+2025-03-27 20:56:34 - Window processing failure/skip rate: 0.00%
+2025-03-27 20:56:34 - Range displacement range: -31.4000 to 32.4000
+2025-03-27 20:56:34 - Azimuth displacement range: -31.5000 to 32.4000
+2025-03-27 20:56:34 - Processing image pair 6/6...
+2025-03-27 20:56:34 - Original image dimensions: 2652x10773
+2025-03-27 20:56:34 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 20:56:36 - New dimensions after downsampling: 2017x8192
+2025-03-27 20:56:36 - Displacement map dimensions: (62, 255)
+2025-03-27 20:56:36 - Total windows to process: 15810
+2025-03-27 20:56:36 - Processing chunk from row 0 to 62
+2025-03-27 20:56:40 - Processed 1581/15810 windows (10.0%)
+2025-03-27 20:56:40 - Memory usage at after 1581 windows: 1333.75 MB
+2025-03-27 20:56:45 - Processed 3162/15810 windows (20.0%)
+2025-03-27 20:56:45 - Memory usage at after 3162 windows: 1333.75 MB
+2025-03-27 20:56:49 - Processed 4743/15810 windows (30.0%)
+2025-03-27 20:56:49 - Memory usage at after 4743 windows: 1333.75 MB
+2025-03-27 20:56:53 - Processed 6324/15810 windows (40.0%)
+2025-03-27 20:56:53 - Memory usage at after 6324 windows: 1333.75 MB
+2025-03-27 20:56:57 - Processed 7905/15810 windows (50.0%)
+2025-03-27 20:56:57 - Memory usage at after 7905 windows: 1333.75 MB
+2025-03-27 20:57:00 - Processed 9486/15810 windows (60.0%)
+2025-03-27 20:57:00 - Memory usage at after 9486 windows: 1333.75 MB
+2025-03-27 20:57:04 - Processed 11067/15810 windows (70.0%)
+2025-03-27 20:57:04 - Memory usage at after 11067 windows: 1333.75 MB
+2025-03-27 20:57:07 - Processed 12648/15810 windows (80.0%)
+2025-03-27 20:57:07 - Memory usage at after 12648 windows: 1333.75 MB
+2025-03-27 20:57:11 - Processed 14229/15810 windows (90.0%)
+2025-03-27 20:57:11 - Memory usage at after 14229 windows: 1333.76 MB
+2025-03-27 20:57:14 - Processed 15810/15810 windows (100.0%)
+2025-03-27 20:57:14 - Memory usage at after 15810 windows: 1333.76 MB
+2025-03-27 20:57:14 - Memory usage at after chunk 0-62: 1333.76 MB
+2025-03-27 20:57:14 - Saving intermediate results after chunk 0-62
+2025-03-27 20:57:14 - Completed image pair 6: Processed=15810, Skipped=0, Errors=0, Valid Shifts Calculated=30953
+2025-03-27 20:57:14 - Window processing failure/skip rate: 0.00%
+2025-03-27 20:57:14 - Range displacement range: -31.5000 to 32.4000
+2025-03-27 20:57:14 - Azimuth displacement range: -31.5000 to 32.5000
+2025-03-27 20:57:14 - Memory usage at after all displacement estimation: 1333.77 MB
+2025-03-27 20:57:14 - Memory change during displacement estimation: -864.71 MB
+2025-03-27 20:57:16 - Calculating vibration energy map from displacement maps...
+2025-03-27 20:57:16 - Displacement map dimensions: 62x255
+2025-03-27 20:57:16 - Normalizing dB map relative to 99.5th percentile: 38.37 dB
+2025-03-27 20:57:16 - Clipped vibration energy map at -30 dB
+2025-03-27 20:57:16 - Vibration energy map calculated successfully with dimensions (62, 255)
+2025-03-27 20:57:24 - Saved vibration energy map to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250327_205000\vibration_energy_map.png
+2025-03-27 20:57:25 - Saved ship regions visualization to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250327_205000\ship_regions.png
+2025-03-27 20:57:27 - Saved point 0 results to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250327_205000\point_0_results.png
+2025-03-27 20:57:28 - Saved point 1 results to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250327_205000\point_1_results.png
+2025-03-27 21:38:44 - Attempting to load data from: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\uploads\2023-08-31-01-09-38_UMBRA-04_SICD.nitf
+2025-03-27 21:38:44 - Opening file with sarpy: C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\uploads\2023-08-31-01-09-38_UMBRA-04_SICD.nitf
+2025-03-27 21:38:44 - Sarpy reader type: SICDReader
+2025-03-27 21:38:44 - Detected SICD data type.
+2025-03-27 21:38:44 - Reading SICD complex image data...
+2025-03-27 21:38:44 - Reading default SICD chip...
+2025-03-27 21:38:50 - Raw SICD complex data shape: (10610, 10773)
+2025-03-27 21:38:51 - SICD data loaded successfully.
+2025-03-27 21:39:42 - Starting subaperture creation...
+2025-03-27 21:39:42 - Raw SICD data shape: (10610, 10773)
+2025-03-27 21:39:48 - Raw SICD data magnitude range: 0.0000 to 4.4350
+2025-03-27 21:39:49 - Raw SICD data magnitude mean: 0.0034, std: 0.0051
+2025-03-27 21:39:49 - Creating 7 SICD sub-images with overlap 0.5...
+2025-03-27 21:39:49 - SICD Splitting: num_azimuth=10610, num_subaps=7, overlap=0.5 -> subap_size=2652, step=1326
+2025-03-27 21:39:49 - Error extracting SICD timing info: ufunc 'add' cannot use operands with types dtype('<M8[us]') and dtype('float64')
+2025-03-27 21:39:49 - Warning: Could not extract SICD timing information. Using default values [0, 1].
+2025-03-27 21:39:49 - Created 7 SICD sub-images
+2025-03-27 21:39:49 - Subaperture 1 shape: (2652, 10773)
+2025-03-27 21:39:49 - Subaperture 2 shape: (2652, 10773)
+2025-03-27 21:39:49 - Subaperture 3 shape: (2652, 10773)
+2025-03-27 21:39:49 - Subaperture 4 shape: (2652, 10773)
+2025-03-27 21:39:50 - Subaperture 5 shape: (2652, 10773)
+2025-03-27 21:39:50 - Subaperture 6 shape: (2652, 10773)
+2025-03-27 21:39:50 - Subaperture 7 shape: (2654, 10773)
+2025-03-27 21:39:50 - Subaperture timing: [0.12497643732327993, 0.24995287464655985, 0.37492931196983975, 0.4999057492931197, 0.6248821866163996, 0.7498586239396795, 0.8749293119698398]
+2025-03-27 21:40:20 - Starting subaperture focusing/preparation step...
+2025-03-27 21:40:20 - Preparing 7 SICD sub-images (taking magnitude)...
+2025-03-27 21:40:20 - Taking magnitude of SICD sub-image 1/7...
+2025-03-27 21:40:20 - SICD magnitude image 1 stats: min=0.00, max=3.53, mean=0.00
+2025-03-27 21:40:20 - Taking magnitude of SICD sub-image 2/7...
+2025-03-27 21:40:21 - SICD magnitude image 2 stats: min=0.00, max=0.86, mean=0.00
+2025-03-27 21:40:21 - Taking magnitude of SICD sub-image 3/7...
+2025-03-27 21:40:21 - SICD magnitude image 3 stats: min=0.00, max=4.44, mean=0.00
+2025-03-27 21:40:21 - Taking magnitude of SICD sub-image 4/7...
+2025-03-27 21:40:22 - SICD magnitude image 4 stats: min=0.00, max=4.44, mean=0.00
+2025-03-27 21:40:22 - Taking magnitude of SICD sub-image 5/7...
+2025-03-27 21:40:22 - SICD magnitude image 5 stats: min=0.00, max=1.19, mean=0.00
+2025-03-27 21:40:22 - Taking magnitude of SICD sub-image 6/7...
+2025-03-27 21:40:23 - SICD magnitude image 6 stats: min=0.00, max=1.19, mean=0.00
+2025-03-27 21:40:23 - Taking magnitude of SICD sub-image 7/7...
+2025-03-27 21:40:24 - SICD magnitude image 7 stats: min=0.00, max=1.14, mean=0.00
+2025-03-27 21:40:24 - Created 7 SICD magnitude images
+2025-03-27 21:40:29 - Created normalized SLC/magnitude images for visualization
+2025-03-27 21:40:47 - Beginning enhanced memory-efficient displacement estimation
+2025-03-27 21:40:48 - Starting enhanced memory-efficient displacement estimation...
+2025-03-27 21:40:48 - Memory usage at start: 5816.69 MB
+2025-03-27 21:40:48 - Input: 7 SLC/magnitude images from sicd data
+2025-03-27 21:40:48 - SLC/magnitude image shape: (2652, 10773), dtype: float32
+2025-03-27 21:40:48 - Initializing displacement maps for 6 image pairs
+2025-03-27 21:40:48 - Using window size: 64, overlap: 0.5, step size: 32
+2025-03-27 21:40:48 - Processing image pair 1/6...
+2025-03-27 21:40:48 - Original image dimensions: 2652x10773
+2025-03-27 21:40:48 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 21:40:49 - New dimensions after downsampling: 2017x8192
+2025-03-27 21:40:49 - Displacement map dimensions: (62, 255)
+2025-03-27 21:40:49 - Total windows to process: 15810
+2025-03-27 21:40:49 - Processing chunk from row 0 to 62
+2025-03-27 21:40:51 - Processed 1581/15810 windows (10.0%)
+2025-03-27 21:40:51 - Memory usage at after 1581 windows: 5944.11 MB
+2025-03-27 21:40:54 - Processed 3162/15810 windows (20.0%)
+2025-03-27 21:40:54 - Memory usage at after 3162 windows: 5944.11 MB
+2025-03-27 21:40:56 - Processed 4743/15810 windows (30.0%)
+2025-03-27 21:40:56 - Memory usage at after 4743 windows: 5944.12 MB
+2025-03-27 21:40:59 - Processed 6324/15810 windows (40.0%)
+2025-03-27 21:40:59 - Memory usage at after 6324 windows: 5944.12 MB
+2025-03-27 21:41:01 - Processed 7905/15810 windows (50.0%)
+2025-03-27 21:41:01 - Memory usage at after 7905 windows: 5944.12 MB
+2025-03-27 21:41:03 - Processed 9486/15810 windows (60.0%)
+2025-03-27 21:41:03 - Memory usage at after 9486 windows: 5944.12 MB
+2025-03-27 21:41:05 - Processed 11067/15810 windows (70.0%)
+2025-03-27 21:41:05 - Memory usage at after 11067 windows: 5944.12 MB
+2025-03-27 21:41:07 - Processed 12648/15810 windows (80.0%)
+2025-03-27 21:41:07 - Memory usage at after 12648 windows: 5944.12 MB
+2025-03-27 21:41:09 - Processed 14229/15810 windows (90.0%)
+2025-03-27 21:41:09 - Memory usage at after 14229 windows: 5944.10 MB
+2025-03-27 21:41:10 - Processed 15810/15810 windows (100.0%)
+2025-03-27 21:41:10 - Memory usage at after 15810 windows: 5944.10 MB
+2025-03-27 21:41:10 - Memory usage at after chunk 0-62: 5944.10 MB
+2025-03-27 21:41:10 - Saving intermediate results after chunk 0-62
+2025-03-27 21:41:10 - Completed image pair 1: Processed=15810, Skipped=0, Errors=0, Valid Shifts Calculated=30930
+2025-03-27 21:41:10 - Window processing failure/skip rate: 0.00%
+2025-03-27 21:41:10 - Range displacement range: -31.5000 to 32.5000
+2025-03-27 21:41:10 - Azimuth displacement range: -31.5000 to 32.4000
+2025-03-27 21:41:10 - Processing image pair 2/6...
+2025-03-27 21:41:10 - Original image dimensions: 2652x10773
+2025-03-27 21:41:10 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 21:41:11 - New dimensions after downsampling: 2017x8192
+2025-03-27 21:41:11 - Displacement map dimensions: (62, 255)
+2025-03-27 21:41:11 - Total windows to process: 15810
+2025-03-27 21:41:11 - Processing chunk from row 0 to 62
+2025-03-27 21:41:13 - Processed 1581/15810 windows (10.0%)
+2025-03-27 21:41:13 - Memory usage at after 1581 windows: 5944.12 MB
+2025-03-27 21:41:15 - Processed 3162/15810 windows (20.0%)
+2025-03-27 21:41:15 - Memory usage at after 3162 windows: 5944.12 MB
+2025-03-27 21:41:17 - Processed 4743/15810 windows (30.0%)
+2025-03-27 21:41:17 - Memory usage at after 4743 windows: 5944.12 MB
+2025-03-27 21:41:20 - Processed 6324/15810 windows (40.0%)
+2025-03-27 21:41:20 - Memory usage at after 6324 windows: 5944.12 MB
+2025-03-27 21:41:23 - Processed 7905/15810 windows (50.0%)
+2025-03-27 21:41:23 - Memory usage at after 7905 windows: 5944.12 MB
+2025-03-27 21:41:25 - Processed 9486/15810 windows (60.0%)
+2025-03-27 21:41:25 - Memory usage at after 9486 windows: 5944.14 MB
+2025-03-27 21:41:27 - Processed 11067/15810 windows (70.0%)
+2025-03-27 21:41:27 - Memory usage at after 11067 windows: 5944.14 MB
+2025-03-27 21:41:30 - Processed 12648/15810 windows (80.0%)
+2025-03-27 21:41:30 - Memory usage at after 12648 windows: 5944.14 MB
+2025-03-27 21:41:32 - Processed 14229/15810 windows (90.0%)
+2025-03-27 21:41:32 - Memory usage at after 14229 windows: 5944.14 MB
+2025-03-27 21:41:35 - Processed 15810/15810 windows (100.0%)
+2025-03-27 21:41:35 - Memory usage at after 15810 windows: 5944.14 MB
+2025-03-27 21:41:35 - Memory usage at after chunk 0-62: 5944.14 MB
+2025-03-27 21:41:35 - Saving intermediate results after chunk 0-62
+2025-03-27 21:41:35 - Completed image pair 2: Processed=15810, Skipped=0, Errors=0, Valid Shifts Calculated=30974
+2025-03-27 21:41:35 - Window processing failure/skip rate: 0.00%
+2025-03-27 21:41:35 - Range displacement range: -31.5000 to 32.4000
+2025-03-27 21:41:35 - Azimuth displacement range: -31.5000 to 32.4000
+2025-03-27 21:41:35 - Processing image pair 3/6...
+2025-03-27 21:41:35 - Original image dimensions: 2652x10773
+2025-03-27 21:41:35 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 21:41:36 - New dimensions after downsampling: 2017x8192
+2025-03-27 21:41:36 - Displacement map dimensions: (62, 255)
+2025-03-27 21:41:36 - Total windows to process: 15810
+2025-03-27 21:41:36 - Processing chunk from row 0 to 62
+2025-03-27 21:41:38 - Processed 1581/15810 windows (10.0%)
+2025-03-27 21:41:38 - Memory usage at after 1581 windows: 5944.13 MB
+2025-03-27 21:41:40 - Processed 3162/15810 windows (20.0%)
+2025-03-27 21:41:40 - Memory usage at after 3162 windows: 5944.13 MB
+2025-03-27 21:41:42 - Processed 4743/15810 windows (30.0%)
+2025-03-27 21:41:42 - Memory usage at after 4743 windows: 5944.13 MB
+2025-03-27 21:41:44 - Processed 6324/15810 windows (40.0%)
+2025-03-27 21:41:44 - Memory usage at after 6324 windows: 5944.13 MB
+2025-03-27 21:41:46 - Processed 7905/15810 windows (50.0%)
+2025-03-27 21:41:46 - Memory usage at after 7905 windows: 5944.13 MB
+2025-03-27 21:41:48 - Processed 9486/15810 windows (60.0%)
+2025-03-27 21:41:48 - Memory usage at after 9486 windows: 5944.13 MB
+2025-03-27 21:41:50 - Processed 11067/15810 windows (70.0%)
+2025-03-27 21:41:50 - Memory usage at after 11067 windows: 5944.14 MB
+2025-03-27 21:41:52 - Processed 12648/15810 windows (80.0%)
+2025-03-27 21:41:52 - Memory usage at after 12648 windows: 5944.14 MB
+2025-03-27 21:41:54 - Processed 14229/15810 windows (90.0%)
+2025-03-27 21:41:54 - Memory usage at after 14229 windows: 5944.14 MB
+2025-03-27 21:41:56 - Processed 15810/15810 windows (100.0%)
+2025-03-27 21:41:56 - Memory usage at after 15810 windows: 5944.14 MB
+2025-03-27 21:41:56 - Memory usage at after chunk 0-62: 5944.14 MB
+2025-03-27 21:41:56 - Saving intermediate results after chunk 0-62
+2025-03-27 21:41:56 - Completed image pair 3: Processed=15810, Skipped=0, Errors=0, Valid Shifts Calculated=30945
+2025-03-27 21:41:56 - Window processing failure/skip rate: 0.00%
+2025-03-27 21:41:56 - Range displacement range: -31.5000 to 32.4000
+2025-03-27 21:41:56 - Azimuth displacement range: -31.5000 to 32.4000
+2025-03-27 21:41:56 - Processing image pair 4/6...
+2025-03-27 21:41:56 - Original image dimensions: 2652x10773
+2025-03-27 21:41:56 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 21:41:57 - New dimensions after downsampling: 2017x8192
+2025-03-27 21:41:57 - Displacement map dimensions: (62, 255)
+2025-03-27 21:41:57 - Total windows to process: 15810
+2025-03-27 21:41:57 - Processing chunk from row 0 to 62
+2025-03-27 21:41:59 - Processed 1581/15810 windows (10.0%)
+2025-03-27 21:41:59 - Memory usage at after 1581 windows: 5944.14 MB
+2025-03-27 21:42:01 - Processed 3162/15810 windows (20.0%)
+2025-03-27 21:42:01 - Memory usage at after 3162 windows: 5944.14 MB
+2025-03-27 21:42:03 - Processed 4743/15810 windows (30.0%)
+2025-03-27 21:42:03 - Memory usage at after 4743 windows: 5944.14 MB
+2025-03-27 21:42:05 - Processed 6324/15810 windows (40.0%)
+2025-03-27 21:42:05 - Memory usage at after 6324 windows: 5944.14 MB
+2025-03-27 21:42:07 - Processed 7905/15810 windows (50.0%)
+2025-03-27 21:42:07 - Memory usage at after 7905 windows: 5944.14 MB
+2025-03-27 21:42:10 - Processed 9486/15810 windows (60.0%)
+2025-03-27 21:42:10 - Memory usage at after 9486 windows: 5944.41 MB
+2025-03-27 21:42:12 - Processed 11067/15810 windows (70.0%)
+2025-03-27 21:42:12 - Memory usage at after 11067 windows: 5944.41 MB
+2025-03-27 21:42:14 - Processed 12648/15810 windows (80.0%)
+2025-03-27 21:42:14 - Memory usage at after 12648 windows: 5944.41 MB
+2025-03-27 21:42:16 - Processed 14229/15810 windows (90.0%)
+2025-03-27 21:42:16 - Memory usage at after 14229 windows: 5944.50 MB
+2025-03-27 21:42:17 - Processed 15810/15810 windows (100.0%)
+2025-03-27 21:42:17 - Memory usage at after 15810 windows: 5944.50 MB
+2025-03-27 21:42:17 - Memory usage at after chunk 0-62: 5944.50 MB
+2025-03-27 21:42:17 - Saving intermediate results after chunk 0-62
+2025-03-27 21:42:17 - Completed image pair 4: Processed=15810, Skipped=0, Errors=0, Valid Shifts Calculated=30984
+2025-03-27 21:42:17 - Window processing failure/skip rate: 0.00%
+2025-03-27 21:42:17 - Range displacement range: -31.6000 to 32.6000
+2025-03-27 21:42:17 - Azimuth displacement range: -31.5000 to 32.4000
+2025-03-27 21:42:17 - Processing image pair 5/6...
+2025-03-27 21:42:17 - Original image dimensions: 2652x10773
+2025-03-27 21:42:17 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 21:42:19 - New dimensions after downsampling: 2017x8192
+2025-03-27 21:42:19 - Displacement map dimensions: (62, 255)
+2025-03-27 21:42:19 - Total windows to process: 15810
+2025-03-27 21:42:19 - Processing chunk from row 0 to 62
+2025-03-27 21:42:22 - Processed 1581/15810 windows (10.0%)
+2025-03-27 21:42:22 - Memory usage at after 1581 windows: 5944.66 MB
+2025-03-27 21:42:24 - Processed 3162/15810 windows (20.0%)
+2025-03-27 21:42:24 - Memory usage at after 3162 windows: 5944.66 MB
+2025-03-27 21:42:26 - Processed 4743/15810 windows (30.0%)
+2025-03-27 21:42:26 - Memory usage at after 4743 windows: 5944.66 MB
+2025-03-27 21:42:28 - Processed 6324/15810 windows (40.0%)
+2025-03-27 21:42:28 - Memory usage at after 6324 windows: 5944.66 MB
+2025-03-27 21:42:30 - Processed 7905/15810 windows (50.0%)
+2025-03-27 21:42:30 - Memory usage at after 7905 windows: 5944.66 MB
+2025-03-27 21:42:32 - Processed 9486/15810 windows (60.0%)
+2025-03-27 21:42:32 - Memory usage at after 9486 windows: 5944.66 MB
+2025-03-27 21:42:35 - Processed 11067/15810 windows (70.0%)
+2025-03-27 21:42:35 - Memory usage at after 11067 windows: 5944.66 MB
+2025-03-27 21:42:37 - Processed 12648/15810 windows (80.0%)
+2025-03-27 21:42:37 - Memory usage at after 12648 windows: 5944.66 MB
+2025-03-27 21:42:38 - Processed 14229/15810 windows (90.0%)
+2025-03-27 21:42:38 - Memory usage at after 14229 windows: 5944.66 MB
+2025-03-27 21:42:40 - Processed 15810/15810 windows (100.0%)
+2025-03-27 21:42:40 - Memory usage at after 15810 windows: 5944.69 MB
+2025-03-27 21:42:40 - Memory usage at after chunk 0-62: 5944.69 MB
+2025-03-27 21:42:40 - Saving intermediate results after chunk 0-62
+2025-03-27 21:42:40 - Completed image pair 5: Processed=15810, Skipped=0, Errors=0, Valid Shifts Calculated=30947
+2025-03-27 21:42:40 - Window processing failure/skip rate: 0.00%
+2025-03-27 21:42:40 - Range displacement range: -31.4000 to 32.4000
+2025-03-27 21:42:40 - Azimuth displacement range: -31.5000 to 32.4000
+2025-03-27 21:42:40 - Processing image pair 6/6...
+2025-03-27 21:42:40 - Original image dimensions: 2652x10773
+2025-03-27 21:42:40 - Downsampling images by factor 0.760 to reduce memory usage
+2025-03-27 21:42:42 - New dimensions after downsampling: 2017x8192
+2025-03-27 21:42:42 - Displacement map dimensions: (62, 255)
+2025-03-27 21:42:42 - Total windows to process: 15810
+2025-03-27 21:42:42 - Processing chunk from row 0 to 62
+2025-03-27 21:42:44 - Processed 1581/15810 windows (10.0%)
+2025-03-27 21:42:44 - Memory usage at after 1581 windows: 5944.76 MB
+2025-03-27 21:42:47 - Processed 3162/15810 windows (20.0%)
+2025-03-27 21:42:47 - Memory usage at after 3162 windows: 5944.76 MB
+2025-03-27 21:42:50 - Processed 4743/15810 windows (30.0%)
+2025-03-27 21:42:50 - Memory usage at after 4743 windows: 5928.76 MB
+2025-03-27 21:42:52 - Processed 6324/15810 windows (40.0%)
+2025-03-27 21:42:52 - Memory usage at after 6324 windows: 5928.76 MB
+2025-03-27 21:42:54 - Processed 7905/15810 windows (50.0%)
+2025-03-27 21:42:54 - Memory usage at after 7905 windows: 5928.76 MB
+2025-03-27 21:42:56 - Processed 9486/15810 windows (60.0%)
+2025-03-27 21:42:56 - Memory usage at after 9486 windows: 5928.76 MB
+2025-03-27 21:42:57 - Processed 11067/15810 windows (70.0%)
+2025-03-27 21:42:57 - Memory usage at after 11067 windows: 5928.76 MB
+2025-03-27 21:42:59 - Processed 12648/15810 windows (80.0%)
+2025-03-27 21:42:59 - Memory usage at after 12648 windows: 5928.76 MB
+2025-03-27 21:43:01 - Processed 14229/15810 windows (90.0%)
+2025-03-27 21:43:01 - Memory usage at after 14229 windows: 5928.76 MB
+2025-03-27 21:43:03 - Processed 15810/15810 windows (100.0%)
+2025-03-27 21:43:03 - Memory usage at after 15810 windows: 5928.76 MB
+2025-03-27 21:43:03 - Memory usage at after chunk 0-62: 5928.76 MB
+2025-03-27 21:43:03 - Saving intermediate results after chunk 0-62
+2025-03-27 21:43:03 - Completed image pair 6: Processed=15810, Skipped=0, Errors=0, Valid Shifts Calculated=30953
+2025-03-27 21:43:03 - Window processing failure/skip rate: 0.00%
+2025-03-27 21:43:03 - Range displacement range: -31.5000 to 32.4000
+2025-03-27 21:43:03 - Azimuth displacement range: -31.5000 to 32.5000
+2025-03-27 21:43:03 - Memory usage at after all displacement estimation: 5928.77 MB
+2025-03-27 21:43:03 - Memory change during displacement estimation: 112.08 MB
+2025-03-27 21:43:04 - Calculating vibration energy map from displacement maps...
+2025-03-27 21:43:04 - Displacement map dimensions: 62x255
+2025-03-27 21:43:05 - Normalizing dB map relative to 99.5th percentile: 38.37 dB
+2025-03-27 21:43:05 - Clipped vibration energy map at -30 dB
+2025-03-27 21:43:05 - Vibration energy map calculated successfully with dimensions (62, 255)
+2025-03-27 21:43:21 - Saved vibration energy map to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250327_213842\vibration_energy_map.png
+2025-03-27 21:43:23 - Saved ship regions visualization to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250327_213842\ship_regions.png
+2025-03-27 21:44:31 - Saved point 0 results to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250327_213842\point_0_results.png
+2025-03-27 21:44:32 - Saved point 1 results to C:\Users\Suman\Desktop\Gauntlet_Code\ship_micromotion_v2\results\results_20250327_213842\point_1_results.png

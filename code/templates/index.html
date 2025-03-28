@@ -185,54 +185,114 @@
                     </div>
                     <div class="card-body">
                         <form action="{{ url_for('process') }}" method="post" enctype="multipart/form-data" id="process-form">
-                            <div class="mb-3">
-                                <label class="form-label">Select Data Type:</label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="data_type" id="data_type_cphd" value="cphd" checked>
-                                    <label class="form-check-label" for="data_type_cphd">
-                                        CPHD (Complex Phase History Data)
-                                    </label>
+                            <!-- SECTION 1: CPHD/SICD Data File -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="mb-0">SAR Data File (Required)</h6>
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="data_type" id="data_type_sicd" value="sicd">
-                                    <label class="form-check-label" for="data_type_sicd">
-                                        SICD (Sensor Independent Complex Data)
-                                    </label>
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <label class="form-label">Select Data Type:</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="data_type" id="data_type_sicd" value="sicd" checked>
+                                            <label class="form-check-label" for="data_type_sicd">
+                                                SICD (Sensor Independent Complex Data)
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="data_type" id="data_type_cphd" value="cphd">
+                                            <label class="form-check-label" for="data_type_cphd">
+                                                CPHD (Complex Phase History Data)
+                                            </label>
+                                        </div>
+                                        <div class="form-text">SICD contains already focused complex image data. CPHD contains phase history data.</div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="file" class="form-label">Upload SAR data file:</label>
+                                        <input type="file" class="form-control" id="file" name="file" accept=".cphd,.nitf,.ntf">
+                                        <div class="form-text">Upload a SICD (.nitf, .ntf) or CPHD (.cphd) file to analyze ship micro-motion.</div>
+                                    </div>
+                                    
+                                    {% if sicd_files or cphd_files %}
+                                    <div class="mb-3">
+                                        <label for="existing_file" class="form-label">Or select an existing SAR data file:</label>
+                                        <select class="form-select" id="existing_file" name="existing_file">
+                                            <option value="">-- Select an existing file --</option>
+                                            {% if sicd_files %}
+                                            <optgroup label="SICD Files">
+                                                {% for filename in sicd_files %}
+                                                <option value="{{ filename }}" data-type="sicd">{{ filename }}</option>
+                                                {% endfor %}
+                                            </optgroup>
+                                            {% endif %}
+                                            {% if cphd_files %}
+                                            <optgroup label="CPHD Files">
+                                                {% for filename in cphd_files %}
+                                                <option value="{{ filename }}" data-type="cphd">{{ filename }}</option>
+                                                {% endfor %}
+                                            </optgroup>
+                                            {% endif %}
+                                        </select>
+                                        <div class="form-text">These files are already in the uploads directory.</div>
+                                    </div>
+                                    {% endif %}
                                 </div>
-                                <div class="form-text">CPHD contains phase history data. SICD contains already focused complex image data.</div>
                             </div>
                             
-                            <div class="mb-3">
-                                <label for="file" class="form-label">Select data file</label>
-                                <input type="file" class="form-control" id="file" name="file" accept=".cphd,.nitf,.ntf">
-                                <div class="form-text">Upload a CPHD (.cphd) or SICD (.nitf, .ntf) file to analyze ship micro-motion.</div>
+                            <!-- SECTION 2: GEC TIFF File -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-info text-white">
+                                    <h6 class="mb-0">GEC TIFF File (Optional)</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <label for="gec_file" class="form-label">Upload GEC TIFF file:</label>
+                                        <input type="file" class="form-control" id="gec_file" name="gec_file" accept=".tif,.tiff">
+                                        <div class="form-text">Georeferenced image for verification (optional).</div>
+                                    </div>
+                                    
+                                    {% if gec_files %}
+                                    <div class="mb-3">
+                                        <label for="existing_gec_file" class="form-label">Or select an existing GEC file:</label>
+                                        <select class="form-select" id="existing_gec_file" name="existing_gec_file">
+                                            <option value="">-- Select an existing GEC file --</option>
+                                            {% for filename in gec_files %}
+                                            <option value="{{ filename }}">{{ filename }}</option>
+                                            {% endfor %}
+                                        </select>
+                                        <div class="form-text">These GEC files are already in the uploads directory.</div>
+                                    </div>
+                                    {% endif %}
+                                </div>
                             </div>
                             
-                            {% if uploaded_files %}
-                            <div class="mb-3">
-                                <label class="form-label">Or select an existing file:</label>
-                                <select class="form-select" id="existing_file" name="existing_file">
-                                    <option value="">-- Select an existing file --</option>
-                                    {% for filename in uploaded_files %}
-                                    <option value="{{ filename }}">{{ filename }}</option>
-                                    {% endfor %}
-                                </select>
-                                <div class="form-text">These files are already in the uploads directory.</div>
+                            <!-- SECTION 3: Metadata JSON File -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-success text-white">
+                                    <h6 class="mb-0">Metadata JSON File (Optional)</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <label for="metadata_file" class="form-label">Upload Metadata JSON file:</label>
+                                        <input type="file" class="form-control" id="metadata_file" name="metadata_file" accept=".json">
+                                        <div class="form-text">Metadata for tuning/verification (optional).</div>
+                                    </div>
+                                    
+                                    {% if metadata_files %}
+                                    <div class="mb-3">
+                                        <label for="existing_metadata_file" class="form-label">Or select an existing Metadata file:</label>
+                                        <select class="form-select" id="existing_metadata_file" name="existing_metadata_file">
+                                            <option value="">-- Select an existing Metadata file --</option>
+                                            {% for filename in metadata_files %}
+                                            <option value="{{ filename }}">{{ filename }}</option>
+                                            {% endfor %}
+                                        </select>
+                                        <div class="form-text">These Metadata files are already in the uploads directory.</div>
+                                    </div>
+                                    {% endif %}
+                                </div>
                             </div>
-                            <script>
-                                // JavaScript to handle file input and selection interaction
-                                document.getElementById('existing_file').addEventListener('change', function() {
-                                    if (this.value) {
-                                        document.getElementById('file').value = '';
-                                    }
-                                });
-                                document.getElementById('file').addEventListener('change', function() {
-                                    if (this.value) {
-                                        document.getElementById('existing_file').value = '';
-                                    }
-                                });
-                            </script>
-                            {% endif %}
                             
                             <h6 class="mt-4 mb-3">Algorithm Parameters</h6>
                             
@@ -268,6 +328,70 @@
                                         document.getElementById('file').setAttribute('accept', '.nitf,.ntf');
                                     }
                                 });
+                                
+                                // JavaScript to handle file input and dropdown interaction for main data file
+                                const fileInput = document.getElementById('file');
+                                const existingFileDropdown = document.getElementById('existing_file');
+                                
+                                if (existingFileDropdown) {
+                                    existingFileDropdown.addEventListener('change', function() {
+                                        if (this.value) {
+                                            fileInput.value = '';
+                                            
+                                            // Also update the data type radio button based on the selected file
+                                            const selectedOption = this.options[this.selectedIndex];
+                                            const dataType = selectedOption.getAttribute('data-type');
+                                            
+                                            if (dataType === 'cphd') {
+                                                document.getElementById('data_type_cphd').checked = true;
+                                            } else if (dataType === 'sicd') {
+                                                document.getElementById('data_type_sicd').checked = true;
+                                            }
+                                        }
+                                    });
+                                    
+                                    fileInput.addEventListener('change', function() {
+                                        if (this.value) {
+                                            existingFileDropdown.value = '';
+                                        }
+                                    });
+                                }
+                                
+                                // Handle GEC file interactions
+                                const gecFileInput = document.getElementById('gec_file');
+                                const existingGecDropdown = document.getElementById('existing_gec_file');
+                                
+                                if (existingGecDropdown) {
+                                    existingGecDropdown.addEventListener('change', function() {
+                                        if (this.value) {
+                                            gecFileInput.value = '';
+                                        }
+                                    });
+                                    
+                                    gecFileInput.addEventListener('change', function() {
+                                        if (this.value) {
+                                            existingGecDropdown.value = '';
+                                        }
+                                    });
+                                }
+                                
+                                // Handle metadata file interactions
+                                const metadataFileInput = document.getElementById('metadata_file');
+                                const existingMetadataDropdown = document.getElementById('existing_metadata_file');
+                                
+                                if (existingMetadataDropdown) {
+                                    existingMetadataDropdown.addEventListener('change', function() {
+                                        if (this.value) {
+                                            metadataFileInput.value = '';
+                                        }
+                                    });
+                                    
+                                    metadataFileInput.addEventListener('change', function() {
+                                        if (this.value) {
+                                            existingMetadataDropdown.value = '';
+                                        }
+                                    });
+                                }
                             </script>
                         </form>
                     </div>

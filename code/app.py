@@ -36,6 +36,10 @@ logging.getLogger('matplotlib.colorbar').setLevel(logging.WARNING)
 # Additional matplotlib modules that might be verbose
 logging.getLogger('matplotlib.backends').setLevel(logging.WARNING)
 logging.getLogger('matplotlib.pyplot').setLevel(logging.WARNING)
+# Disable PIL debug logging
+logging.getLogger('PIL.PngImagePlugin').setLevel(logging.WARNING)
+# Disable werkzeug request logging - set to ERROR instead of WARNING to suppress more logs
+logging.getLogger('werkzeug').setLevel(logging.ERROR)
 
 app = Flask(__name__)
 app.secret_key = 'ship_micromotion_secret_key'
@@ -67,7 +71,9 @@ os.makedirs(app.config['SESSION_FILE_DIR'], exist_ok=True)  # Create session dir
 # Allowed file extensions
 ALLOWED_CPHD_PATTERNS = ['*.cphd', '*.CPHD']
 ALLOWED_SICD_PATTERNS = ['*.nitf', '*.NTF', '*.NITF', '*.ntf']
-ALLOWED_PATTERNS = ALLOWED_CPHD_PATTERNS + ALLOWED_SICD_PATTERNS
+ALLOWED_GEC_PATTERNS = ['*.tif', '*.tiff', '*.TIF', '*.TIFF']  # Add GEC patterns
+ALLOWED_METADATA_PATTERNS = ['*.json', '*.JSON']  # Add metadata patterns
+ALLOWED_PATTERNS = ALLOWED_CPHD_PATTERNS + ALLOWED_SICD_PATTERNS + ALLOWED_GEC_PATTERNS + ALLOWED_METADATA_PATTERNS  # Update allowed patterns
 
 def allowed_file(filename):
     """Check if a file has an allowed extension"""
@@ -81,6 +87,38 @@ def list_uploaded_files():
     files = []
     for filename in os.listdir(app.config['UPLOAD_FOLDER']):
         if allowed_file(filename):
+            files.append(filename)
+    return files
+
+def list_cphd_files():
+    """List only CPHD files in the uploads directory"""
+    files = []
+    for filename in os.listdir(app.config['UPLOAD_FOLDER']):
+        if any(fnmatch.fnmatch(filename, pattern) for pattern in ALLOWED_CPHD_PATTERNS):
+            files.append(filename)
+    return files
+
+def list_sicd_files():
+    """List only SICD files in the uploads directory"""
+    files = []
+    for filename in os.listdir(app.config['UPLOAD_FOLDER']):
+        if any(fnmatch.fnmatch(filename, pattern) for pattern in ALLOWED_SICD_PATTERNS):
+            files.append(filename)
+    return files
+
+def list_gec_files():
+    """List only GEC TIFF files in the uploads directory"""
+    files = []
+    for filename in os.listdir(app.config['UPLOAD_FOLDER']):
+        if any(fnmatch.fnmatch(filename, pattern) for pattern in ALLOWED_GEC_PATTERNS):
+            files.append(filename)
+    return files
+
+def list_metadata_files():
+    """List only metadata JSON files in the uploads directory"""
+    files = []
+    for filename in os.listdir(app.config['UPLOAD_FOLDER']):
+        if any(fnmatch.fnmatch(filename, pattern) for pattern in ALLOWED_METADATA_PATTERNS):
             files.append(filename)
     return files
 
@@ -139,7 +177,6 @@ def update_processing_status(status, progress=None, details=None, console_log=No
     if status == 'complete' and progress is not None and progress < 100:
         # If marking as complete, ensure progress is 100%
         updated_status['progress'] = 100
-        logger.debug("Auto-adjusted progress to 100% for 'complete' status")
     
     # Update the session
     session['processing_status'] = updated_status
@@ -153,11 +190,21 @@ def update_processing_status(status, progress=None, details=None, console_log=No
     try:
         # Broadcast to all connected clients
         socketio.emit('status_update', updated_status, namespace='/')
-        logger.debug(f"WebSocket: Broadcasted status_update event: {status}, progress: {progress}")
+        # Only log significant status changes, not every progress update
+        if 'status' in current_status and current_status['status'] != status:
+            logger.debug(f"WebSocket: Status changed from {current_status['status']} to {status}")
     except Exception as e:
         logger.error(f"Error emitting WebSocket event: {e}")
     
-    logger.debug(f"Updated processing status: {status}, progress: {progress}, details: {details}")
+    # Only log significant changes to status or progress at DEBUG level
+    significant_change = False
+    if 'status' in current_status and current_status['status'] != status:
+        significant_change = True
+    if progress is not None and 'progress' in current_status and abs(current_status['progress'] - progress) >= 10:
+        significant_change = True
+    
+    if significant_change or status in ['starting', 'complete', 'error']:
+        logger.debug(f"Updated processing status: {status}, progress: {progress}, details: {details}")
 
 # Add a function to copy console output to the processing log
 def log_to_processing(message):
@@ -170,21 +217,28 @@ def append_to_detailed_log(message):
     """Append a message to the detailed log file and log to console.
     This function does NOT modify the session status - use update_processing_status for that."""
     try:
+        # Check if we're in a Flask request context first
+        from flask import has_request_context
+        
         # Get result directory from session if available
-        result_dir = session.get('result_dir', None)
+        result_dir = None
+        if has_request_context():
+            from flask import session
+            result_dir = session.get('result_dir', None)
+            
         if result_dir:
             # Construct the detailed log path
             detailed_log_path = os.path.join(app.config['RESULTS_FOLDER'], result_dir, 'detailed_logs.txt')
             # Write to the log file
             with open(detailed_log_path, 'a') as f:
                 f.write(f"{datetime.datetime.now().strftime('%H:%M:%S')} - {message}\n")
-        else:
-            logger.warning(f"Cannot write to detailed log: result_dir not in session for message: {message}")
         
         # Log to console in any case
         logger.info(message)
     except Exception as e:
-        logger.error(f"Error writing to detailed log: {e}")
+        # Only log errors occasionally to avoid flooding
+        if "request context" not in str(e):
+            logger.error(f"Error writing to detailed log: {e}")
     
     return message
 
@@ -211,46 +265,48 @@ def estimator_log_callback(message):
             # Only update if it's greater than current progress
             if extracted_progress > current_progress:
                 current_progress = extracted_progress
-                logger.debug(f"Updated progress to {current_progress}% from message")
         
         # Make sure we don't prematurely set status to complete or error
         # Only the main process function should set these final states
-        if current_status_type not in ['idle', 'starting', 'loading', 'processing', 'saving']:
-            # We're likely in 'complete' or 'error' state, but still getting log messages
-            # Keep the status as is but ensure UI shows latest messages
-            pass
         
-        # Add message to log_messages without changing status/progress
-        if 'log_messages' not in current_status:
-            current_status['log_messages'] = []
+        # Don't emit a websocket update for every log message
+        # Only significant ones that need to be shown on the UI
+        significant_message = False
         
-        timestamp = datetime.datetime.now().strftime("%H:%M:%S")
-        log_entry = f"{timestamp}: {message}"
-        current_status['log_messages'].append(log_entry)
-        # Keep only most recent 15 messages
-        current_status['log_messages'] = current_status['log_messages'][-15:]
+        # Messages that contain important status info
+        important_keywords = [
+            'Starting', 'Completed', 'Created', 'Finished', 'Success', 'Error', 
+            'Saved', 'Generated', 'Detected', 'Progress:', 'Complete', 'Failed',
+            'Processing chunk', 'data loaded successfully'
+        ]
         
-        # Update the progress in the status dictionary
-        current_status['progress'] = current_progress
-        current_status['details'] = str(message)
-        current_status['timestamp'] = timestamp
+        # Ignore high-volume debug messages like memory usage and window processing
+        ignore_patterns = [
+            'Memory usage', 'Window processing', 'Processed ', 'STREAM',
+            'WebSocket: Log callback', 'WebSocket: Broadcasted', 
+            'SICD magnitude image', 'Subaperture', 'Taking magnitude',
+            'Range displacement range', 'Azimuth displacement range'
+        ]
         
-        # Save the updated status with new log message
-        session['processing_status'] = current_status
-        session.modified = True
+        # Skip broadcasting messages that match ignore patterns
+        for pattern in ignore_patterns:
+            if pattern in message:
+                return message  # Skip the update
         
-        # Force session save to ensure updates are visible immediately
-        if hasattr(session, 'save_session'):
-            session.save_session(None)
+        # Check if message is significant based on keywords
+        for keyword in important_keywords:
+            if keyword in message:
+                significant_message = True
+                break
         
-        # Emit WebSocket event with the updated status - use socketio.emit for broadcast to all clients
-        try:
-            # Broadcast to all connected clients
-            socketio.emit('status_update', current_status, namespace='/')
-            logger.debug(f"WebSocket: Log callback broadcasted status update")
-        except Exception as e:
-            logger.error(f"Error emitting WebSocket event from log callback: {e}")
+        # Only update UI for significant messages
+        if significant_message:
+            # Get the current details to avoid overwriting
+            details = message
             
+            # Update the progress indicator if available
+            if current_status_type != 'error':
+                update_processing_status(current_status_type, current_progress, details)
     except Exception as e:
         logger.error(f"Error in estimator log callback: {e}")
     
@@ -280,7 +336,12 @@ STEP_DURATIONS = {
 
 @app.route('/')
 def index():
-    uploaded_files = list_uploaded_files()
+    # Get files filtered by type
+    cphd_files = list_cphd_files()
+    sicd_files = list_sicd_files()
+    gec_files = list_gec_files()
+    metadata_files = list_metadata_files()
+    
     # Always reset processing status to idle on application startup
     session['processing_status'] = {
         'status': 'idle',
@@ -341,7 +402,10 @@ def index():
             logger.error(f"Error getting result folders: {e}")
     
     return render_template('index.html', 
-                          uploaded_files=uploaded_files, 
+                          cphd_files=cphd_files,
+                          sicd_files=sicd_files,
+                          gec_files=gec_files,
+                          metadata_files=metadata_files,
                           processing_status=session.get('processing_status'),
                           results_folders=results_folders)
 
@@ -349,13 +413,34 @@ def index():
 def check_status():
     """API endpoint to check processing status"""
     status = session.get('processing_status', {'status': 'idle'})
-    # Add more detailed debug logging
-    current_status = status.get('status', 'unknown')
-    current_progress = status.get('progress', 0)
-    current_details = status.get('details', 'No details')
-    log_count = len(status.get('log_messages', []))
     
-    logger.debug(f"Status check: status={current_status}, progress={current_progress}, details='{current_details}', log_count={log_count}")
+    # Store the last logged status in the app context to track changes
+    if not hasattr(app, 'last_logged_status'):
+        app.last_logged_status = None
+        app.status_check_counter = 0
+    
+    # Only log if status changed or very infrequently (every 50 requests)
+    current_status = status.get('status', 'unknown')
+    should_log = False
+    
+    # Log if status changed
+    if app.last_logged_status != current_status:
+        should_log = True
+        app.last_logged_status = current_status
+    
+    # Or log occasionally based on counter
+    app.status_check_counter += 1
+    if app.status_check_counter >= 50:
+        should_log = True
+        app.status_check_counter = 0
+    
+    # Log only when needed
+    if should_log:
+        current_progress = status.get('progress', 0)
+        current_details = status.get('details', 'No details')
+        log_count = len(status.get('log_messages', []))
+        logger.debug(f"Status check: status={current_status}, progress={current_progress}, details='{current_details}', log_count={log_count}")
+    
     return jsonify(status)
 
 @app.route('/debug')
@@ -633,7 +718,7 @@ def process():
                 update_processing_status('error', 100, 'Failed to create synthetic data')
                 return redirect(url_for('index'))
         else:
-            # Check for existing file selection first
+            # Process the file (either existing or newly uploaded)
             existing_file = request.form.get('existing_file', '')
             
             if existing_file:
@@ -678,6 +763,132 @@ def process():
                     flash(msg, 'error')
                     update_processing_status('error', 100, msg)
                     return redirect(url_for('index'))
+                
+            # Handle optional GEC TIFF file upload or selection
+            gec_file_path = None
+            existing_gec_file = request.form.get('existing_gec_file', '')
+            
+            if existing_gec_file:
+                # Use existing GEC file
+                gec_filename = existing_gec_file
+                gec_file_path = os.path.join(app.config['UPLOAD_FOLDER'], gec_filename)
+                if not os.path.exists(gec_file_path):
+                    msg = f"Selected GEC file {gec_filename} not found"
+                    logger.warning(msg)
+                    flash(msg, 'warning')
+                    append_to_detailed_log(msg)
+                    gec_file_path = None
+                else:
+                    update_processing_status('loading', 6, f'Using existing GEC file: {gec_filename}',
+                                         console_log=f"Using existing GEC file: {gec_filename}")
+                    flash(f'Using existing GEC file: {gec_filename}', 'info')
+                    append_to_detailed_log(f"Using existing GEC file: {gec_file_path}")
+            else:
+                # Check for GEC file upload
+                gec_file = request.files.get('gec_file')
+                if gec_file and gec_file.filename != '':
+                    gec_filename = secure_filename(gec_file.filename)
+                    if any(fnmatch.fnmatch(gec_filename, pattern) for pattern in ALLOWED_GEC_PATTERNS):
+                        gec_file_path = os.path.join(app.config['UPLOAD_FOLDER'], gec_filename)
+                        update_processing_status('loading', 6, f'Saving GEC file: {gec_filename}',
+                                              console_log=f"Saving GEC TIFF file to {gec_file_path}")
+                        try:
+                            gec_file.save(gec_file_path)
+                            flash(f'GEC file {gec_filename} uploaded successfully', 'info')
+                            append_to_detailed_log(f"GEC TIFF file saved: {gec_file_path}")
+                        except Exception as e:
+                            msg = f"Error saving GEC file: {e}"
+                            logger.error(msg)
+                            flash(msg, 'warning')
+                            append_to_detailed_log(msg)
+                            gec_file_path = None
+                    else:
+                        msg = f"Invalid GEC file type: {gec_filename}. Expected TIFF format."
+                        logger.warning(msg)
+                        flash(msg, 'warning')
+                        append_to_detailed_log(msg)
+                
+            # Handle optional metadata JSON file upload or selection
+            metadata_file_path = None
+            existing_metadata_file = request.form.get('existing_metadata_file', '')
+            
+            if existing_metadata_file:
+                # Use existing metadata file
+                metadata_filename = existing_metadata_file
+                metadata_file_path = os.path.join(app.config['UPLOAD_FOLDER'], metadata_filename)
+                if not os.path.exists(metadata_file_path):
+                    msg = f"Selected metadata file {metadata_filename} not found"
+                    logger.warning(msg)
+                    flash(msg, 'warning')
+                    append_to_detailed_log(msg)
+                    metadata_file_path = None
+                else:
+                    update_processing_status('loading', 7, f'Using existing metadata file: {metadata_filename}',
+                                         console_log=f"Using existing metadata file: {metadata_filename}")
+                    flash(f'Using existing metadata file: {metadata_filename}', 'info')
+                    append_to_detailed_log(f"Using existing metadata file: {metadata_file_path}")
+                    
+                    # Parse the metadata JSON for parameter tuning
+                    try:
+                        with open(metadata_file_path, 'r') as f:
+                            metadata_content = json.load(f)
+                            append_to_detailed_log("Successfully parsed metadata JSON file")
+                            
+                            # Apply metadata parameters if they exist
+                            if 'energy_threshold' in metadata_content:
+                                detector.energy_threshold = float(metadata_content['energy_threshold'])
+                                append_to_detailed_log(f"Applied energy_threshold from metadata: {detector.energy_threshold}")
+                            
+                            if 'min_region_size' in metadata_content:
+                                detector.min_region_size = int(metadata_content['min_region_size'])
+                                append_to_detailed_log(f"Applied min_region_size from metadata: {detector.min_region_size}")
+                    except Exception as e:
+                        msg = f"Error parsing metadata JSON: {e}"
+                        logger.warning(msg)
+                        append_to_detailed_log(msg)
+            else:
+                # Check for metadata file upload
+                metadata_file = request.files.get('metadata_file')
+                if metadata_file and metadata_file.filename != '':
+                    metadata_filename = secure_filename(metadata_file.filename)
+                    if any(fnmatch.fnmatch(metadata_filename, pattern) for pattern in ALLOWED_METADATA_PATTERNS):
+                        metadata_file_path = os.path.join(app.config['UPLOAD_FOLDER'], metadata_filename)
+                        update_processing_status('loading', 7, f'Saving metadata file: {metadata_filename}',
+                                              console_log=f"Saving metadata JSON file to {metadata_file_path}")
+                        try:
+                            metadata_file.save(metadata_file_path)
+                            flash(f'Metadata file {metadata_filename} uploaded successfully', 'info')
+                            append_to_detailed_log(f"Metadata JSON file saved: {metadata_file_path}")
+                            
+                            # Optionally parse metadata for parameter tuning
+                            try:
+                                with open(metadata_file_path, 'r') as f:
+                                    metadata_content = json.load(f)
+                                    append_to_detailed_log("Successfully parsed metadata JSON file")
+                                    
+                                    # Apply metadata parameters if they exist
+                                    if 'energy_threshold' in metadata_content:
+                                        detector.energy_threshold = float(metadata_content['energy_threshold'])
+                                        append_to_detailed_log(f"Applied energy_threshold from metadata: {detector.energy_threshold}")
+                                    
+                                    if 'min_region_size' in metadata_content:
+                                        detector.min_region_size = int(metadata_content['min_region_size'])
+                                        append_to_detailed_log(f"Applied min_region_size from metadata: {detector.min_region_size}")
+                            except Exception as e:
+                                msg = f"Error parsing metadata JSON: {e}"
+                                logger.warning(msg)
+                                append_to_detailed_log(msg)
+                        except Exception as e:
+                            msg = f"Error saving metadata file: {e}"
+                            logger.error(msg)
+                            flash(msg, 'warning')
+                            append_to_detailed_log(msg)
+                            metadata_file_path = None
+                    else:
+                        msg = f"Invalid metadata file type: {metadata_filename}. Expected JSON format."
+                        logger.warning(msg)
+                        flash(msg, 'warning')
+                        append_to_detailed_log(msg)
             
             # Process the file (either existing or newly uploaded)
             update_processing_status('loading', 10, f'Loading data file: {os.path.basename(file_path)}',
@@ -944,13 +1155,65 @@ def process():
                             append_to_detailed_log(regions_msg)
                             update_processing_status('processing', 94, regions_msg)
                         
+                        # Check if we have a GEC file for verification
+                        if 'gec_file_path' in locals() and gec_file_path and os.path.exists(gec_file_path):
+                            try:
+                                append_to_detailed_log(f"Attempting to verify ship regions using GEC file: {os.path.basename(gec_file_path)}")
+                                update_processing_status('processing', 94, f"Verifying ship regions with GEC file")
+                                
+                                # Import required libraries for GEC TIFF handling
+                                try:
+                                    import rasterio
+                                    from rasterio.plot import show
+                                    gec_verification_enabled = True
+                                except ImportError:
+                                    gec_verification_enabled = False
+                                    append_to_detailed_log("Warning: rasterio module not found - GEC verification skipped")
+                                
+                                if gec_verification_enabled:
+                                    # Open the GEC file
+                                    with rasterio.open(gec_file_path) as gec_src:
+                                        gec_image = gec_src.read(1)  # Read first band
+                                        append_to_detailed_log(f"Successfully read GEC file: shape={gec_image.shape}")
+                                        
+                                        # Create a figure with the GEC image and detected regions
+                                        fig, ax = plt.subplots(figsize=(12, 10))
+                                        show(gec_image, ax=ax, cmap='gray')
+                                        
+                                        # Overlay detected regions on GEC
+                                        for region_idx, region in enumerate(detector_regions):
+                                            # Get region centroid and convert to GEC coordinates
+                                            # Note: This is a simplified approach - in a real scenario you'd 
+                                            # need proper coordinate transformation
+                                            row, col = region['centroid']
+                                            
+                                            # Mark the region on the GEC
+                                            ax.plot(col, row, 'ro', markersize=10, label=f"Region {region_idx+1}")
+                                            ax.text(col+10, row+10, f"Region {region_idx+1}", color='red',
+                                                   fontsize=12, backgroundcolor='white')
+                                        
+                                        ax.set_title('Ship Regions Verified on GEC Image')
+                                        
+                                        # Save the figure
+                                        gec_verification_file = os.path.join(result_dir, 'gec_verification.png')
+                                        plt.savefig(gec_verification_file)
+                                        plt.close(fig)
+                                        
+                                        verify_msg = f"Saved GEC verification image to {gec_verification_file}"
+                                        append_to_detailed_log(verify_msg)
+                                        update_processing_status('processing', 95, verify_msg)
+                            except Exception as e:
+                                error_msg = f"Error during GEC verification: {str(e)}"
+                                append_to_detailed_log(error_msg)
+                                logger.error(error_msg)
+                        
                         detect_done_msg = f"Detected {len(detector_regions)} ship regions"
                         append_to_detailed_log(detect_done_msg)
-                        update_processing_status('processing', 94, detect_done_msg)
+                        update_processing_status('processing', 95, detect_done_msg)
                     else:
                         no_regions_msg = "No ship regions detected above threshold"
                         append_to_detailed_log(no_regions_msg)
-                        update_processing_status('processing', 94, no_regions_msg)
+                        update_processing_status('processing', 95, no_regions_msg)
                 except Exception as e:
                     error_msg = f"Error detecting ship regions: {str(e)}"
                     append_to_detailed_log(error_msg)
@@ -991,6 +1254,23 @@ def process():
             'processing_time': datetime.datetime.now().strftime("%H:%M:%S")
         }
         
+        # Add GEC and metadata file information if they were provided
+        if 'gec_file_path' in locals() and gec_file_path:
+            metadata['gec_file'] = os.path.basename(gec_file_path)
+        
+        if 'metadata_file_path' in locals() and metadata_file_path:
+            metadata['metadata_file'] = os.path.basename(metadata_file_path)
+            
+            # If we loaded and used parameters from metadata, include those in our output
+            if 'metadata_content' in locals() and metadata_content:
+                metadata['metadata_params_used'] = {}
+                
+                if 'energy_threshold' in metadata_content:
+                    metadata['metadata_params_used']['energy_threshold'] = metadata_content['energy_threshold']
+                
+                if 'min_region_size' in metadata_content:
+                    metadata['metadata_params_used']['min_region_size'] = metadata_content['min_region_size']
+        
         with open(os.path.join(result_dir, 'metadata.json'), 'w') as f:
             json.dump(metadata, f, indent=2)
         
@@ -1000,6 +1280,25 @@ def process():
             f.write(f"Input file: {os.path.basename(file_path) if not use_demo else 'demo'}\n")
             f.write(f"Data type: {data_type.upper()}\n")
             f.write(f"Parameters: num_subapertures={num_subapertures}, window_size={window_size}, overlap={overlap}\n")
+            
+            # Add GEC file info if available
+            if 'gec_file_path' in locals() and gec_file_path:
+                f.write(f"GEC file: {os.path.basename(gec_file_path)}\n")
+            
+            # Add metadata file info if available
+            if 'metadata_file_path' in locals() and metadata_file_path:
+                f.write(f"Metadata file: {os.path.basename(metadata_file_path)}\n")
+                
+                # Add info about parameters extracted from metadata
+                if 'metadata_content' in locals() and metadata_content:
+                    f.write("Parameters from metadata:\n")
+                    
+                    if 'energy_threshold' in metadata_content:
+                        f.write(f"  energy_threshold: {metadata_content['energy_threshold']}\n")
+                    
+                    if 'min_region_size' in metadata_content:
+                        f.write(f"  min_region_size: {metadata_content['min_region_size']}\n")
+            
             f.write(f"Measurement points:\n")
             for i, point in enumerate(measurement_points):
                 f.write(f"  Point {i}: {point}\n")
@@ -1119,13 +1418,34 @@ def handle_disconnect():
 def handle_get_status():
     """Send current status on request"""
     client_id = request.sid
-    logger.debug(f"Status requested by client: {client_id}")
+    
+    # Store the last logged websocket status in the app context
+    if not hasattr(app, 'last_websocket_status'):
+        app.last_websocket_status = {}
+        app.last_websocket_log_time = {}
+    
+    current_time = time.time()
+    # Only log once per client every 5 seconds
+    should_log = False
+    if client_id not in app.last_websocket_log_time or \
+       (current_time - app.last_websocket_log_time.get(client_id, 0)) > 5:
+        should_log = True
+        app.last_websocket_log_time[client_id] = current_time
     
     if 'processing_status' in session:
-        logger.debug(f"Sending current status: {session['processing_status'].get('status', 'unknown')}")
+        current_status = session['processing_status'].get('status', 'unknown')
+        # Log only if status changed for this client or enough time passed
+        if should_log or app.last_websocket_status.get(client_id) != current_status:
+            logger.debug(f"Status requested by client: {client_id}")
+            logger.debug(f"Sending current status: {current_status}")
+            app.last_websocket_status[client_id] = current_status
+        
         emit('status_update', session['processing_status'])
     else:
-        logger.debug("No current status in session, sending idle")
+        # Default response for empty session
+        if should_log:
+            logger.debug(f"Status requested by client {client_id}, no session status found")
+        
         emit('status_update', {
             'status': 'idle',
             'progress': 0,
